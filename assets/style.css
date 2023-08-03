@@ -385,6 +385,7 @@ body {
 @media screen and (min-width: 750px) {
     .about {
         display: flex;
+        align-items: center;
     }
 
     .about__img {
