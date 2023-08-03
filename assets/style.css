@@ -1,0 +1,515 @@
+body {
+    background-color: #fff;
+    font-family: 'Lato', Arial, Helvetica, sans-serif;
+    padding: 1rem;
+}
+
+@media (min-width: 460px) {
+    body {
+        padding: 2rem;
+    }
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 52rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.nav__name {
+    display: flex;
+    flex: 1 0 0;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 1rem;
+    letter-spacing: 0.2625rem;
+    margin: 0;
+    margin-bottom: 0.75rem;
+}
+
+.nav__links {
+    display: flex;
+    align-items: flex-start;
+    gap: 2.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav__links a {
+    display: block;
+    font-weight: bold;
+    font-size: 12px;
+    text-decoration: none;
+    color: #000;
+    font-size: 0.75rem;
+    font-weight: 700;
+    line-height: 1rem;
+}
+
+.nav__links a:hover {
+    text-decoration: underline;
+
+}
+
+@media (min-width: 445px) {
+    .nav {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .nav__name { margin-bottom: 0; }
+}
+
+.hero {
+    display: block;
+    width: 100%;
+}
+
+.cta {
+    display: flex;
+    flex-direction: column;
+}
+
+.cta__text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+.cta__title {
+    margin: 0;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.cta__intro {
+    margin: 0;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.cta__contact {
+    flex-direction: column;
+    display: flex;
+    flex: 0 0 50%;
+}
+
+.cta__contact-title {
+    font-size: 0.875rem;
+    font-weight: 900;
+    line-height: 150%;
+    margin: 0.25rem 0;
+}
+
+.cta__contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.cta__contact-email {
+    background-color: #E4E4E4;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+}
+
+.cta__contact-btn {
+    background-color: #000;
+    border: none;
+    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+    color: #fff;
+    font-size: 0.75rem;
+    cursor: pointer;
+}
+
+.cta__contact-subscribe {
+    font-size: 0.75rem;
+    font-weight: 400;
+}
+
+.cta__contact-subscribe label {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+}
+
+
+
+@media (min-width: 530px) {
+    .cta {
+        flex-direction: row;
+        align-items: center;
+        gap: 3rem;
+    }
+}
+
+@media screen and (min-width: 585px) {
+    .cta__title {
+        font-size: 1.5rem;
+    }
+}
+@media screen and (min-width: 645px) {
+    .cta__title {
+        font-size: 1.75rem;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .cta__title {
+            font-size: 2.375rem;
+        }
+    .cta__contact-form {
+        display: flex;
+        gap: 0.5rem;
+        padding-right: 2rem;
+        flex-direction: row;
+    }
+    .cta__contact-email {
+        display: flex;
+        flex: 1 0 0;
+    }
+}
+
+
+.logos {
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    align-items: center;
+    align-self: stretch;
+    margin-bottom: 1rem;
+}
+
+.logos img {
+    display: flex;
+    margin: 0.25rem;
+}
+
+@media screen and (min-width: 660px) {
+    .logos {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 2rem;
+        margin-bottom: 0;
+    }
+}
+
+.casestudies__article {
+    position: relative;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    border-radius: 0.25rem;
+}
+
+.casestudies__article:hover {
+    cursor: pointer;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    margin-top: -1px;
+    margin-bottom: 1px;
+}
+
+.casestudies__img {
+    margin: 0;
+}
+
+.casestudies__article img {
+    display: block;
+    width: 100%;
+}
+
+
+.casestudies__scrim {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #fff;
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 0%,rgba(0, 0, 0, 0.70) 100%);
+}
+
+.casestudies__title {
+    font-size: 0.7rem;
+    line-height: 150%;
+    font-weight: 600;
+    padding-left: 0.5rem;
+    margin: 0;
+}
+
+.casestudies__sub-title {
+    font-size: 0.7rem;
+    font-weight: 400;
+    line-height: 125%;
+    margin: 0;
+    padding-bottom: 0.35rem;
+    padding-left: 0.5rem;
+}
+
+@media screen and (min-width: 375px) {
+    .casestudies__title {
+        font-size: 1rem;
+        line-height: 125%;
+    }
+}
+
+@media screen and (min-width: 530px) {
+    .casestudies {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+    .casestudies__article {
+        margin-bottom: 0;
+    }
+}
+
+.article__main {
+    display: none;
+}
+
+.recs {
+    padding-left: 0.75rem;
+}
+
+.recs__title {
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 125%;
+}
+
+.recs__intro {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 150%;
+    max-width: 85%;
+}
+
+.recs__samples {
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.recs__figure {
+    padding-left: 0.5rem;
+}
+
+.recs__figure::before {
+    content: '“';
+    display: block;
+    position: absolute;
+    margin-left: -1rem;
+    margin-top: 0.35rem;
+    font-size: 2rem;
+    color: #949494;
+}
+
+.recs__samples figure,
+.recs__samples blockquote,
+.recs__samples p {
+    margin: 0;
+}
+
+.recs__samples figcaption {
+    font-size: 0.625rem;
+    font-weight: 700;
+    line-height: 150%;
+    margin: 0.5rem 0 0.5rem;
+}
+
+@media screen and (min-width: 425px) {
+    .recs__samples {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 750px) {
+    .recs__samples {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
+
+.about {}
+
+.about__img {
+    margin-bottom: 1rem;
+}
+
+.about__img img {
+    display: block;
+    width: 100%;
+}
+
+.about__txt {
+    font-size: 0.75rem;
+    font-weight: 400;
+    line-height: 150%;
+    margin: 0;
+}
+
+.footer {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    align-self: stretch;
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+@media screen and (min-width: 750px) {
+    .about {
+        display: flex;
+    }
+
+    .about__img {
+        flex: 0 0 50%;
+        margin-right: 1rem;
+        margin-bottom: 0px;
+    }
+}
+
+.footer__text {
+
+}
+
+.footer__text p {
+    margin: 0;
+}
+
+.footer__img {
+    display: flex;
+}
+
+.footer__img img {
+    display: block;
+    width: 64px;
+}
+
+.footer__copy {
+    font-weight: 700;
+}
+
+.is-locked {
+    overflow: hidden;
+}
+
+
+.dialog {
+    display: none;
+}
+
+.dialog.is-open {
+    display: flex;
+    align-items: top;
+    gap: 0.5rem;
+    justify-content: center;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.70);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.dialog__content {
+    margin: 2.5rem;
+    width: 38rem;
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: 0.25rem;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    height: fit-content;
+}
+
+.dialog__content :first-child {
+    margin-top: 0;
+}
+
+.dialog__content :last-child {
+    margin-bottom: 0;
+}
+
+.dialog__img {
+    display: block;
+    width: 100%;
+}
+
+
+
+.dialog__close {
+    display: none;
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.dialog__title {
+    color: rgba(0, 0, 0, 0.80);
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 125%;
+    margin: 0;
+}
+
+.dialog__sub-title {
+    font-size: 1.125rem;
+    font-weight: 300;
+    line-height: 150%;
+    margin: 0;
+}
+
+.dialog__body {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.blockimg {
+    display: block;
+    width: 100%;
+}
+
+
+.dialog__body figure {
+    margin: 1rem;
+}
+
+.dialog__body figure {
+    margin: 1rem;
+}
