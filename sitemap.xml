@@ -1,4 +1,10 @@
+---
+---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://miguel.design/</loc></url>
+  <url><loc>{{ "/" | absolute_url }}</loc></url>
+{%- for p in site.html_pages %}
+{%- if p.url == "/" or p.draft or p.sitemap == false %}{% continue %}{% endif %}
+  <url><loc>{{ p.url | absolute_url }}</loc></url>
+{%- endfor %}
 </urlset>

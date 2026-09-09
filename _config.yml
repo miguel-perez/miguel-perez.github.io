@@ -1,0 +1,16 @@
+# GitHub Pages builds this with Jekyll. Front matter is per-page data;
+# layouts and includes hold the shared head and chrome. No plugins.
+url: https://miguel.design
+# GitHub Pages applies jekyll-theme-primer unless told otherwise; this site has no theme.
+theme: null
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - node_modules
+defaults:
+  - scope:
+      path: work
+    values:
+      layout: study

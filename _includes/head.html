@@ -1,0 +1,32 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{%- assign site_name = "Miguel Pérez-Holdsworth" -%}
+{%- if page.url == "/" -%}
+  {%- assign full_title = page.title -%}
+{%- else -%}
+  {%- assign full_title = page.title | append: " — " | append: site_name -%}
+{%- endif -%}
+{%- assign desc = page.description | strip_newlines | strip | escape %}
+<title>{{ full_title }}</title>
+<meta name="description" content="{{ desc }}">
+{%- if page.draft %}
+<meta name="robots" content="noindex,nofollow">
+{%- endif %}
+<link rel="canonical" href="{{ page.url | absolute_url }}">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="{% if page.url == '/' %}website{% else %}article{% endif %}">
+<meta property="og:url" content="{{ page.url | absolute_url }}">
+<meta property="og:title" content="{{ full_title | escape }}">
+<meta property="og:description" content="{{ desc }}">
+{%- if page.image %}
+<meta property="og:image" content="{{ page.image | absolute_url }}">
+<meta name="twitter:card" content="summary_large_image">
+{%- else %}
+<meta name="twitter:card" content="summary">
+{%- endif %}
+<meta name="twitter:title" content="{{ full_title | escape }}">
+<meta name="twitter:description" content="{{ desc }}">
+<link rel="stylesheet" href="/assets/css/fonts.css">
+{%- for face in page.fonts %}
+<link rel="stylesheet" href="/assets/css/fonts/{{ face }}.css">
+{%- endfor %}
