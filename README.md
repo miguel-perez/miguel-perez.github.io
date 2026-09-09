@@ -7,9 +7,11 @@ Static site, built by GitHub Pages with Jekyll from `main`. Plain HTML, CSS, and
 ```text
 _config.yml            site url, exclusions, default layout for work/
 _includes/head.html    metadata from front matter: title, description, canonical, social cards, noindex for drafts, fonts
+_layouts/site.html     head + the site header and footer, for the homepage and pages that share its styling
 _layouts/study.html    head + the page's own body (each case study owns its markup and CSS)
-index.html             homepage
+index.html             homepage; the work filters are assets/js/work-filter.js
 work/<slug>/index.html one case study per folder; images alongside in img/
+assets/css/site.css    homepage styling shared through the site layout
 assets/css/fonts.css   Fira Code and Instrument Serif, used everywhere
 assets/css/fonts/      one stylesheet per additional face a study needs, e.g. source-sans-3.css
 sitemap.xml            generated from the pages; drafts are skipped

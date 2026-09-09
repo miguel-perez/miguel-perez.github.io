@@ -1,277 +1,18 @@
-<!DOCTYPE html>
-<html lang="en"><head>
-<title>Miguel Pérez-Holdsworth — product designer, design researcher, front-end</title>
-<meta name="description" content="I set up the A/B test, the usability study, or the evaluation harness first. Then I ship the design and hand your team the system that runs it.">
-<link rel="canonical" href="https://miguel.design/">
-<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://miguel.design/">
-<meta property="og:title" content="Miguel Pérez-Holdsworth — product designer, design researcher, front-end">
-<meta property="og:description" content="I set up the A/B test, the usability study, or the evaluation harness first. Then I ship the design and hand your team the system that runs it.">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Miguel Pérez-Holdsworth — product designer, design researcher, front-end">
-<meta name="twitter:description" content="I set up the A/B test, the usability study, or the evaluation harness first. Then I ship the design and hand your team the system that runs it.">
-<script>window.__resources = {"https://unpkg.com/react@18.3.1/umd/react.production.min.js":"assets/js/react.production.min.js","https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js":"assets/js/react-dom.production.min.js"};</script>
-
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>/* cyrillic-ext */
-@font-face {
-  font-family: 'Fira Code';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("assets/fonts/fira-code-400-cyrillic-ext.woff2") format('woff2');
-  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-}
-/* cyrillic */
-@font-face {
-  font-family: 'Fira Code';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("assets/fonts/fira-code-400-cyrillic.woff2") format('woff2');
-  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-}
-/* greek-ext */
-@font-face {
-  font-family: 'Fira Code';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("assets/fonts/fira-code-400-greek-ext.woff2") format('woff2');
-  unicode-range: U+1F00-1FFF;
-}
-/* greek */
-@font-face {
-  font-family: 'Fira Code';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("assets/fonts/fira-code-400-greek.woff2") format('woff2');
-  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
-}
-/* symbols2 */
-@font-face {
-  font-family: 'Fira Code';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("assets/fonts/fira-code-400-symbols2.woff2") format('woff2');
-  unicode-range: U+2000-2001, U+2004-2008, U+200A, U+23B8-23BD, U+2500-259F;
-}
-/* latin-ext */
-@font-face {
-  font-family: 'Fira Code';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("assets/fonts/fira-code-400-latin-ext.woff2") format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: 'Fira Code';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("assets/fonts/fira-code-400-latin.woff2") format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-/* cyrillic-ext */
-@font-face {
-  font-family: 'Fira Code';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("assets/fonts/fira-code-400-cyrillic-ext.woff2") format('woff2');
-  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-}
-/* cyrillic */
-@font-face {
-  font-family: 'Fira Code';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("assets/fonts/fira-code-400-cyrillic.woff2") format('woff2');
-  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-}
-/* greek-ext */
-@font-face {
-  font-family: 'Fira Code';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("assets/fonts/fira-code-400-greek-ext.woff2") format('woff2');
-  unicode-range: U+1F00-1FFF;
-}
-/* greek */
-@font-face {
-  font-family: 'Fira Code';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("assets/fonts/fira-code-400-greek.woff2") format('woff2');
-  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
-}
-/* symbols2 */
-@font-face {
-  font-family: 'Fira Code';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("assets/fonts/fira-code-400-symbols2.woff2") format('woff2');
-  unicode-range: U+2000-2001, U+2004-2008, U+200A, U+23B8-23BD, U+2500-259F;
-}
-/* latin-ext */
-@font-face {
-  font-family: 'Fira Code';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("assets/fonts/fira-code-400-latin-ext.woff2") format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: 'Fira Code';
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("assets/fonts/fira-code-400-latin.woff2") format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-/* cyrillic-ext */
-@font-face {
-  font-family: 'Fira Code';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url("assets/fonts/fira-code-400-cyrillic-ext.woff2") format('woff2');
-  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-}
-/* cyrillic */
-@font-face {
-  font-family: 'Fira Code';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url("assets/fonts/fira-code-400-cyrillic.woff2") format('woff2');
-  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-}
-/* greek-ext */
-@font-face {
-  font-family: 'Fira Code';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url("assets/fonts/fira-code-400-greek-ext.woff2") format('woff2');
-  unicode-range: U+1F00-1FFF;
-}
-/* greek */
-@font-face {
-  font-family: 'Fira Code';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url("assets/fonts/fira-code-400-greek.woff2") format('woff2');
-  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
-}
-/* symbols2 */
-@font-face {
-  font-family: 'Fira Code';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url("assets/fonts/fira-code-400-symbols2.woff2") format('woff2');
-  unicode-range: U+2000-2001, U+2004-2008, U+200A, U+23B8-23BD, U+2500-259F;
-}
-/* latin-ext */
-@font-face {
-  font-family: 'Fira Code';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url("assets/fonts/fira-code-400-latin-ext.woff2") format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: 'Fira Code';
-  font-style: normal;
-  font-weight: 600;
-  font-display: swap;
-  src: url("assets/fonts/fira-code-400-latin.woff2") format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-/* latin-ext */
-@font-face {
-  font-family: 'Instrument Serif';
-  font-style: italic;
-  font-weight: 400;
-  font-display: swap;
-  src: url("assets/fonts/instrument-serif-400-italic-latin-ext.woff2") format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: 'Instrument Serif';
-  font-style: italic;
-  font-weight: 400;
-  font-display: swap;
-  src: url("assets/fonts/instrument-serif-400-italic-latin.woff2") format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-/* latin-ext */
-@font-face {
-  font-family: 'Instrument Serif';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("assets/fonts/instrument-serif-400-latin-ext.woff2") format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: 'Instrument Serif';
-  font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url("assets/fonts/instrument-serif-400-latin.woff2") format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-</style>
-<script src="assets/js/dc-runtime.js"></script>
-
-</head>
-<body>
-<x-dc>
-<helmet>
-<style>body{margin:0;background:#f4f5f8;color:#15171c;font-family:'Instrument Serif',Georgia,serif;-webkit-font-smoothing:antialiased}a{color:inherit;text-decoration:none}a:hover{text-decoration:underline;text-decoration-color:#c2532f;text-underline-offset:3px}*{box-sizing:border-box}button{font:inherit}
-.hero{min-height:820px;padding:44px clamp(20px,4vw,56px) clamp(260px,30.6vw,440px)}
-.hero-eyebrow{max-width:calc(100% - 290px)}
-.hero-copy{margin-top:120px}
-.hero-chart{position:absolute;left:0;bottom:0;width:100%;height:clamp(260px,30.6vw,440px)}
-.hero-cap{position:absolute;top:44px;right:clamp(20px,4vw,56px);width:250px;font:12px/1.6 'Fira Code',monospace;color:#5b606b}
-@media(max-width:760px){.hero{min-height:0;padding-bottom:48px}.hero-eyebrow{max-width:none}.hero-copy{margin-top:56px}.hero-chart{position:static;width:calc(100% + 2 * clamp(20px,4vw,56px));height:clamp(220px,58vw,300px);margin:64px calc(-1 * clamp(20px,4vw,56px)) 0}.hero-cap{position:static;width:auto;margin:20px 0 0}}
-@keyframes dash{to{stroke-dashoffset:0}}@keyframes pop{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:scale(1)}}@keyframes show{to{opacity:1}}@keyframes spin{to{transform:rotate(360deg)}}</style></helmet>
-
-<header data-screen-label="Nav" style="position:sticky;top:0;z-index:10;background:rgba(244,245,248,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(21,23,28,.12)"><div style="max-width:1440px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px 24px;padding:20px clamp(20px,4vw,56px)">
- <a href="#" style="font-size:22px;font-style:italic">Miguel Pérez-Holdsworth</a>
- <nav style="display:flex;flex-wrap:wrap;gap:36px;font:12px 'Fira Code',monospace;letter-spacing:.1em;text-transform:uppercase"><a href="#methods">Methods</a><a href="#work">Work</a><a href="#talk" style="color:#a8422a">Contact</a></nav>
-</div></header>
-
-<section data-screen-label="Hero" class="hero" style="position:relative;max-width:1440px;margin:0 auto;overflow:hidden">
+---
+layout: site
+title: "Miguel Pérez-Holdsworth — product designer, design researcher, front-end"
+description: "I set up the A/B test, the usability study, or the evaluation harness first. Then I ship the design and hand your team the system that runs it."
+---
+<section class="hero" style="position:relative;max-width:1440px;margin:0 auto;overflow:hidden">
  <div class="hero-eyebrow" style="font:12px 'Fira Code',monospace;letter-spacing:.08em;text-transform:uppercase;color:#5b606b">Product designer · Design researcher · Front-end · Since 2008</div>
  <div class="hero-copy" style="display:flex;flex-wrap:wrap;gap:40px;align-items:flex-start;position:relative;z-index:1">
   <div style="flex:1 1 640px;max-width:1020px;display:flex;flex-direction:column;align-items:flex-start">
    <h1 style="margin:0 0 0 -4px;font-size:clamp(52px,7.2vw,104px);line-height:.96;font-weight:400;letter-spacing:-.01em;text-wrap:balance">Let's measure <em style="color:#c2532f">before</em> we redesign.</h1>
    <p style="margin:50px 0 0;max-width:560px;font-size:20px;line-height:1.4;color:#3a3e48">I set up the A/B test, the usability study, or the evaluation harness first. Then I ship the design and hand your team the system that runs it.</p>
-   <a href="#talk" style="margin-top:40px;font-size:22px;font-style:italic;color:#c2532f;border-bottom:1px solid #c2532f;padding-bottom:2px" style-hover="color:#15171c;border-color:#15171c;text-decoration:none">Talk to me →</a>
+   <a href="#talk" style="margin-top:40px;font-size:22px;font-style:italic;color:#c2532f;border-bottom:1px solid #c2532f;padding-bottom:2px" class="cta">Talk to me →</a>
   </div>
  </div>
- <sc-if value="{{ heroChart }}" hint-placeholder-val="{{ true }}">
- <svg sc-camel-view-box="0 0 1440 440" sc-camel-preserve-aspect-ratio="xMaxYMax slice" class="hero-chart" style="display:block;pointer-events:none" aria-hidden="true">
+ <svg viewBox="0 0 1440 440" preserveAspectRatio="xMaxYMax slice" class="hero-chart" style="display:block;pointer-events:none" aria-hidden="true">
   <g stroke="#15171c" stroke-opacity=".18" stroke-width="1"><line x1="120" y1="392" x2="120" y2="400"></line><line x1="360" y1="392" x2="360" y2="400"></line><line x1="600" y1="392" x2="600" y2="400"></line><line x1="840" y1="392" x2="840" y2="400"></line><line x1="1080" y1="392" x2="1080" y2="400"></line><line x1="1320" y1="392" x2="1320" y2="400"></line><line x1="56" y1="400" x2="1384" y2="400"></line></g>
   <g font-family="Fira Code,monospace" font-size="11" fill="#5b606b"><text x="120" y="422" text-anchor="middle">wireframe</text><text x="360" y="422" text-anchor="middle">gen 2</text><text x="600" y="422" text-anchor="middle">gen 3</text><text x="840" y="422" text-anchor="middle">gen 4</text><text x="1080" y="422" text-anchor="middle">gen 5</text><text x="1320" y="422" text-anchor="middle">live</text></g>
   <path d="M0 330 C 400 328, 800 322, 1440 318" fill="none" stroke="#15171c" stroke-opacity=".28" stroke-width="1.2" stroke-dasharray="1500" stroke-dashoffset="1500" style="animation:dash 2.4s ease-out .2s forwards"></path>
@@ -282,13 +23,12 @@
   <text x="1300" y="46" text-anchor="end" font-family="Fira Code,monospace" font-size="13" font-weight="600" fill="#c2532f" style="opacity:0;animation:show .4s ease-out 3.1s forwards">+60% sign-ups</text>
   <text x="1300" y="330" text-anchor="end" font-family="Fira Code,monospace" font-size="11" fill="#5b606b">control</text>
  </svg>
- </sc-if>
  <div class="hero-cap">Love With Food, 2015. A/B tested. Method in UX Collective, 2019.</div>
 </section>
 
 
 
-<section id="methods" data-screen-label="Methods" style="scroll-margin-top:72px;max-width:1440px;margin:0 auto;padding:96px 56px">
+<section id="methods" style="scroll-margin-top:72px;max-width:1440px;margin:0 auto;padding:96px 56px">
  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(320px,100%),1fr));gap:64px;align-items:start">
   <div style="max-width:600px">
    <div style="font:12px 'Fira Code',monospace;letter-spacing:.08em;text-transform:uppercase;color:#5b606b">How the work runs</div>
@@ -302,8 +42,8 @@
    </ol>
   </div>
   <div style="display:flex;flex-direction:column;align-items:center;gap:20px;padding-top:24px">
-   <svg sc-camel-view-box="0 0 560 520" style="width:100%;max-width:520px;height:auto;display:block;overflow:visible" aria-label="The design cycle: the design is released to people, people are observed into a model, the model is compiled into the next design">
-    <defs><marker id="hp-mi" sc-camel-view-box="0 0 10 10" sc-camel-ref-x="9" sc-camel-ref-y="5" sc-camel-marker-width="7" sc-camel-marker-height="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#15171c"></path></marker><marker id="hp-mr" sc-camel-view-box="0 0 10 10" sc-camel-ref-x="9" sc-camel-ref-y="5" sc-camel-marker-width="7" sc-camel-marker-height="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#c2532f"></path></marker></defs>
+   <svg viewBox="0 0 560 520" style="width:100%;max-width:520px;height:auto;display:block;overflow:visible" aria-label="The design cycle: the design is released to people, people are observed into a model, the model is compiled into the next design">
+    <defs><marker id="hp-mi" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#15171c"></path></marker><marker id="hp-mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#c2532f"></path></marker></defs>
     <rect x="14" y="14" width="532" height="476" fill="none" stroke="#15171c" stroke-opacity=".3"></rect>
     <text x="18" y="508" font-family="Fira Code,monospace" font-size="11" fill="#5b606b">the frame · on a review clock</text>
     <circle cx="536" cy="504" r="7" fill="none" stroke="#15171c" stroke-opacity=".6"></circle><g style="transform-origin:536px 504px;animation:spin 12s linear infinite"><line x1="536" y1="504" x2="536" y2="498.5" stroke="#c2532f" stroke-width="1.5"></line></g>
@@ -317,14 +57,14 @@
     <g font-family="Fira Code,monospace" font-size="12" letter-spacing="2" fill="#15171c" text-anchor="middle"><text x="280" y="66">THE DESIGN</text><text x="470" y="462">PEOPLE</text><text x="90" y="412">THE MODEL</text></g>
     <text x="470" y="480" text-anchor="middle" font-family="Fira Code,monospace" font-size="10" fill="#5b606b">line of interaction</text>
     <g font-family="Instrument Serif,serif" font-style="italic" font-size="17" fill="#3a3e48"><text x="452" y="200">released to</text><text x="280" y="466" text-anchor="middle">observed into</text><text x="112" y="205" text-anchor="end">compiled into</text></g>
-    <circle r="5" fill="#c2532f" style="opacity:0;animation:show .3s 3.4s forwards"><animateMotion dur="9s" begin="3.4s" sc-camel-repeat-count="indefinite" path="M292 100 Q 440 180 468 366 L460 388 Q 280 470 104 386 L92 366 Q 120 180 268 100 Z"></animateMotion></circle>
+    <circle r="5" fill="#c2532f" style="opacity:0;animation:show .3s 3.4s forwards"><animateMotion dur="9s" begin="3.4s" repeatCount="indefinite" path="M292 100 Q 440 180 468 366 L460 388 Q 280 470 104 386 L92 366 Q 120 180 268 100 Z"></animateMotion></circle>
    </svg>
    <p style="margin:0;max-width:520px;font:12px/1.7 'Fira Code',monospace;color:#5b606b">The two arrows that touch people are crossings, so they come with consent, a meter, and a way to say no.</p>
   </div>
  </div>
 </section>
 
-<section id="work" data-screen-label="Work" style="scroll-margin-top:72px;max-width:1440px;margin:0 auto;padding:96px clamp(20px,4vw,56px)">
+<section id="work" style="scroll-margin-top:72px;max-width:1440px;margin:0 auto;padding:96px clamp(20px,4vw,56px)">
  <div style="font:12px 'Fira Code',monospace;letter-spacing:.08em;text-transform:uppercase;color:#5b606b">Work · 2008 to now</div>
  <h2 style="margin:18px 0 0;font-size:clamp(34px,3.6vw,52px);line-height:1.05;font-weight:400;letter-spacing:-.01em">Key outcomes.</h2>
  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(240px,100%),1fr));gap:40px;margin-top:48px">
@@ -335,26 +75,124 @@
  </div>
  <div style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;margin-top:72px">
   <div style="display:flex;flex-wrap:wrap;gap:10px">
-   <sc-for list="{{ chips }}" as="chip" hint-placeholder-count="7">
-    <button sc-camel-on-click="{{ chip.onClick }}" style="padding:8px 14px;border:1px solid rgba(21,23,28,.35);border-radius:999px;font:12px 'Fira Code',monospace;cursor:pointer;background:{{ chip.bg }};color:{{ chip.fg }}" style-hover="border-color:#15171c">{{ chip.label }}</button>
-   </sc-for>
+   <button type="button" class="chip" data-filter="all" aria-pressed="true">All</button>
+    <button type="button" class="chip" data-filter="research" aria-pressed="false">Research</button>
+    <button type="button" class="chip" data-filter="design" aria-pressed="false">Design</button>
+    <button type="button" class="chip" data-filter="frontend" aria-pressed="false">Front-end</button>
+    <button type="button" class="chip" data-filter="evaluation" aria-pressed="false">Evaluation &amp; AI</button>
+    <button type="button" class="chip" data-filter="leadership" aria-pressed="false">Leadership</button>
+    <button type="button" class="chip" data-filter="client" aria-pressed="false">Client</button>
+    <button type="button" class="chip" data-filter="self" aria-pressed="false">Self-initiated</button>
   </div>
-  <div style="font:13px 'Fira Code',monospace;color:#5b606b">{{ countLabel }}</div>
+  <div style="font:13px 'Fira Code',monospace;color:#5b606b"><span data-count>17 of 17</span></div>
  </div>
  <div style="margin-top:24px;display:flex;flex-direction:column;border-bottom:1px solid rgba(21,23,28,.25)">
-  <sc-for list="{{ visibleItems }}" as="item" hint-placeholder-count="6">
-   <div style="border-top:1px solid rgba(21,23,28,.25);padding:14px 0;display:flex;flex-wrap:wrap;gap:6px 28px;align-items:baseline">
-    <span style="flex:0 0 110px;font:12px 'Fira Code',monospace;color:#5b606b">{{ item.years }}</span>
-    <span style="flex:1 1 200px;max-width:280px;font-size:22px;line-height:1.2">{{ item.name }}</span>
-    <div style="flex:1 1 320px;display:flex;flex-direction:column;gap:6px"><span style="font-size:16px;line-height:1.4;color:#3a3e48">{{ item.line }}</span>
-     <div style="display:flex;flex-wrap:wrap;gap:4px 18px;font:11px/1.6 'Fira Code',monospace"><sc-for list="{{ item.links }}" as="l" hint-placeholder-count="0"><a href="{{ l.href }}" style="color:#a8422a;white-space:nowrap">{{ l.label }} →</a></sc-for></div></div>
-    <span style="flex:0 1 200px;font:11px/1.6 'Fira Code',monospace;color:#5b606b;text-align:right;margin-left:auto;text-wrap:balance">{{ item.tags }}</span>
+  <div class="work-row" data-tags="research design leadership employer">
+    <span class="work-years">2024 – now</span>
+    <span class="work-name">Colorado Digital Service</span>
+    <div class="work-line"><span>State payroll modernization and sign-in for myColorado; assumption mapping credited in the State's case study.</span><div class="work-links"><a href="https://oit.colorado.gov">oit.colorado.gov, 2024 →</a></div></div>
+    <span class="work-tags">Research · Design · Leadership · Employer</span>
    </div>
-  </sc-for>
+   <div class="work-row" data-tags="evaluation self">
+    <span class="work-years">2025 – now</span>
+    <span class="work-name">GameLab</span>
+    <div class="work-line"><span>48 pre-registered experiments, 34 falsifications, tournament evaluation, citations enforced in CI.</span><div class="work-links"></div></div>
+    <span class="work-tags">Evaluation · Self‑initiated</span>
+   </div>
+   <div class="work-row" data-tags="evaluation research frontend self">
+    <span class="work-years">2020 – now</span>
+    <span class="work-name">Sonder</span>
+    <div class="work-line"><span>LLM-assisted synthesis benchmarked against expert coding; 48% → 72% agreement over 13 fidelity cycles.</span><div class="work-links"></div></div>
+    <span class="work-tags">Evaluation · Research · Front-end · Self‑initiated</span>
+   </div>
+   <div class="work-row" data-tags="design client">
+    <span class="work-years">2023 – 2024</span>
+    <span class="work-name">Tenasol</span>
+    <div class="work-line"><span>Brand identity, product UI, investor decks, and website for an AI text-analytics startup ahead of its raise.</span><div class="work-links"></div></div>
+    <span class="work-tags">Design · Client</span>
+   </div>
+   <div class="work-row" data-tags="research leadership employer">
+    <span class="work-years">2022 – 2023</span>
+    <span class="work-name">Opportunity@Work</span>
+    <div class="work-line"><span>Community-centered engagement and action research, as Senior Manager of Design Research.</span><div class="work-links"></div></div>
+    <span class="work-tags">Research · Leadership · Employer</span>
+   </div>
+   <div class="work-row" data-tags="research evaluation client">
+    <span class="work-years">2021 – 2022</span>
+    <span class="work-name">Turo, via Huge</span>
+    <div class="work-line"><span>A 400-participant monadic ad test and ten listening sessions; a repeatable campaign-evaluation method.</span><div class="work-links"></div></div>
+    <span class="work-tags">Research · Evaluation · Client</span>
+   </div>
+   <div class="work-row" data-tags="research design client">
+    <span class="work-years">2021</span>
+    <span class="work-name">Autodesk, via Tomorrow Partners</span>
+    <div class="work-line"><span>Coded interviews, storyboards, and stage diagrams for a ten-stage generative-design workflow.</span><div class="work-links"></div></div>
+    <span class="work-tags">Research · Design · Client</span>
+   </div>
+   <div class="work-row" data-tags="research design client">
+    <span class="work-years">2020 – 2022</span>
+    <span class="work-name">Whistle Labs</span>
+    <div class="work-line"><span>Research through redesign; the flight-risk-owner loyalty segment reshaped the homepage and the campaign.</span><div class="work-links"></div></div>
+    <span class="work-tags">Research · Design · Client</span>
+   </div>
+   <div class="work-row" data-tags="research self">
+    <span class="work-years">2020</span>
+    <span class="work-name">FAIR UXR</span>
+    <div class="work-line"><span>A free eight-lesson course on FAIR research repositories, launched on Instagram.</span><div class="work-links"></div></div>
+    <span class="work-tags">Research · Self‑initiated</span>
+   </div>
+   <div class="work-row" data-tags="research leadership client">
+    <span class="work-years">2019 – 2020</span>
+    <span class="work-name">Arrow Electronics, via ClientSolv</span>
+    <div class="work-line"><span>39 interviews, 1,600+ observations, 50+ insights, eight profitability levers in 90 days.</span><div class="work-links"></div></div>
+    <span class="work-tags">Research · Leadership · Client</span>
+   </div>
+   <div class="work-row" data-tags="leadership design research employer">
+    <span class="work-years">2017 – 2019</span>
+    <span class="work-name">Inovalon / Avalere Health</span>
+    <div class="work-line"><span>Founded the Design Center of Excellence; $687k vendor contract replaced, spend −26%, capacity ×2.</span><div class="work-links"></div></div>
+    <span class="work-tags">Leadership · Design · Research · Employer</span>
+   </div>
+   <div class="work-row" data-tags="research design employer">
+    <span class="work-years">2017</span>
+    <span class="work-name">City of Philadelphia</span>
+    <div class="work-line"><span>19+ interviews and an intercept survey on the open-data portal, ending in a press conference.</span><div class="work-links"><a href="https://www.phila.gov">phila.gov, 2017 →</a></div></div>
+    <span class="work-tags">Research · Design · Employer</span>
+   </div>
+   <div class="work-row" data-tags="design frontend research employer">
+    <span class="work-years">2016</span>
+    <span class="work-name">CID Entertainment</span>
+    <div class="work-line"><span>A 90-day market-entry strategy and Curadora, an MVP that converted prospects to paying customers.</span><div class="work-links"></div></div>
+    <span class="work-tags">Design · Front-end · Research · Employer</span>
+   </div>
+   <div class="work-row" data-tags="research design frontend employer">
+    <span class="work-years">2014 – 2016</span>
+    <span class="work-name">Love With Food</span>
+    <div class="work-line"><span>Responsive redesign with a 60% sign-up lift by A/B test; account top-task completion from under 30% to 8 of 8.</span><div class="work-links"><a href="https://uxdesign.cc/how-to-adapt-to-the-challenge-of-remote-collaboration-f563a7821e99">UX Collective, 2019 →</a></div></div>
+    <span class="work-tags">Research · Design · Front-end · Employer</span>
+   </div>
+   <div class="work-row" data-tags="frontend self">
+    <span class="work-years">2014</span>
+    <span class="work-name">smoothState.js</span>
+    <div class="work-line"><span>Open-source page transitions; 4,300+ stars and 2,600+ live sites a decade on.</span><div class="work-links"><a href="https://github.com/miguel-perez/smoothState.js">GitHub →</a><a href="https://css-tricks.com/add-page-transitions-css-smoothstate-js/">CSS-Tricks, 2014 →</a></div></div>
+    <span class="work-tags">Front-end · Self‑initiated</span>
+   </div>
+   <div class="work-row" data-tags="frontend leadership employer">
+    <span class="work-years">2011 – 2014</span>
+    <span class="work-name">WebLinc Commerce</span>
+    <div class="work-line"><span>Lead front-end for Free People, BHLDN, Terrain and others; design-system program, i18n playbook, onboarding.</span><div class="work-links"></div></div>
+    <span class="work-tags">Front-end · Leadership · Employer</span>
+   </div>
+   <div class="work-row" data-tags="design self">
+    <span class="work-years">2008</span>
+    <span class="work-name">Efencea</span>
+    <div class="work-line"><span>A PvP tower-defense game on BYOND, co-created at 16; first playable in eight days, still live.</span><div class="work-links"><a href="https://www.byond.com/games/Vermolius/Efencea">byond.com, since 2008 →</a></div></div>
+    <span class="work-tags">Design · Self‑initiated</span>
+   </div>
  </div>
 </section>
 
-<section data-screen-label="On the record" style="max-width:1440px;margin:0 auto;padding:96px clamp(20px,4vw,56px)">
+<section style="max-width:1440px;margin:0 auto;padding:96px clamp(20px,4vw,56px)">
  <div style="font:12px 'Fira Code',monospace;letter-spacing:.08em;text-transform:uppercase;color:#5b606b">On the record</div>
  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(380px,100%),1fr));gap:40px;margin-top:32px">
   <blockquote style="margin:0;border-top:1px solid rgba(21,23,28,.35);padding-top:20px"><p style="margin:0;font-size:26px;line-height:1.25;font-style:italic">“We trusted him to interview our customers on our behalf to get a true unbiased voice-of-the-customer.”</p><footer style="margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5b606b">Director, Business Development · Arrow Electronics · 2020</footer></blockquote>
@@ -369,67 +207,10 @@
  </ul>
 </section>
 
-<section id="talk" data-screen-label="Contact" style="scroll-margin-top:72px;max-width:1440px;margin:0 auto;padding:96px clamp(20px,4vw,56px) 64px">
+<section id="talk" style="scroll-margin-top:72px;max-width:1440px;margin:0 auto;padding:96px clamp(20px,4vw,56px) 0">
  <div style="font:12px 'Fira Code',monospace;letter-spacing:.08em;text-transform:uppercase;color:#5b606b">Next step</div>
   <h2 style="margin:18px 0 0;font-size:clamp(52px,7.2vw,104px);line-height:.96;font-weight:400;letter-spacing:-.01em">Write <em style="color:#c2532f">to me</em>.</h2>
   <p style="margin:40px 0 0;max-width:520px;font-size:20px;line-height:1.4;color:#3a3e48">Tell me a little about the problem. We'll work out the next step, whether that's a screen, a panel slot, or a scoping call.</p>
-  <a href="mailto:mail@miguel.design" style="display:inline-block;margin-top:40px;font-size:clamp(18px,2.4vw,34px);font-style:italic;color:#c2532f;border-bottom:1px solid #c2532f;padding-bottom:2px;overflow-wrap:anywhere" style-hover="color:#15171c;border-color:#15171c;text-decoration:none">mail@miguel.design →</a>
- <div style="margin-top:96px;border-top:1px solid rgba(21,23,28,.18);padding-top:20px;font:12px/1.7 'Fira Code',monospace;color:#5b606b">
-  <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:20px 40px">
-   <div style="max-width:600px">Denver, Colorado.<br>On the traditional and unceded territories of the Cheyenne, Arapaho, and Ute Nations.</div>
-   <div style="display:flex;align-items:center;gap:20px;color:#3a3e48">
-    <a href="https://www.linkedin.com/in/miguelux" aria-label="LinkedIn" style="display:inline-flex" style-hover="color:#c2532f;text-decoration:none"><svg width="18" height="18" sc-camel-view-box="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3.2 9h3.56v12H3.2zM9.3 9h3.41v1.64h.05c.48-.9 1.64-1.85 3.38-1.85 3.61 0 4.28 2.38 4.28 5.47V21h-3.56v-5.33c0-1.27-.02-2.91-1.77-2.91-1.78 0-2.05 1.39-2.05 2.82V21H9.3z"></path></svg></a>
-    <a href="https://github.com/miguel-perez" aria-label="GitHub" style="display:inline-flex" style-hover="color:#c2532f;text-decoration:none"><svg width="18" height="18" sc-camel-view-box="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5C5.73.5.5 5.73.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56l-.02-1.98c-3.2.7-3.87-1.54-3.87-1.54-.53-1.33-1.29-1.69-1.29-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11.1 11.1 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.12 3.05.74.81 1.18 1.83 1.18 3.09 0 4.42-2.69 5.4-5.25 5.68.41.36.78 1.06.78 2.14l-.01 3.17c0 .31.2.67.79.56A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5z"></path></svg></a>
-   </div>
-  </div>
-  <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 40px;margin-top:24px"><span>© 2026 Miguel Ángel Pérez-Holdsworth</span><a href="https://www.nngroup.com/ux-certification/verify/">NN/g UX Certification · UX Management · UXC #1029705</a></div>
- </div>
+  <a href="mailto:mail@miguel.design" style="display:inline-block;margin-top:40px;font-size:clamp(18px,2.4vw,34px);font-style:italic;color:#c2532f;border-bottom:1px solid #c2532f;padding-bottom:2px;overflow-wrap:anywhere" class="cta">mail@miguel.design →</a>
 </section>
-</x-dc>
-<script type="text/x-dc" data-dc-script="" data-props="{&quot;heroChart&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Sections&quot;}}">
-class Component extends DCLogic {
-  state = { filter: 'all' };
-  static FILTERS = [
-    ['all', 'All'], ['research', 'Research'], ['design', 'Design'], ['frontend', 'Front-end'],
-    ['evaluation', 'Evaluation & AI'], ['leadership', 'Leadership'], ['client', 'Client'], ['self', 'Self-initiated']
-  ];
-  static ITEMS = [
-    { years: '2024 – now', name: 'Colorado Digital Service', line: 'State payroll modernization and sign-in for myColorado; assumption mapping credited in the State\'s case study.', tags: ['research', 'design', 'leadership', 'employer'], links: [{ label: 'oit.colorado.gov, 2024', href: 'https://oit.colorado.gov' }] },
-    { years: '2025 – now', name: 'GameLab', line: '48 pre-registered experiments, 34 falsifications, tournament evaluation, citations enforced in CI.', tags: ['evaluation', 'self'] },
-    { years: '2020 – now', name: 'Sonder', line: 'LLM-assisted synthesis benchmarked against expert coding; 48% → 72% agreement over 13 fidelity cycles.', tags: ['evaluation', 'research', 'frontend', 'self'] },
-    { years: '2023 – 2024', name: 'Tenasol', line: 'Brand identity, product UI, investor decks, and website for an AI text-analytics startup ahead of its raise.', tags: ['design', 'client'] },
-    { years: '2022 – 2023', name: 'Opportunity@Work', line: 'Community-centered engagement and action research, as Senior Manager of Design Research.', tags: ['research', 'leadership', 'employer'] },
-    { years: '2021 – 2022', name: 'Turo, via Huge', line: 'A 400-participant monadic ad test and ten listening sessions; a repeatable campaign-evaluation method.', tags: ['research', 'evaluation', 'client'] },
-    { years: '2021', name: 'Autodesk, via Tomorrow Partners', line: 'Coded interviews, storyboards, and stage diagrams for a ten-stage generative-design workflow.', tags: ['research', 'design', 'client'] },
-    { years: '2020 – 2022', name: 'Whistle Labs', line: 'Research through redesign; the flight-risk-owner loyalty segment reshaped the homepage and the campaign.', tags: ['research', 'design', 'client'] },
-    { years: '2020', name: 'FAIR UXR', line: 'A free eight-lesson course on FAIR research repositories, launched on Instagram.', tags: ['research', 'self'] },
-    { years: '2019 – 2020', name: 'Arrow Electronics, via ClientSolv', line: '39 interviews, 1,600+ observations, 50+ insights, eight profitability levers in 90 days.', tags: ['research', 'leadership', 'client'] },
-    { years: '2017 – 2019', name: 'Inovalon / Avalere Health', line: 'Founded the Design Center of Excellence; $687k vendor contract replaced, spend −26%, capacity ×2.', tags: ['leadership', 'design', 'research', 'employer'] },
-    { years: '2017', name: 'City of Philadelphia', line: '19+ interviews and an intercept survey on the open-data portal, ending in a press conference.', tags: ['research', 'design', 'employer'], links: [{ label: 'phila.gov, 2017', href: 'https://www.phila.gov' }] },
-    { years: '2016', name: 'CID Entertainment', line: 'A 90-day market-entry strategy and Curadora, an MVP that converted prospects to paying customers.', tags: ['design', 'frontend', 'research', 'employer'] },
-    { years: '2014 – 2016', name: 'Love With Food', line: 'Responsive redesign with a 60% sign-up lift by A/B test; account top-task completion from under 30% to 8 of 8.', tags: ['research', 'design', 'frontend', 'employer'], links: [{ label: 'UX Collective, 2019', href: 'https://uxdesign.cc/how-to-adapt-to-the-challenge-of-remote-collaboration-f563a7821e99' }] },
-    { years: '2014', name: 'smoothState.js', line: 'Open-source page transitions; 4,300+ stars and 2,600+ live sites a decade on.', tags: ['frontend', 'self'], links: [{ label: 'GitHub', href: 'https://github.com/miguel-perez/smoothState.js' }, { label: 'CSS-Tricks, 2014', href: 'https://css-tricks.com/add-page-transitions-css-smoothstate-js/' }] },
-    { years: '2011 – 2014', name: 'WebLinc Commerce', line: 'Lead front-end for Free People, BHLDN, Terrain and others; design-system program, i18n playbook, onboarding.', tags: ['frontend', 'leadership', 'employer'] },
-    { years: '2008', name: 'Efencea', line: 'A PvP tower-defense game on BYOND, co-created at 16; first playable in eight days, still live.', tags: ['design', 'self'], links: [{ label: 'byond.com, since 2008', href: 'https://www.byond.com/games/Vermolius/Efencea' }] }
-  ];
-  static LABELS = { research: 'Research', design: 'Design', frontend: 'Front-end', evaluation: 'Evaluation', leadership: 'Leadership', employer: 'Employer', client: 'Client', self: 'Self\u2011initiated' };
-  renderVals() {
-    const f = this.state.filter;
-    const items = Component.ITEMS.filter(it => f === 'all' || it.tags.includes(f));
-    return {
-      heroChart: this.props.heroChart ?? true,
-      chips: Component.FILTERS.map(([key, label]) => ({
-        label, key,
-        bg: key === f ? '#15171c' : 'transparent',
-        fg: key === f ? '#f4f5f8' : '#15171c',
-        onClick: () => this.setState({ filter: key })
-      })),
-      visibleItems: items.map(it => ({ ...it, links: it.links || [], tags: it.tags.map(t => Component.LABELS[t]).join(' · ') })),
-      countLabel: items.length + ' of ' + Component.ITEMS.length
-    };
-  }
-}
-</script>
-
-
-</body></html>
+<script src="/assets/js/work-filter.js" defer></script>
