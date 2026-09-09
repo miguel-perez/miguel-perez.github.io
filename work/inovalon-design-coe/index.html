@@ -17,21 +17,26 @@ a:hover{text-decoration:underline;text-decoration-color:#73964A;text-underline-o
 .nav nav{display:flex;flex-wrap:wrap;gap:36px;font:12px 'Fira Code',monospace;letter-spacing:.1em;text-transform:uppercase;color:#2b3a4d}
 .nav nav .contact{color:#003D79;text-decoration:underline;text-underline-offset:4px}
 .label{font:12px 'Fira Code',monospace;letter-spacing:.08em;text-transform:uppercase;color:#5e6b7d}
-.case-header{padding-top:64px;padding-bottom:56px}
+.case-header{padding-top:56px;padding-bottom:56px}
+.hero{display:grid;grid-template-columns:minmax(0,7fr) minmax(280px,5fr);gap:32px 56px;align-items:stretch;margin-top:28px}
+.hero-text{min-width:0}
+.hero-art{position:relative;min-height:380px;border:1px solid rgba(0,61,121,.18);border-radius:6px;overflow:hidden;background:#fff}
+.hero-art canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero-art .cap{position:absolute;left:14px;bottom:12px;font:11px/1.6 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;color:#5e6b7d;pointer-events:none}
+.facts-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:20px 32px;margin-top:40px;font:12px/1.65 'Fira Code',monospace;color:#2b3a4d}
+.facts-row > div{border-top:1px solid rgba(0,61,121,.35);padding-top:10px}
+.facts-row span{display:block}
+.facts-row .k{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#5e6b7d;margin-bottom:2px}
 .case-header .meta{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 40px}
-h1{margin:40px 0 0;max-width:1100px;font:600 clamp(44px,6vw,88px)/.98 'Source Sans 3',sans-serif;letter-spacing:-.025em;text-wrap:balance}
+h1{margin:0;max-width:1100px;font:600 clamp(44px,6vw,88px)/.98 'Source Sans 3',sans-serif;letter-spacing:-.025em;text-wrap:balance}
 h1 em{font-style:normal;color:#73964A}
-.lede{margin:36px 0 0;max-width:720px;font-size:22px;line-height:1.4;color:#2b3a4d}
+.lede{margin:32px 0 0;max-width:720px;font-size:22px;line-height:1.4;color:#2b3a4d}
 .numbers{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(160px,100%),1fr));gap:32px 40px;margin-top:56px;border-top:1px solid rgba(0,61,121,.35);padding-top:24px}
 .numbers b{display:block;font:600 44px/1 'Source Sans 3',sans-serif;letter-spacing:-.03em}
 .numbers span{display:block;margin-top:8px;font:12px/1.6 'Fira Code',monospace;color:#5e6b7d}
 .numbers em{display:block;margin-top:4px;font-style:normal;font-size:11px;color:#003D79;opacity:.75}
-.body{padding-top:40px;padding-bottom:96px;display:flex;flex-wrap:wrap;gap:64px;align-items:flex-start}
-.facts{flex:0 1 280px;display:flex;flex-direction:column;gap:22px;font:13px/1.7 'Fira Code',monospace;color:#2b3a4d;position:sticky;top:92px}
-.facts > div{border-top:1px solid rgba(0,61,121,.35);padding-top:12px}
-.facts span{display:block}
-.facts .k{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#5e6b7d}
-.story{flex:1 1 520px;max-width:760px;min-width:0}
+.body{padding-top:48px;padding-bottom:96px}
+.story{max-width:800px;margin:0 auto;min-width:0}
 .act{margin:72px 0 0}
 .act:first-child{margin-top:0}
 .act .label{display:block}
@@ -61,10 +66,9 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
 .after i{display:block;margin-top:4px;font:11px/1.6 'Fira Code',monospace;font-style:normal;color:#5e6b7d}
 .methods{display:block;margin:28px 0 0;padding-top:12px;border-top:1px solid rgba(0,61,121,.18);font:11px/1.8 'Fira Code',monospace;letter-spacing:.04em;color:#5e6b7d}
 .methods b{font-weight:400;color:#003D79;letter-spacing:.08em}
-.limits{margin:64px 0 0;border-top:1px solid rgba(0,61,121,.35);padding-top:20px}
-.limits ul{margin:16px 0 0;padding:0 0 0 18px;font-size:17px;line-height:1.55;color:#2b3a4d}
-.limits li + li{margin-top:8px}
-.next{margin:72px 0 0;border-top:1px solid rgba(0,61,121,.35);padding-top:28px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px 40px;align-items:baseline}
+.colophon{margin:64px 0 0;border-top:1px solid rgba(0,61,121,.35);padding-top:16px;font:12px/1.8 'Fira Code',monospace;color:#5e6b7d}
+.colophon b{font-weight:400;color:#003D79;letter-spacing:.08em;text-transform:uppercase}
+.next{margin:48px 0 0;border-top:1px solid rgba(0,61,121,.35);padding-top:28px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px 40px;align-items:baseline}
 .cta{font-size:24px;font-style:italic;color:#003D79}
 .back{font:13px 'Fira Code',monospace;color:#5e6b7d}
 
@@ -118,6 +122,10 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
 
 /* Chart review */
 .review{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);min-height:420px}
+.cmp .ui{height:100%;display:flex;flex-direction:column;border:0;border-radius:0}
+.cmp .review{flex:1;min-height:0}
+.cmp .pane{display:flex;flex-direction:column;min-height:0}
+.cmp .note,.cmp .cards{max-height:none;flex:1;min-height:0}
 .pane{min-width:0}
 .pane + .pane{border-left:1px solid rgba(0,61,121,.18)}
 .pane-h{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px;border-bottom:1px solid rgba(0,61,121,.12);font:11px 'Fira Code',monospace;color:#5e6b7d}
@@ -191,16 +199,55 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
 @keyframes dash{to{stroke-dashoffset:0}}
 @keyframes grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
 @keyframes growx{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-@keyframes drift0{0%{transform:translate(0,0)}50%{transform:translate(6px,-4px)}100%{transform:translate(0,0)}}
-@keyframes drift1{0%{transform:translate(0,0)}50%{transform:translate(-5px,5px)}100%{transform:translate(0,0)}}
-@keyframes drift2{0%{transform:translate(0,0)}50%{transform:translate(4px,6px)}100%{transform:translate(0,0)}}
-@keyframes drift3{0%{transform:translate(0,0)}50%{transform:translate(-6px,-3px)}100%{transform:translate(0,0)}}
-@keyframes sway{0%{transform:translate(0,0)}50%{transform:translate(3px,2px)}100%{transform:translate(0,0)}}
-.swarm .b0{animation:drift0 5.5s ease-in-out infinite}
-.swarm .b1{animation:drift1 6.5s ease-in-out infinite}
-.swarm .b2{animation:drift2 7s ease-in-out infinite}
-.swarm .b3{animation:drift3 6s ease-in-out infinite}
-.vee{animation:sway 8s ease-in-out infinite}
+.lab{border:1px solid rgba(0,61,121,.18);border-radius:6px;overflow:hidden;background:#fff}
+.lab canvas{display:block;width:100%;height:320px}
+.lab-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px 20px;padding:10px 12px;border-top:1px solid rgba(0,61,121,.18)}
+.rules{display:flex;flex-wrap:wrap;gap:6px}
+.rules button{appearance:none;border:1px solid rgba(0,61,121,.35);border-radius:14px;background:#fff;color:#003D79;font:12px 'Fira Code',monospace;letter-spacing:.04em;padding:6px 12px;cursor:pointer}
+.rules button[aria-pressed="true"]{background:#003D79;color:#fff;border-color:#003D79}
+.rules button:focus-visible{outline:2px solid #73964A;outline-offset:2px}
+.lab-note{padding:0 12px 12px;font:12px/1.7 'Fira Code',monospace;color:#2b3a4d;min-height:2.6em}
+.cmp{position:relative;height:592px;border:1px solid rgba(0,61,121,.3);border-radius:6px;overflow:hidden;background:#fff;--x:55%}
+.cmp-before,.cmp-after{position:absolute;inset:32px 0 0 0;height:auto}
+.cmp-before{z-index:0}
+.cmp-after{z-index:1}
+.cmp-after{clip-path:inset(0 0 0 var(--x))}
+.cmp-handle{position:absolute;top:32px;bottom:0;left:var(--x);width:0;border-left:2px solid #003D79;cursor:ew-resize;touch-action:none;z-index:3}
+.cmp-handle::after{content:"◂ ▸";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:44px;height:28px;border-radius:14px;background:#003D79;color:#fff;font:11px/28px 'Fira Code',monospace;text-align:center;letter-spacing:.1em}
+.cmp-tag{position:absolute;top:0;height:32px;line-height:32px;z-index:2;font:11px/32px 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;padding:0 12px;color:#003D79;pointer-events:none}
+.cmp::before{content:"";position:absolute;left:0;right:0;top:0;height:32px;background:rgba(0,61,121,.04);border-bottom:1px solid rgba(0,61,121,.18)}
+.cmp-tag.b{left:0}
+.cmp-tag.a{right:0}
+.cmp-range{width:100%;margin:12px 0 0;accent-color:#003D79}
+.old{font:12px/1.4 'Source Sans 3',sans-serif;color:#3a4552;background:#f4f6f8;height:100%;display:flex;flex-direction:column}
+.old-top{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;padding:8px 12px;background:#1f4e79;color:#dbe6f2;font-size:12px}
+.old-top .sp{flex:1}
+.old-top i{display:inline-block;width:14px;height:14px;border:1px solid rgba(255,255,255,.55);border-radius:3px;vertical-align:middle}
+.old-top .sl{display:inline-flex;align-items:center;gap:6px}
+.old-top .sl b{display:inline-block;width:90px;height:2px;background:rgba(255,255,255,.5);position:relative}
+.old-top .sl b::after{content:"";position:absolute;left:40%;top:-4px;width:10px;height:10px;border-radius:50%;background:#fff}
+.old-body{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:1px;background:rgba(0,61,121,.15);flex:1;min-height:0}
+.old-col{background:#fff;min-width:0;overflow:hidden;display:flex;flex-direction:column}
+.old-h{display:flex;align-items:center;justify-content:space-between;padding:8px 10px;border-bottom:1px solid rgba(0,61,121,.15);font-weight:600;color:#1f4e79;font-size:12px}
+.old-h i{display:inline-block;width:12px;height:12px;border:1px solid #9aa9b8;border-radius:2px;margin-left:4px}
+.old-doc{padding:10px 12px;overflow:hidden}
+.old-doc p{margin:0 0 6px;font:10px/1.5 Georgia,serif;color:#333}
+.old-doc .hl{background:#fff3b0}
+.old-list{padding:6px;overflow:hidden;display:flex;flex-direction:column;gap:5px}
+.old-pg{font-size:10px;color:#6b7785;padding:2px 4px}
+.old-card{border:1px solid #d5dde6;border-radius:3px;padding:6px 8px;font-size:11px;position:relative}
+.old-card small{display:block;font-size:9px;color:#6b7785;margin-bottom:2px}
+.old-card em{position:absolute;right:6px;top:4px;font-style:normal;color:#9aa9b8}
+.old-form{padding:8px 10px;display:flex;flex-direction:column;gap:6px;overflow:hidden}
+.old-f{font-size:10px;color:#6b7785}
+.old-f b{display:block;font-weight:400;color:#333;border-bottom:1px solid #c9d2dc;padding:3px 0;font-size:11px}
+.old-cb{font-size:10px;color:#333}
+.old-cb::before{content:"";display:inline-block;width:10px;height:10px;border:1px solid #9aa9b8;margin-right:6px;vertical-align:-1px}
+.old-btns{display:flex;gap:6px;margin-top:6px}
+.old-btns span{flex:1;text-align:center;border:1px solid #c9d2dc;color:#9aa9b8;padding:6px;font-size:11px;letter-spacing:.06em}
+.old-req{font-size:9px;color:#b23b3b}
+.callout{position:absolute;z-index:2;font:10px/1.4 'Fira Code',monospace;color:#003D79;background:rgba(255,255,255,.95);border:1px solid #73964A;border-radius:3px;padding:3px 6px;text-decoration:line-through;text-decoration-color:#73964A;pointer-events:none}
+@media (max-width:900px){.old-body{grid-template-columns:1fr 1fr}.old-col:first-child{display:none}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 @media (max-width:720px){
  .review{grid-template-columns:1fr}
@@ -208,7 +255,15 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
  .note,.cards{max-height:300px}
  .survey{grid-template-columns:1fr}
  .scen{grid-template-columns:1fr}
- .facts{position:static}
+ .hero{grid-template-columns:1fr}
+ .hero-art{min-height:260px}
+ .cmp{height:auto}
+ .cmp::before{display:none}
+ .cmp-before,.cmp-after{position:static;clip-path:none;height:auto}
+ .cmp-before .old{height:auto}
+ .cmp-after{border-top:1px solid rgba(0,61,121,.3)}
+ .cmp-handle,.cmp-range{display:none}
+ .cmp-tag{position:static;display:block;height:auto;line-height:1.6;padding:8px 12px;background:rgba(0,61,121,.04);border-bottom:1px solid rgba(0,61,121,.18)}
  .funnel{grid-template-columns:1fr;gap:0}
  .funnel > div{border-top:1px solid rgba(0,61,121,.25);padding:14px 0 16px;display:grid;grid-template-columns:1fr 1fr;gap:6px 16px}
  .funnel > div:first-child{border-top:2px solid #003D79}
@@ -225,11 +280,21 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
 
 <section class="case-header wrap">
  <div class="meta label"><span>Case study · Avalere Health, then Inovalon · July 2017 to July 2019</span><span>9-minute read</span></div>
- <h1>From first UX hire to a <em>corporate goal</em> with headcount.</h1>
- <p class="lede">Avalere Health hired its first UX designer in July 2017. Two years later, design was an approved corporate goal at the Inovalon parent, with a budget model, a certification program, and research running on protected health information.</p>
+ <div class="hero">
+  <div class="hero-text">
+   <h1>From first UX hire to a <em>corporate goal</em> with headcount.</h1>
+   <p class="lede">Avalere Health hired its first UX designer in July 2017. Two years later, design was an approved corporate goal at the Inovalon parent, with a budget model, a certification program, and research running on protected health information.</p>
+   <div class="facts-row">
+    <div><span class="k">Role</span><span>First UX designer, Avalere Health. Then Senior Manager, Design Strategy, Inovalon, and founder of the Design Center of Excellence.</span></div>
+    <div><span class="k">Timeline</span><span>July 2017 to July 2019. Philadelphia, then remote from Denver.</span></div>
+    <div><span class="k">Team</span><span>A design researcher from June 2018. Product and engineering leads across four business units. LUMA Institute, Userlytics, Glean.ly.</span></div>
+   </div>
+  </div>
+  <div class="hero-art" aria-hidden="true"><canvas id="hero-flock"></canvas><span class="cap">a murmuration · three rules, no leader</span></div>
+ </div>
  <div class="numbers">
   <div><b>$687k</b><span>vendor contract replaced, 2018<em>executed contract · on file</em></span></div>
-  <div><b>−26%</b><span>total design spend, 2019 plan<em>budget workbook · on file</em></span></div>
+  <div><b>−26%</b><span>total design spend, 2019 plan<em>budget workbook · corrects an earlier 60%</em></span></div>
   <div><b>×2</b><span>delivery capacity<em>modeled in the workbook</em></span></div>
   <div><b>200+</b><span>qualified applicants in two months<em>self-reported count</em></span></div>
   <div><b>114</b><span>maturity survey responses, four business units<em>survey workbook · on file</em></span></div>
@@ -237,14 +302,6 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
 </section>
 
 <section class="body wrap">
- <aside class="facts">
-  <div><span class="k">Role</span><span>UX Designer, Avalere Health, 2017. Senior Manager, Design Strategy, Inovalon, 2018 to 2019. Founder of the Design Center of Excellence.</span></div>
-  <div><span class="k">Timeline</span><span>July 2017 to July 2019. Philadelphia, then remote from Denver.</span></div>
-  <div><span class="k">Constraints</span><span>No direct access to users at the start. An Agile process that had never had a designer in it. A design vendor billed per sprint. Research on protected health information under HIPAA.</span></div>
-  <div><span class="k">Team and partners</span><span>A second designer, a design researcher, from June 2018. Product and engineering leads across four business units. LUMA Institute, Userlytics, Glean.ly.</span></div>
-  <div><span class="k">For</span><span>Hiring managers and design leaders deciding whether to interview me for a staff or principal role. Every number names its source, so the account can be checked by someone who wasn't there.</span></div>
-  <div><span class="k">Sources</span><span>The September 2018 business case and budget workbook. The Q2 2019 maturity survey, 114 responses. The research repository export, July 2019. Public filings and press for dates and product names.</span></div>
- </aside>
 
  <article class="story">
 
@@ -404,7 +461,7 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
     <ol class="tasks">
      <li><b>T1</b> identify the site's purpose</li><li><b>T2</b> find recent announcements</li><li><b>T3</b> find a role within a department</li><li><b>T4</b> find a colleague by expertise</li><li><b>T5</b> find contact details and location</li><li><b>T6</b> find slide templates</li><li><b>T7</b> find the icon library</li><li><b>T8</b> find the editorial guide</li><li><b>T9</b> find upcoming events</li><li><b>T10</b> add an event to a calendar</li>
     </ol>
-    <figcaption>Fig. 2 · Study A on the new intranet, October 2017. Five staff, ten tasks, recorded and coded for completion and errors. Filled green marks a failed task. Eight recommendations followed, ranked by impact and effort; the org-chart fix was first.</figcaption>
+    <figcaption>Fig. 2 · Study A on the new intranet, October 2017. Five staff, ten tasks, recorded and coded for completion and errors. Filled green marks a failed task. Five people is enough to see which tasks break, not how often; eight recommendations followed, ranked by impact and effort, and the org-chart fix was first.</figcaption>
    </figure>
 
    <h3>Swarms, not triangles</h3>
@@ -412,27 +469,15 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
    <p>The three rules became the three moves of the deck: find alignment through experimentation, facilitate collaboration among separate stakeholders, and tell a cohesive story about human needs. We tested the framing on analysts and product managers before running it on site. The marketing team came on as the second ally.</p>
 
    <figure>
-<div class="fig-scroll"><svg viewBox="0 0 760 280" aria-label="Left, seven birds in a V formation behind one leader. Right, a swarm of forty birds with no single leader, drifting together.">
-<g class="vee">
-<path d="M-7,4 L0,-3 L7,4" transform="translate(190.0,74.0) rotate(0) scale(1.3)" fill="none" stroke="#73964A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M-7,4 L0,-3 L7,4" transform="translate(156.0,104.0) rotate(-10) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M-7,4 L0,-3 L7,4" transform="translate(224.0,104.0) rotate(10) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M-7,4 L0,-3 L7,4" transform="translate(122.0,134.0) rotate(-10) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M-7,4 L0,-3 L7,4" transform="translate(258.0,134.0) rotate(10) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M-7,4 L0,-3 L7,4" transform="translate(88.0,164.0) rotate(-10) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M-7,4 L0,-3 L7,4" transform="translate(292.0,164.0) rotate(10) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-</g>
-<g class="swarm"><g class="b0"><path d="M-7,4 L0,-3 L7,4" transform="translate(481.8,110.9) rotate(30) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b1"><path d="M-7,4 L0,-3 L7,4" transform="translate(474.7,125.7) rotate(6) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b2"><path d="M-7,4 L0,-3 L7,4" transform="translate(508.8,125.9) rotate(9) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b3"><path d="M-7,4 L0,-3 L7,4" transform="translate(655.0,163.3) rotate(-14) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b0"><path d="M-7,4 L0,-3 L7,4" transform="translate(572.7,110.1) rotate(14) scale(1.0)" fill="none" stroke="#73964A" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b1"><path d="M-7,4 L0,-3 L7,4" transform="translate(582.6,126.6) rotate(33) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b2"><path d="M-7,4 L0,-3 L7,4" transform="translate(483.0,90.2) rotate(-24) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b3"><path d="M-7,4 L0,-3 L7,4" transform="translate(547.3,126.7) rotate(-31) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b0"><path d="M-7,4 L0,-3 L7,4" transform="translate(562.6,156.9) rotate(-33) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b1"><path d="M-7,4 L0,-3 L7,4" transform="translate(480.7,145.2) rotate(24) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b2"><path d="M-7,4 L0,-3 L7,4" transform="translate(502.3,89.3) rotate(-0) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b3"><path d="M-7,4 L0,-3 L7,4" transform="translate(460.1,143.2) rotate(-16) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b0"><path d="M-7,4 L0,-3 L7,4" transform="translate(689.8,126.1) rotate(24) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b1"><path d="M-7,4 L0,-3 L7,4" transform="translate(517.1,182.6) rotate(-19) scale(1.0)" fill="none" stroke="#73964A" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b2"><path d="M-7,4 L0,-3 L7,4" transform="translate(619.4,143.5) rotate(19) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b3"><path d="M-7,4 L0,-3 L7,4" transform="translate(604.8,92.2) rotate(-8) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b0"><path d="M-7,4 L0,-3 L7,4" transform="translate(632.9,70.4) rotate(-35) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b1"><path d="M-7,4 L0,-3 L7,4" transform="translate(606.5,111.7) rotate(-2) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b2"><path d="M-7,4 L0,-3 L7,4" transform="translate(457.2,170.8) rotate(-30) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b3"><path d="M-7,4 L0,-3 L7,4" transform="translate(578.0,73.1) rotate(-16) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b0"><path d="M-7,4 L0,-3 L7,4" transform="translate(543.2,144.3) rotate(32) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b1"><path d="M-7,4 L0,-3 L7,4" transform="translate(642.3,169.7) rotate(-18) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b2"><path d="M-7,4 L0,-3 L7,4" transform="translate(594.3,135.5) rotate(21) scale(1.0)" fill="none" stroke="#73964A" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b3"><path d="M-7,4 L0,-3 L7,4" transform="translate(513.2,117.9) rotate(-4) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b0"><path d="M-7,4 L0,-3 L7,4" transform="translate(554.1,99.2) rotate(-26) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b1"><path d="M-7,4 L0,-3 L7,4" transform="translate(635.9,165.8) rotate(-6) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b2"><path d="M-7,4 L0,-3 L7,4" transform="translate(553.1,158.5) rotate(33) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b3"><path d="M-7,4 L0,-3 L7,4" transform="translate(521.5,188.2) rotate(27) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b0"><path d="M-7,4 L0,-3 L7,4" transform="translate(516.5,146.8) rotate(25) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b1"><path d="M-7,4 L0,-3 L7,4" transform="translate(642.3,161.3) rotate(34) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b2"><path d="M-7,4 L0,-3 L7,4" transform="translate(557.1,158.7) rotate(19) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b3"><path d="M-7,4 L0,-3 L7,4" transform="translate(539.8,165.4) rotate(-30) scale(1.0)" fill="none" stroke="#73964A" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b0"><path d="M-7,4 L0,-3 L7,4" transform="translate(530.0,118.5) rotate(-18) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b1"><path d="M-7,4 L0,-3 L7,4" transform="translate(492.0,167.3) rotate(-3) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b2"><path d="M-7,4 L0,-3 L7,4" transform="translate(433.6,135.2) rotate(5) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b3"><path d="M-7,4 L0,-3 L7,4" transform="translate(609.2,188.7) rotate(-24) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b0"><path d="M-7,4 L0,-3 L7,4" transform="translate(611.0,65.8) rotate(-18) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b1"><path d="M-7,4 L0,-3 L7,4" transform="translate(556.5,99.2) rotate(31) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b2"><path d="M-7,4 L0,-3 L7,4" transform="translate(610.6,118.9) rotate(27) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b3"><path d="M-7,4 L0,-3 L7,4" transform="translate(473.3,153.8) rotate(-28) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b0"><path d="M-7,4 L0,-3 L7,4" transform="translate(581.1,125.2) rotate(-18) scale(1.0)" fill="none" stroke="#73964A" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b1"><path d="M-7,4 L0,-3 L7,4" transform="translate(555.3,187.3) rotate(23) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b2"><path d="M-7,4 L0,-3 L7,4" transform="translate(533.6,180.2) rotate(-23) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b3"><path d="M-7,4 L0,-3 L7,4" transform="translate(658.6,153.2) rotate(-19) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b0"><path d="M-7,4 L0,-3 L7,4" transform="translate(616.7,86.2) rotate(8) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b1"><path d="M-7,4 L0,-3 L7,4" transform="translate(616.1,110.3) rotate(-21) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b2"><path d="M-7,4 L0,-3 L7,4" transform="translate(558.4,135.5) rotate(-4) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b3"><path d="M-7,4 L0,-3 L7,4" transform="translate(572.4,141.8) rotate(-9) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b0"><path d="M-7,4 L0,-3 L7,4" transform="translate(624.8,167.0) rotate(-10) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b1"><path d="M-7,4 L0,-3 L7,4" transform="translate(681.1,119.7) rotate(11) scale(1.0)" fill="none" stroke="#73964A" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b2"><path d="M-7,4 L0,-3 L7,4" transform="translate(468.5,98.3) rotate(-25) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b3"><path d="M-7,4 L0,-3 L7,4" transform="translate(580.5,129.3) rotate(29) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b0"><path d="M-7,4 L0,-3 L7,4" transform="translate(664.0,114.3) rotate(-34) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b1"><path d="M-7,4 L0,-3 L7,4" transform="translate(459.3,134.3) rotate(16) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b2"><path d="M-7,4 L0,-3 L7,4" transform="translate(629.3,127.8) rotate(-30) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b3"><path d="M-7,4 L0,-3 L7,4" transform="translate(552.4,76.6) rotate(28) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b0"><path d="M-7,4 L0,-3 L7,4" transform="translate(528.5,69.7) rotate(21) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b1"><path d="M-7,4 L0,-3 L7,4" transform="translate(486.1,183.0) rotate(13) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b2"><path d="M-7,4 L0,-3 L7,4" transform="translate(644.6,78.8) rotate(-6) scale(1.0)" fill="none" stroke="#73964A" stroke-width="2.0" stroke-linecap="round" stroke-linejoin="round"/></g><g class="b3"><path d="M-7,4 L0,-3 L7,4" transform="translate(634.7,80.1) rotate(5) scale(1.0)" fill="none" stroke="#003D79" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></g></g>
-<g font-family="Fira Code,monospace" font-size="12" fill="#5e6b7d">
-<text x="40" y="236">TRIANGLE · one leader, a known route</text>
-<text x="410" y="236">SWARM · alignment · separation · cohesion</text>
-</g>
-<g font-family="Instrument Serif,serif" font-size="16" fill="#2b3a4d">
-<text x="40" y="262">Works for a complicated problem.</text>
-<text x="410" y="262">Needed for a complex one.</text>
-</g>
-</svg></div>
-    <figcaption>Fig. 3 · The slide that opened the lunch-and-learn, redrawn. The green birds are the many local leaders a swarm has instead of one. Alignment, separation, and cohesion are the three rules a flocking simulation needs, and the three habits the sessions taught.</figcaption>
+    <div class="lab">
+     <canvas id="lab-flock" aria-label="A flocking simulation. Toggle the three rules, or switch to a single-leader triangle."></canvas>
+     <div class="lab-bar">
+      <div class="seg" role="group" aria-label="Formation"><button type="button" data-mode="vee" aria-pressed="false">Triangle · one leader</button><button type="button" data-mode="swarm" aria-pressed="true">Swarm · three rules</button></div>
+      <div class="rules" role="group" aria-label="Rules"><button type="button" data-rule="align" aria-pressed="true">alignment</button><button type="button" data-rule="separate" aria-pressed="true">separation</button><button type="button" data-rule="cohere" aria-pressed="true">cohesion</button></div>
+     </div>
+     <div class="lab-note" id="lab-note">All three rules on. Every bird reads only its neighbours, and the flock holds without anyone in charge.</div>
+    </div>
+    <figcaption>Fig. 3 · The lunch-and-learn's opening slide, now runnable. Reynolds's three rules from 1986: steer with your neighbours, keep your distance, stay with the group. Turn one off and watch what the deck argued: alignment without cohesion drifts apart, cohesion without separation collapses, and a single leader only works when the route is known.</figcaption>
    </figure>
    <span class="methods"><b>METHODS</b> · task-based usability study, completion and error measures (Sauro &amp; Lewis) · workshop facilitation (Schwarz) · tame versus wicked problems (Rittel &amp; Webber) · values-based framing</span>
   </section>
@@ -547,10 +592,58 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
    <h2>Proving it pays</h2>
    <p>Inovalon had launched <strong>NLPaaS</strong> in April 2018, a service that reads medical records and finds conditions a chart review would otherwise miss. Prospects wanted a way to review the findings themselves, and the team came to us with a large budget and a deadline: a working interface for Client Congress, the annual client conference, at the end of September.</p>
    <p>I proposed spending a tenth of the budget on a high-fidelity prototype instead of production code, because a click-through changes faster than software while we are still learning. We captured the team's assumptions in a business model canvas, drew proto-personas and a twelve-frame storyboard, and cut the demo to the flows that mattered.</p>
-   <p>We had assumed reviewers would accept a finding above a confidence threshold. Then we watched clinical reviewers work, and the first session refuted it. They did not trust an automated finding they could not check against the chart. The interface was rethought around evidence: every suggested condition points to the page and the sentence that supports it, and reviewers can capture what the model missed. The machine-learning threshold slider went. So did the mandatory reason for rejection.</p>
+   <p>We had assumed reviewers would accept a finding above a confidence threshold. Then we watched clinical reviewers work, and the first session refuted it. They did not trust an automated finding they could not check against the chart, and my contextual inquiry notes say so in their words. The interface was rethought around evidence: every suggested condition points to the page and the sentence that supports it, and reviewers can capture what the model missed. The machine-learning threshold slider went. So did the mandatory reason for rejection.</p>
 
    <figure>
-    <div class="ui review-ui" aria-label="The chart review screen, reconstructed with synthetic data. Suggested conditions on the right point to evidence in the note on the left.">
+    <div class="cmp" id="cmp">
+     <span class="cmp-tag b">Before · the build, mid 2018</span>
+     <div class="cmp-before">
+      <div class="old" aria-label="The vendor build before the research pass: three panes, a precision slider, and a validation form">
+       <div class="old-top"><span>‹ Back to My Charts</span><span>5 / 16</span><i></i><i></i><i></i><i></i><span class="sl">More precision <b></b> More highlights</span><span class="sp"></span><span>Next Chart ›</span></div>
+       <div class="old-body">
+        <div class="old-col"><div class="old-doc">
+         <p><b>Sample Patient</b> · Male · DOB withheld</p>
+         <p><b>Current medications</b> Losartan potassium 50 mg · Amiodarone 200 mg · Atorvastatin 80 mg · Aspirin 81 mg · Metformin 1000 mg</p>
+         <p><b>Allergies</b> Penicillin (rash) · Beta blockers (intolerance)</p>
+         <p><b>History of present illness</b> Follow-up of chronic cardiovascular conditions. <span class="hl">Jaw pain with exertion; negative catheterisation in 2012.</span> Blood pressure elevated today; did not take medication yesterday. On high-dose statin.</p>
+         <p><b>Past medical history</b> <span class="hl">Coronary artery disease · Essential hypertension · Hypercholesterolemia · Atrial fibrillation · COPD · Sleep apnoea · Congestive heart failure · Type 2 diabetes with CKD</span></p>
+         <p><b>Social history</b> Former smoker, quit 1997. Years since last quit: 21.</p>
+         <p><b>Exam</b> Regular rate, no murmur. Peripheral pulses diminished bilaterally. No oedema.</p>
+        </div></div>
+        <div class="old-col"><div class="old-h"><span>Conditions</span><span><i></i><i></i></span></div><div class="old-list">
+         <div class="old-pg">Page 4</div>
+         <div class="old-card"><small>Medicare</small>HCC88 · Angina Pectoris<em>×</em></div>
+         <div class="old-card"><small>Medicare</small>HCC96 · Specified Heart Arrhythmias<em>×</em></div>
+         <div class="old-card"><small>Medicare</small>HCC96 · Specified Heart Arrhythmias<em>×</em></div>
+         <div class="old-card"><small>Medicare</small>HCC111 · Chronic Obstructive Pulmonary Disease<em>×</em></div>
+         <div class="old-pg">Page 5</div>
+         <div class="old-card"><small>Medicare</small>HCC85 · Congestive Heart Failure<em>×</em></div>
+         <div class="old-card"><small>Medicare</small>HCC18 · Diabetes with Chronic Complications<em>×</em></div>
+         <div class="old-card"><small>Medicare</small>HCC108 · Vascular Disease<em>×</em></div>
+        </div></div>
+        <div class="old-col"><div class="old-h"><span>Validation</span><span><i></i><i></i><i></i></span></div><div class="old-form">
+         <div class="old-f">ICD10 Code<b>ICDXX.XX · Heart › Arrhythmias › Vascu…</b></div>
+         <div class="old-cb">Past Medical History</div>
+         <div class="old-cb">Signature Present</div>
+         <div class="old-f">Source<b>▾</b></div>
+         <div class="old-f">Facility<b>▾</b></div>
+         <div class="old-f">Patient Name<b>Sample Patient</b></div>
+         <div class="old-f">Patient Date of Birth<b>withheld</b></div>
+         <div class="old-f">Patient Date of Service<b>04/01/2016</b></div>
+         <div class="old-f">Provider · Type<b>D. Goodhealth · MD</b></div>
+         <div class="old-btns"><span>ACCEPT</span><span>REJECT</span></div>
+         <div class="old-req">reason must be given if rejected</div>
+        </div></div>
+       </div>
+       <span class="callout" style="left:36%;top:44px">control ML threshold</span>
+       <span class="callout" style="left:40%;top:150px">collapse or browse findings</span>
+       <span class="callout" style="right:18px;top:96px">search codes by API</span>
+       <span class="callout" style="right:18px;bottom:64px">reject needs a reason</span>
+      </div>
+     </div>
+     <span class="cmp-tag a">After · the research pass</span>
+     <div class="cmp-after">
+      <div class="ui review-ui" aria-label="The chart review screen, reconstructed with synthetic data. Suggested conditions on the right point to evidence in the note on the left.">
      <div class="ui-bar"><span><b>Medical review</b> · Sample Health Plan · <span class="label">synthetic record</span></span><span class="prog">progress <i><b id="prog-bar"></b></i><span id="prog-txt">0 of 6</span></span></div>
      <div class="review">
       <div class="pane">
@@ -589,15 +682,19 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
       </div>
      </div>
     </div>
+     </div>
+     <div class="cmp-handle" id="cmp-handle" role="presentation"></div>
+    </div>
+    <input type="range" class="cmp-range" id="cmp-range" min="4" max="96" value="55" aria-label="Reveal the redesign: drag left to see more of the after screen, right to see more of the before screen">
     <ul class="cuts">
-     <li><b>What the research cut</b><s>ML confidence threshold slider</s> · <s>collapse and browse all findings</s> · <s>mandatory reason for rejection</s> · <s>navigate away to add a code</s></li>
-     <li><b>What it added</b>known conditions up top · evidence anchored to the page and sentence · capture what the model missed · leave a review unfinished</li>
+     <li><b>What the research cut</b><s>ML confidence threshold slider</s> · <s>collapse and browse all findings</s> · <s>dismiss on every card</s> · <s>mandatory reason for rejection</s> · <s>navigate away to add a code</s></li>
+     <li><b>What it added</b>known conditions up top · evidence anchored to the page and sentence · capture what the model missed · leave a review unfinished · progress you can see</li>
      <li><b>What reviewers taught us</b>name and date of birth first · dates of service · known conditions before new ones · capture what the model missed · leave a review unfinished · mistrust of machine learning · pages, not page highlights · ICD versus HCC codes</li>
     </ul>
-    <figcaption>Fig. 7 · The review screen, rebuilt with a synthetic chart and public code sets. Select a suggestion to see its evidence; accept or reject. Two of the six point at weak evidence, which is the whole argument for showing it. The eight findings from the contextual inquiry are the third list above.</figcaption>
+    <figcaption>Fig. 7 · Drag the divider. Left is the build as it stood in mid 2018, redrawn: three panes, a precision slider, a validation form. Right is the pass after the contextual inquiry, and it works: select a suggestion to see its evidence, then accept or reject. Both use a synthetic chart and public code sets; the eight findings are the third list above.</figcaption>
    </figure>
 
-   <p>The demo video played without a hitch at Client Congress. The team came home with a list of prospects and leadership funded a group of developers to build it. Over two years, discovery work like this avoided roughly $2.4M in rewrites, by the practice's estimate: about a tenth of a build budget spent on learning, before the other nine tenths were committed.</p>
+   <p>The demo video played without a hitch at Client Congress. The team came home with a list of prospects and leadership funded a group of developers to build it. Over two years, discovery work like this avoided roughly $2.4M in rewrites, by the practice's own estimate of rework not built: about a tenth of a build budget spent on learning, before the other nine tenths were committed. A competitor moved its product into the reviewer's workflow the following year, which I read as convergence rather than cause.</p>
    <span class="methods"><b>METHODS</b> · minimum viable product and innovation accounting (Ries) · context scenarios (Cooper) · sketching before building (Buxton) · contextual inquiry · the ironies of automation (Bainbridge)</span>
   </section>
 
@@ -631,7 +728,7 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
       </div>
      </div>
     </div>
-    <figcaption>Fig. 8 · The Q2 2019 maturity survey, built on the Design Management Institute's five levels. 114 responses across four business units. Teams could repeat what they did in delivery; almost nobody measured it, and position and approach was mostly ad hoc. The barriers on the right were coded from the open answers.</figcaption>
+    <figcaption>Fig. 8 · The Q2 2019 maturity survey, built on the Design Management Institute's five levels. 114 responses across four business units. Teams could repeat what they did in delivery; almost nobody measured it, and position and approach was mostly ad hoc. The barriers on the right were coded from the open answers by one coder, so read the order rather than the counts.</figcaption>
    </figure>
 
    <p>Product and development managers already spent about a fifth of their time on design. Thirteen people spent more than half, and they scored around three times the average maturity. Combined with a matrix of every product's stage, revenue, and receptiveness, that found the first cohort of twenty.</p>
@@ -666,7 +763,7 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
      <g font-family="Fira Code,monospace" font-size="12" fill="#5e6b7d" text-anchor="middle"><text x="80" y="244">pilot · Sep</text><text x="185" y="244">Q4 2019</text><text x="305" y="244">Q1 2020</text><text x="425" y="244">Q2 2020</text><text x="545" y="244">Q3 2020</text><text x="665" y="244">Q4 2020</text></g>
      <text x="40" y="30" font-family="Fira Code,monospace" font-size="12" fill="#5e6b7d">practitioners certified · 20 per cohort, quarterly</text>
     </svg></div>
-    <figcaption>Fig. 10 · The certification plan as approved in June 2019. The dashed bar is the pilot; the filled bar is the founding cohort the survey found; the outlines are the schedule toward a hundred practitioners actively leading research.</figcaption>
+    <figcaption>Fig. 10 · The certification plan as approved in June 2019, and the last thing I can vouch for: I left in July, before the pilot ran. The dashed bar is the pilot; the filled bar is the founding cohort the survey found; the outlines are the schedule toward a hundred practitioners actively leading research.</figcaption>
    </figure>
 
    <p>A manager had once said Inovalon was not the kind of place designers would want to work. The job postings drew more than 200 qualified applicants in two months. I left in July 2019 with the core team hired and the first cohort on the calendar. A hundred birds, and the route left to them.</p>
@@ -689,19 +786,7 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
     <blockquote><p>“It is no small task to add a new enterprise-wide discipline to an organization… Thank you for initiating the movement and we'll be sure to continue the advancement.”</p><footer>Chief Product Officer · Inovalon · 2019</footer></blockquote>
    </div>
 
-   <div class="limits">
-    <div class="label">What this account can't claim</div>
-    <ul>
-     <li>The cohorts were approved to start in October 2019, with the pilot in September. I left in July, so Fig. 10 is the plan as approved and I can't report how it ran.</li>
-     <li>An earlier version of this study said the team's run rate fell 60%. The workbook supports 26% of total design spend, or 32% per seat, so 26% is the number here.</li>
-     <li>The ~$2.4M figure is the practice's estimate of avoided rework across two years, not an audited saving. It is the weakest-evidenced number here, which is why it is in the text and not in the strip at the top.</li>
-     <li>The trust finding rests on my own contextual inquiry notes. A competitor did move its product into the reviewer's workflow in late 2019; I read that as convergent, not caused by us.</li>
-     <li>Five participants license direction, not rates. Fig. 2 says which tasks broke, not how often they break for everyone.</li>
-     <li>The barriers in Fig. 8 were coded from open answers by one coder. No agreement was measured, so read the order, not the counts.</li>
-     <li>Maturity scores are a proxy. A proxy that becomes a target stops measuring what it was built to measure, and I would expect that here too.</li>
-     <li>Names are withheld throughout. Quotes are attributed by role, and the screens above are reconstructions with synthetic data, not screenshots.</li>
-    </ul>
-   </div>
+   <p class="colophon"><b>Colophon</b> · Names are withheld and quotes attributed by role. Screens are reconstructions with synthetic data, not screenshots. Sources: the September 2018 business case and budget workbook; the Q2 2019 maturity survey, 114 responses; the research repository export, July 2019; public filings and press for dates and product names.</p>
 
    <div class="next">
     <a class="cta" href="mailto:mail+careers@miguel.design?subject=Staff%20or%20principal%20role">Talk to me about a staff or principal role →</a>
@@ -713,6 +798,106 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
 
 <script>
 (function(){
+ /* Boids (Reynolds, 1986). One engine for the hero and for Fig. 3. */
+ var INK='#003D79', ACC='#73964A';
+ function Flock(canvas, o){
+  var self=this; this.c=canvas; this.ctx=canvas.getContext('2d');
+  this.n=o.n||120; this.mode=o.mode||'swarm'; this.rules={align:true,separate:true,cohere:true};
+  this.leaders=o.leaders||6; this.speed=o.speed||1.6; this.run=false; this.w=0; this.h=0; this.t=0; this.boids=[];
+  this.reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  this.resize=function(){
+   var r=canvas.getBoundingClientRect(); var d=Math.min(window.devicePixelRatio||1,2);
+   self.w=r.width; self.h=r.height; canvas.width=Math.round(r.width*d); canvas.height=Math.round(r.height*d); self.ctx.setTransform(d,0,0,d,0,0);
+  };
+  this.reset=function(){
+   self.boids=[]; var cx=self.w/2, cy=self.h/2;
+   for(var i=0;i<self.n;i++){ var a=Math.random()*6.283; var sp=self.speed*(0.7+Math.random()*0.5);
+    self.boids.push({x:cx+(Math.random()-0.5)*self.w*0.4,y:cy+(Math.random()-0.5)*self.h*0.4,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp,lead:i<self.leaders,hide:false,fx:0,fy:0,pref:0.85+Math.random()*0.35}); }
+   for(var k=0;k<200;k++)self.step();
+  };
+  this.still=function(){ for(var k=0;k<60;k++)self.step(); self.draw(); };
+  this.step=function(){
+   var b=self.boids, w=self.w, h=self.h, N=b.length, ms=self.speed, i, j, p;
+   self.t+=1; var t=self.t;
+   if(self.mode==='vee'){
+    var NV=Math.min(N,25), cx0=w/2, cy0=h/2, Rx=w*0.34, Ry=h*0.30, om=ms*0.9/((Rx+Ry)/2);
+    var L=b[0]; L.lead=true; L.hide=false; var ph=t*om;
+    L.x=cx0+Rx*Math.cos(ph); L.y=cy0+Ry*Math.sin(ph); L.vx=-Rx*Math.sin(ph)*om; L.vy=Ry*Math.cos(ph)*om;
+    var vl=Math.hypot(L.vx,L.vy)||1, ux=L.vx/vl, uy=L.vy/vl, px=-uy, py=ux;
+    for(i=NV;i<N;i++) b[i].hide=true;
+    for(i=1;i<NV;i++){ var k=b[i]; k.lead=false; k.hide=false; var side=(i%2?1:-1), rank=Math.ceil(i/2); var back=rank*18, out=rank*13*side;
+     var tx=L.x-ux*back+px*out, ty=L.y-uy*back+py*out; var dx=tx-k.x, dy=ty-k.y; var dd=Math.sqrt(dx*dx+dy*dy)||1;
+     var want=Math.min(ms*1.3,dd*0.1);
+     k.vx+=(dx/dd*want-k.vx)*0.15; k.vy+=(dy/dd*want-k.vy)*0.15; k.x+=k.vx; k.y+=k.vy; }
+    return;
+   }
+   var R=60, R2=R*R, sepOn=self.rules.separate, S=sepOn?18:6, S2=S*S, sepW=sepOn?1.5:0.7, mf=0.07;
+   var Px=w/2+w*0.26*Math.sin(t*0.0037), Py=h/2+h*0.24*Math.cos(t*0.0051), PR=90;
+   for(i=0;i<N;i++){ p=b[i]; p.hide=false; var ax=0,ay=0,cx=0,cy=0,sx=0,sy=0,cnt=0,scnt=0;
+    for(j=0;j<N;j++){ if(i===j)continue; var q=b[j]; var dx2=q.x-p.x, dy2=q.y-p.y; var d2=dx2*dx2+dy2*dy2;
+     if(d2<R2){ ax+=q.vx; ay+=q.vy; cx+=q.x; cy+=q.y; cnt++; if(d2<S2&&d2>0){ var d=Math.sqrt(d2); sx-=dx2/d*(S-d)/S; sy-=dy2/d*(S-d)/S; scnt++; } } }
+    var fx=0, fy=0;
+    if(cnt){ if(self.rules.align){ ax/=cnt; ay/=cnt; var al=Math.hypot(ax,ay)||1; fx+=(ax/al*ms-p.vx)*0.5; fy+=(ay/al*ms-p.vy)*0.5; }
+     if(self.rules.cohere){ cx=cx/cnt-p.x; cy=cy/cnt-p.y; var cl=Math.hypot(cx,cy)||1; fx+=(cx/cl*ms-p.vx)*0.6; fy+=(cy/cl*ms-p.vy)*0.6; } }
+    if(scnt){ var sl=Math.hypot(sx,sy)||1; fx+=(sx/sl*ms-p.vx)*sepW; fy+=(sy/sl*ms-p.vy)*sepW; }
+    var th=Math.sin(p.x*0.006+t*0.011)+Math.cos(p.y*0.007-t*0.009); fx+=Math.cos(th)*0.035; fy+=Math.sin(th)*0.035;
+    var pdx=p.x-Px, pdy=p.y-Py, pd=Math.hypot(pdx,pdy); if(pd<PR&&pd>0){ var pf=(1-pd/PR)*0.18; fx+=pdx/pd*pf; fy+=pdy/pd*pf; }
+    fx+=(w/2-p.x)/w*0.03; fy+=(h/2-p.y)/h*0.03;
+    var m=Math.min(90,w*0.2,h*0.25); if(p.x<m)fx+=(m-p.x)/m*0.32; if(p.x>w-m)fx-=(p.x-(w-m))/m*0.32; if(p.y<m)fy+=(m-p.y)/m*0.32; if(p.y>h-m)fy-=(p.y-(h-m))/m*0.32;
+    fx+=(Math.random()-0.5)*0.05; fy+=(Math.random()-0.5)*0.05;
+    var fl=Math.hypot(fx,fy); if(fl>mf){ fx=fx/fl*mf; fy=fy/fl*mf; }
+    p.fx=fx; p.fy=fy;
+   }
+   for(i=0;i<N;i++){ p=b[i]; p.vx+=p.fx; p.vy+=p.fy; var top=ms*p.pref, v=Math.hypot(p.vx,p.vy)||1; if(v>top){ p.vx=p.vx/v*top; p.vy=p.vy/v*top; } if(v<ms*0.45){ p.vx=p.vx/v*ms*0.45; p.vy=p.vy/v*ms*0.45; }
+    p.x+=p.vx; p.y+=p.vy; if(p.x<2){p.x=2;p.vx=Math.abs(p.vx);} if(p.x>w-2){p.x=w-2;p.vx=-Math.abs(p.vx);} if(p.y<2){p.y=2;p.vy=Math.abs(p.vy);} if(p.y>h-2){p.y=h-2;p.vy=-Math.abs(p.vy);} }
+  };
+  this.draw=function(){
+   var ctx=self.ctx; ctx.clearRect(0,0,self.w,self.h); ctx.lineCap='round'; ctx.lineJoin='round';
+   for(var i=0;i<self.boids.length;i++){ var p=self.boids[i]; if(p.hide)continue; var a=Math.atan2(p.vy,p.vx)+Math.PI/2;
+    ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(a); ctx.beginPath(); ctx.moveTo(-5,3); ctx.lineTo(0,-3); ctx.lineTo(5,3);
+    ctx.strokeStyle=p.lead?ACC:INK; ctx.lineWidth=p.lead?2:1.4; ctx.globalAlpha=p.lead?1:0.85; ctx.stroke(); ctx.restore(); }
+  };
+  this.frame=function(){ if(!self.run)return; self.step(); self.draw(); requestAnimationFrame(self.frame); };
+  this.start=function(){ if(self.run||self.reduced)return; self.run=true; requestAnimationFrame(self.frame); };
+  this.stop=function(){ self.run=false; };
+  this.resize(); this.reset();
+  if(this.reduced){ this.draw(); }
+  else if('IntersectionObserver' in window){ new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting)self.start(); else self.stop(); }); },{threshold:0.05}).observe(canvas); }
+  else this.start();
+  var to; window.addEventListener('resize',function(){ clearTimeout(to); to=setTimeout(function(){ self.resize(); self.reset(); if(self.reduced)self.still(); },150); });
+  document.addEventListener('visibilitychange',function(){ if(document.hidden)self.stop(); else self.start(); });
+ }
+ var heroC=document.getElementById('hero-flock'); if(heroC) new Flock(heroC,{n:150,leaders:7,speed:1.5});
+ var labC=document.getElementById('lab-flock');
+ if(labC){
+  var lab=new Flock(labC,{n:90,leaders:5,speed:1.7});
+  var notes={
+   all:'All three rules on. Every bird reads only its neighbours, and the flock holds without anyone in charge.',
+   align:'Alignment off. They still cluster and keep their distance, but heading is no longer shared: a crowd, not a flock.',
+   separate:'Separation off. Cohesion pulls with nothing pushing back, and the flock collapses into a clump.',
+   cohere:'Cohesion off. They match headings and avoid collisions, and drift apart. Alignment alone is a formation with no reason to stay together.',
+   vee:'One leader, and everyone follows their slot. Efficient when the route is known; nobody else is reading the sky.',
+   many:'More than one rule off. What is left is not a flock; the rules only work together.'
+  };
+  var noteEl=document.getElementById('lab-note');
+  function say(){ if(lab.mode==='vee'){ noteEl.textContent=notes.vee; return; } var off=[]; for(var k in lab.rules) if(!lab.rules[k]) off.push(k); noteEl.textContent=off.length===0?notes.all:(off.length===1?notes[off[0]]:notes.many); }
+  var bar=labC.parentNode; var modes=bar.querySelectorAll('[data-mode]'), rules=bar.querySelectorAll('[data-rule]');
+  function setMode(m){ lab.mode=m; for(var j=0;j<modes.length;j++) modes[j].setAttribute('aria-pressed',String(modes[j].getAttribute('data-mode')===m)); }
+  for(var i=0;i<modes.length;i++) modes[i].addEventListener('click',function(){ setMode(this.getAttribute('data-mode')); lab.reset(); if(lab.reduced)lab.still(); say(); });
+  for(var i=0;i<rules.length;i++) rules[i].addEventListener('click',function(){ var r=this.getAttribute('data-rule'); lab.rules[r]=!lab.rules[r]; this.setAttribute('aria-pressed',String(lab.rules[r])); if(lab.mode!=='swarm') setMode('swarm'); if(lab.reduced)lab.still(); say(); });
+ }
+
+ /* Fig. 7: before/after divider. */
+ var cmp=document.getElementById('cmp'), handle=document.getElementById('cmp-handle'), range=document.getElementById('cmp-range');
+ if(cmp){
+  var setX=function(pct){ pct=Math.max(4,Math.min(96,pct)); cmp.style.setProperty('--x',pct+'%'); range.value=Math.round(pct); };
+  range.addEventListener('input',function(){ setX(+this.value); });
+  var drag=false;
+  handle.addEventListener('pointerdown',function(e){ drag=true; handle.setPointerCapture(e.pointerId); e.preventDefault(); });
+  handle.addEventListener('pointermove',function(e){ if(!drag)return; var r=cmp.getBoundingClientRect(); setX((e.clientX-r.left)/r.width*100); });
+  handle.addEventListener('pointerup',function(){ drag=false; }); handle.addEventListener('pointercancel',function(){ drag=false; });
+ }
+
  /* Fig. 6: budget scenarios from the September 2018 workbook, indexed to 2018 total spend. */
  var S=[
   {v:63,i:37,cap:52,mult:'×1',lbl:'vendor 63% · in-house 37%',note:'Two in-house designers plus the vendor. The vendor bills per sprint and carries most of the delivery.'},
