@@ -1,0 +1,186 @@
+---
+title: "From first UX hire to a corporate goal with headcount"
+description: "Avalere Health hired its first UX designer in July 2017. Two years later, design was an approved corporate goal at the Inovalon parent, with a budget model, a certification program, and research running on protected health information."
+draft: true
+fonts: [source-sans-3]
+---
+<style>
+/* Street: Inovalon. Regal Blue ink on white, Asparagus at display sizes only, Source Sans for headlines. Store: Fira Code labels, Instrument Serif body. */
+body{margin:0;background:#fff;color:#003D79;font-family:'Instrument Serif',Georgia,serif;-webkit-font-smoothing:antialiased}
+*{box-sizing:border-box}
+a{color:inherit;text-decoration:none}
+a:hover{text-decoration:underline;text-decoration-color:#73964A;text-underline-offset:3px}
+.wrap{max-width:1440px;margin:0 auto;padding-left:clamp(20px,4vw,56px);padding-right:clamp(20px,4vw,56px)}
+.nav{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(0,61,121,.14)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px 24px;padding-top:20px;padding-bottom:20px}
+.wordmark{font-size:22px;font-style:italic}
+.nav nav{display:flex;flex-wrap:wrap;gap:36px;font:12px 'Fira Code',monospace;letter-spacing:.1em;text-transform:uppercase;color:#2b3a4d}
+.nav nav .contact{color:#003D79;text-decoration:underline;text-underline-offset:4px}
+.label{font:12px 'Fira Code',monospace;letter-spacing:.08em;text-transform:uppercase;color:#5e6b7d}
+.case-header{padding-top:64px;padding-bottom:56px}
+.case-header .meta{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 40px}
+h1{margin:40px 0 0;max-width:1100px;font:600 clamp(44px,6vw,88px)/.98 'Source Sans 3',sans-serif;letter-spacing:-.025em;text-wrap:balance}
+h1 em{font-style:normal;color:#73964A}
+.lede{margin:36px 0 0;max-width:720px;font-size:22px;line-height:1.4;color:#2b3a4d}
+.numbers{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(160px,100%),1fr));gap:32px 40px;margin-top:56px;border-top:1px solid rgba(0,61,121,.35);padding-top:24px}
+.numbers b{display:block;font:600 44px/1 'Source Sans 3',sans-serif;letter-spacing:-.03em}
+.numbers span{display:block;margin-top:8px;font:12px/1.6 'Fira Code',monospace;color:#5e6b7d}
+.body{padding-top:40px;padding-bottom:96px;display:flex;flex-wrap:wrap;gap:64px;align-items:flex-start}
+.facts{flex:0 1 280px;display:flex;flex-direction:column;gap:22px;font:13px/1.7 'Fira Code',monospace;color:#2b3a4d}
+.facts > div{border-top:1px solid rgba(0,61,121,.35);padding-top:12px}
+.facts span{display:block}
+.facts .k{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#5e6b7d}
+.story{flex:1 1 520px;max-width:760px}
+.story h2{margin:64px 0 0;font:600 clamp(30px,3vw,40px)/1.1 'Source Sans 3',sans-serif;letter-spacing:-.02em}
+.story h2:first-child{margin-top:0}
+.story > p{margin:16px 0 0;font-size:19px;line-height:1.55;color:#2b3a4d}
+.story > h2 + p{margin-top:20px}
+.story strong{font-weight:400;color:#003D79;border-bottom:1px solid #73964A}
+figure{margin:48px 0 0;display:flex;flex-direction:column;gap:14px}
+figure svg{width:100%;height:auto;display:block;overflow:visible}
+figcaption{font:12px/1.7 'Fira Code',monospace;color:#5e6b7d}
+.built{margin:24px 0 0;padding:0;list-style:none}
+.built li{border-top:1px solid rgba(0,61,121,.25);padding:16px 0;font-size:18px;line-height:1.5;color:#2b3a4d}
+.built li:last-child{border-bottom:1px solid rgba(0,61,121,.25)}
+.built b{font-weight:400;color:#003D79}
+.quotes{margin:64px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:40px}
+blockquote{margin:0;border-top:1px solid rgba(0,61,121,.35);padding-top:20px}
+blockquote p{margin:0;font-size:24px;line-height:1.3;font-style:italic;color:#2b3a4d}
+blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6b7d}
+blockquote footer a{color:#003D79}
+.limits{margin:64px 0 0;border-top:1px solid rgba(0,61,121,.35);padding-top:20px}
+.limits ul{margin:16px 0 0;padding:0 0 0 18px;font-size:17px;line-height:1.55;color:#2b3a4d}
+.limits li + li{margin-top:8px}
+.next{margin:72px 0 0;border-top:1px solid rgba(0,61,121,.35);padding-top:28px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px 40px;align-items:baseline}
+.cta{font-size:24px;font-style:italic;color:#003D79}
+.back{font:13px 'Fira Code',monospace;color:#5e6b7d}
+@keyframes dash{to{stroke-dashoffset:0}}
+@keyframes grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+</style>
+
+<header class="nav"><div class="wrap">
+ <a class="wordmark" href="/">Miguel Pérez-Holdsworth</a>
+ <nav><a href="/#methods">Methods</a><a href="/#work">Work</a><a class="contact" href="/#talk">Contact</a></nav>
+</div></header>
+
+<section class="case-header wrap">
+ <div class="meta label"><span>Case study · Inovalon / Avalere Health · 2017 to 2019</span><span>5-minute read</span></div>
+ <h1>From first UX hire to a <em>corporate goal</em> with headcount.</h1>
+ <p class="lede">Avalere Health hired its first UX designer in July 2017. Two years later, design was an approved corporate goal at the Inovalon parent, with a budget model, a certification program, and research running on protected health information.</p>
+ <div class="numbers">
+  <div><b>$687k</b><span>vendor contract replaced, 2018</span></div>
+  <div><b>−26%</b><span>total design spend</span></div>
+  <div><b>×2</b><span>delivery capacity</span></div>
+  <div><b>200+</b><span>qualified applicants in two months</span></div>
+  <div><b>~$2.4M</b><span>code rewrites avoided over two years</span></div>
+ </div>
+</section>
+
+<section class="body wrap">
+ <aside class="facts">
+  <div><span class="k">Role</span><span>UX Designer, Avalere Health, 2017. Senior Manager, Design Strategy, and founder of the Design Center of Excellence, Inovalon, 2018 to 2019.</span></div>
+  <div><span class="k">Timeline</span><span>July 2017 to July 2019. Philadelphia, then remote from Denver.</span></div>
+  <div><span class="k">Constraints</span><span>No direct access to users at the start. An established Agile process with no designer in it. A design vendor billed per sprint. Research on protected health information under HIPAA.</span></div>
+  <div><span class="k">Team and partners</span><span>Four in-house designers replacing the vendor. A founding cohort of 20 practitioners across four business units. LUMA Institute, Glean.ly, Userlytics.</span></div>
+ </aside>
+
+ <article class="story">
+  <h2>The situation</h2>
+  <p>Avalere Health is a healthcare policy and data firm. In 2017 it had no UX function, no direct access to users, and a design vendor billing $27,136 per sprint. Human-centered design was a new idea there, and most product work ran through an Agile process that had never had a designer in it.</p>
+  <p>I joined as the first UX designer. The job, as it turned out, was to make <strong>research</strong> something the company would pay for, act on, and eventually run on its own.</p>
+
+  <figure>
+   <svg viewBox="0 0 760 210" aria-label="Timeline from July 2017 to July 2019 with the cohorts planned beyond it">
+    <line x1="20" y1="120" x2="600" y2="120" stroke="#003D79" stroke-opacity=".45" stroke-width="1.5" stroke-dasharray="600" stroke-dashoffset="600" style="animation:dash 1.8s ease-out .2s forwards"/>
+    <line x1="600" y1="120" x2="740" y2="120" stroke="#003D79" stroke-opacity=".45" stroke-width="1.5" stroke-dasharray="4 6"/>
+    <g fill="#003D79"><circle cx="20" cy="120" r="5"/><circle cx="120" cy="120" r="5"/><circle cx="180" cy="120" r="5"/><circle cx="330" cy="120" r="5"/><circle cx="600" cy="120" r="5"/></g>
+    <circle cx="430" cy="120" r="7" fill="#73964A"/>
+    <circle cx="720" cy="120" r="5" fill="none" stroke="#73964A" stroke-width="1.5"/>
+    <g font-family="Fira Code,monospace" font-size="13" fill="#5e6b7d">
+     <text x="20" y="88">Jul 2017</text><text x="120" y="60">Q4 2017</text><text x="180" y="88">Jan 2018</text><text x="330" y="60">mid 2018</text><text x="430" y="88" fill="#003D79">Sep 2018</text><text x="600" y="60">Jul 2019</text><text x="720" y="88" text-anchor="end">Q4 2019</text>
+    </g>
+    <g font-family="Instrument Serif,serif" font-size="16" fill="#2b3a4d">
+     <text x="20" y="156">first UX hire; the HR study</text><text x="120" y="184">lunch-and-learns</text><text x="330" y="184">maturity survey, 100+</text><text x="430" y="156" fill="#003D79">business case approved</text><text x="600" y="184">departure</text><text x="740" y="156" text-anchor="end">cohorts, as planned</text>
+    </g>
+   </svg>
+   <figcaption>Fig. 1 · Two years, one decision point. January 2018 is the move to the Inovalon parent with a promotion. The dashed segment is the approved plan past my departure.</figcaption>
+  </figure>
+
+  <h2>One study for HR</h2>
+  <p>The intranet-redesign team had no researcher, so I made myself available. We ran Avalere's first rigorous <strong>usability study</strong> with internal employees, using a Mural workshop to define the task scenarios. The readout was written for HR leadership and did two jobs at once: it reported the findings, and it taught the difference between user research and market research.</p>
+  <p>HR became the first ally. Their agreement was the seed of everything that followed.</p>
+  <p>Alongside it, I ran lunch-and-learns built on the company's own values. Avalere's name comes from birds flocking, so swarms versus triangles became the metaphor for design on wicked problems. I tested the framing on business analysts and product managers before running it on site, and the marketing team came on as a second ally.</p>
+
+  <h2>The pivot to training</h2>
+  <p>The first draft of the strategy replaced outsourced analysts with in-house designers. One <strong>empathy map</strong> on a skeptical stakeholder changed that. The people already doing analysis had the domain knowledge; what they lacked was method. So the strategy became training them, and that decision is where the cohort model comes from.</p>
+  <p>A DMI-based design-maturity survey, 100+ responses across four business units, found the founding cohort: 20 practitioners who were already leading research informally.</p>
+
+  <figure>
+   <svg viewBox="0 0 760 260" aria-label="Certification cohorts of 20 per quarter, from 20 to 100 practitioners">
+    <line x1="40" y1="220" x2="740" y2="220" stroke="#003D79" stroke-opacity=".5"/>
+    <g>
+     <rect x="60" y="190" width="100" height="30" fill="#73964A" style="transform-box:fill-box;transform-origin:bottom;animation:grow .5s ease-out .2s both"/>
+     <rect x="200" y="160" width="100" height="60" fill="none" stroke="#003D79" stroke-width="1.5" style="transform-box:fill-box;transform-origin:bottom;animation:grow .5s ease-out .5s both"/>
+     <rect x="340" y="130" width="100" height="90" fill="none" stroke="#003D79" stroke-width="1.5" style="transform-box:fill-box;transform-origin:bottom;animation:grow .5s ease-out .8s both"/>
+     <rect x="480" y="100" width="100" height="120" fill="none" stroke="#003D79" stroke-width="1.5" style="transform-box:fill-box;transform-origin:bottom;animation:grow .5s ease-out 1.1s both"/>
+     <rect x="620" y="70" width="100" height="150" fill="none" stroke="#003D79" stroke-width="1.5" style="transform-box:fill-box;transform-origin:bottom;animation:grow .5s ease-out 1.4s both"/>
+    </g>
+    <g font-family="Source Sans 3,sans-serif" font-weight="600" font-size="16" fill="#003D79" text-anchor="middle"><text x="110" y="178">20</text><text x="250" y="148">40</text><text x="390" y="118">60</text><text x="530" y="88">80</text><text x="670" y="58">100</text></g>
+    <g font-family="Fira Code,monospace" font-size="12" fill="#5e6b7d" text-anchor="middle"><text x="110" y="244">Q4 2019</text><text x="250" y="244">Q1 2020</text><text x="390" y="244">Q2 2020</text><text x="530" y="244">Q3 2020</text><text x="670" y="244">Q4 2020</text></g>
+    <text x="40" y="30" font-family="Fira Code,monospace" font-size="12" fill="#5e6b7d">practitioners certified · 20 per cohort, quarterly</text>
+   </svg>
+   <figcaption>Fig. 2 · The certification plan as approved. The filled bar is the founding cohort identified by the survey; the outlined bars are the schedule toward 100 practitioners actively leading research.</figcaption>
+  </figure>
+
+  <h2>The business case</h2>
+  <p>In September 2018 the case went to leadership with the numbers attached. The vendor contract ran $27,136 per sprint, $687k for the year. Four in-house designers at $202k fully loaded each replaced it. Total design spend fell 26% while delivery capacity doubled, and the Design Center of Excellence became an official corporate goal with approved headcount: an AVP of Design and a remote designer.</p>
+  <p>The <strong>budget model</strong> was formula-linked, so leadership could change an assumption and watch the totals move.</p>
+
+  <figure>
+   <svg viewBox="0 0 760 260" aria-label="Total design spend falls from an index of 100 to 74 while delivery capacity doubles">
+    <g stroke="#003D79" stroke-opacity=".12"><line x1="40" y1="40" x2="740" y2="40"/><line x1="40" y1="85" x2="740" y2="85"/><line x1="40" y1="130" x2="740" y2="130"/><line x1="40" y1="175" x2="740" y2="175"/></g>
+    <line x1="40" y1="220" x2="740" y2="220" stroke="#003D79" stroke-opacity=".5"/>
+    <g>
+     <rect x="80" y="40" width="90" height="180" fill="#003D79" fill-opacity=".18" style="transform-box:fill-box;transform-origin:bottom;animation:grow .6s ease-out .2s both"/>
+     <rect x="200" y="86.8" width="90" height="133.2" fill="#73964A" style="transform-box:fill-box;transform-origin:bottom;animation:grow .6s ease-out .6s both"/>
+     <rect x="470" y="130" width="90" height="90" fill="#003D79" fill-opacity=".18" style="transform-box:fill-box;transform-origin:bottom;animation:grow .6s ease-out 1s both"/>
+     <rect x="590" y="40" width="90" height="180" fill="#73964A" style="transform-box:fill-box;transform-origin:bottom;animation:grow .6s ease-out 1.4s both"/>
+    </g>
+    <g font-family="Source Sans 3,sans-serif" font-weight="600" font-size="16" fill="#003D79" text-anchor="middle"><text x="125" y="30">100</text><text x="245" y="76">74</text><text x="515" y="120">1×</text><text x="635" y="30">2×</text></g>
+    <g font-family="Fira Code,monospace" font-size="12" fill="#5e6b7d" text-anchor="middle"><text x="125" y="244">vendor, 2018</text><text x="245" y="244">in-house</text><text x="515" y="244">vendor, 2018</text><text x="635" y="244">in-house</text></g>
+   </svg>
+   <figcaption>Fig. 3 · Left pair: total design spend, indexed to the 2018 vendor year. Right pair: delivery capacity. Source: the September 2018 business case.</figcaption>
+  </figure>
+
+  <h2>What we built to run it</h2>
+  <ul class="built">
+   <li><b>Design system.</b> Built in React, documented in Sketch, version-controlled in Abstract with a git-pinned version, with front-end governance around it.</li>
+   <li><b>Research stack.</b> An Airtable atomic-research repository tracking workstreams, stakeholders, and experiments across ten dimensions. Glean.ly as an alpha partner, Userlytics as a PHI-redacting platform, LUMA Institute as delivery partner.</li>
+   <li><b>Compliance.</b> De-identification built into the process, so studies could run on protected health information under HIPAA.</li>
+   <li><b>Hiring.</b> Job descriptions and a compensation analysis with HR. A manager had said designers wouldn't want to work there; the postings drew 200+ qualified applicants in two months.</li>
+   <li><b>Certification.</b> 20 practitioners per cohort, quarterly from Q4 2019, toward 100 actively leading research, with design-tribe rituals and internal case studies to capture economic impact.</li>
+  </ul>
+
+  <h2>What it changed</h2>
+  <p>Two years of discovery research and strategic design avoided roughly $2.4M in code rewrites. One example: an NLP prototype built for about 10% of the production budget shipped for Client Congress in three months. A contextual inquiry along the way found that clinicians did not fully trust automated tools, so the product was repositioned as an enabler before it was built. Months later its main competitor announced a redesign that closely matched the approach.</p>
+  <p>Market Navigator had spent two years on external market research alone. Capturing the assumptions and testing them with clients made the pivot obvious to leadership. Contract sizes grew, and a new department formed to find repeatable services that could become products.</p>
+
+  <div class="quotes">
+   <blockquote><p>“A transformative force multiplier” whose team “initiated design research, performed service design, UX experiments, aligned business stakeholders, and successfully managed external design and software development resources.”</p><footer>Hiring manager · Avalere Health / Inovalon · <a href="https://linkedin.com/in/miguelux">LinkedIn →</a></footer></blockquote>
+   <blockquote><p>“A strong visionary with tremendous intelligence and high EQ… a forward-thinker who operates from a strong foundation of practical experience,” who “had a tough job at Inovalon trying to transform an existing Agile SDLC culture by integrating the power of design.”</p><footer>Manager · Inovalon · <a href="https://linkedin.com/in/miguelux">LinkedIn →</a></footer></blockquote>
+  </div>
+
+  <div class="limits">
+   <div class="label">What this account can't claim</div>
+   <ul>
+    <li>The certification cohorts were approved to start in Q4 2019. I left in July 2019, so Fig. 2 is the plan as approved, and I can't report how it ran.</li>
+    <li>Spend and capacity figures come from the September 2018 business case and 2018 vendor rates. The ~$2.4M rewrites figure is an estimate of avoided work; treat it as directional.</li>
+   </ul>
+  </div>
+
+  <div class="next">
+   <a class="cta" href="mailto:mail+careers@miguel.design?subject=Staff%20or%20principal%20role">Talk to me about a staff or principal role →</a>
+   <a class="back" href="/#work">← All work</a>
+  </div>
+ </article>
+</section>
