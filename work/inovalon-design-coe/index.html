@@ -19,7 +19,7 @@ a:hover{text-decoration:underline;text-decoration-color:#73964A;text-underline-o
 .label{font:12px 'Fira Code',monospace;letter-spacing:.08em;text-transform:uppercase;color:#5e6b7d}
 .case-header{padding-top:56px;padding-bottom:56px}
 .hero{display:grid;grid-template-columns:minmax(0,7fr) minmax(280px,5fr);gap:32px 56px;align-items:stretch;margin-top:28px}
-.hero-text{min-width:0}
+.hero-text{min-width:0;container-type:inline-size}
 .hero-art{position:relative;min-height:380px;border:1px solid rgba(0,61,121,.18);border-radius:6px;overflow:hidden;background:#fff;display:flex;flex-direction:column;align-items:center;padding:28px 28px 14px;cursor:pointer}
 .seats{display:grid;grid-template-columns:repeat(10,1fr);gap:clamp(5px,.8vw,10px);width:min(100%,340px);aspect-ratio:1;margin:auto 0}
 .seats i{display:block;border-radius:50%;background:rgba(0,61,121,.07);transform:scale(.5);transition:background .4s,transform .45s cubic-bezier(.2,.8,.2,1)}
@@ -30,7 +30,8 @@ a:hover{text-decoration:underline;text-decoration-color:#73964A;text-underline-o
 .hero-art .cap i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
 .hero-art .cap i.d{background:#003D79}
 .hero-art .cap i.p{background:#73964A;margin-left:14px}
-.facts-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:20px 32px;margin-top:40px;font:12px/1.65 'Fira Code',monospace;color:#2b3a4d}
+.facts-row{display:grid;grid-template-columns:1fr;gap:20px 32px;margin-top:40px;font:12px/1.65 'Fira Code',monospace;color:#2b3a4d}
+@container (min-width:660px){.facts-row{grid-template-columns:repeat(3,minmax(0,1fr))}}
 .facts-row > div{border-top:1px solid rgba(0,61,121,.35);padding-top:10px}
 .facts-row span{display:block}
 .facts-row .k{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#5e6b7d;margin-bottom:2px}
@@ -38,7 +39,9 @@ a:hover{text-decoration:underline;text-decoration-color:#73964A;text-underline-o
 h1{margin:0;max-width:1100px;font:600 clamp(44px,6vw,88px)/.98 'Source Sans 3',sans-serif;letter-spacing:-.025em;text-wrap:balance}
 h1 em{font-style:normal;color:#73964A}
 .lede{margin:32px 0 0;max-width:720px;font-size:22px;line-height:1.4;color:#2b3a4d}
-.numbers{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(160px,100%),1fr));gap:32px 40px;margin-top:56px;border-top:1px solid rgba(0,61,121,.35);padding-top:24px}
+.numbers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 40px;margin-top:56px;border-top:1px solid rgba(0,61,121,.35);padding-top:24px}
+@media (max-width:520px){.numbers{grid-template-columns:1fr}}
+@media (min-width:920px){.numbers{grid-template-columns:repeat(4,minmax(0,1fr))}}
 .numbers b{display:block;font:600 44px/1 'Source Sans 3',sans-serif;letter-spacing:-.03em}
 .numbers span{display:block;margin-top:8px;font:12px/1.6 'Fira Code',monospace;color:#5e6b7d}
 .body{padding-top:48px;padding-bottom:96px}
@@ -317,7 +320,6 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
   <div><b>−26%</b><span>total design spend, 2019 plan</span></div>
   <div><b>×2</b><span>delivery capacity, modeled</span></div>
   <div><b>200+</b><span>qualified applicants in two months</span></div>
-  <div><b>114</b><span>maturity survey responses, four business units</span></div>
  </div>
 </section>
 
