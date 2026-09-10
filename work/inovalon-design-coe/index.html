@@ -141,7 +141,7 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
 .pane + .pane{border-left:1px solid rgba(0,61,121,.18)}
 .pane-h{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 16px;border-bottom:1px solid rgba(0,61,121,.12);font:11px 'Fira Code',monospace;color:#5e6b7d}
 .pane-h b{font:600 13px 'Source Sans 3',sans-serif;color:#003D79}
-.note{padding:18px 20px 22px;font-family:Georgia,'Times New Roman',serif;font-size:13px;line-height:1.55;color:#2b3a4d;max-height:380px;overflow:auto}
+.note{padding:18px 20px 22px;font-family:Georgia,'Times New Roman',serif;font-size:13px;line-height:1.55;color:#2b3a4d}
 .note h4{margin:0 0 4px;font:600 13px 'Source Sans 3',sans-serif;color:#003D79;letter-spacing:.02em}
 .note p{margin:0 0 10px;font-size:13px;line-height:1.55;color:#2b3a4d}
 .note .meta{font:11px 'Fira Code',monospace;color:#5e6b7d;margin-bottom:12px}
@@ -151,7 +151,7 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
 .prog{display:flex;align-items:center;gap:10px;font:11px 'Fira Code',monospace;color:#5e6b7d}
 .prog i{display:block;width:90px;height:4px;background:rgba(0,61,121,.12);border-radius:2px;overflow:hidden}
 .prog i b{display:block;height:100%;width:0;background:#003D79;transition:width .4s}
-.cards{margin:0;padding:8px;list-style:none;display:flex;flex-direction:column;gap:6px;max-height:380px;overflow:auto}
+.cards{margin:0;padding:8px;list-style:none;display:flex;flex-direction:column;gap:6px}
 .card{border:1px solid rgba(0,61,121,.18);border-left:3px solid #73964A;border-radius:4px;padding:10px 12px;display:grid;grid-template-columns:1fr auto;gap:6px 10px;align-items:center;cursor:pointer;background:#fff;transition:background .2s}
 .card:hover,.card.on{background:rgba(0,61,121,.05)}
 .card:focus-visible{outline:2px solid #003D79;outline-offset:-2px}
@@ -210,7 +210,7 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
 .old-h span.x{display:inline-flex;align-items:center;padding:2px 5px;border-radius:3px;background:rgba(200,70,27,.12);box-shadow:0 0 0 1.5px #C8461B}
 .old-h span.x i{border-color:#C8461B}
 .old-card em.x{color:#C8461B;font-weight:700}
-.old-card .mk{position:absolute;right:22px;top:6px;margin:0}
+.old-card .mk{position:absolute;right:22px;top:6px;margin:0;color:#fff}
 .old-f.x{padding:3px 6px;margin:0 -6px;border-radius:3px;background:rgba(200,70,27,.12);box-shadow:0 0 0 1.5px #C8461B}
 .old-btns span.x{border-color:#C8461B;color:#C8461B;background:rgba(200,70,27,.08)}
 .old-req.x{color:#C8461B;font-weight:600;font-size:10px}
@@ -256,7 +256,6 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
 @media (max-width:720px){
  .review{grid-template-columns:1fr}
  .pane + .pane{border-left:0;border-top:1px solid rgba(0,61,121,.18)}
- .note,.cards{max-height:300px}
  .survey{grid-template-columns:1fr}
  .hero{grid-template-columns:1fr}
  .hero-art{min-height:0;padding:24px}
@@ -920,7 +919,7 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
   for(var j=0;j<evs.length;j++) evs[j].classList.remove('on');
   card.classList.add('on');
   var ev=chart.querySelector('.ev[data-ev="'+card.getAttribute('data-card')+'"]');
-  if(ev){ ev.classList.add('on'); var top=ev.offsetTop-chart.offsetTop-80; chart.scrollTo({top:top<0?0:top,behavior:'smooth'}); }
+  if(ev){ ev.classList.add('on'); if(chart.scrollHeight>chart.clientHeight+4){ var top=ev.offsetTop-chart.offsetTop-80; chart.scrollTo({top:top<0?0:top,behavior:'smooth'}); } }
  }
  function progress(){
   pb.style.width=(done/total*100)+'%';
