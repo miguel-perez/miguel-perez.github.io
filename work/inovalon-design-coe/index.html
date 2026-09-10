@@ -47,6 +47,7 @@ h1 em{font-style:normal;color:#73964A}
 .act > *{grid-column:2;min-width:0}
 .act > figure{grid-column:1/-1}
 .act > figure.dia{width:100%;max-width:1040px;justify-self:center}
+.act > figure.txt{grid-column:2}
 .act:first-child{margin-top:0}
 .act .label{display:block}
 .story h2{margin:10px 0 0;font:600 clamp(30px,3vw,40px)/1.1 'Source Sans 3',sans-serif;letter-spacing:-.02em}
@@ -578,7 +579,7 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
    <p>In September 2018 the case went to leadership with the workbook attached. The design vendor billed $27,136 a sprint, $687k across 2018, for a five-role team. Four in-house designers replaced it: total design spend fell 26% in the 2019 plan while the model's delivery capacity doubled. The Design Center of Excellence became a corporate goal with approved headcount, an AVP of Design and a remote designer.</p>
    <p>The <strong>budget model</strong> ran to eleven formula-linked sheets, so leadership could change an assumption and watch the totals move. This is the sheet they decided on.</p>
 
-   <figure>
+   <figure class="txt">
     <div class="ui" aria-label="The budget sheet from the September 2018 business case, redrawn. Two columns, 2018 actual against the 2019 plan, comparing internal staff cost, vendor cost, total design spend, delivery velocity, and cost per velocity point.">
      <div class="ui-bar"><b>Design budget model · Budget sheet</b><span class="label">v1.0.0 · September 2018</span></div>
      <div class="tbl-scroll"><table class="sheet">
@@ -591,9 +592,9 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
        <tr class="model"><td>Cost per velocity point</td><td data-y="2018">$20,968</td><td data-y="2019">$7,761</td></tr>
       </tbody>
      </table></div>
-     <div class="chain"><span><b>&minus;$283,202</b>variance</span><i>·</i><span><b>&minus;26%</b>total spend</span><i>·</i><span><b>&times;2</b>headcount</span><i>·</i><span><b>&minus;63%</b>cost per point</span></div>
+     <div class="chain"><span><b>&minus;$283,202</b>variance</span><i>·</i><span><b>&minus;26%</b>total spend</span><i>·</i><span><b>&minus;32%</b>per seat</span><i>·</i><span><b>&minus;63%</b>per velocity point</span></div>
     </div>
-    <figcaption>Fig. 6 · The budget sheet from the September 2018 business case, redrawn. Staff cost is formula-linked to the compensation analysis and the vendor line to the executed contract, so an assumption changed anywhere moved the total. Velocity is the model's own estimate of delivery, not a measurement.</figcaption>
+    <figcaption>Fig. 6 · The budget sheet from the September 2018 business case, redrawn. Staff cost is formula-linked to the compensation analysis and the vendor line to the executed contract, so an assumption changed anywhere moved the total. A seat cost 32% less in-house than at the vendor. Velocity is the model's own estimate of delivery, not a measurement.</figcaption>
    </figure>
    <span class="methods"><b>METHODS</b> · Innovator's Compass · hypothesis statements and proto-personas · atomic research repository · boundary objects</span>
   </section>
@@ -819,7 +820,7 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
    {n:6,cap:'2019 plan · six designers, a corporate goal'},
    {n:20,cap:'October 2019 · first cohort of twenty, as planned'},
    {n:100,cap:'2020 · a hundred practitioners, as planned'}];
-  var timers=[], reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches, played=false;
+  var timers=[], reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches, onScreen=false;
   function cls(i){ return i<6?'d':'p'; }
   function play(){
    for(var k=0;k<timers.length;k++) clearTimeout(timers[k]); timers=[];
@@ -833,9 +834,14 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
     t+=span+1000; prev=st.n;
    }
    timers.push(setTimeout(function(){ capEl.textContent=finalCap; },t));
+   timers.push(setTimeout(function(){ if(onScreen&&!document.hidden) play(); },t+4200));
   }
-  if(reduced||!('IntersectionObserver' in window)) play();
-  else new IntersectionObserver(function(es,obs){ es.forEach(function(e){ if(e.isIntersecting&&!played){ played=true; play(); obs.disconnect(); } }); },{threshold:0.3}).observe(artEl);
+  function stop(){ for(var k=0;k<timers.length;k++) clearTimeout(timers[k]); timers=[]; }
+  if(reduced||!('IntersectionObserver' in window)){ onScreen=true; play(); }
+  else new IntersectionObserver(function(es){ es.forEach(function(e){
+   if(e.isIntersecting){ if(!onScreen){ onScreen=true; play(); } }
+   else { onScreen=false; stop(); } }); },{threshold:0.3}).observe(artEl);
+  document.addEventListener('visibilitychange',function(){ if(document.hidden) stop(); else if(onScreen&&!reduced) play(); });
   artEl.addEventListener('click',play);
  }
 
