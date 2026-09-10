@@ -104,13 +104,6 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
 .chain b{font:600 16px 'Source Sans 3',sans-serif;color:#003D79;margin-right:4px}
 .chain i{font-style:normal;color:rgba(0,61,121,.4);padding:0 4px}
 
-/* Segmented toggle */
-.seg{display:inline-flex;flex-wrap:wrap;border:1px solid rgba(0,61,121,.35);border-radius:6px;overflow:hidden}
-.seg button{appearance:none;border:0;background:#fff;color:#003D79;font:12px 'Fira Code',monospace;letter-spacing:.04em;padding:9px 14px;cursor:pointer;border-right:1px solid rgba(0,61,121,.25)}
-.seg button:last-child{border-right:0}
-.seg button[aria-pressed="true"]{background:#003D79;color:#fff}
-.seg button:focus-visible{outline:2px solid #73964A;outline-offset:-2px}
-
 /* Fig. 6: budget scenarios, static */
 .scen{display:flex;flex-direction:column;gap:4px}
 .scen-r{display:grid;grid-template-columns:minmax(150px,1fr) minmax(0,1.4fr) minmax(0,1.4fr);gap:12px 28px;align-items:center;padding:14px 12px;border-radius:4px}
@@ -131,13 +124,16 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
 .legend{display:flex;flex-wrap:wrap;gap:16px;font:11px 'Fira Code',monospace;color:#5e6b7d}
 .legend i{display:inline-block;width:10px;height:10px;margin-right:6px;vertical-align:-1px}
 
-/* Fig. 7: before and after */
-.cmp{border:1px solid rgba(0,61,121,.3);border-radius:6px;overflow:hidden;background:#fff}
-.cmp-bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 20px;padding:10px 12px;border-bottom:1px solid rgba(0,61,121,.18);background:rgba(0,61,121,.04)}
-.cmp-note{flex:1;min-width:220px;font:12px/1.6 'Fira Code',monospace;color:#2b3a4d}
-.cmp[data-view="before"] .cmp-after,.cmp[data-view="after"] .cmp-before{display:none}
-.cmp .ui{border:0;border-radius:0}
-.cmp-before .old{height:520px}
+/* Fig. 7: before and after, both shown */
+.cmp{display:flex;flex-direction:column;gap:28px}
+.cmp-part{display:flex;flex-direction:column;gap:8px;min-width:0}
+.cmp-h{display:flex;flex-wrap:wrap;justify-content:space-between;gap:2px 20px;font:11px/1.7 'Fira Code',monospace;letter-spacing:.06em;color:#5e6b7d}
+.cmp-h b{font-weight:400}
+.cmp-part.b .cmp-h span{color:#C8461B}
+.cmp-part.a .cmp-h span{color:#5A7A33}
+.cmp-screen{border:1px solid rgba(0,61,121,.3);border-radius:6px;overflow:hidden;background:#fff}
+.cmp-screen .ui{border:0;border-radius:0}
+.cmp-screen .old{height:500px}
 .mk{display:inline-block;min-width:16px;height:16px;padding:0 4px;border-radius:8px;background:#C8461B;color:#fff;font:600 10px/16px 'Fira Code',monospace;text-align:center;vertical-align:middle;font-style:normal;letter-spacing:0;margin-left:6px}
 .mk.g{background:#73964A}
 .cuts{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(280px,100%),1fr));gap:12px 28px;margin:0;padding:0;list-style:none}
@@ -251,11 +247,12 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
 .funnel-scroll{overflow:visible}
 .loop{margin-top:10px;font:11px/1.6 'Fira Code',monospace;color:#5e6b7d;border-top:1px dashed rgba(0,61,121,.35);padding-top:8px}
 
-/* Fig. 3: flocking lab */
-.lab{border:1px solid rgba(0,61,121,.18);border-radius:6px;overflow:hidden;background:#fff}
-.lab canvas{display:block;width:100%;height:320px}
-.lab-bar{display:flex;flex-wrap:wrap;align-items:center;gap:10px 20px;padding:10px 12px;border-top:1px solid rgba(0,61,121,.18)}
-.lab-note{flex:1;min-width:220px;font:12px/1.6 'Fira Code',monospace;color:#2b3a4d}
+/* Fig. 3: the two formations, side by side */
+.lab{display:grid;grid-template-columns:1fr 1fr;gap:10px 28px}
+.lab-part{display:flex;flex-direction:column;gap:8px;min-width:0}
+.lab-h{font:11px/1.7 'Fira Code',monospace;letter-spacing:.06em;color:#5e6b7d}
+.lab canvas{display:block;width:100%;height:300px;border:1px solid rgba(0,61,121,.18);border-radius:6px;background:#fff}
+.lab-note{font:12px/1.6 'Fira Code',monospace;color:#2b3a4d}
 
 @keyframes dash{to{stroke-dashoffset:0}}
 @keyframes grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
@@ -273,7 +270,9 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
  .scen-r{grid-template-columns:1fr;gap:10px}
  .scen-r.h{display:none}
  .hbar .k{display:block}
- .cmp-before .old{height:auto}
+ .cmp-screen .old{height:auto}
+ .lab{grid-template-columns:1fr;gap:24px}
+ .lab canvas{height:260px}
  .funnel{grid-template-columns:1fr;gap:0}
  .funnel > div{border-top:1px solid rgba(0,61,121,.25);padding:14px 0 16px;display:grid;grid-template-columns:1fr 1fr;gap:6px 16px}
  .funnel > div:first-child{border-top:2px solid #003D79}
@@ -483,13 +482,18 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
 
    <figure>
     <div class="lab">
-     <canvas id="lab-flock" aria-label="A flocking simulation. Switch between a single-leader triangle and a three-rule swarm."></canvas>
-     <div class="lab-bar">
-      <div class="seg" role="group" aria-label="Formation"><button type="button" data-mode="vee" aria-pressed="false">Triangle · one leader</button><button type="button" data-mode="swarm" aria-pressed="true">Swarm · three rules</button></div>
-      <span class="lab-note" id="lab-note">Three rules, no leader. Every bird reads only its neighbours, and the flock holds.</span>
+     <div class="lab-part">
+      <span class="lab-h">TRIANGLE · one leader</span>
+      <canvas id="flock-vee" aria-label="Birds holding slots behind a single leader, turning as the leader turns."></canvas>
+      <span class="lab-note">Everyone holds a slot behind the leader. Efficient when the route is known, and nobody else is reading the sky.</span>
+     </div>
+     <div class="lab-part">
+      <span class="lab-h">SWARM · three rules</span>
+      <canvas id="flock-swarm" aria-label="Birds flocking with no leader: matching heading, keeping their distance, and staying with the group."></canvas>
+      <span class="lab-note">No leader. Every bird reads only its neighbours, and the flock still holds together.</span>
      </div>
     </div>
-    <figcaption>Fig. 3 · The deck's opening slide, now runnable. Steer with your neighbours, keep your distance, stay with the group. A single leader only works when the route is known.</figcaption>
+    <figcaption>Fig. 3 · The deck's opening slide, both formations running. Steer with your neighbours, keep your distance, stay with the group.</figcaption>
    </figure>
    <span class="methods"><b>METHODS</b> · task-based usability study · workshop facilitation · tame versus wicked problems · values-based framing</span>
   </section>
@@ -600,12 +604,10 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
    <p>We had assumed reviewers would accept any finding above a confidence threshold. The first session with clinical reviewers refuted it: they would not trust a finding they could not check against the chart. So the interface was rethought around <strong>evidence</strong>. Every suggested condition points to the page and sentence that supports it, and reviewers can capture what the model missed. The threshold slider went, and so did the mandatory reason for rejection.</p>
 
    <figure>
-    <div class="cmp" id="cmp" data-view="before">
-     <div class="cmp-bar">
-      <div class="seg" role="group" aria-label="Before or after the research"><button type="button" data-view="before" aria-pressed="true">Before · mid 2018</button><button type="button" data-view="after" aria-pressed="false">After · the research pass</button></div>
-      <span class="cmp-note" id="cmp-note">Red marks what the research cut.</span>
-     </div>
-     <div class="cmp-before">
+    <div class="cmp">
+     <div class="cmp-part b">
+      <div class="cmp-h"><b>BEFORE · the build, mid 2018</b><span>red marks what the research cut</span></div>
+      <div class="cmp-screen">
 <div class="old" aria-label="The vendor build before the research pass: three panes, a precision slider, and a validation form">
        <div class="old-top"><span>‹ Back to My Charts</span><span>5 / 16</span><i></i><i></i><i></i><i></i><span class="sl x">More precision <b></b> More highlights<em class="mk">1</em></span><span class="sp"></span><span>Next Chart ›</span></div>
        <div class="old-body">
@@ -644,8 +646,11 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
         </div></div>
        </div>
       </div>
+      </div>
      </div>
-     <div class="cmp-after">
+     <div class="cmp-part a">
+      <div class="cmp-h"><b>AFTER · the research pass</b><span>green marks what it added, and it works: select a suggestion to see its evidence</span></div>
+      <div class="cmp-screen">
 <div class="ui review-ui" aria-label="The chart review screen, reconstructed with synthetic data. Suggested conditions on the right point to evidence in the note on the left.">
      <div class="ui-bar"><span><b>Medical review</b> · Sample Health Plan · <span class="label">synthetic record</span></span><span class="prog">progress <i><b id="prog-bar"></b></i><span id="prog-txt">0 of 6</span><em class="mk g">C</em></span></div>
      <div class="review">
@@ -685,13 +690,14 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
       </div>
      </div>
     </div>
+      </div>
      </div>
     </div>
     <ul class="cuts">
      <li><b>What the research cut</b><em class="mk">1</em>confidence slider · <em class="mk">2</em>collapse and browse all findings · <em class="mk">3</em>dismiss on every card · <em class="mk">4</em>leave the page to add a code · <em class="mk">5</em>mandatory reason for rejection</li>
      <li><b>What it added</b><em class="mk g">A</em>known conditions first · <em class="mk g">B</em>evidence anchored to page and sentence · <em class="mk g">C</em>visible progress, reviews can be left unfinished · <em class="mk g">D</em>capture what the model missed</li>
     </ul>
-    <figcaption>Fig. 7 · Before, the build as it stood in mid 2018, redrawn. After, the pass following the contextual inquiry, and it works: select a suggestion to see its evidence, then accept or reject. Both use a synthetic chart and public code sets.</figcaption>
+    <figcaption>Fig. 7 · The build as it stood in mid 2018, redrawn, and the pass that followed the contextual inquiry. Both use a synthetic chart and public code sets.</figcaption>
    </figure>
 
    <p>The demo played without a hitch at Client Congress. The team came home with a list of prospects, and leadership funded a group of developers to build it. Over two years, discovery work like this avoided an estimated $2.4M in rewrites: a tenth of a build budget spent on learning before the other nine tenths were committed.</p>
@@ -855,18 +861,20 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
    var b=self.boids, w=self.w, h=self.h, N=b.length, ms=self.speed, i, j, p;
    self.t+=1; var t=self.t;
    if(self.mode==='vee'){
-    var NV=Math.min(N,25), cx0=w/2, cy0=h/2, Rx=w*0.34, Ry=h*0.30, om=ms*0.9/((Rx+Ry)/2);
+    /* Fit the formation and its circuit to the frame so no bird flies off the edge. */
+    var NV=Math.min(N,25), ranks=Math.max(1,Math.ceil((NV-1)/2)), unit=Math.min(w,h)*0.40/ranks;
+    var cx0=w/2, cy0=h/2, Rx=w*0.30, Ry=h*0.20, om=ms*0.75/((Rx+Ry)/2);
     var L=b[0]; L.lead=true; L.hide=false; var ph=t*om;
     L.x=cx0+Rx*Math.cos(ph); L.y=cy0+Ry*Math.sin(ph); L.vx=-Rx*Math.sin(ph)*om; L.vy=Ry*Math.cos(ph)*om;
     var vl=Math.hypot(L.vx,L.vy)||1, ux=L.vx/vl, uy=L.vy/vl, px=-uy, py=ux;
     for(i=NV;i<N;i++) b[i].hide=true;
-    for(i=1;i<NV;i++){ var k=b[i]; k.lead=false; k.hide=false; var side=(i%2?1:-1), rank=Math.ceil(i/2); var back=rank*18, out=rank*13*side;
+    for(i=1;i<NV;i++){ var k=b[i]; k.lead=false; k.hide=false; var side=(i%2?1:-1), rank=Math.ceil(i/2); var back=rank*unit, out=rank*unit*0.45*side;
      var tx=L.x-ux*back+px*out, ty=L.y-uy*back+py*out; var dx=tx-k.x, dy=ty-k.y; var dd=Math.sqrt(dx*dx+dy*dy)||1;
-     var want=Math.min(ms*1.3,dd*0.1);
-     k.vx+=(dx/dd*want-k.vx)*0.15; k.vy+=(dy/dd*want-k.vy)*0.15; k.x+=k.vx; k.y+=k.vy; }
+     var want=Math.min(ms*2.4,dd*0.35);
+     k.vx+=(dx/dd*want-k.vx)*0.5; k.vy+=(dy/dd*want-k.vy)*0.5; k.x+=k.vx; k.y+=k.vy; }
     return;
    }
-   var R=60, R2=R*R, sepOn=self.rules.separate, S=sepOn?18:6, S2=S*S, sepW=sepOn?1.5:0.7, mf=0.07;
+   var R=85, R2=R*R, sepOn=self.rules.separate, S=sepOn?18:6, S2=S*S, sepW=sepOn?1.5:0.7, mf=0.07;
    var Px=w/2+w*0.26*Math.sin(t*0.0037), Py=h/2+h*0.24*Math.cos(t*0.0051), PR=90;
    for(i=0;i<N;i++){ p=b[i]; p.hide=false; var ax=0,ay=0,cx=0,cy=0,sx=0,sy=0,cnt=0,scnt=0;
     for(j=0;j<N;j++){ if(i===j)continue; var q=b[j]; var dx2=q.x-p.x, dy2=q.y-p.y; var d2=dx2*dx2+dy2*dy2;
@@ -902,23 +910,8 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
   var to; window.addEventListener('resize',function(){ clearTimeout(to); to=setTimeout(function(){ self.resize(); self.reset(); if(self.reduced)self.still(); },150); });
   document.addEventListener('visibilitychange',function(){ if(document.hidden)self.stop(); else self.start(); });
  }
- var labC=document.getElementById('lab-flock');
- if(labC){
-  var lab=new Flock(labC,{n:90,leaders:5,speed:1.7});
-  var notes={swarm:'Three rules, no leader. Every bird reads only its neighbours, and the flock holds.',vee:'One leader, and everyone holds a slot. Efficient when the route is known; nobody else is reading the sky.'};
-  var noteEl=document.getElementById('lab-note'), modes=labC.parentNode.querySelectorAll('[data-mode]');
-  function setMode(m){ lab.mode=m; lab.reset(); if(lab.reduced)lab.still(); noteEl.textContent=notes[m]; for(var j=0;j<modes.length;j++) modes[j].setAttribute('aria-pressed',String(modes[j].getAttribute('data-mode')===m)); }
-  for(var i=0;i<modes.length;i++) modes[i].addEventListener('click',function(){ setMode(this.getAttribute('data-mode')); });
- }
-
- /* Fig. 7: before or after. */
- var cmp=document.getElementById('cmp');
- if(cmp){
-  var vbtns=cmp.querySelectorAll('button[data-view]'), vnote=document.getElementById('cmp-note');
-  var vnotes={before:'Red marks what the research cut.',after:'Green marks what it added. Select a suggestion to see its evidence, then accept or reject.'};
-  function setView(v){ cmp.setAttribute('data-view',v); vnote.textContent=vnotes[v]; for(var j=0;j<vbtns.length;j++) vbtns[j].setAttribute('aria-pressed',String(vbtns[j].getAttribute('data-view')===v)); }
-  for(var i=0;i<vbtns.length;i++) vbtns[i].addEventListener('click',function(){ setView(this.getAttribute('data-view')); });
- }
+ var veeC=document.getElementById('flock-vee'); if(veeC) new Flock(veeC,{n:15,speed:1.5,mode:'vee'});
+ var swarmC=document.getElementById('flock-swarm'); if(swarmC) new Flock(swarmC,{n:48,leaders:3,speed:1.6});
 
  /* Fig. 7: chart review. Selecting a card highlights its evidence; accept or reject moves progress. */
  var cards=document.querySelectorAll('#cards .card'), chart=document.getElementById('note');
