@@ -278,10 +278,11 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
 @media (min-width:1000px){.lab canvas{height:clamp(300px,26vw,400px)}}
 .lab-note{font:12px/1.6 'Fira Code',monospace;color:#2b3a4d}
 
+figure:not(.in) .a{animation-play-state:paused}
 @keyframes dash{to{stroke-dashoffset:0}}
 @keyframes grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
 @keyframes growx{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-@media (max-width:900px){.old-body{grid-template-columns:1fr 1fr}.old-col:first-child{display:none}}
+@media (max-width:900px){.old-body{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 @media (max-width:720px){
  .review{grid-template-columns:1fr}
@@ -326,7 +327,7 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
 </div></header>
 
 <section class="case-header wrap">
- <div class="meta label"><span>Case study · Avalere Health, then Inovalon · July 2017 to July 2019</span><span>9-minute read</span></div>
+ <div class="meta label"><span>Case study · Avalere Health, then Inovalon · July 2017 to July 2019</span><span>14-minute read</span></div>
  <div class="hero">
   <div class="hero-text">
    <h1>From first UX hire to a <em>corporate goal</em> with headcount.</h1>
@@ -337,7 +338,7 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
     <div><span class="k">Team</span><span>A design researcher from June 2018. Product and engineering leads across four business units. LUMA Institute, Userlytics, Glean.ly.</span></div>
    </div>
   </div>
-  <div class="hero-art" id="hero-art" aria-hidden="true" title="Replay">
+  <div class="hero-art" id="hero-art" role="img" aria-label="One designer in July 2017 growing to a hundred practitioners planned for 2020, shown as a filling grid of a hundred seats." title="Replay">
    <div class="seats" id="seats"></div>
    <span class="cap"><b id="seats-cap">2017: one designer · 2020: a hundred practitioners, as planned</b><i class="d"></i>designers hired<i class="p"></i>practitioners, as planned</span>
   </div>
@@ -364,7 +365,7 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
 <div class="fig-scroll"><svg viewBox="0 0 760 230" aria-label="Timeline from July 2017 to October 2019. Avalere Health from July to December 2017, Inovalon from January 2018 to July 2019, and the first cohort planned for October 2019 after departure.">
      <rect x="20" y="108" width="160" height="24" fill="#003D79" fill-opacity=".06"/>
      <rect x="180" y="108" width="480" height="24" fill="#003D79" fill-opacity=".12"/>
-     <line x1="20" y1="120" x2="660" y2="120" stroke="#003D79" stroke-opacity=".45" stroke-width="1.5" stroke-dasharray="640" stroke-dashoffset="640" style="animation:dash 1.8s ease-out .2s forwards"/>
+     <line x1="20" y1="120" x2="660" y2="120" stroke="#003D79" stroke-opacity=".45" stroke-width="1.5" stroke-dasharray="640" stroke-dashoffset="640" class="a" style="animation:dash 1.8s ease-out .2s forwards"/>
      <line x1="660" y1="120" x2="740" y2="120" stroke="#003D79" stroke-opacity=".45" stroke-width="1.5" stroke-dasharray="4 6"/>
      <g fill="#003D79"><circle cx="20" cy="120" r="5"/><circle cx="100" cy="120" r="5"/><circle cx="180" cy="120" r="5"/><circle cx="313" cy="120" r="5"/><circle cx="553" cy="120" r="5"/><circle cx="607" cy="120" r="5"/><circle cx="660" cy="120" r="5"/></g>
      <circle cx="393" cy="120" r="7" fill="#73964A"/>
@@ -374,7 +375,7 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
       <text x="20" y="66">Jul 2017</text><text x="100" y="40">Oct 2017</text><text x="180" y="66">Jan 2018</text><text x="313" y="40">Jun 2018</text><text x="393" y="66" fill="#003D79">Sep 2018</text><text x="553" y="40">Mar 2019</text><text x="607" y="66">May 2019</text><text x="660" y="40">Jul 2019</text><text x="740" y="66" text-anchor="end">Oct 2019</text>
      </g>
      <g font-family="Instrument Serif,serif" font-size="15" fill="#2b3a4d">
-      <text x="20" y="160">first UX hire</text><text x="100" y="186">intranet study</text><text x="180" y="160">promotion, parent</text><text x="313" y="186">second designer</text><text x="393" y="160" fill="#003D79">business case, Client Congress</text><text x="553" y="186">CoE kick-off</text><text x="607" y="160">survey, n=114</text><text x="660" y="186">departure</text><text x="740" y="212" text-anchor="end">first cohort, as planned</text>
+      <text x="20" y="160">first UX hire</text><text x="100" y="186">intranet study</text><text x="180" y="160">promotion, parent</text><text x="313" y="186">second designer</text><text x="393" y="160" fill="#003D79">business case, Client Congress</text><text x="553" y="186">Design CoE kick-off</text><text x="607" y="160">survey, n=114</text><text x="660" y="186">departure</text><text x="740" y="212" text-anchor="end">first cohort, as planned</text>
      </g>
     </svg></div>
     <figcaption>Fig. 1 · Two employers, one story. January 2018 is the move to the Inovalon parent, with a promotion. The dashed segment is the approved plan past my departure.</figcaption>
@@ -432,8 +433,8 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
    <span class="label">II · Avalere Health · late 2017</span>
    <h2>Into the sales call</h2>
    <p>The market-analytics product was a year past its first release. A market study had been commissioned at the start, so the team felt the research was done. Prospects kept asking for one more feature before they would buy: the shape of a <strong>build trap</strong>.</p>
-   <p>I joined the demos and interviewed fifteen stakeholders to surface the assumptions behind the product and its business model. The buyers were busy executives, and the company wanted a finished product in the room. We proposed the opposite: ask before you demo. Sales let us in as the inquisitive product person.</p>
-   <p>Prospects were glad to talk about their own workflows. The conversation moved from the demo to the problems Avalere was uniquely placed to solve, contract sizes grew, and a new group formed to find repeatable services that could become products. By mid-2018 the product page had come down from the public site.</p>
+   <p>I joined the demos and interviewed fifteen stakeholders to surface the assumptions behind the product and its business model. The buyers were busy executives, and the company wanted a finished product in the room. I proposed the opposite: ask before you demo. Sales let me in as the inquisitive product person.</p>
+   <p>Prospects were glad to talk about their own workflows. The conversation moved from the demo to the problems Avalere was uniquely placed to solve, contract sizes grew, and a new group formed to find repeatable services that could become products.</p>
 
    <figure class="dia">
     <div class="fig-scroll"><svg viewBox="0 0 760 206" aria-label="Two flows. Before: pitch, demo, one more feature, build it, and back to the demo. After: questions, their workflow, a demo of the fit, a bigger contract, a repeatable service.">
@@ -457,12 +458,12 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
   <section class="act">
    <span class="label">III · Inovalon · 2018</span>
    <h2>Bringing design in-house</h2>
-   <p>In January 2018 a reorganisation moved me to the Inovalon parent, with a promotion. In June a design researcher joined. Together we set out to understand about a dozen product teams and bring the work outsourced to a design agency back in-house.</p>
-   <p>Managers and tech leads liked the agency: high-fidelity mockups, fast and consistent. What they missed was anyone responsible for the whole client experience and how it tied back to company measures. Analysts wrote requirements, the agency drew screens, and nobody in between asked why.</p>
-   <p>We ran the <strong>Innovator's Compass</strong> with each team to define workstreams and write testable hypotheses, and kept the findings in an atomic research repository. Every two weeks we ran two or three experiments. Data became observations, observations insights, insights scenarios, and scenarios solutions.</p>
+   <p>In January 2018 a reorganisation moved me to the Inovalon parent, with a promotion. In June a design researcher joined. Together we set out to understand about a dozen product teams and bring the work outsourced to a design vendor back in-house.</p>
+   <p>Managers and tech leads liked the vendor: high-fidelity mockups, fast and consistent. What they missed was anyone responsible for the whole client experience and how it tied back to company measures. Analysts wrote requirements, the vendor drew screens, and nobody in between asked why.</p>
+   <p>We ran the <strong>Innovator's Compass</strong>, a one-page canvas for framing a problem before solving it, with each team to define workstreams and write testable hypotheses, and kept the findings in an atomic research repository. Every two weeks we ran two or three experiments. Data became observations, observations insights, insights scenarios, and scenarios solutions.</p>
 
    <figure>
-<div class="ui" aria-label="The research operations base, redrawn. Tabs for each table with record counts; a workstream table with names withheld; and the chain from data to solutions.">
+<div class="ui" role="img" aria-label="The research operations base, redrawn. Tabs for each table with record counts; a workstream table with names withheld; and the chain from data to solutions.">
      <div class="ui-bar"><b>Design · Management base</b><span class="label">export · July 2019</span></div>
      <div class="tabs"><span>Stakeholders <i>88</i></span><span>Projects <i>21</i></span><span class="on">Workstreams <i>50</i></span><span>Sprints <i>27</i></span><span>Experiments <i>114</i></span><span>Data <i>26</i></span><span>Observations <i>119</i></span><span>Insights <i>63</i></span><span>Personas <i>7</i></span><span>Scenarios <i>16</i></span></div>
      <div class="tbl-scroll"><table class="tbl">
@@ -498,25 +499,25 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
    </ol>
 
    <h3>The business case</h3>
-   <p>In September 2018 the case went to leadership with the workbook attached. The design vendor billed $27,136 a sprint, $687k across 2018, for a five-role team. Four in-house designers replaced it: total design spend fell 26% in the 2019 plan while the model's delivery capacity doubled. The Design Center of Excellence became a corporate goal with approved headcount, an AVP of Design and a remote designer.</p>
+   <p>In September 2018 the case went to leadership with the workbook attached. The design vendor's contract capped at $27,136 a sprint and ran to $687k across 2018, for a five-role team. Four in-house designers replaced it: total design spend fell 26% in the 2019 plan while the model's delivery capacity doubled. The Design Center of Excellence became a corporate goal with approved headcount, an AVP of Design and a remote designer.</p>
    <p>The <strong>budget model</strong> ran to eleven formula-linked sheets, so leadership could change an assumption and watch the totals move. This is the sheet they decided on.</p>
 
    <figure class="txt">
-    <div class="ui" aria-label="The budget sheet from the September 2018 business case, redrawn. Two columns, 2018 actual against the 2019 plan, comparing internal staff cost, vendor cost, total design spend, delivery velocity, and cost per velocity point.">
+    <div class="ui" role="img" aria-label="The budget sheet from the September 2018 business case, redrawn. Two columns, 2018 actual against the 2019 plan, comparing internal staff cost, vendor cost, total design spend, delivery velocity, and cost per velocity point.">
      <div class="ui-bar"><b>Design budget model · Budget sheet</b><span class="label">v1.0.0 · September 2018</span></div>
      <div class="tbl-scroll"><table class="sheet">
       <thead><tr><th>Line item</th><th>2018 actual</th><th class="on">2019 · replace the vendor</th></tr></thead>
       <tbody>
        <tr><td>Internal staff<i>fully loaded</i></td><td data-y="2018"><span class="calc">2 &times; $201,783</span>$403,566</td><td data-y="2019"><span class="calc">4 &times; $201,783</span>$807,131</td></tr>
-       <tr><td>Design vendor<i>five-role team, 118 hrs a week</i></td><td data-y="2018"><span class="calc">26 sprints</span>$686,768</td><td data-y="2019"><span class="calc">contract ended</span><span class="gone">$0</span></td></tr>
+       <tr><td>Design vendor<i>five-role team, 118 hrs a week</i></td><td data-y="2018"><span class="calc">actuals + committed</span>$686,768</td><td data-y="2019"><span class="calc">contract ended</span><span class="gone">$0</span></td></tr>
        <tr class="total"><td>Total design spend</td><td data-y="2018">$1,090,334</td><td data-y="2019">$807,131</td></tr>
        <tr class="model"><td>Delivery velocity<i>the model's estimate</i></td><td data-y="2018">52</td><td data-y="2019">104</td></tr>
        <tr class="model"><td>Cost per velocity point</td><td data-y="2018">$20,968</td><td data-y="2019">$7,761</td></tr>
       </tbody>
      </table></div>
-     <div class="chain"><span><b>&minus;$283,202</b>variance</span><i>·</i><span><b>&minus;26%</b>total spend</span><i>·</i><span><b>&minus;32%</b>per seat</span><i>·</i><span><b>&minus;63%</b>per velocity point</span></div>
+     <div class="chain"><span><b>&minus;$283,202</b>variance</span><i>·</i><span><b>&minus;26%</b>total spend</span><i>·</i><span><b>&minus;63%</b>per velocity point</span></div>
     </div>
-    <figcaption>Fig. 6 · The budget sheet from the September 2018 business case, redrawn. Staff cost is formula-linked to the compensation analysis and the vendor line to the executed contract, so an assumption changed anywhere moved the total. A seat cost 32% less in-house than at the vendor. Velocity is the model's own estimate of delivery, not a measurement.</figcaption>
+    <figcaption>Fig. 6 · The budget sheet from the September 2018 business case, redrawn. Staff cost is formula-linked to the compensation analysis and the vendor line to the executed contract, so an assumption changed anywhere moved the total. Velocity is the model's own estimate of delivery, not a measurement.</figcaption>
    </figure>
    <span class="methods"><b>METHODS</b> · Innovator's Compass · hypothesis statements and proto-personas · atomic research repository · boundary objects</span>
   </section>
@@ -533,8 +534,8 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
      <div class="cmp-part b">
       <div class="cmp-h"><b>BEFORE · the build, mid 2018</b><span>red marks what the research cut</span></div>
       <div class="cmp-screen">
-<div class="old" aria-label="The vendor build before the research pass: three panes, a precision slider, and a validation form">
-       <div class="old-top"><span>‹ Back to My Charts</span><span>5 / 16</span><i></i><i></i><i></i><i></i><span class="sl x">More precision <b></b> More highlights<em class="mk">1</em></span><span class="sp"></span><span>Next Chart ›</span></div>
+<div class="old" role="img" aria-label="The vendor build before the research pass: three panes, a precision slider, and a validation form">
+       <div class="old-top"><span>‹ Back to My Charts</span><span>chart 5 of 16</span><i></i><i></i><i></i><i></i><span class="sl x">More precision <b></b> More highlights<em class="mk">1</em></span><span class="sp"></span><span>Next Chart ›</span></div>
        <div class="old-body">
         <div class="old-col"><div class="old-doc">
          <p><b>Sample Patient</b> · Male · DOB withheld</p>
@@ -542,13 +543,12 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
          <p><b>Allergies</b> Penicillin (rash) · Beta blockers (intolerance)</p>
          <p><b>History of present illness</b> Follow-up of chronic cardiovascular conditions. <span class="hl">Jaw pain with exertion; negative catheterisation in 2012.</span> Blood pressure elevated today; did not take medication yesterday. On high-dose statin.</p>
          <p><b>Past medical history</b> <span class="hl">Coronary artery disease · Essential hypertension · Hypercholesterolemia · Atrial fibrillation · COPD · Sleep apnoea · Congestive heart failure · Type 2 diabetes with CKD</span></p>
-         <p><b>Social history</b> Former smoker, quit 1997. Years since last quit: 21.</p>
+         <p><b>Social history</b> Former smoker, quit 1997. Years since last quit: 19.</p>
          <p><b>Exam</b> Regular rate, no murmur. Peripheral pulses diminished bilaterally. No oedema.</p>
         </div></div>
         <div class="old-col"><div class="old-h"><span>Conditions</span><span class="x"><i></i><i></i><em class="mk">2</em></span></div><div class="old-list">
          <div class="old-pg">Page 4</div>
          <div class="old-card"><small>Medicare</small>HCC88 · Angina Pectoris<em class="x">×</em><em class="mk">3</em></div>
-         <div class="old-card"><small>Medicare</small>HCC96 · Specified Heart Arrhythmias<em class="x">×</em></div>
          <div class="old-card"><small>Medicare</small>HCC96 · Specified Heart Arrhythmias<em class="x">×</em></div>
          <div class="old-card"><small>Medicare</small>HCC111 · Chronic Obstructive Pulmonary Disease<em class="x">×</em></div>
          <div class="old-pg">Page 5</div>
@@ -572,16 +572,16 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
        </div>
       </div>
       </div>
-      <p class="cut"><b>What the research cut</b><em class="mk">1</em>confidence slider · <em class="mk">2</em>collapse and browse all findings · <em class="mk">3</em>dismiss on every card · <em class="mk">4</em>leave the page to add a code · <em class="mk">5</em>mandatory reason for rejection</p>
+      <p class="cut"><b>What the research cut</b><em class="mk">1</em>confidence slider · <em class="mk">2</em>collapse and browse all findings · <em class="mk">3</em>dismiss with no decision recorded · <em class="mk">4</em>leave the page to add a code · <em class="mk">5</em>mandatory reason for rejection</p>
      </div>
      <div class="cmp-part a">
-      <div class="cmp-h"><b>AFTER · the research pass</b><span>green marks what it added, and it works: select a suggestion to see its evidence</span></div>
+      <div class="cmp-h"><b>AFTER · the research pass</b><span>green marks what it added; select a suggestion to see its evidence</span></div>
       <div class="cmp-screen">
-<div class="ui review-ui" aria-label="The chart review screen, reconstructed with synthetic data. Suggested conditions on the right point to evidence in the note on the left.">
+<div class="ui" role="group" aria-label="The chart review screen, reconstructed with synthetic data. Each suggested condition points to the evidence for it in the chart note.">
      <div class="ui-bar"><span><b>Medical review</b> · Sample Health Plan · <span class="label">synthetic record</span></span><span class="prog">progress <i><b id="prog-bar"></b></i><span id="prog-txt">0 of 6</span><em class="mk g">C</em></span></div>
      <div class="review">
       <div class="pane">
-       <div class="pane-h"><span><b>Chart</b> · page 4 of 20</span><span>service 03/21/2017 to 04/21/2017</span></div>
+       <div class="pane-h"><span><b>Chart</b> · page 4 of 20</span><span>service 03/21/2016 to 04/21/2016</span></div>
        <div class="note" id="note">
         <div class="meta">Patient · sample · DOB withheld · Known conditions (3)<em class="mk g">A</em></div>
         <h4>Cardiology office visit note</h4>
@@ -602,14 +602,14 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
       <div class="pane">
        <div class="pane-h"><span><b>Suggested conditions</b> · 6</span><span>grouped by page</span></div>
        <ul class="cards" id="cards">
-        <li class="card" tabindex="0" data-card="85"><span class="t">HCC 85 <span>Congestive heart failure</span></span><span class="act"><button type="button" class="btn p" data-do="acc">Accept</button><button type="button" class="btn" data-do="rej">Reject</button></span><span class="w">page 4 · <u>“Congestive heart failure (I50.9)”</u><em class="mk g">B</em></span><span class="st a">✓ accepted</span><span class="st r">rejected · evidence insufficient</span></li>
-        <li class="card" tabindex="0" data-card="96"><span class="t">HCC 96 <span>Specified heart arrhythmias</span></span><span class="act"><button type="button" class="btn p" data-do="acc">Accept</button><button type="button" class="btn" data-do="rej">Reject</button></span><span class="w">page 4 · <u>“Atrial fibrillation (I48.91)”</u></span><span class="st a">✓ accepted</span><span class="st r">rejected · evidence insufficient</span></li>
-        <li class="card" tabindex="0" data-card="111"><span class="t">HCC 111 <span>Chronic obstructive pulmonary disease</span></span><span class="act"><button type="button" class="btn p" data-do="acc">Accept</button><button type="button" class="btn" data-do="rej">Reject</button></span><span class="w">page 4 · <u>“COPD (J44.9)”</u></span><span class="st a">✓ accepted</span><span class="st r">rejected · evidence insufficient</span></li>
-        <li class="card" tabindex="0" data-card="18"><span class="t">HCC 18 <span>Diabetes with chronic complications</span></span><span class="act"><button type="button" class="btn p" data-do="acc">Accept</button><button type="button" class="btn" data-do="rej">Reject</button></span><span class="w">page 4 · <u>“Type 2 diabetes with chronic kidney disease”</u></span><span class="st a">✓ accepted</span><span class="st r">rejected · evidence insufficient</span></li>
-        <li class="card" tabindex="0" data-card="88"><span class="t">HCC 88 <span>Angina pectoris</span></span><span class="act"><button type="button" class="btn p" data-do="acc">Accept</button><button type="button" class="btn" data-do="rej">Reject</button></span><span class="w">page 4 · <u>“Jaw pain with exertion”</u> · weak</span><span class="st a">✓ accepted</span><span class="st r">rejected · evidence insufficient</span></li>
-        <li class="card" tabindex="0" data-card="108"><span class="t">HCC 108 <span>Vascular disease</span></span><span class="act"><button type="button" class="btn p" data-do="acc">Accept</button><button type="button" class="btn" data-do="rej">Reject</button></span><span class="w">page 4 · <u>“Peripheral pulses diminished”</u> · weak</span><span class="st a">✓ accepted</span><span class="st r">rejected · evidence insufficient</span></li>
+        <li class="card" tabindex="0" data-card="85"><span class="t">HCC 85 <span>Congestive heart failure</span></span><span class="act"><button type="button" class="btn p" data-do="acc">Accept</button><button type="button" class="btn" data-do="rej">Reject</button></span><span class="w">page 4 · <u>“Congestive heart failure (I50.9)”</u><em class="mk g">B</em></span><span class="st a">✓ accepted</span><span class="st r">&#10005; rejected</span></li>
+        <li class="card" tabindex="0" data-card="96"><span class="t">HCC 96 <span>Specified heart arrhythmias</span></span><span class="act"><button type="button" class="btn p" data-do="acc">Accept</button><button type="button" class="btn" data-do="rej">Reject</button></span><span class="w">page 4 · <u>“Atrial fibrillation (I48.91)”</u></span><span class="st a">✓ accepted</span><span class="st r">&#10005; rejected</span></li>
+        <li class="card" tabindex="0" data-card="111"><span class="t">HCC 111 <span>Chronic obstructive pulmonary disease</span></span><span class="act"><button type="button" class="btn p" data-do="acc">Accept</button><button type="button" class="btn" data-do="rej">Reject</button></span><span class="w">page 4 · <u>“COPD (J44.9)”</u></span><span class="st a">✓ accepted</span><span class="st r">&#10005; rejected</span></li>
+        <li class="card" tabindex="0" data-card="18"><span class="t">HCC 18 <span>Diabetes with chronic complications</span></span><span class="act"><button type="button" class="btn p" data-do="acc">Accept</button><button type="button" class="btn" data-do="rej">Reject</button></span><span class="w">page 4 · <u>“Type 2 diabetes with chronic kidney disease”</u></span><span class="st a">✓ accepted</span><span class="st r">&#10005; rejected</span></li>
+        <li class="card" tabindex="0" data-card="88"><span class="t">HCC 88 <span>Angina pectoris</span></span><span class="act"><button type="button" class="btn p" data-do="acc">Accept</button><button type="button" class="btn" data-do="rej">Reject</button></span><span class="w">page 4 · <u>“Jaw pain with exertion”</u> · weak</span><span class="st a">✓ accepted</span><span class="st r">&#10005; rejected</span></li>
+        <li class="card" tabindex="0" data-card="108"><span class="t">HCC 108 <span>Vascular disease</span></span><span class="act"><button type="button" class="btn p" data-do="acc">Accept</button><button type="button" class="btn" data-do="rej">Reject</button></span><span class="w">page 4 · <u>“Peripheral pulses diminished”</u> · weak</span><span class="st a">✓ accepted</span><span class="st r">&#10005; rejected</span></li>
        </ul>
-       <button type="button" class="capture" id="capture"><span>Capture a condition the model missed<em class="mk g">D</em></span><span aria-hidden="true">＋</span></button>
+       <button type="button" class="capture" id="capture" aria-expanded="false"><span>Capture a condition the model missed<em class="mk g">D</em></span><span aria-hidden="true">＋</span></button>
        <div class="capture-form" id="capture-form">
         <label>ICD-10 code<i>Search codes…</i></label><label>Page range<i>4</i></label><label>Document source<i>Office visit note</i></label><label>Provider signature<i>Electronic · acceptable</i></label>
        </div>
@@ -623,7 +623,7 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
     <figcaption>Fig. 7 · The build as it stood in mid 2018, redrawn, and the pass that followed the contextual inquiry. Both use a synthetic chart and public code sets.</figcaption>
    </figure>
 
-   <p>The demo played without a hitch at Client Congress. The team came home with a list of prospects, and leadership funded a group of developers to build it. Over two years, discovery work like this avoided an estimated $2.4M in rewrites: a tenth of a build budget spent on learning before the other nine tenths were committed.</p>
+   <p>The demo played without a hitch at Client Congress, and the team came home with a list of prospects. Over two years, discovery work like this avoided an estimated $2.4M in rewrites: a tenth of a build budget spent on learning before the other nine tenths were committed.</p>
    <span class="methods"><b>METHODS</b> · minimum viable product and innovation accounting · context scenarios · sketching before building · contextual inquiry · the ironies of automation</span>
   </section>
 
@@ -635,10 +635,10 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
    <p>We kicked off in March 2019 with founding practitioners from every business unit and a design-ops canvas: what the centre does, for whom, and within what limits. Then we measured where the organisation stood.</p>
 
    <figure>
-<div class="survey">
+<div class="survey" role="img" aria-label="Design maturity by three dimensions across five levels, and the five most-mentioned barriers to design.">
      <div>
       <div class="k">Design maturity · share answering yes, n=114</div>
-      <div class="heat" role="table" aria-label="Design maturity heatmap: three dimensions by five maturity levels, percentage answering yes">
+      <div class="heat" role="img" aria-label="Design maturity heatmap: three dimensions by five maturity levels, percentage answering yes">
        <span class="h"></span><span class="h">1</span><span class="h">2</span><span class="h">3</span><span class="h">4</span><span class="h">5</span>
        <span class="r">Development and delivery</span><span class="c" style="background:rgba(0,61,121,1);color:#fff">74</span><span class="c" style="background:rgba(0,61,121,.68);color:#fff">50</span><span class="c" style="background:rgba(0,61,121,.4);color:#fff">30</span><span class="c" style="background:rgba(0,61,121,.16)">12</span><span class="c" style="background:rgba(0,61,121,.06)">4</span>
        <span class="r">Systems and processes</span><span class="c" style="background:rgba(0,61,121,.76);color:#fff">56</span><span class="c" style="background:rgba(0,61,121,.42);color:#fff">31</span><span class="c" style="background:rgba(0,61,121,.19)">14</span><span class="c" style="background:rgba(0,61,121,.1)">7</span><span class="c" style="background:rgba(0,61,121,.07)">5</span>
@@ -649,22 +649,22 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
      <div>
       <div class="k">What prevents design · mentions</div>
       <div class="bars2">
-       <div><span>Design is not part of my role</span><i style="width:100%"></i><b>57</b></div>
-       <div><span>Limited time, cost, and resources</span><i style="width:63%;animation-delay:.1s"></i><b>36</b></div>
-       <div><span>Design is not part of our process</span><i style="width:49%;animation-delay:.2s"></i><b>28</b></div>
-       <div><span>Unsure how to measure it</span><i style="width:44%;animation-delay:.3s"></i><b>25</b></div>
-       <div><span>Limited understanding of design</span><i style="width:42%;animation-delay:.4s"></i><b>24</b></div>
+       <div><span>Design is not part of my role</span><i class="a" style="width:100%"></i><b>57</b></div>
+       <div><span>Limited time, cost, and resources</span><i class="a" style="width:63%;animation-delay:.1s"></i><b>36</b></div>
+       <div><span>Design is not part of our process</span><i class="a" style="width:49%;animation-delay:.2s"></i><b>28</b></div>
+       <div><span>Unsure how to measure it</span><i class="a" style="width:44%;animation-delay:.3s"></i><b>25</b></div>
+       <div><span>Limited understanding of design</span><i class="a" style="width:42%;animation-delay:.4s"></i><b>24</b></div>
       </div>
      </div>
     </div>
-    <figcaption>Fig. 8 · The Q2 2019 maturity survey on the Design Management Institute's five levels, 114 responses across four business units. Teams could repeat what they did in delivery; almost nobody measured it. The barriers on the right were coded from the open answers.</figcaption>
+    <figcaption>Fig. 8 · The Q2 2019 maturity survey on the Design Management Institute's five levels, 114 responses across four business units. Teams could repeat what they did in delivery; almost nobody measured it. The barriers alongside were coded from the open answers.</figcaption>
    </figure>
 
    <p>Product and development managers already spent about a fifth of their time on design. Thirteen spent more than half, and scored around three times the average maturity. With a matrix of every product's stage, revenue, and receptiveness, that found the first cohort of twenty.</p>
    <p>Manager interviews said what the cohort needed: how to write a testable hypothesis, design an experiment, and recruit users. So the programme was blueprinted like an internal startup, with the five measures a startup would track, written before the first cohort so it could fail visibly rather than quietly.</p>
 
    <figure>
-<div class="funnel-scroll"><div class="funnel" aria-label="The program as a five-stage funnel: acquisition, activation, retention, referral, and impact, each with a cadence, an output, and a measure.">
+<div class="funnel-scroll"><div class="funnel" role="img" aria-label="The program as a five-stage funnel: acquisition, activation, retention, referral, and impact, each with a cadence, an output, and a measure.">
      <div><span class="n">Acquisition</span><span class="c">MONTHLY</span><span class="o">newsletter, lunch-and-learns, sign-up</span><span class="m">nominees and volunteers per quarter</span></div>
      <div><span class="n">Activation</span><span class="c">QUARTERLY · 3 DAYS</span><span class="o">in-person training, tool access</span><span class="m">nominees who pass basic training</span></div>
      <div><span class="n">Retention</span><span class="c">EVERY TWO WEEKS</span><span class="o">mentorship, design reviews, repository</span><span class="m">practitioners generating research insights</span></div>
@@ -675,18 +675,18 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
     <figcaption>Fig. 9 · The service blueprint's spine. Each stage has a cadence, an output we owed, and the one number leadership would see.</figcaption>
    </figure>
 
-   <p>LUMA Institute would deliver two of the three training days and the playbook. Userlytics records and redacts <strong>protected health information</strong>, which let studies run under HIPAA. Glean.ly's alpha programme gave us the repository. A pilot of six was set for September 2019 and the first cohort of twenty for October, then one a quarter toward a hundred practitioners leading research.</p>
+   <p>LUMA Institute would deliver two of the three training days and the playbook. Userlytics records and redacts <strong>protected health information</strong>, which let studies run under HIPAA. Glean.ly's alpha programme gave us a research repository built for the job. A pilot of six was set for September 2019 and the first cohort of twenty for October, then one a quarter toward a hundred practitioners leading research.</p>
 
    <figure class="dia">
 <div class="fig-scroll"><svg viewBox="0 0 760 260" aria-label="Certification plan: a pilot of six in September 2019, then cohorts of twenty per quarter from October 2019 toward one hundred practitioners by the end of 2020">
      <line x1="40" y1="220" x2="740" y2="220" stroke="#003D79" stroke-opacity=".5"/>
      <g>
-      <rect x="50" y="211" width="60" height="9" fill="none" stroke="#003D79" stroke-width="1.5" stroke-dasharray="3 3" style="transform-box:fill-box;transform-origin:bottom;animation:grow .5s ease-out .1s both"/>
-      <rect x="140" y="190" width="90" height="30" fill="#73964A" style="transform-box:fill-box;transform-origin:bottom;animation:grow .5s ease-out .3s both"/>
-      <rect x="260" y="160" width="90" height="60" fill="none" stroke="#003D79" stroke-width="1.5" style="transform-box:fill-box;transform-origin:bottom;animation:grow .5s ease-out .6s both"/>
-      <rect x="380" y="130" width="90" height="90" fill="none" stroke="#003D79" stroke-width="1.5" style="transform-box:fill-box;transform-origin:bottom;animation:grow .5s ease-out .9s both"/>
-      <rect x="500" y="100" width="90" height="120" fill="none" stroke="#003D79" stroke-width="1.5" style="transform-box:fill-box;transform-origin:bottom;animation:grow .5s ease-out 1.2s both"/>
-      <rect x="620" y="70" width="90" height="150" fill="none" stroke="#003D79" stroke-width="1.5" style="transform-box:fill-box;transform-origin:bottom;animation:grow .5s ease-out 1.5s both"/>
+      <rect x="50" y="211" width="60" height="9" fill="none" stroke="#003D79" stroke-width="1.5" stroke-dasharray="3 3" class="a" style="transform-box:fill-box;transform-origin:bottom;animation:grow .5s ease-out .1s both"/>
+      <rect x="140" y="190" width="90" height="30" fill="#73964A" class="a" style="transform-box:fill-box;transform-origin:bottom;animation:grow .5s ease-out .3s both"/>
+      <rect x="260" y="160" width="90" height="60" fill="none" stroke="#003D79" stroke-width="1.5" class="a" style="transform-box:fill-box;transform-origin:bottom;animation:grow .5s ease-out .6s both"/>
+      <rect x="380" y="130" width="90" height="90" fill="none" stroke="#003D79" stroke-width="1.5" class="a" style="transform-box:fill-box;transform-origin:bottom;animation:grow .5s ease-out .9s both"/>
+      <rect x="500" y="100" width="90" height="120" fill="none" stroke="#003D79" stroke-width="1.5" class="a" style="transform-box:fill-box;transform-origin:bottom;animation:grow .5s ease-out 1.2s both"/>
+      <rect x="620" y="70" width="90" height="150" fill="none" stroke="#003D79" stroke-width="1.5" class="a" style="transform-box:fill-box;transform-origin:bottom;animation:grow .5s ease-out 1.5s both"/>
      </g>
      <g font-family="Source Sans 3,sans-serif" font-weight="600" font-size="16" fill="#003D79" text-anchor="middle"><text x="80" y="200">6</text><text x="185" y="178">20</text><text x="305" y="148">40</text><text x="425" y="118">60</text><text x="545" y="88">80</text><text x="665" y="58">100</text></g>
      <g font-family="Fira Code,monospace" font-size="12" fill="#5e6b7d" text-anchor="middle"><text x="80" y="244">pilot · Sep</text><text x="185" y="244">Q4 2019</text><text x="305" y="244">Q1 2020</text><text x="425" y="244">Q2 2020</text><text x="545" y="244">Q3 2020</text><text x="665" y="244">Q4 2020</text></g>
@@ -703,15 +703,15 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
    <span class="label">Afterwards</span>
    <h2>What it changed</h2>
    <ul class="after">
-    <li><b>The headcount was real.</b> The AVP of Design Strategy role was filled, and the function carried on under the people who had sponsored it. By 2021 they reported fifty-plus leaders trained and a design system across thirty-five-plus products.</li>
-    <li><b>My manager changed careers.</b> The senior director I reported to, new to human-centred design in 2018, moved into design full time in 2020 and led design strategy there until 2021.</li>
+    <li><b>The headcount was real.</b> The AVP of Design Strategy role was filled, and the function carried on under the people who had sponsored it.</li>
+    <li><b>My manager moved into design.</b> The senior director I reported to went on to lead design strategy at Inovalon until 2021.</li>
     <li><b>A colleague became a client.</b> A director from Inovalon's innovation group left in 2018 to found an AI text-analytics company. In 2023 that company hired me to design its brand and product interface.</li>
     <li><b>The vendor's rates stopped being the ceiling.</b> The budget workbook, not a slide, became the way design was funded: change an assumption, see the total.</li>
    </ul>
 
    <div class="quotes">
     <blockquote><p>“A transformative force multiplier” whose team “initiated design research, performed service design, UX experiments, aligned business stakeholders, and successfully managed external design and software development resources.”</p><footer>Hiring manager · VP, Software and Data Analytics · Avalere Health · 2019</footer></blockquote>
-    <blockquote><p>“Miguel had a tough job at Inovalon trying to transform an existing Agile SDLC culture by integrating the power of design thinking into product creation… Miguel has a knack for spotting raw design talent and is an advocate for investing in those individuals.”</p><footer>My manager · Senior Director, Platform Solutions · Inovalon · 2020</footer></blockquote>
+    <blockquote><p>“Miguel had a tough job at Inovalon trying to transform an existing Agile SDLC culture by integrating the power of design.”</p><footer>My manager · Senior Director, Platform Solutions · Inovalon · 2020</footer></blockquote>
     <blockquote><p>“It is no small task to add a new enterprise-wide discipline to an organization… Thank you for initiating the movement and we'll be sure to continue the advancement.”</p><footer>Chief Product Officer · Inovalon · 2019</footer></blockquote>
    </div>
 
@@ -727,6 +727,15 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
 
 <script>
 (function(){
+ /* Entrance animations wait until their figure is on screen. */
+ var anim=document.querySelectorAll('figure .a');
+ if(anim.length){
+  var figs=[]; for(var i=0;i<anim.length;i++){ var f=anim[i].closest('figure'); if(figs.indexOf(f)<0) figs.push(f); }
+  if(!('IntersectionObserver' in window)) for(var i=0;i<figs.length;i++) figs[i].classList.add('in');
+  else { var ao=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); ao.unobserve(e.target); } }); },{threshold:0.15});
+   for(var i=0;i<figs.length;i++) ao.observe(figs[i]); }
+ }
+
  /* Hero: one seat to a hundred. */
  var seatsEl=document.getElementById('seats');
  if(seatsEl){
@@ -739,11 +748,11 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
   var stages=[
    {n:1,cap:'July 2017 · one UX designer'},
    {n:2,cap:'June 2018 · a design researcher joins'},
-   {n:6,cap:'2019 plan · six designers, a corporate goal'},
+   {n:4,cap:'2019 plan · four designers, a corporate goal'},
    {n:20,cap:'October 2019 · first cohort of twenty, as planned'},
    {n:100,cap:'2020 · a hundred practitioners, as planned'}];
   var timers=[], reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches, onScreen=false;
-  function cls(i){ return i<6?'d':'p'; }
+  function cls(i){ return i<4?'d':'p'; }
   function play(){
    for(var k=0;k<timers.length;k++) clearTimeout(timers[k]); timers=[];
    for(var i=0;i<100;i++) cells[i].el.className='';
@@ -772,7 +781,7 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
  function Flock(canvas, o){
   var self=this; this.c=canvas; this.ctx=canvas.getContext('2d');
   this.n=o.n||120; this.density=o.density||0; this.mode=o.mode||'swarm'; this.rules={align:true,separate:true,cohere:true};
-  this.leaders=o.leaders||6; this.speed=o.speed||1.6; this.run=false; this.w=0; this.h=0; this.t=0; this.boids=[];
+  this.leaders=o.leaders==null?6:o.leaders; this.speed=o.speed||1.6; this.run=false; this.w=0; this.h=0; this.t=0; this.boids=[];
   this.reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   this.resize=function(){
    var r=canvas.getBoundingClientRect(); var d=Math.min(window.devicePixelRatio||1,2);
@@ -840,7 +849,7 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
   document.addEventListener('visibilitychange',function(){ if(document.hidden)self.stop(); else self.start(); });
  }
  var veeC=document.getElementById('flock-vee'); if(veeC) new Flock(veeC,{n:15,speed:1.5,mode:'vee'});
- var swarmC=document.getElementById('flock-swarm'); if(swarmC) new Flock(swarmC,{density:0.000416,leaders:3,speed:1.6});
+ var swarmC=document.getElementById('flock-swarm'); if(swarmC) new Flock(swarmC,{density:0.000416,leaders:0,speed:1.6});
 
  /* Fig. 7: chart review. Selecting a card highlights its evidence; accept or reject moves progress. */
  var cards=document.querySelectorAll('#cards .card'), chart=document.getElementById('note');
