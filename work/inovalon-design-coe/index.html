@@ -104,25 +104,20 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
 .chain b{font:600 16px 'Source Sans 3',sans-serif;color:#003D79;margin-right:4px}
 .chain i{font-style:normal;color:rgba(0,61,121,.4);padding:0 4px}
 
-/* Fig. 6: budget scenarios, static */
-.scen{display:flex;flex-direction:column;gap:4px}
-.scen-r{display:grid;grid-template-columns:minmax(150px,1fr) minmax(0,1.4fr) minmax(0,1.4fr);gap:12px 28px;align-items:center;padding:14px 12px;border-radius:4px}
-.scen-r.h{padding:0 12px 8px;border-bottom:1px solid rgba(0,61,121,.25);border-radius:0;font:11px 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;color:#5e6b7d}
-.scen-r.on{background:rgba(115,150,74,.1)}
-.scen .n b{display:block;font:600 17px/1.2 'Source Sans 3',sans-serif;color:#003D79}
-.scen .n span{display:block;margin-top:4px;font:11px/1.6 'Fira Code',monospace;color:#5e6b7d}
-.scen .n em{display:inline-block;margin-left:8px;padding:1px 8px;border-radius:10px;background:#73964A;color:#fff;font:11px/1.6 'Fira Code',monospace;font-style:normal;vertical-align:2px;letter-spacing:.04em}
-.hbar{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:12px}
-.hbar .k{display:none;grid-column:1/-1;font:11px 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;color:#5e6b7d}
-.hbar .track{display:flex;height:22px;background:rgba(0,61,121,.04)}
-.hbar .track i{display:block;height:100%;transform-origin:left;animation:growx .7s ease-out both}
-.hbar .v{background:rgba(0,61,121,.22)}
-.hbar .i{background:#73964A}
-.hbar .c{background:#003D79}
-.hbar b{font:600 24px/1 'Source Sans 3',sans-serif;letter-spacing:-.02em;color:#003D79;min-width:64px;text-align:right}
-.hbar b small{display:block;font:11px/1.4 'Fira Code',monospace;color:#5e6b7d;letter-spacing:0;margin-top:3px}
-.legend{display:flex;flex-wrap:wrap;gap:16px;font:11px 'Fira Code',monospace;color:#5e6b7d}
-.legend i{display:inline-block;width:10px;height:10px;margin-right:6px;vertical-align:-1px}
+/* Fig. 6: the budget sheet, redrawn */
+.sheet{width:100%;border-collapse:collapse;font:13px/1.45 'Source Sans 3',sans-serif;color:#2b3a4d}
+.sheet th{font:11px 'Fira Code',monospace;letter-spacing:.04em;text-transform:uppercase;color:#5e6b7d;font-weight:400;text-align:right;padding:10px 16px;border-bottom:1px solid rgba(0,61,121,.18);white-space:nowrap;vertical-align:bottom}
+.sheet th:first-child{text-align:left}
+.sheet th.on{color:#003D79}
+.sheet td{padding:10px 16px;border-bottom:1px solid rgba(0,61,121,.1);text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.sheet td:first-child{text-align:left;color:#003D79;white-space:normal}
+.sheet td:first-child i{display:block;font-style:normal;font:11px/1.5 'Fira Code',monospace;color:#5e6b7d;margin-top:1px}
+.sheet .calc{display:block;font:11px/1.6 'Fira Code',monospace;color:#5e6b7d}
+.sheet .gone{color:#5A7A33;font-weight:600}
+.sheet tr.total td{border-top:1px solid rgba(0,61,121,.35);border-bottom:1px solid rgba(0,61,121,.35);padding-top:13px;padding-bottom:13px;font:600 18px 'Source Sans 3',sans-serif;color:#003D79;letter-spacing:-.01em}
+.sheet tr.total td:first-child{font:11px 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;color:#003D79}
+.sheet tr.model td{color:#5e6b7d}
+.sheet tr.model td:first-child{color:#2b3a4d}
 
 /* Fig. 7: before and after, both shown */
 .cmp{display:flex;flex-direction:column;gap:28px}
@@ -267,9 +262,19 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
  .hero{grid-template-columns:1fr}
  .hero-art{min-height:0;padding:24px}
  .seats{width:min(100%,260px)}
- .scen-r{grid-template-columns:1fr;gap:10px}
- .scen-r.h{display:none}
- .hbar .k{display:block}
+ .sheet thead{display:none}
+ .sheet,.sheet tbody,.sheet tr,.sheet td{display:block;width:100%}
+ .sheet tr{padding:12px 16px;border-bottom:1px solid rgba(0,61,121,.1)}
+ .sheet td{padding:0;border:0;text-align:left;white-space:normal}
+ .sheet td:first-child{margin-bottom:6px}
+ .sheet td:first-child i{display:inline;margin-left:8px}
+ .sheet td+td{display:flex;flex-wrap:wrap;gap:0 10px;align-items:baseline;padding:2px 0}
+ .sheet td+td::before{content:attr(data-y);flex:0 0 40px;font:10px 'Fira Code',monospace;letter-spacing:.06em;color:#5e6b7d}
+ .sheet .calc{display:inline;order:2}
+ .sheet tr.total{padding-top:14px;padding-bottom:14px;border-top:1px solid rgba(0,61,121,.35);border-bottom:1px solid rgba(0,61,121,.35)}
+ .sheet tr.total td{border:0}
+ .sheet tr.total td+td{font:600 21px/1.2 'Source Sans 3',sans-serif;padding:3px 0}
+ .sheet tr.total td+td::before{font:10px 'Fira Code',monospace;letter-spacing:.06em;color:#5e6b7d}
  .cmp-screen .old{height:auto}
  .lab{grid-template-columns:1fr;gap:24px}
  .lab canvas{height:260px}
@@ -307,7 +312,7 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
  <div class="numbers">
   <div><b>$687k</b><span>vendor contract replaced, 2018</span></div>
   <div><b>−26%</b><span>total design spend, 2019 plan</span></div>
-  <div><b>×2</b><span>delivery capacity</span></div>
+  <div><b>×2</b><span>delivery capacity, modeled</span></div>
   <div><b>200+</b><span>qualified applicants in two months</span></div>
   <div><b>114</b><span>maturity survey responses, four business units</span></div>
  </div>
@@ -568,30 +573,25 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
    </ol>
 
    <h3>The business case</h3>
-   <p>In September 2018 the case went to leadership with the numbers attached. The vendor's contract ran to $687k for 2018. Four in-house designers replaced it: total design spend fell 26% in the 2019 plan while delivery capacity doubled. The Design Center of Excellence became a corporate goal with approved headcount, an AVP of Design and a remote designer.</p>
-   <p>The <strong>budget model</strong> was formula-linked, so leadership could change an assumption and watch the totals move. Three scenarios were on the table.</p>
+   <p>In September 2018 the case went to leadership with the workbook attached. The design vendor billed $27,136 a sprint, $687k across 2018, for a five-role team. Four in-house designers replaced it: total design spend fell 26% in the 2019 plan while the model's delivery capacity doubled. The Design Center of Excellence became a corporate goal with approved headcount, an AVP of Design and a remote designer.</p>
+   <p>The <strong>budget model</strong> ran to eleven formula-linked sheets, so leadership could change an assumption and watch the totals move. This is the sheet they decided on.</p>
 
    <figure>
-    <div class="scen" aria-label="Three budget scenarios from the September 2018 workbook: 2018 as run, replace the vendor, and products in parallel, compared on total design spend and delivery capacity.">
-     <div class="scen-r h"><span>Scenario</span><span>Total design spend · 2018 = 100</span><span>Delivery capacity · velocity per year</span></div>
-     <div class="scen-r">
-      <div class="n"><b>2018 as run</b><span>two in-house designers plus the vendor, billed per sprint</span></div>
-      <div class="hbar"><span class="k">Total design spend · 2018 = 100</span><span class="track"><i class="v" style="width:31.5%"></i><i class="i" style="width:18.5%;animation-delay:.2s"></i></span><b>100<small>vendor 63 · in-house 37</small></b></div>
-      <div class="hbar"><span class="k">Delivery capacity · velocity per year</span><span class="track"><i class="c" style="width:18.6%"></i></span><b>52<small>×1</small></b></div>
-     </div>
-     <div class="scen-r on">
-      <div class="n"><b>Replace the vendor<em>approved</em></b><span>four in-house designers, no vendor</span></div>
-      <div class="hbar"><span class="k">Total design spend · 2018 = 100</span><span class="track"><i class="i" style="width:37%;animation-delay:.1s"></i></span><b>74<small>−26%</small></b></div>
-      <div class="hbar"><span class="k">Delivery capacity · velocity per year</span><span class="track"><i class="c" style="width:37.1%;animation-delay:.1s"></i></span><b>104<small>×2</small></b></div>
-     </div>
-     <div class="scen-r">
-      <div class="n"><b>Products in parallel</b><span>ten designers, one per product family</span></div>
-      <div class="hbar"><span class="k">Total design spend · 2018 = 100</span><span class="track"><i class="i" style="width:96%;animation-delay:.2s"></i></span><b>192<small>+92%</small></b></div>
-      <div class="hbar"><span class="k">Delivery capacity · velocity per year</span><span class="track"><i class="c" style="width:96.4%;animation-delay:.2s"></i></span><b>270<small>×5.2</small></b></div>
-     </div>
+    <div class="ui" aria-label="The budget sheet from the September 2018 business case, redrawn. Two columns, 2018 actual against the 2019 plan, comparing internal staff cost, vendor cost, total design spend, delivery velocity, and cost per velocity point.">
+     <div class="ui-bar"><b>Design budget model · Budget sheet</b><span class="label">v1.0.0 · September 2018</span></div>
+     <div class="tbl-scroll"><table class="sheet">
+      <thead><tr><th>Line item</th><th>2018 actual</th><th class="on">2019 · replace the vendor</th></tr></thead>
+      <tbody>
+       <tr><td>Internal staff<i>fully loaded</i></td><td data-y="2018"><span class="calc">2 &times; $201,783</span>$403,566</td><td data-y="2019"><span class="calc">4 &times; $201,783</span>$807,131</td></tr>
+       <tr><td>Design vendor<i>five-role team, 118 hrs a week</i></td><td data-y="2018"><span class="calc">26 sprints</span>$686,768</td><td data-y="2019"><span class="calc">contract ended</span><span class="gone">$0</span></td></tr>
+       <tr class="total"><td>Total design spend</td><td data-y="2018">$1,090,334</td><td data-y="2019">$807,131</td></tr>
+       <tr class="model"><td>Delivery velocity<i>the model's estimate</i></td><td data-y="2018">52</td><td data-y="2019">104</td></tr>
+       <tr class="model"><td>Cost per velocity point</td><td data-y="2018">$20,968</td><td data-y="2019">$7,761</td></tr>
+      </tbody>
+     </table></div>
+     <div class="chain"><span><b>&minus;$283,202</b>variance</span><i>·</i><span><b>&minus;26%</b>total spend</span><i>·</i><span><b>&times;2</b>headcount</span><i>·</i><span><b>&minus;63%</b>cost per point</span></div>
     </div>
-    <div class="legend"><span><i style="background:rgba(0,61,121,.22)"></i>vendor</span><span><i style="background:#73964A"></i>in-house</span><span><i style="background:#003D79"></i>capacity</span></div>
-    <figcaption>Fig. 6 · Three scenarios from the September 2018 workbook, indexed to 2018 spend. Leadership approved the middle one. The third is the case for the certification program: grow practitioners inside the teams instead of hiring ten designers.</figcaption>
+    <figcaption>Fig. 6 · The budget sheet from the September 2018 business case, redrawn. Staff cost is formula-linked to the compensation analysis and the vendor line to the executed contract, so an assumption changed anywhere moved the total. Velocity is the model's own estimate of delivery, not a measurement.</figcaption>
    </figure>
    <span class="methods"><b>METHODS</b> · Innovator's Compass · hypothesis statements and proto-personas · atomic research repository · boundary objects</span>
   </section>
