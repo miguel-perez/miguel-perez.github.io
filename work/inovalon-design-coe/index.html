@@ -42,8 +42,11 @@ h1 em{font-style:normal;color:#73964A}
 .numbers b{display:block;font:600 44px/1 'Source Sans 3',sans-serif;letter-spacing:-.03em}
 .numbers span{display:block;margin-top:8px;font:12px/1.6 'Fira Code',monospace;color:#5e6b7d}
 .body{padding-top:48px;padding-bottom:96px}
-.story{max-width:800px;margin:0 auto;min-width:0}
-.act{margin:72px 0 0}
+.story{margin:0 auto;min-width:0}
+.act{margin:72px 0 0;display:grid;grid-template-columns:1fr min(800px,100%) 1fr}
+.act > *{grid-column:2;min-width:0}
+.act > figure{grid-column:1/-1}
+.act > figure.dia{width:100%;max-width:1040px;justify-self:center}
 .act:first-child{margin-top:0}
 .act .label{display:block}
 .story h2{margin:10px 0 0;font:600 clamp(30px,3vw,40px)/1.1 'Source Sans 3',sans-serif;letter-spacing:-.02em}
@@ -54,7 +57,7 @@ h1 em{font-style:normal;color:#73964A}
 figure{margin:40px 0 0;display:flex;flex-direction:column;gap:14px}
 figure svg{width:100%;height:auto;display:block;overflow:visible}
 .fig-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
-figcaption{font:12px/1.7 'Fira Code',monospace;color:#5e6b7d}
+figcaption{font:12px/1.7 'Fira Code',monospace;color:#5e6b7d;max-width:800px;margin-left:auto;margin-right:auto}
 figcaption b{font-weight:400;color:#003D79}
 .tasks{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:4px 24px;font:11px/1.6 'Fira Code',monospace;color:#5e6b7d}
 .tasks li b{font-weight:400;color:#003D79}
@@ -246,6 +249,7 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
 .lab-part{display:flex;flex-direction:column;gap:8px;min-width:0}
 .lab-h{font:11px/1.7 'Fira Code',monospace;letter-spacing:.06em;color:#5e6b7d}
 .lab canvas{display:block;width:100%;height:300px;border:1px solid rgba(0,61,121,.18);border-radius:6px;background:#fff}
+@media (min-width:1000px){.lab canvas{height:clamp(300px,26vw,400px)}}
 .lab-note{font:12px/1.6 'Fira Code',monospace;color:#2b3a4d}
 
 @keyframes dash{to{stroke-dashoffset:0}}
@@ -326,7 +330,7 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
    <p>Avalere Health is a healthcare policy and data firm in Washington, DC, owned by Inovalon since 2015. Its Philadelphia software team had shipped a market-analytics product and was chasing feature requests, with a design vendor billing per sprint. I joined in July 2017 as the first UX designer. Nobody on the team had ever watched a user.</p>
    <p>So the first job was not a screen. It was one low-risk study that leaders would let me run, and a readout that showed what <strong>user research</strong> is.</p>
 
-   <figure>
+   <figure class="dia">
 <div class="fig-scroll"><svg viewBox="0 0 760 230" aria-label="Timeline from July 2017 to October 2019. Avalere Health from July to December 2017, Inovalon from January 2018 to July 2019, and the first cohort planned for October 2019 after departure.">
      <rect x="20" y="108" width="160" height="24" fill="#003D79" fill-opacity=".06"/>
      <rect x="180" y="108" width="480" height="24" fill="#003D79" fill-opacity=".12"/>
@@ -350,7 +354,7 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
    <p>The team rebuilding the company intranet had no researcher, so I offered. The users were our own staff, so recruiting was easy. A Mural workshop agreed what staff needed to get done; then we watched five colleagues attempt ten tasks each.</p>
    <p>The readout went to HR leadership as a teaching document: what we did, what broke, what to fix first. Finding a role inside a department failed for three of five people, so the first recommendation was department names on the org chart. HR became the first ally, and their agreement that the company needed to grow its design capability was the seed of everything after.</p>
 
-   <figure>
+   <figure class="dia">
 <div class="fig-scroll"><svg viewBox="0 0 760 300" aria-label="Five participants, ten tasks. Task 3 was completed by two of five and task 4 by four of five; every other task was completed by all five. Numbers show errors per attempt.">
 <g font-family="Fira Code,monospace" font-size="12" fill="#5e6b7d" text-anchor="middle">
 <text x="160" y="22">T1</text>
@@ -508,7 +512,7 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
    <p>I joined the demos and interviewed fifteen stakeholders to surface the assumptions behind the product and its business model. The buyers were busy executives, and the company wanted a finished product in the room. We proposed the opposite: ask before you demo. Sales let us in as the inquisitive product person.</p>
    <p>Prospects were glad to talk about their own workflows. The conversation moved from the demo to the problems Avalere was uniquely placed to solve, contract sizes grew, and a new group formed to find repeatable services that could become products. By mid-2018 the product page had come down from the public site.</p>
 
-   <figure>
+   <figure class="dia">
     <div class="fig-scroll"><svg viewBox="0 0 760 206" aria-label="Two flows. Before: pitch, demo, one more feature, build it, and back to the demo. After: questions, their workflow, a demo of the fit, a bigger contract, a repeatable service.">
      <g font-family="Fira Code,monospace" font-size="11" fill="#5e6b7d"><text x="20" y="22">BEFORE · demo first</text><text x="20" y="132">AFTER · ask first</text></g>
      <g fill="none" stroke="#003D79" stroke-opacity=".5"><rect x="20" y="36" width="130" height="44" rx="3"/><rect x="176" y="36" width="130" height="44" rx="3"/><rect x="332" y="36" width="130" height="44" rx="3"/><rect x="488" y="36" width="130" height="44" rx="3"/></g>
@@ -750,7 +754,7 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
 
    <p>LUMA Institute would deliver two of the three training days and the playbook. Userlytics records and redacts <strong>protected health information</strong>, which let studies run under HIPAA. Glean.ly's alpha programme gave us the repository. A pilot of six was set for September 2019 and the first cohort of twenty for October, then one a quarter toward a hundred practitioners leading research.</p>
 
-   <figure>
+   <figure class="dia">
 <div class="fig-scroll"><svg viewBox="0 0 760 260" aria-label="Certification plan: a pilot of six in September 2019, then cohorts of twenty per quarter from October 2019 toward one hundred practitioners by the end of 2020">
      <line x1="40" y1="220" x2="740" y2="220" stroke="#003D79" stroke-opacity=".5"/>
      <g>
@@ -839,7 +843,7 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
  var INK='#003D79', ACC='#73964A';
  function Flock(canvas, o){
   var self=this; this.c=canvas; this.ctx=canvas.getContext('2d');
-  this.n=o.n||120; this.mode=o.mode||'swarm'; this.rules={align:true,separate:true,cohere:true};
+  this.n=o.n||120; this.density=o.density||0; this.mode=o.mode||'swarm'; this.rules={align:true,separate:true,cohere:true};
   this.leaders=o.leaders||6; this.speed=o.speed||1.6; this.run=false; this.w=0; this.h=0; this.t=0; this.boids=[];
   this.reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   this.resize=function(){
@@ -848,6 +852,7 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
   };
   this.reset=function(){
    self.boids=[]; var cx=self.w/2, cy=self.h/2;
+   if(self.density) self.n=Math.max(24,Math.min(160,Math.round(self.w*self.h*self.density)));
    for(var i=0;i<self.n;i++){ var a=Math.random()*6.283; var sp=self.speed*(0.7+Math.random()*0.5);
     self.boids.push({x:cx+(Math.random()-0.5)*self.w*0.4,y:cy+(Math.random()-0.5)*self.h*0.4,vx:Math.cos(a)*sp,vy:Math.sin(a)*sp,lead:i<self.leaders,hide:false,fx:0,fy:0,pref:0.85+Math.random()*0.35}); }
    for(var k=0;k<200;k++)self.step();
@@ -907,7 +912,7 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
   document.addEventListener('visibilitychange',function(){ if(document.hidden)self.stop(); else self.start(); });
  }
  var veeC=document.getElementById('flock-vee'); if(veeC) new Flock(veeC,{n:15,speed:1.5,mode:'vee'});
- var swarmC=document.getElementById('flock-swarm'); if(swarmC) new Flock(swarmC,{n:48,leaders:3,speed:1.6});
+ var swarmC=document.getElementById('flock-swarm'); if(swarmC) new Flock(swarmC,{density:0.000416,leaders:3,speed:1.6});
 
  /* Fig. 7: chart review. Selecting a card highlights its evidence; accept or reject moves progress. */
  var cards=document.querySelectorAll('#cards .card'), chart=document.getElementById('note');
