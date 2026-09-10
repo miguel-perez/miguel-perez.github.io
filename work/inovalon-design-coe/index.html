@@ -63,10 +63,11 @@ figure svg{width:100%;height:auto;display:block;overflow:visible}
 .fig-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
 figcaption{font:12px/1.7 'Fira Code',monospace;color:#5e6b7d;max-width:800px;margin-left:auto;margin-right:auto}
 figcaption b{font-weight:400;color:#003D79}
-.tasks{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:4px 24px;font:11px/1.6 'Fira Code',monospace;color:#5e6b7d}
+.tasks{margin:0;padding:0;list-style:none;columns:220px;column-gap:24px;font:11px/1.6 'Fira Code',monospace;color:#5e6b7d}
+.tasks li{break-inside:avoid}
 .tasks li b{font-weight:400;color:#003D79}
-.steps{margin:20px 0 0;padding:0;list-style:none;counter-reset:s;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(300px,100%),1fr));gap:0 40px}
-.steps li{counter-increment:s;border-top:1px solid rgba(0,61,121,.25);padding:12px 0;font-size:17px;line-height:1.4;color:#2b3a4d;display:flex;gap:14px}
+.steps{margin:20px 0 0;padding:0;list-style:none;counter-reset:s;columns:300px;column-gap:40px}
+.steps li{counter-increment:s;break-inside:avoid;border-top:1px solid rgba(0,61,121,.25);padding:12px 0;font-size:17px;line-height:1.4;color:#2b3a4d;display:flex;gap:14px}
 .steps li::before{content:counter(s,decimal-leading-zero);font:12px/1.7 'Fira Code',monospace;color:#5e6b7d;flex:0 0 24px}
 .quotes{margin:64px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:32px}
 blockquote{margin:0}
@@ -243,7 +244,6 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
 .funnel .n{font:600 15px 'Source Sans 3',sans-serif;color:#003D79;letter-spacing:-.01em}
 .funnel .c{font:10px/1.5 'Fira Code',monospace;color:#5e6b7d;letter-spacing:.02em}
 .funnel .o{font:13px/1.35 'Source Sans 3',sans-serif;color:#2b3a4d}
-.funnel .o b{font-weight:600;color:#003D79;display:block;font-size:11px;letter-spacing:.04em;text-transform:uppercase;margin-bottom:2px}
 .funnel .m{font:12px/1.4 'Instrument Serif',serif;color:#2b3a4d;font-style:italic}
 .funnel-scroll{overflow:visible}
 .loop{margin-top:10px;font:11px/1.6 'Fira Code',monospace;color:#5e6b7d;border-top:1px dashed rgba(0,61,121,.35);padding-top:8px}
@@ -665,11 +665,11 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
 
    <figure>
 <div class="funnel-scroll"><div class="funnel" aria-label="The program as a five-stage funnel: acquisition, activation, retention, referral, and impact, each with a cadence, an output, and a measure.">
-     <div><span class="n">Acquisition</span><span class="c">MONTHLY</span><span class="o"><b>Output</b>newsletter, lunch-and-learns, sign-up</span><span class="m">nominees and volunteers per quarter</span></div>
-     <div><span class="n">Activation</span><span class="c">QUARTERLY · 3 DAYS</span><span class="o"><b>Output</b>in-person training, tool access</span><span class="m">nominees who pass basic training</span></div>
-     <div><span class="n">Retention</span><span class="c">EVERY TWO WEEKS</span><span class="o"><b>Output</b>mentorship, design reviews, repository</span><span class="m">practitioners generating research insights</span></div>
-     <div><span class="n">Referral</span><span class="c">ONE WEEK</span><span class="o"><b>Output</b>nomination form, maturity survey</span><span class="m">nominations that become practitioners</span></div>
-     <div><span class="n">Impact</span><span class="c">QUARTERLY</span><span class="o"><b>Output</b>State of UX review, internal case studies</span><span class="m">practitioners with reported effect on revenue</span></div>
+     <div><span class="n">Acquisition</span><span class="c">MONTHLY</span><span class="o">newsletter, lunch-and-learns, sign-up</span><span class="m">nominees and volunteers per quarter</span></div>
+     <div><span class="n">Activation</span><span class="c">QUARTERLY · 3 DAYS</span><span class="o">in-person training, tool access</span><span class="m">nominees who pass basic training</span></div>
+     <div><span class="n">Retention</span><span class="c">EVERY TWO WEEKS</span><span class="o">mentorship, design reviews, repository</span><span class="m">practitioners generating research insights</span></div>
+     <div><span class="n">Referral</span><span class="c">ONE WEEK</span><span class="o">nomination form, maturity survey</span><span class="m">nominations that become practitioners</span></div>
+     <div><span class="n">Impact</span><span class="c">QUARTERLY</span><span class="o">State of UX review, internal case studies</span><span class="m">practitioners with reported effect on revenue</span></div>
     </div></div>
     <div class="loop">↩ viral coefficient · new practitioners an existing practitioner generates</div>
     <figcaption>Fig. 9 · The service blueprint's spine. Each stage has a cadence, an output we owed, and the one number leadership would see.</figcaption>
