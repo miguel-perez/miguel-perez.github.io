@@ -469,33 +469,35 @@ figure:not(.in) .a{animation-play-state:paused}
    <p>The study also bought a second thing. The front-end work was outsourced as well, and on the strength of the intranet readout I was allowed to write code standards and start pulling that work back. It took most of the autumn and a great many one-to-one conversations. That was the rehearsal for what happened at Inovalon a year later, at forty times the cost.</p>
    <p>By November I had written the job description for a second designer and walked it through HR and the practice lead. It was approved in December, which is how the researcher arrived the following June.</p>
 
-   <h3>Three rules, no leader</h3>
-   <p>Alongside the study we ran lunch-and-learns on thinking like a designer, built on the company's own imagery. Avalere's logo is a flock of birds. Geese fly in a triangle behind one leader, which works when the route is known. Starlings swarm, following three rules: alignment, separation, cohesion. The harder the problem, the more the swarm is the right shape.</p>
-   <p>The rules became the deck's three moves: find alignment through experimentation, facilitate collaboration among separate stakeholders, and tell a cohesive story about human needs. Marketing came on as the second ally.</p>
+   <h3>The triangle and the swarm</h3>
+   <p>HR's agreement bought the next thing. In November 2017 they gave me a slot in the company's lunch-and-learn series, and I built the session on Avalere's own imagery. The logo is a flock of birds, and the value behind it is the goose formation: whoever knows the route takes the point, and the rest share the burden behind them. Starlings work the other way. No bird leads. Each one follows three rules, alignment, separation and cohesion, and the flock finds its route together.</p>
+   <p>The session put the two shapes on Cynefin's map. A complicated problem has an answer, and the right expert can find it, so the triangle is the right shape. A complex problem has no answer until you try something and watch what happens. A new product for a market nobody had observed is complex, and the triangle is the wrong shape for it, because the bird at the point has no more idea of the route than the rest.</p>
+   <p>The three rules became the deck's three moves: find alignment through experimentation, facilitate collaboration among separate stakeholders, and tell a cohesive story about human needs. We tested the framing on analysts and project managers before running it on site. Marketing, who own the logo, came on as the second ally.</p>
 
    <figure>
     <div class="lab">
      <div class="lab-part">
-      <span class="lab-h">TRIANGLE · one leader</span>
+      <span class="lab-h">TRIANGLE · whoever knows the route leads</span>
       <canvas id="flock-vee" aria-label="Birds holding slots behind a single leader, turning as the leader turns."></canvas>
-      <span class="lab-note">Everyone holds a slot behind the leader. Efficient when the route is known, and nobody else is reading the sky.</span>
+      <span class="lab-note">Avalere's own value. One bird takes the point and the rest share the burden behind it. Right when the route is known, and only then.</span>
      </div>
      <div class="lab-part">
-      <span class="lab-h">SWARM · three rules</span>
+      <span class="lab-h">SWARM · three rules, no leader</span>
       <canvas id="flock-swarm" aria-label="Birds flocking with no leader: matching heading, keeping their distance, and staying with the group."></canvas>
-      <span class="lab-note">No leader. Every bird reads only its neighbours, and the flock still holds together.</span>
+      <span class="lab-note">Every bird reads only its neighbours. Nobody knows the route, and the flock finds it anyway.</span>
      </div>
     </div>
-    <figcaption>Fig. 3 · The deck's opening slide, both formations running. Analysts recognised the triangle at once, because it is how the company already worked. The swarm is what took the explaining.</figcaption>
+    <figcaption>Fig. 3 · The deck's opening slide, both formations running, with Cynefin underneath them: the triangle for complicated problems, where an expert can find the answer, and the swarm for complex ones, where nobody can until they try something. Analysts recognised the triangle at once. It is how the company already worked.</figcaption>
    </figure>
-   <span class="methods"><b>METHODS</b> · task-based usability study · workshop facilitation · tame versus wicked problems · values-based framing</span>
+   <span class="methods"><b>METHODS</b> · task-based usability study · workshop facilitation · Cynefin · tame versus wicked problems · values-based framing</span>
   </section>
 
   <section class="act">
    <span class="label">II · Avalere Health · late 2017</span>
    <h2>Into the sales call</h2>
-   <p>HR's agreement was the opening, and I spent it on the product that was not selling. The market-analytics product was a year past its first release. A market study had been commissioned at the start, so the team felt the research was done. Prospects kept asking for one more feature before they would buy: the shape of a <strong>build trap</strong>.</p>
-   <p>I joined the demos and interviewed fifteen stakeholders to surface the assumptions behind the product and its business model. The buyers were busy executives, and the company wanted a finished product in the room. I asked to try it the other way round, and to put questions before the demo. Sales let me in as the inquisitive product person.</p>
+   <p>The session gave the company a way to say when an expert should lead and when a team should swarm. The product that was not selling was the first chance to use it. The market-analytics product was a year past its first release. A market study had been commissioned at the start, so the team felt the research was done. Prospects kept asking for one more feature before they would buy: the shape of a <strong>build trap</strong>.</p>
+   <p>In the deck's terms the team had picked a leader and flown in formation behind it. The market study was the expert, its answers were treated as known, and each objection from a prospect was absorbed as a feature rather than read as a signal. The problem was complex and they were working it as if it were complicated.</p>
+   <p>I joined the demos and interviewed fifteen stakeholders to surface the assumptions behind the product and its business model. The buyers were busy executives, and the company wanted a finished product in the room. I asked to try it the other way round, and to put questions before the demo. Sales let me in as the inquisitive product person. In Cynefin's terms that is probe, sense and respond. In the deck's terms it was the swarm, with the prospect inside it.</p>
    <p>Prospects were glad to talk about their own workflows. The conversation moved from the demo to the problems Avalere was uniquely placed to solve, contract sizes grew, and a new group formed to find repeatable services that could become products.</p>
 
    <figure class="dia">
@@ -943,7 +945,7 @@ figure:not(.in) .a{animation-play-state:paused}
   this.draw=function(){
    var ctx=self.ctx; ctx.clearRect(0,0,self.w,self.h); ctx.lineCap='round'; ctx.lineJoin='round';
    for(var i=0;i<self.boids.length;i++){ var p=self.boids[i]; if(p.hide)continue; var a=Math.atan2(p.vy,p.vx)+Math.PI/2;
-    ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(a); ctx.beginPath(); ctx.moveTo(-5,3); ctx.lineTo(0,-3); ctx.lineTo(5,3);
+    ctx.save(); ctx.translate(p.x,p.y); ctx.rotate(a); if(p.lead) ctx.scale(1.4,1.4); ctx.beginPath(); ctx.moveTo(-5,3); ctx.lineTo(0,-3); ctx.lineTo(5,3);
     ctx.strokeStyle=p.lead?ACC:INK; ctx.lineWidth=p.lead?2:1.4; ctx.globalAlpha=p.lead?1:0.85; ctx.stroke(); ctx.restore(); }
   };
   this.frame=function(){ if(!self.run)return; self.step(); self.draw(); requestAnimationFrame(self.frame); };
