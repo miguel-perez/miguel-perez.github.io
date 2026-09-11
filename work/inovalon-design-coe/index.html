@@ -28,6 +28,7 @@ a:hover{text-decoration:underline;text-decoration-color:#73964A;text-underline-o
 .seats i.p{background:#73964A;transform:scale(1)}
 .hero-art .cap{width:min(100%,340px);margin-top:16px;font:11px/1.7 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;color:#5e6b7d;pointer-events:none}
 .hero-art .cap b{display:block;font-weight:400;color:#003D79;height:1.7em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hero-art .cap #seats-cap{color:#5e6b7d}
 .hero-art .cap i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
 .hero-art .cap i.d{background:#003D79}
 .hero-art .cap i.p{background:#73964A;margin-left:14px}
@@ -37,6 +38,8 @@ a:hover{text-decoration:underline;text-decoration-color:#73964A;text-underline-o
 .facts-row span{display:block}
 .facts-row .k{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#5e6b7d;margin-bottom:2px}
 .case-header .meta{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 40px}
+.case-header .meta .jump{color:#003D79;text-decoration:none;border-bottom:1px solid rgba(0,61,121,.35)}
+.case-header .meta .jump:hover{border-bottom-color:#003D79}
 h1{margin:0;max-width:1100px;font:600 clamp(44px,6vw,88px)/.98 'Source Sans 3',sans-serif;letter-spacing:-.025em;text-wrap:balance}
 h1 em{font-style:normal;color:#73964A}
 .lede{margin:32px 0 0;max-width:720px;font-size:22px;line-height:1.4;color:#2b3a4d}
@@ -83,7 +86,9 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
 .colophon{margin:64px 0 0;border-top:1px solid rgba(0,61,121,.35);padding-top:16px;font:12px/1.8 'Fira Code',monospace;color:#5e6b7d}
 .colophon b{font-weight:400;color:#003D79;letter-spacing:.08em;text-transform:uppercase}
 .next{margin:48px 0 0;border-top:1px solid rgba(0,61,121,.35);padding-top:28px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px 40px;align-items:baseline}
+.ctas{display:flex;flex-direction:column;gap:10px;min-width:0}
 .cta{font-size:24px;font-style:italic;color:#003D79}
+.cta.alt{font-size:18px;color:#5e6b7d}
 .back{font:13px 'Fira Code',monospace;color:#5e6b7d}
 
 /* Reconstructed artifacts. Redrawn from the originals with synthetic data; nothing is a screenshot. */
@@ -395,7 +400,7 @@ figure:not(.in) .a{animation-play-state:paused}
 </div></header>
 
 <section class="case-header wrap">
- <div class="meta label"><span>Case study · Avalere Health, then Inovalon · July 2017 to July 2019</span><span>16-minute read</span></div>
+ <div class="meta label"><span>Case study · Avalere Health, then Inovalon · July 2017 to July 2019</span><span>16-minute read · <a class="jump" href="#afterwards">outcomes in a minute ↓</a></span></div>
  <div class="hero">
   <div class="hero-text">
    <h1>From first UX hire to a <em>corporate goal</em> with headcount.</h1>
@@ -408,7 +413,7 @@ figure:not(.in) .a{animation-play-state:paused}
   </div>
   <div class="hero-art" id="hero-art" role="img" aria-label="A grid of a hundred seats filling up: one designer in July 2017, four by 2019, a first cohort of twenty practitioners that October, and the hundred the programme was planned to reach." title="Replay">
    <div class="seats" id="seats"></div>
-   <span class="cap"><b id="seats-cap">2017: one designer · the plan: a hundred</b><i class="d"></i>designers hired<i class="p"></i>practitioners</span>
+   <span class="cap"><b class="sum">2017: one designer · the plan: a hundred</b><b id="seats-cap">Jul 2017 · one UX designer</b><i class="d"></i>designers hired<i class="p"></i>practitioners</span>
   </div>
  </div>
  <div class="numbers">
@@ -453,7 +458,7 @@ figure:not(.in) .a{animation-play-state:paused}
    <h3>The intranet study</h3>
    <p>The team rebuilding the company intranet had no researcher, so I offered. The users were our own staff, so recruiting was easy. A Mural workshop agreed what staff needed to get done; then we watched five colleagues attempt ten tasks each.</p>
    <p>The readout went to HR leadership as a teaching document: what we did, what broke, what to fix first. It also answered the objection. Intuitive turns out to be a measurable thing. It means a screen matches what a person already expects of it, and a recording shows the second it stops matching. Finding a role inside a department failed for three of five people, so the first recommendation was to put department names on the org chart.</p>
-   <p>That also put the argument in money. The intranet existed to save staff time, so a task that does not match what staff expect gets paid for in minutes, by everyone, every week. It was a brand argument as much as a financial one, which is what carried it with the people who decided. HR became the first ally, and their agreement that the company needed to grow its design capability was the seed of everything after.</p>
+   <p>That also put the argument in money. The intranet existed to save staff time, so a task that does not match what staff expect gets paid for in minutes, by everyone, every week. HR became the first ally.</p>
 
    <figure class="txt">
 <div class="tbl-scroll"><table class="grid" aria-label="Five employees by ten tasks, ordered by result so the cleanest task and the steadiest employee sit top left. Green marks a task completed with no errors, amber a task completed with errors, red a task not completed. The last two rows give how many of the five completed each task and the total errors logged against it.">
@@ -474,14 +479,14 @@ figure:not(.in) .a{animation-play-state:paused}
      <ol class="tasks">
      <li><b>T1</b> identify the site's purpose</li><li><b>T2</b> find recent announcements</li><li><b>T3</b> find a role within a department</li><li><b>T4</b> find a colleague by expertise</li><li><b>T5</b> find contact details and location</li><li><b>T6</b> find slide templates</li><li><b>T7</b> find the icon library</li><li><b>T8</b> find the editorial guide</li><li><b>T9</b> find upcoming events</li><li><b>T10</b> add an event to a calendar</li>
     </ol>
-    <figcaption>Fig. 2 · The intranet study, October 2017. Five staff, ten tasks, coded for completion and errors. Rows and columns are ordered by result rather than by number, which puts the trouble in one corner; the study was testing the site, not the staff. Counts are raw, because at five people a percentage or an average would imply a precision the study cannot carry. Finding a role inside a department was the one task most could not finish. Eight recommendations followed, ranked by impact and effort, and the org-chart fix came first.</figcaption>
+    <figcaption>Fig. 2 · The intranet study, October 2017. Five staff, ten tasks, coded for completion and errors. Rows and columns are ordered by result rather than by number, which puts the trouble in one corner; the study was testing the site, not the staff. Counts are raw, because at five people a percentage or an average would imply a precision the study cannot carry. Eight recommendations followed, ranked by impact and effort.</figcaption>
    </figure>
 
-   <p>The study also bought a second thing. Front-end implementation was outsourced, which cost the team quality control and any chance of building the skill inside, so on the strength of the intranet readout I was allowed to write code standards and start pulling that work back. It took most of the autumn and a great many one-to-one conversations. That was the rehearsal for the far larger transition at Inovalon a year later.</p>
+   <p>The study bought a second thing. Front-end implementation was outsourced, which cost the team quality control and any chance of growing the skill inside. On the strength of the readout I was allowed to write code standards and start pulling that work back, one conversation at a time through the autumn. It was the rehearsal for the larger transition at Inovalon a year later.</p>
    <p>By November I had written the job description for a second designer and walked it through HR and the practice lead. It was approved in December, which is how the researcher arrived the following June.</p>
 
    <h3>The triangle and the swarm</h3>
-   <p>HR's agreement bought the next thing. In November 2017 they gave me a slot in the company's lunch-and-learn series, and I built the session on Avalere's own imagery. The logo is a flock of birds, and the value behind it is the goose formation: whoever knows the route takes the point, and the rest share the burden behind them. Starlings work the other way. No bird leads. Each one follows three rules, alignment, separation and cohesion, and the flock finds its route together.</p>
+   <p>HR's agreement bought the next thing, and the brand argument I still owed the co-founder turned out to be sitting in the logo. In November 2017 HR gave me a slot in the company's lunch-and-learn series, and I built the session on Avalere's own imagery. The logo is a flock of birds, and the value behind it is the goose formation: whoever knows the route takes the point, and the rest share the burden behind them. Starlings work the other way. No bird leads. Each one follows three rules, alignment, separation and cohesion, and the flock finds its route together.</p>
    <p>The session put the two shapes on Cynefin's map. A complicated problem has an answer, and the right expert can find it, so the triangle is the right shape. A complex problem has no answer until you try something and watch what happens. A new product for a market nobody had observed is complex, and the triangle is the wrong shape for it, because the bird at the point has no more idea of the route than the rest.</p>
    <p>The three rules became the deck's three moves: find alignment through experimentation, facilitate collaboration among separate stakeholders, and tell a cohesive story about human needs. We tested the framing on analysts and project managers before running it on site. Marketing, who own the logo, came on as the second ally.</p>
 
@@ -577,6 +582,7 @@ figure:not(.in) .a{animation-play-state:paused}
     <li>Component library contribution and bug guidelines</li>
     <li>Component library 1.0 release</li>
    </ol>
+   <p>The component library was the vendor's, built on Aurelia, and it later moved to Angular Material. Once the assets transferred we wrote the contribution and bug guidelines, documented the components in Sketch, and pinned every release to a git tag, so a product team always knew which version it had built against and could take the next one on its own schedule. A short-term and a long-term front-end governance plan, worked out with two engineering leads, decided who could change what.</p>
 
    <figure>
     <div class="fig-scroll"><div class="bp" style="--bp-n:4" role="img" aria-label="A service blueprint of the in-house design service across four phases. Product owner and engineer actions above, then frontstage design activity, then backstage work, then the roles and the systems that supported them.">
@@ -595,8 +601,8 @@ figure:not(.in) .a{animation-play-state:paused}
    </figure>
 
    <h3>The business case</h3>
-   <p>In September 2018 the case went to leadership with the workbook attached. The design vendor's contract capped at $27,136 a sprint and ran to $687k across 2018, for a five-role team. Four in-house designers replaced it: total design spend fell 26% in the 2019 plan while the model's delivery capacity doubled. The team was funded. The vendor contract ended, and two more designer requisitions were approved for early 2019.</p>
-   <p>The <strong>budget model</strong> ran to eleven formula-linked sheets, so leadership could change an assumption and watch the totals move. This is the sheet they decided on.</p>
+   <p>In September 2018 I took the case to leadership with the workbook attached. The design vendor's contract capped at $27,136 a sprint and ran to $687k across 2018, for a five-role team. Four in-house designers replaced it: total design spend fell 26% in the 2019 plan while the model's delivery capacity doubled. The team was funded. The vendor contract ended, and two more designer requisitions were approved for early 2019.</p>
+   <p>I built the <strong>budget model</strong> as eleven formula-linked sheets, so leadership could change an assumption and watch the totals move. This is the sheet they decided on.</p>
 
    <figure class="txt">
     <div class="ui" role="img" aria-label="The budget sheet from the September 2018 business case, redrawn. Two columns, 2018 actual against the 2019 plan, comparing internal staff cost, vendor cost, total design spend, delivery velocity, and cost per velocity point.">
@@ -604,7 +610,7 @@ figure:not(.in) .a{animation-play-state:paused}
      <div class="tbl-scroll"><table class="sheet">
       <thead><tr><th>Line item</th><th>2018 actual</th><th class="on">2019 · replace the vendor</th></tr></thead>
       <tbody>
-       <tr><td>Internal staff<i>fully loaded</i></td><td data-y="2018"><span class="calc">2 &times; $201,783</span>$403,566</td><td data-y="2019"><span class="calc">4 &times; $201,783</span>$807,131</td></tr>
+       <tr><td>Internal staff<i>fully loaded</i></td><td data-y="2018"><span class="calc">two designers</span>$403,566</td><td data-y="2019"><span class="calc">four designers</span>$807,131</td></tr>
        <tr><td>Design vendor<i>five-role team, 118 hrs a week</i></td><td data-y="2018"><span class="calc">actuals + committed</span>$686,768</td><td data-y="2019"><span class="calc">contract ended</span><span class="gone">$0</span></td></tr>
        <tr class="total"><td>Total design spend</td><td data-y="2018">$1,090,334</td><td data-y="2019">$807,131</td></tr>
        <tr class="model"><td>Delivery velocity<i>the model's estimate</i></td><td data-y="2018">52</td><td data-y="2019">104</td></tr>
@@ -623,7 +629,9 @@ figure:not(.in) .a{animation-play-state:paused}
    <h2>Proving it pays</h2>
    <p>This ran alongside the business case rather than after it. In April 2018 Inovalon had launched a service that reads medical records and finds conditions a chart review would miss. Prospects wanted to review the findings themselves, and the team came to us with a large budget and a deadline: a working interface for Client Congress, the annual client conference, at the end of September.</p>
    <p>I proposed spending a tenth of the budget on a high-fidelity prototype instead of production code, because a click-through changes faster than software while we are still learning. We captured the team's assumptions in a business model canvas, then wrote the scenario before drawing anything: a day in the life of the reviewer we thought we were building for.</p>
-   <p>Then we watched clinical reviewers work, and the scenario turned out to be wrong in the place that mattered. We had written her accepting the first suggestion the system made. Real reviewers would not accept a finding they could not check against the chart, and said so in the first session. Eight findings came out of the sessions and the interface was rebuilt around the first of them: <strong>evidence</strong> before confidence.</p>
+   <h3>The scenario we got wrong</h3>
+   <p>Then we watched clinical reviewers work, and the scenario turned out to be wrong in the place that mattered. We had written her accepting the first suggestion the system made. Real reviewers would not accept a finding they could not check against the chart, and said so in the first session.</p>
+   <p>Eight findings came out of the sessions, and I redrew the interface around the first: a reviewer will not act on a model's <strong>confidence score</strong> until she can see the sentence in the chart that produced it. The score is a claim. The sentence is the evidence, and every reviewer we watched went to the chart before deciding.</p>
 
 
    <figure>
@@ -739,7 +747,8 @@ figure:not(.in) .a{animation-play-state:paused}
     <figcaption>Fig. 8 · The build as it stood in mid 2018, what the sessions found, and the pass that followed. The middle row is the argument between the two screens, and it is the reason for every red mark above it and every green one below. The scenario we had written before the sessions ran had her accepting the first suggestion the system made, which turned out to be the one thing no reviewer would do. Both screens use a synthetic chart and public code sets.</figcaption>
    </figure>
 
-   <p>Over two years the practice put roughly a tenth of each build budget into learning before the other nine tenths were committed. By its own accounting that avoided an estimated $2.4M in rewrites, most of it never spent rather than saved after the fact.</p>
+   <h3>What a tenth bought</h3>
+   <p>The prototype cost about a tenth of what the build would have, and it changed the design before the other nine tenths were committed. Over two years the practice put every build it touched through the same tenth. By its own accounting, the rework that never had to be scoped came to an estimated <strong>$2.4M</strong>.</p>
    <span class="methods"><b>METHODS</b> · minimum viable product and innovation accounting · context scenarios · sketching before building · contextual inquiry · the ironies of automation</span>
   </section>
 
@@ -777,8 +786,10 @@ figure:not(.in) .a{animation-play-state:paused}
     <figcaption>Fig. 9 · The Q2 2019 maturity survey on the Design Management Institute's five levels, 114 responses across four business units. Teams could repeat what they did in delivery; almost nobody measured it. The barriers alongside were coded from the open answers.</figcaption>
    </figure>
 
+   <h3>What the survey found</h3>
    <p>The survey turned up something we could use. Product and development managers already spent about a fifth of their time on design, and thirteen of them spent more than half. Those thirteen scored far above the rest on maturity. Ranking them against every product's stage, revenue and receptiveness gave us the first cohort of twenty.</p>
-   <p>Manager interviews said what the cohort needed: how to write a testable hypothesis, design an experiment, and recruit users. So the programme was blueprinted like an internal startup, with the five measures a startup would track, written before the first cohort, so that a failure would show up in a number someone already watched.</p>
+   <h3>Blueprinting the programme</h3>
+   <p>Manager interviews said what the cohort needed: how to write a testable hypothesis, design an experiment, and recruit users. So I blueprinted the programme like an internal startup, with the five measures a startup would track, written before the first cohort, so that a failure would show up in a number someone already watched.</p>
 
    <figure>
 <div class="fig-scroll"><div class="bp" style="--bp-n:5" role="img" aria-label="A service blueprint of the design centre of excellence across five phases: acquisition, activation, retention, referral and impact. Lanes for practitioner actions, manager actions, frontstage, backstage, supporting systems, and the measure leadership sees.">
@@ -813,7 +824,7 @@ figure:not(.in) .a{animation-play-state:paused}
    <span class="methods"><b>METHODS</b> · design maturity model · double-loop learning · communities of practice · pirate metrics · service blueprint · ladder of participation</span>
   </section>
 
-  <section class="act">
+  <section class="act" id="afterwards">
    <span class="label">Afterwards</span>
    <h2>What it changed</h2>
    <ul class="after">
@@ -824,15 +835,18 @@ figure:not(.in) .a{animation-play-state:paused}
    </ul>
 
    <div class="quotes">
-    <blockquote><p>“A transformative force multiplier” whose team “initiated design research, performed service design, UX experiments, aligned business stakeholders, and successfully managed external design and software development resources.”</p><footer>Hiring manager · VP, Software and Data Analytics · Avalere Health · 2019</footer></blockquote>
-    <blockquote><p>“Miguel had a tough job at Inovalon trying to transform an existing Agile SDLC culture by integrating the power of design.”</p><footer>My manager · Senior Director, Platform Solutions · Inovalon · 2020</footer></blockquote>
     <blockquote><p>“It is no small task to add a new enterprise-wide discipline to an organization… Thank you for initiating the movement and we'll be sure to continue the advancement.”</p><footer>Chief Product Officer · Inovalon · 2019</footer></blockquote>
+    <blockquote><p>“A strong visionary with tremendous intelligence and high EQ… Miguel had a tough job at Inovalon trying to transform an existing Agile SDLC culture by integrating the power of design.”</p><footer>My manager · Senior Director, Platform Solutions · Inovalon · 2020</footer></blockquote>
+    <blockquote><p>“A transformative force multiplier” whose team “initiated design research, performed service design, UX experiments, aligned business stakeholders, and successfully managed external design and software development resources.”</p><footer>Hiring manager · VP, Software and Data Analytics · Avalere Health · 2019</footer></blockquote>
    </div>
 
    <p class="colophon"><b>Colophon</b> · Names are withheld and quotes attributed by role. Screens are reconstructions with synthetic data, not screenshots.</p>
 
    <div class="next">
-    <a class="cta" href="mailto:mail+careers@miguel.design?subject=Staff%20or%20principal%20role">Talk to me about a staff or principal role →</a>
+    <div class="ctas">
+     <a class="cta" href="mailto:mail+careers@miguel.design?subject=Staff%20or%20principal%20role">Talk to me about a staff or principal&nbsp;role&nbsp;→</a>
+     <a class="cta alt" href="mailto:mail@miguel.design?subject=Building%20a%20design%20practice">Or about building the practice inside your&nbsp;organisation&nbsp;→</a>
+    </div>
     <a class="back" href="/#work">← All work</a>
    </div>
   </section>
@@ -872,17 +886,17 @@ figure:not(.in) .a{animation-play-state:paused}
  var seatsEl=document.getElementById('seats');
  if(seatsEl){
   var capEl=document.getElementById('seats-cap'), artEl=document.getElementById('hero-art');
-  var finalCap=capEl.textContent;
   var grid=[]; for(var r=0;r<10;r++){ grid.push([]); for(var c=0;c<10;c++){ var el=document.createElement('i'); seatsEl.appendChild(el); grid[r].push(el); } }
   /* Fill order: a square spiral out from the middle, so the first few sit together. */
   var cells=[], sr=4, sc=4, dr=[0,1,0,-1], dc=[1,0,-1,0], dir=0, len=1;
   while(cells.length<100){ for(var leg=0;leg<2;leg++){ for(var st=0;st<len;st++){ if(sr>=0&&sr<10&&sc>=0&&sc<10&&cells.length<100) cells.push({el:grid[sr][sc]}); sr+=dr[dir]; sc+=dc[dir]; } dir=(dir+1)%4; } len++; }
   var stages=[
-   {n:1,cap:'July 2017 · one UX designer'},
-   {n:2,cap:'June 2018 · a design researcher joins'},
+   {n:1,cap:'Jul 2017 · one UX designer'},
+   {n:2,cap:'Jun 2018 · a design researcher joins'},
    {n:4,cap:'2019 plan · four designers'},
-   {n:24,cap:'October 2019 · a first cohort of twenty'},
+   {n:24,cap:'Oct 2019 · four designers, a cohort of twenty'},
    {n:100,cap:'the plan · a hundred practitioners'}];
+  var finalCap=stages[stages.length-1].cap;
   var timers=[], reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches, onScreen=false;
   function cls(i){ return i<4?'d':'p'; }
   function play(){
