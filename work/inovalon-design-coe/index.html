@@ -1,6 +1,6 @@
 ---
 title: "From first UX hire to a corporate goal with headcount"
-description: "Avalere Health hired its first UX designer in July 2017. Two years later, design was a corporate goal at the Inovalon parent, with a budget model, a certification program, and research running on protected health information."
+description: "Avalere Health hired its first UX designer in July 2017. Two years later design was a corporate goal at the Inovalon parent, with approved headcount and a plan to certify a hundred practitioners. A case study in change management."
 draft: true
 fonts: [source-sans-3]
 ---
@@ -270,6 +270,37 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
 .key .fail{color:#C8461B}
 .key span{margin-left:6px;color:#8a929e}
 
+/* Storyboard panels */
+.sb{display:grid;grid-template-columns:1fr;gap:22px 18px}
+@media (min-width:560px){.sb{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:900px){.sb{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.sb > div{display:flex;flex-direction:column;gap:9px;min-width:0}
+.sb .fr{border:1px solid rgba(0,61,121,.28);border-radius:4px;background:#fff;overflow:hidden;display:block}
+.sb .fr svg{display:block;width:100%;height:auto}
+.story .sb p{margin:0;font:12px/1.6 'Fira Code',monospace;color:#2b3a4d}
+.story .sb p b{font-weight:400;color:#5e6b7d;margin-right:7px}
+
+/* Service blueprints, drawn in the conventional anatomy: customer actions, a line of
+   interaction, frontstage, a line of visibility, backstage, a line of internal
+   interaction, then support. Prefixed so nothing collides. */
+.bp{display:grid;grid-template-columns:136px repeat(var(--bp-n,5),minmax(0,1fr));border:1px solid rgba(0,61,121,.3);border-radius:6px;overflow:hidden;background:#fff;font:11px/1.5 'Fira Code',monospace;color:#2b3a4d}
+.bp > div{padding:9px 11px;border-bottom:1px solid rgba(0,61,121,.08);border-left:1px solid rgba(0,61,121,.08)}
+.bp-lane{grid-column:1;border-left:0;background:rgba(0,61,121,.035);color:#003D79;font-size:10px;letter-spacing:.05em;text-transform:uppercase;display:flex;align-items:center}
+.bp-phase{background:rgba(0,61,121,.06);color:#003D79;font:600 13px/1.25 'Source Sans 3',sans-serif}
+.bp-phase small{display:block;margin-top:3px;font:10px/1.5 'Fira Code',monospace;color:#5e6b7d;letter-spacing:.05em;text-transform:uppercase}
+.bp-corner{background:rgba(0,61,121,.06);border-left:0}
+.bp-rule{grid-column:1/-1;border-left:0;border-bottom:0;border-top:1px dashed rgba(0,61,121,.55);padding:5px 11px;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#5e6b7d;background:#fff}
+.bp-cell b{display:block;font-weight:400;color:#003D79}
+.bp-cell i{font-style:normal;color:#5e6b7d}
+.bp-span{grid-column:2/-1}
+.bp-chain{display:flex;flex-wrap:wrap;gap:4px 0;align-items:center}
+.bp-chain span{white-space:nowrap}
+.bp-chain u{text-decoration:none;color:rgba(0,61,121,.45);padding:0 7px}
+.bp-chain em{font-style:normal;color:#5e6b7d}
+.bp-time{background:rgba(115,150,74,.08);color:#4F6E2B}
+.bp-metric{background:rgba(0,61,121,.03);font-style:italic;font-family:'Instrument Serif',serif;font-size:12px}
+@media (max-width:900px){.fig-scroll .bp{min-width:820px}}
+
 /* Fig. 3: the two formations, side by side */
 .lab{display:grid;grid-template-columns:1fr 1fr;gap:10px 28px}
 .lab-part{display:flex;flex-direction:column;gap:8px;min-width:0}
@@ -331,7 +362,7 @@ figure:not(.in) .a{animation-play-state:paused}
  <div class="hero">
   <div class="hero-text">
    <h1>From first UX hire to a <em>corporate goal</em> with headcount.</h1>
-   <p class="lede">Avalere Health hired its first UX designer in July 2017. Two years later, design was a corporate goal at the Inovalon parent, with a budget model, a certification program, and research running on protected health information.</p>
+   <p class="lede">Avalere Health hired its first UX designer in July 2017. Nobody on the software team had direct access to users, so the work started with one low-risk study and grew by earning the next permission. Two years later design was a corporate goal at the Inovalon parent, with approved headcount and a plan to certify a hundred practitioners.</p>
    <div class="facts-row">
     <div><span class="k">Role</span><span>First UX designer at Avalere Health, then Senior Manager, Design Strategy at Inovalon and founder of the Design Center of Excellence.</span></div>
     <div><span class="k">Timeline</span><span>July 2017 to July 2019. Philadelphia, then remote from Denver.</span></div>
@@ -340,7 +371,7 @@ figure:not(.in) .a{animation-play-state:paused}
   </div>
   <div class="hero-art" id="hero-art" role="img" aria-label="One designer in July 2017 growing to a hundred practitioners planned for 2020, shown as a filling grid of a hundred seats." title="Replay">
    <div class="seats" id="seats"></div>
-   <span class="cap"><b id="seats-cap">2017: one designer · 2020: a hundred practitioners, as planned</b><i class="d"></i>designers hired<i class="p"></i>practitioners, as planned</span>
+   <span class="cap"><b id="seats-cap">2017: 1 designer · 2020: 100 practitioners</b><i class="d"></i>designers hired<i class="p"></i>practitioners, as planned</span>
   </div>
  </div>
  <div class="numbers">
@@ -359,7 +390,7 @@ figure:not(.in) .a{animation-play-state:paused}
    <span class="label">I · Avalere Health · 2017</span>
    <h2>One designer, no users</h2>
    <p>Avalere Health is a healthcare policy and data firm in Washington, DC, owned by Inovalon since 2015. Its Philadelphia software team had shipped a market-analytics product and was chasing feature requests, with a design vendor billing per sprint. I joined in July 2017 as the first UX designer. Nobody on the team had ever watched a user.</p>
-   <p>So the first job was not a screen. It was one low-risk study that leaders would let me run, and a readout that showed what <strong>user research</strong> is.</p>
+   <p>So the first job was not a screen. It was one low-risk study that leaders would let me run, and a readout that showed what <strong>user research</strong> is. Every piece of work in the two years after this one was paid for by the one before it.</p>
 
    <figure class="dia">
 <div class="fig-scroll"><svg viewBox="0 0 760 230" aria-label="Timeline from July 2017 to October 2019. Avalere Health from July to December 2017, Inovalon from January 2018 to July 2019, and the first cohort planned for October 2019 after departure.">
@@ -407,6 +438,11 @@ figure:not(.in) .a{animation-play-state:paused}
     <figcaption>Fig. 2 · The intranet study, October 2017. Five staff, ten tasks, coded for completion and errors. Counts are raw: at five participants a percentage or an average would imply a precision the study cannot carry. Finding a role inside a department was the one task most people could not finish. Eight recommendations followed, ranked by impact and effort; the org-chart fix came first.</figcaption>
    </figure>
 
+   <h3>Two other things, running alongside</h3>
+   <p>The front-end work was outsourced too, so I wrote code standards, set up linting, and started pulling that work back in-house. It took a lot of one-to-one conversations. That autumn was the rehearsal for what happened at Inovalon a year later, at a much larger scale.</p>
+   <p>Design also belonged to the brand team, who reviewed every visual element. Rather than route around them I spent three months negotiating a shared definition of design, wide enough to cover research and process as well as look. By November we had a working relationship instead of a queue.</p>
+   <p>By then I had also written the job description for a second designer and walked it through HR and the practice lead. It was approved in December, which is how the researcher arrived the following June.</p>
+
    <h3>Swarms, not triangles</h3>
    <p>Alongside the study we ran lunch-and-learns on thinking like a designer, built on the company's own imagery. Avalere's logo is a flock of birds. Geese fly in a triangle behind one leader, which works when the route is known. Starlings swarm, following three rules: alignment, separation, cohesion. Complex problems need the swarm.</p>
    <p>The rules became the deck's three moves: find alignment through experimentation, facilitate collaboration among separate stakeholders, and tell a cohesive story about human needs. Marketing came on as the second ally.</p>
@@ -432,7 +468,7 @@ figure:not(.in) .a{animation-play-state:paused}
   <section class="act">
    <span class="label">II · Avalere Health · late 2017</span>
    <h2>Into the sales call</h2>
-   <p>The market-analytics product was a year past its first release. A market study had been commissioned at the start, so the team felt the research was done. Prospects kept asking for one more feature before they would buy: the shape of a <strong>build trap</strong>.</p>
+   <p>HR's agreement was the opening, and I spent it on the product that was not selling. The market-analytics product was a year past its first release. A market study had been commissioned at the start, so the team felt the research was done. Prospects kept asking for one more feature before they would buy: the shape of a <strong>build trap</strong>.</p>
    <p>I joined the demos and interviewed fifteen stakeholders to surface the assumptions behind the product and its business model. The buyers were busy executives, and the company wanted a finished product in the room. I proposed the opposite: ask before you demo. Sales let me in as the inquisitive product person.</p>
    <p>Prospects were glad to talk about their own workflows. The conversation moved from the demo to the problems Avalere was uniquely placed to solve, contract sizes grew, and a new group formed to find repeatable services that could become products.</p>
 
@@ -452,13 +488,31 @@ figure:not(.in) .a{animation-play-state:paused}
     </svg></div>
     <figcaption>Fig. 4 · The service blueprint's top lane. The loop is the build trap: each objection became a feature. Asking first moved the demo to the third step and the contract to the fourth.</figcaption>
    </figure>
+   <h3>The other kind of waste</h3>
+   <p>Selling the wrong thing is one way to waste money. Making the right thing expensively is another. Alongside the sales work I mapped how one of the subscription publications was actually produced, a monthly policy digest with a chapter for every state.</p>
+   <p>The map is where the argument was. Ten working days a month went into moving a document between a writer, two reviewers, an editor and an intern, most of it spent stripping tracked changes and cutting one PDF into many. None of that is visible to a subscriber, and none of it is what they pay for.</p>
+
+   <figure>
+    <div class="fig-scroll"><div class="bp" style="--bp-n:5" role="img" aria-label="A service blueprint of a monthly subscription policy digest. Subscriber actions above, then frontstage, then the twelve-step monthly production cycle backstage with the days each step took, then the systems that supported it.">
+      <div class="bp-corner"></div><div class="bp-phase">Hears about it<small>before</small></div><div class="bp-phase">Subscribes<small>day 0</small></div><div class="bp-phase">Gets the issue<small>15th</small></div><div class="bp-phase">Reads it<small>same week</small></div><div class="bp-phase">Renews<small>annual</small></div>
+      <div class="bp-lane">Subscriber</div><div class="bp-cell">A colleague forwards a chapter.</div><div class="bp-cell">Signs up and is invoiced.</div><div class="bp-cell">Reads the notification and logs in.</div><div class="bp-cell">Looks for the one state that matters to them.</div><div class="bp-cell">Weighs a year of issues against the price.</div>
+      <div class="bp-rule">line of interaction</div>
+      <div class="bp-lane">Frontstage</div><div class="bp-cell">Sales conversation and a sample chapter.</div><div class="bp-cell">Account set up, welcome mail.</div><div class="bp-cell">The email blast lands.</div><div class="bp-cell">Portal serves the landing page and what is new this month.</div><div class="bp-cell">Renewal conversation.</div>
+      <div class="bp-rule">line of visibility</div>
+      <div class="bp-lane">Backstage</div><div class="bp-cell bp-span"><div class="bp-chain"><span>state writers draft chapters</span><u>&rarr;</u><span>subject reviewers comment</span><u>&rarr;</u><span>editor corrects style</span><u>&rarr;</u><span>senior reviewer edits for cohesion</span><u>&rarr;</u><span>intern strips tracked changes</span><u>&rarr;</u><span>digest version cut</span><u>&rarr;</u><span>PDF split into chapters</span><u>&rarr;</u><span>uploaded to the portal</span><u>&rarr;</u><span>maps and updates added</span><u>&rarr;</u><span>landing page populated</span><u>&rarr;</u><span>email drafted and tested</span><u>&rarr;</u><span>blast sent</span></div></div>
+      <div class="bp-lane">Days it took</div><div class="bp-cell bp-span bp-time"><div class="bp-chain"><span>by the 3rd</span><u>&rarr;</u><span>3 days</span><u>&rarr;</u><span>2 days</span><u>&rarr;</u><span>2 days</span><u>&rarr;</u><span>1 day</span><u>&rarr;</u><span>1 day</span><u>&rarr;</u><span>1 day</span><u>&rarr;</u><em>ten working days a month, every month</em></div></div>
+      <div class="bp-rule">line of internal interaction</div>
+      <div class="bp-lane">Supporting systems</div><div class="bp-cell">Marketing site</div><div class="bp-cell">Billing</div><div class="bp-cell">Email platform</div><div class="bp-cell">Content portal · chapter PDFs</div><div class="bp-cell">Subscription records</div>
+     </div></div>
+    <figcaption>Fig. 5 · The production cycle behind a monthly subscription digest, redrawn from the 2017 workshop board. Subscriber actions sit above the line of interaction; everything that costs money sits below the line of visibility. The days come from the team's own estimates on the board.</figcaption>
+   </figure>
    <span class="methods"><b>METHODS</b> · customer discovery · assumption mapping · solution interviews · service blueprint</span>
   </section>
 
   <section class="act">
    <span class="label">III · Inovalon · 2018</span>
    <h2>Bringing design in-house</h2>
-   <p>In January 2018 a reorganisation moved me to the Inovalon parent, with a promotion. In June a design researcher joined. Together we set out to understand about a dozen product teams and bring the work outsourced to a design vendor back in-house.</p>
+   <p>Sitting in the sales calls is what made the case for design at the parent company, and in January 2018 a reorganisation moved me to Inovalon with a promotion. In June the design researcher joined. Together we set out to understand about a dozen product teams and bring the work outsourced to a design vendor back in-house.</p>
    <p>Managers and tech leads liked the vendor: high-fidelity mockups, fast and consistent. What they missed was anyone responsible for the whole client experience and how it tied back to company measures. Analysts wrote requirements, the vendor drew screens, and nobody in between asked why.</p>
    <p>We ran the <strong>Innovator's Compass</strong>, a one-page canvas for framing a problem before solving it, with each team to define workstreams and write testable hypotheses, and kept the findings in an atomic research repository. Every two weeks we ran two or three experiments. Data became observations, observations insights, insights scenarios, and scenarios solutions.</p>
 
@@ -480,7 +534,7 @@ figure:not(.in) .a{animation-play-state:paused}
      </table></div>
      <div class="chain"><span><b>26</b>data</span><i>→</i><span><b>119</b>observations</span><i>→</i><span><b>63</b>insights</span><i>→</i><span><b>16</b>scenarios</span><i>→</i><span>solutions</span></div>
     </div>
-    <figcaption>Fig. 5 · The base that ran the practice, redrawn from the July 2019 export. Workstream names withheld. Priority is a formula over time criticality, impact, and risk; the bottom row is the chain from recording to solution.</figcaption>
+    <figcaption>Fig. 6 · The base that ran the practice, redrawn from the July 2019 export. Workstream names withheld. Priority is a formula over time criticality, impact, and risk; the bottom row is the chain from recording to solution.</figcaption>
    </figure>
 
    <h3>The transition, in ten steps</h3>
@@ -497,6 +551,22 @@ figure:not(.in) .a{animation-play-state:paused}
     <li>Component library contribution and bug guidelines</li>
     <li>Component library 1.0 release</li>
    </ol>
+
+   <figure>
+    <div class="fig-scroll"><div class="bp" style="--bp-n:4" role="img" aria-label="A service blueprint of the in-house design service across four phases. Product owner and engineer actions above, then frontstage design activity, then backstage work, then the roles and the systems that supported them.">
+      <div class="bp-corner"></div><div class="bp-phase">Align on the problem<small>1 week</small></div><div class="bp-phase">Co-create requirements<small>2 weeks</small></div><div class="bp-phase">Prototype and test<small>2 weeks</small></div><div class="bp-phase">Hand off to build<small>ongoing</small></div>
+      <div class="bp-lane">Product owner</div><div class="bp-cell">Brings a problem and the measure it moves.</div><div class="bp-cell">Joins the workshop. Writes the hypotheses with us.</div><div class="bp-cell">Watches a session. Argues with the findings.</div><div class="bp-cell">Accepts the design and the documentation.</div>
+      <div class="bp-lane">Engineering lead</div><div class="bp-cell">Says what is expensive and what is cheap.</div><div class="bp-cell">Sizes the ideas while they are still sketches.</div><div class="bp-cell">Builds the throwaway, not the product.</div><div class="bp-cell">Builds from the pattern library.</div>
+      <div class="bp-rule">line of interaction</div>
+      <div class="bp-lane">Frontstage</div><div class="bp-cell">Stakeholder interviews. A design strategy on one page.</div><div class="bp-cell">Assumption mapping. Scenarios. Experiment kick-off.</div><div class="bp-cell">Design critique with the team in the room.</div><div class="bp-cell">Architectural planning. Walkthrough of the pattern.</div>
+      <div class="bp-rule">line of visibility</div>
+      <div class="bp-lane">Backstage</div><div class="bp-cell">Desk research. Prior findings pulled from the repository.</div><div class="bp-cell">Ideas diverge, then converge against the hypotheses.</div><div class="bp-cell">Recruit, run and code the sessions. File the findings.</div><div class="bp-cell">Update the pattern library. Pin the version.</div>
+      <div class="bp-rule">line of internal interaction</div>
+      <div class="bp-lane">Who does it</div><div class="bp-cell">Design director</div><div class="bp-cell">Design researcher</div><div class="bp-cell">Interaction designer</div><div class="bp-cell">Design technologist</div>
+      <div class="bp-lane">Supporting systems</div><div class="bp-cell">Research repository</div><div class="bp-cell">Workshop boards</div><div class="bp-cell">Prototyping software · user panel</div><div class="bp-cell">Design system, pinned to a tag</div>
+     </div></div>
+    <figcaption>Fig. 7 · The service the transition produced, redrawn from the August 2018 alignment diagram. Four phases, and a named role accountable for each. The point of drawing it was to show product owners what they would get every time, so that bringing the work in-house did not read as a downgrade from the vendor.</figcaption>
+   </figure>
 
    <h3>The business case</h3>
    <p>In September 2018 the case went to leadership with the workbook attached. The design vendor's contract capped at $27,136 a sprint and ran to $687k across 2018, for a five-role team. Four in-house designers replaced it: total design spend fell 26% in the 2019 plan while the model's delivery capacity doubled. The Design Center of Excellence became a corporate goal with approved headcount, an AVP of Design and a remote designer.</p>
@@ -517,7 +587,7 @@ figure:not(.in) .a{animation-play-state:paused}
      </table></div>
      <div class="chain"><span><b>&minus;$283,202</b>variance</span><i>·</i><span><b>&minus;26%</b>total spend</span><i>·</i><span><b>&minus;63%</b>per velocity point</span></div>
     </div>
-    <figcaption>Fig. 6 · The budget sheet from the September 2018 business case, redrawn. Staff cost is formula-linked to the compensation analysis and the vendor line to the executed contract, so an assumption changed anywhere moved the total. Velocity is the model's own estimate of delivery, not a measurement.</figcaption>
+    <figcaption>Fig. 8 · The budget sheet from the September 2018 business case, redrawn. Staff cost is formula-linked to the compensation analysis and the vendor line to the executed contract, so an assumption changed anywhere moved the total. Velocity is the model's own estimate of delivery, not a measurement.</figcaption>
    </figure>
    <span class="methods"><b>METHODS</b> · Innovator's Compass · hypothesis statements and proto-personas · atomic research repository · boundary objects</span>
   </section>
@@ -525,9 +595,21 @@ figure:not(.in) .a{animation-play-state:paused}
   <section class="act">
    <span class="label">IV · Inovalon · 2018</span>
    <h2>Proving it pays</h2>
-   <p>In April 2018 Inovalon had launched a service that reads medical records and finds conditions a chart review would miss. Prospects wanted to review the findings themselves, and the team came to us with a large budget and a deadline: a working interface for Client Congress, the annual client conference, at the end of September.</p>
+   <p>An approved budget buys a team, and a team has to show what it is for. In April 2018 Inovalon had launched a service that reads medical records and finds conditions a chart review would miss. Prospects wanted to review the findings themselves, and the team came to us with a large budget and a deadline: a working interface for Client Congress, the annual client conference, at the end of September.</p>
    <p>I proposed spending a tenth of the budget on a high-fidelity prototype instead of production code, because a click-through changes faster than software while we are still learning. We captured the team's assumptions in a business model canvas, drew proto-personas and a twelve-frame storyboard, and cut the demo to the flows that mattered.</p>
    <p>We had assumed reviewers would accept any finding above a confidence threshold. The first session with clinical reviewers refuted it: they would not trust a finding they could not check against the chart. So the interface was rethought around <strong>evidence</strong>. Every suggested condition points to the page and sentence that supports it, and reviewers can capture what the model missed. The threshold slider went, and so did the mandatory reason for rejection.</p>
+
+   <figure>
+    <div class="sb">
+     <div><span class="fr"><svg viewBox="0 0 200 125" role="img" aria-label="A reviewer opens a chart. Twenty pages of prose, and the conditions are somewhere inside it."><g fill="none" stroke="#003D79" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="100" x2="182" y2="100"/><circle cx="54" cy="46" r="9"/><path d="M38 78c0-9 7-16 16-16s16 7 16 16v22"/><rect x="100" y="52" width="62" height="48" rx="2"/><path d="M108 64h46M108 72h46M108 80h46M108 88h30"/><path d="M106 46h56M106 40h56" stroke-opacity=".35"/></g></svg></span><p><b>01</b>A reviewer opens a chart. Twenty pages of prose, and the conditions are somewhere inside it.</p></div>
+     <div><span class="fr"><svg viewBox="0 0 200 125" role="img" aria-label="The service reads it and suggests the conditions it believes are in there."><g fill="none" stroke="#003D79" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="24" y="26" width="152" height="74" rx="3"/><path d="M24 42h152"/><path d="M36 56h50M36 68h50M36 80h34"/></g><g fill="none" stroke="#73964A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="100" y="50" width="62" height="14" rx="3"/><rect x="100" y="70" width="62" height="14" rx="3"/></g></svg></span><p><b>02</b>The service reads it and suggests the conditions it believes are in there.</p></div>
+     <div><span class="fr"><svg viewBox="0 0 200 125" role="img" aria-label="The first session with clinical reviewers refuted our assumption. They would not accept a finding they could not check."><g fill="none" stroke="#003D79" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="60" cy="44" r="10"/><path d="M42 80c0-10 8-18 18-18s18 8 18 18"/><rect x="106" y="36" width="62" height="46" rx="3"/><path d="M114 50h46M114 60h46"/></g><g fill="none" stroke="#73964A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M92 42c0-6 5-10 10-10s10 4 10 10-10 6-10 14"/><circle cx="102" cy="70" r="1.6" fill="#73964A"/></g></svg></span><p><b>03</b>The first session with clinical reviewers refuted our assumption. They would not accept a finding they could not check.</p></div>
+     <div><span class="fr"><svg viewBox="0 0 200 125" role="img" aria-label="So every suggestion points at the page and the sentence that supports it."><g fill="none" stroke="#003D79" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="18" y="26" width="86" height="74" rx="3"/><path d="M28 42h66M28 52h66M28 72h66M28 82h44"/><rect x="122" y="48" width="60" height="30" rx="3"/><path d="M130 60h44M130 68h30"/></g><g fill="none" stroke="#73964A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M28 62h52"/><path d="M104 63h18"/><path d="M116 58l6 5-6 5"/></g></svg></span><p><b>04</b>So every suggestion points at the page and the sentence that supports it.</p></div>
+     <div><span class="fr"><svg viewBox="0 0 200 125" role="img" aria-label="She accepts, rejects, and writes down what the model missed. The threshold slider went, and so did the mandatory reason."><g fill="none" stroke="#003D79" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="24" y="24" width="152" height="78" rx="3"/><path d="M36 40h60M36 52h44"/><rect x="36" y="70" width="44" height="18" rx="3"/><rect x="90" y="70" width="44" height="18" rx="3"/></g><g fill="none" stroke="#73964A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M120 36l7 7 14-14"/><rect x="140" y="64" width="32" height="30" rx="3" stroke-dasharray="3 3"/><path d="M150 79h12M156 73v12"/></g></svg></span><p><b>05</b>She accepts, rejects, and writes down what the model missed. The threshold slider went, and so did the mandatory reason.</p></div>
+     <div><span class="fr"><svg viewBox="0 0 200 125" role="img" aria-label="The demo ran at the client conference in September, and the team came home with a list of prospects."><g fill="none" stroke="#003D79" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="46" y="20" width="108" height="58" rx="3"/><path d="M100 78v10"/><path d="M74 92h52"/><circle cx="40" cy="96" r="6"/><circle cx="62" cy="100" r="6"/><circle cx="138" cy="100" r="6"/><circle cx="160" cy="96" r="6"/></g><g fill="none" stroke="#73964A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M62 42h34M62 54h50"/></g></svg></span><p><b>06</b>The demo ran at the client conference in September, and the team came home with a list of prospects.</p></div>
+    </div>
+    <figcaption>Fig. 9 · The storyboard that set the demo, redrawn. Twelve frames went to the team; these are the six that carried the argument. Drawing the reviewer's day before drawing her screen is what made the second session's refutation cheap to absorb.</figcaption>
+   </figure>
 
    <figure>
     <div class="cmp">
@@ -620,7 +702,7 @@ figure:not(.in) .a{animation-play-state:paused}
       <p class="cut"><b>What it added</b><em class="mk g">A</em>known conditions first · <em class="mk g">B</em>evidence anchored to page and sentence · <em class="mk g">C</em>visible progress, reviews can be left unfinished · <em class="mk g">D</em>capture what the model missed</p>
      </div>
     </div>
-    <figcaption>Fig. 7 · The build as it stood in mid 2018, redrawn, and the pass that followed the contextual inquiry. Both use a synthetic chart and public code sets.</figcaption>
+    <figcaption>Fig. 10 · The build as it stood in mid 2018, redrawn, and the pass that followed the contextual inquiry. Both use a synthetic chart and public code sets.</figcaption>
    </figure>
 
    <p>The demo played without a hitch at Client Congress, and the team came home with a list of prospects. Over two years, discovery work like this avoided an estimated $2.4M in rewrites: a tenth of a build budget spent on learning before the other nine tenths were committed.</p>
@@ -630,7 +712,7 @@ figure:not(.in) .a{animation-play-state:paused}
   <section class="act">
    <span class="label">V · Inovalon · 2019</span>
    <h2>Scaling it</h2>
-   <p>After the ABILITY Network acquisition in 2018, Inovalon had dozens of development teams across four business units, and two designers to serve them. We could not be the bottleneck. The strategy became growing practitioners inside the teams: a <strong>Design Center of Excellence</strong> that trains, mentors, and certifies people who already do the work, and lets teams decide when to hire a designer.</p>
+   <p>One product proving the case is what made the next argument possible. After the ABILITY Network acquisition in 2018, Inovalon had dozens of development teams across four business units, and two designers to serve them. We could not be the bottleneck. The strategy became growing practitioners inside the teams: a <strong>Design Center of Excellence</strong> that trains, mentors, and certifies people who already do the work, and lets teams decide when to hire a designer.</p>
    <p>One empathy map on a skeptical stakeholder set the direction. The analysts had the domain knowledge; what they lacked was method. So we would train them.</p>
    <p>We kicked off in March 2019 with founding practitioners from every business unit and a design-ops canvas: what the centre does, for whom, and within what limits. Then we measured where the organisation stood.</p>
 
@@ -657,22 +739,27 @@ figure:not(.in) .a{animation-play-state:paused}
       </div>
      </div>
     </div>
-    <figcaption>Fig. 8 · The Q2 2019 maturity survey on the Design Management Institute's five levels, 114 responses across four business units. Teams could repeat what they did in delivery; almost nobody measured it. The barriers alongside were coded from the open answers.</figcaption>
+    <figcaption>Fig. 11 · The Q2 2019 maturity survey on the Design Management Institute's five levels, 114 responses across four business units. Teams could repeat what they did in delivery; almost nobody measured it. The barriers alongside were coded from the open answers.</figcaption>
    </figure>
 
    <p>Product and development managers already spent about a fifth of their time on design. Thirteen spent more than half, and scored around three times the average maturity. With a matrix of every product's stage, revenue, and receptiveness, that found the first cohort of twenty.</p>
    <p>Manager interviews said what the cohort needed: how to write a testable hypothesis, design an experiment, and recruit users. So the programme was blueprinted like an internal startup, with the five measures a startup would track, written before the first cohort so it could fail visibly rather than quietly.</p>
 
    <figure>
-<div class="funnel-scroll"><div class="funnel" role="img" aria-label="The program as a five-stage funnel: acquisition, activation, retention, referral, and impact, each with a cadence, an output, and a measure.">
-     <div><span class="n">Acquisition</span><span class="c">MONTHLY</span><span class="o">newsletter, lunch-and-learns, sign-up</span><span class="m">nominees and volunteers per quarter</span></div>
-     <div><span class="n">Activation</span><span class="c">QUARTERLY · 3 DAYS</span><span class="o">in-person training, tool access</span><span class="m">nominees who pass basic training</span></div>
-     <div><span class="n">Retention</span><span class="c">EVERY TWO WEEKS</span><span class="o">mentorship, design reviews, repository</span><span class="m">practitioners generating research insights</span></div>
-     <div><span class="n">Referral</span><span class="c">ONE WEEK</span><span class="o">nomination form, maturity survey</span><span class="m">nominations that become practitioners</span></div>
-     <div><span class="n">Impact</span><span class="c">QUARTERLY</span><span class="o">State of UX review, internal case studies</span><span class="m">practitioners with reported effect on revenue</span></div>
-    </div></div>
-    <div class="loop">↩ viral coefficient · new practitioners an existing practitioner generates</div>
-    <figcaption>Fig. 9 · The service blueprint's spine. Each stage has a cadence, an output we owed, and the one number leadership would see.</figcaption>
+<div class="fig-scroll"><div class="bp" style="--bp-n:5" role="img" aria-label="A service blueprint of the design centre of excellence across five phases: acquisition, activation, retention, referral and impact. Lanes for practitioner actions, manager actions, frontstage, backstage, supporting systems, and the measure leadership sees.">
+      <div class="bp-corner"></div><div class="bp-phase">Acquisition<small>monthly</small></div><div class="bp-phase">Activation<small>quarterly · 3 days</small></div><div class="bp-phase">Retention<small>every two weeks</small></div><div class="bp-phase">Referral<small>one week</small></div><div class="bp-phase">Impact<small>quarterly</small></div>
+      <div class="bp-lane">Practitioner</div><div class="bp-cell">Visits the design portal. Sits in on a remote lunch-and-learn. Signs up for the newsletter.</div><div class="bp-cell">Completes the sign-up form. Interviews with the centre. Books travel and blocks the time.</div><div class="bp-cell">Analyses challenges and opportunities. Observes people at work. Envisions what could be different.</div><div class="bp-cell">Nominates or refers a colleague who already does the work.</div><div class="bp-cell">Presents a case study at the quarterly review.</div>
+      <div class="bp-lane">Their manager</div><div class="bp-cell">Hears about the programme from a peer.</div><div class="bp-cell">Approves the three days and the travel.</div><div class="bp-cell">Allows a direct report to spend more time on design.</div><div class="bp-cell">Puts a name forward.</div><div class="bp-cell">Approves the case study and tracks progress.</div>
+      <div class="bp-rule">line of interaction</div>
+      <div class="bp-lane">Frontstage</div><div class="bp-cell">Newsletter and lunch-and-learns.</div><div class="bp-cell">Facilitate three days of in-person training. Grant tool access.</div><div class="bp-cell">One-to-one mentorship check-ins. Design reviews with the cohort every two weeks.</div><div class="bp-cell">Feature the practitioner's work in the newsletter.</div><div class="bp-cell">Run the State of UX review with leadership.</div>
+      <div class="bp-rule">line of visibility</div>
+      <div class="bp-lane">Backstage</div><div class="bp-cell">Write and schedule the newsletter. Book speakers. Keep the portal current.</div><div class="bp-cell">Build the curriculum with the training partner. Score the skills assessment. Provision accounts.</div><div class="bp-cell">Review research going into the repository. Recruit from the user panel. Coach on method.</div><div class="bp-cell">Screen nominations against the product matrix. Shape the next cohort.</div><div class="bp-cell">Compile internal case studies. Roll up the maturity survey.</div>
+      <div class="bp-rule">line of internal interaction</div>
+      <div class="bp-lane">Supporting systems</div><div class="bp-cell">Design portal · email sign-up form · newsletter</div><div class="bp-cell">Training sign-up form · skills assessment · tool provisioning</div><div class="bp-cell">Research repository · user panel · prototyping software</div><div class="bp-cell">Nomination form · design maturity survey</div><div class="bp-cell">State of UX review · internal case studies</div>
+      <div class="bp-lane">The one measure</div><div class="bp-cell bp-metric">nominees and volunteers per quarter</div><div class="bp-cell bp-metric">nominees who pass basic training</div><div class="bp-cell bp-metric">practitioners generating research insights</div><div class="bp-cell bp-metric">nominations that become practitioners</div><div class="bp-cell bp-metric">practitioners with reported effect on revenue</div>
+     </div></div>
+    <div class="loop">&#8617; viral coefficient · new practitioners an existing practitioner generates</div>
+    <figcaption>Fig. 12 · The programme as a service blueprint, redrawn from the June 2019 workbook in the standard anatomy. The manager lane is there because a practitioner without their manager's time never finished a cohort. The bottom row is the one number leadership would see for each phase.</figcaption>
    </figure>
 
    <p>LUMA Institute would deliver two of the three training days and the playbook. Userlytics records and redacts <strong>protected health information</strong>, which let studies run under HIPAA. Glean.ly's alpha programme gave us a research repository built for the job. A pilot of six was set for September 2019 and the first cohort of twenty for October, then one a quarter toward a hundred practitioners leading research.</p>
@@ -692,7 +779,7 @@ figure:not(.in) .a{animation-play-state:paused}
      <g font-family="Fira Code,monospace" font-size="12" fill="#5e6b7d" text-anchor="middle"><text x="80" y="244">pilot · Sep</text><text x="185" y="244">Q4 2019</text><text x="305" y="244">Q1 2020</text><text x="425" y="244">Q2 2020</text><text x="545" y="244">Q3 2020</text><text x="665" y="244">Q4 2020</text></g>
      <text x="40" y="30" font-family="Fira Code,monospace" font-size="12" fill="#5e6b7d">practitioners certified · 20 per cohort, quarterly</text>
     </svg></div>
-    <figcaption>Fig. 10 · The certification plan as approved in June 2019. I left in July, before the pilot ran. Dashed is the pilot; filled is the founding cohort the survey found; outlined is the schedule toward a hundred.</figcaption>
+    <figcaption>Fig. 13 · The certification plan as approved in June 2019. I left in July, before the pilot ran. Dashed is the pilot; filled is the founding cohort the survey found; outlined is the schedule toward a hundred.</figcaption>
    </figure>
 
    <p>A manager had once said Inovalon was not the kind of place designers would want to work. The postings drew more than 200 qualified applicants in two months. I left in July 2019 with the core team hired and the first cohort on the calendar. A hundred birds, and the route left to them.</p>
