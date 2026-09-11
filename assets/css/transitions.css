@@ -1,0 +1,21 @@
+/* Cross-document page transitions. Every page opts in, so a navigation between
+   any two of them animates; a browser without support does a plain navigation.
+   The header is its own layer and keeps its box, the content fades out, the
+   root (which is now just the body colour) shifts, then the new content fades in. */
+@view-transition{navigation:auto}
+.site-nav,.nav{view-transition-name:header}
+.site-main{view-transition-name:content}
+
+@media (prefers-reduced-motion:no-preference){
+ ::view-transition-group(header){animation-duration:.3s}
+ ::view-transition-old(header),::view-transition-new(header){animation-duration:.3s;animation-delay:.12s}
+ ::view-transition-group(content){animation:none}
+ ::view-transition-old(content){animation:vt-out .18s ease-out both}
+ ::view-transition-new(content){animation:vt-in .28s ease-in .34s both}
+ ::view-transition-old(root),::view-transition-new(root){animation-duration:.3s;animation-delay:.12s}
+}
+@media (prefers-reduced-motion:reduce){
+ @view-transition{navigation:none}
+}
+@keyframes vt-out{to{opacity:0}}
+@keyframes vt-in{from{opacity:0}}
