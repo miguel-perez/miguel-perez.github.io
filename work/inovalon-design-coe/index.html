@@ -20,13 +20,13 @@ a:hover{text-decoration:underline;text-decoration-color:#73964A;text-underline-o
 .case-header{padding-top:56px;padding-bottom:56px}
 .hero{display:grid;grid-template-columns:minmax(0,7fr) minmax(280px,5fr);gap:32px 56px;align-items:stretch;margin-top:28px}
 .hero-text{min-width:0;container-type:inline-size}
-.hero-art{position:relative;min-height:380px;background:#fff;display:flex;flex-direction:column;align-items:center;padding:8px 0 0;cursor:pointer}
-.seats{display:grid;grid-template-columns:repeat(10,1fr);gap:clamp(5px,.8vw,10px);width:min(100%,340px);aspect-ratio:1;margin:auto 0}
+.hero-art{position:relative;min-height:380px;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px 0;cursor:pointer}
+.seats{display:grid;grid-template-columns:repeat(10,1fr);gap:clamp(5px,.8vw,10px);width:min(100%,340px);aspect-ratio:1;margin:0}
 .seats i{display:block;border-radius:50%;background:rgba(0,61,121,.07);transform:scale(.5);transition:background .4s,transform .45s cubic-bezier(.2,.8,.2,1)}
 .seats i.d{background:#003D79;transform:scale(1)}
 .seats i.p{background:#73964A;transform:scale(1)}
-.hero-art .cap{width:100%;margin-top:24px;font:11px/1.7 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;color:#5e6b7d;pointer-events:none}
-.hero-art .cap b{display:block;font-weight:400;color:#003D79;height:3.4em;overflow:hidden}
+.hero-art .cap{width:min(100%,340px);margin-top:16px;font:11px/1.7 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;color:#5e6b7d;pointer-events:none}
+.hero-art .cap b{display:block;font-weight:400;color:#003D79;height:1.7em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .hero-art .cap i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
 .hero-art .cap i.d{background:#003D79}
 .hero-art .cap i.p{background:#73964A;margin-left:14px}
