@@ -263,6 +263,10 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
 .grid tfoot th,.grid tfoot td{padding-top:9px;color:#003D79}
 .grid tfoot tr:first-child th,.grid tfoot tr:first-child td{border-top:1px solid rgba(0,61,121,.35)}
 .grid tfoot tr:last-child th,.grid tfoot tr:last-child td{padding-top:2px;color:#5e6b7d}
+.grid.anim tbody i{opacity:0;transform:scale(.5)}
+.grid.anim tbody i.on{opacity:1;transform:scale(1);transition:opacity .3s ease-out,transform .3s cubic-bezier(.2,.8,.2,1)}
+.grid.anim tfoot{opacity:0}
+.grid.anim tfoot.on{opacity:1;transition:opacity .55s ease-out}
 .key{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;margin:0;font:11px/1.7 'Fira Code',monospace;color:#5e6b7d}
 .story p.key{font:11px/1.7 'Fira Code',monospace;color:#5e6b7d;margin:0}
 .key i{display:inline-block;font-style:normal;font:700 13px/1 'Source Sans 3',sans-serif;margin-left:14px}
@@ -445,25 +449,25 @@ figure:not(.in) .a{animation-play-state:paused}
    <p>The readout went to HR leadership as a teaching document: what we did, what broke, what to fix first. Finding a role inside a department failed for three of five people, so the first recommendation was department names on the org chart. HR became the first ally, and their agreement that the company needed to grow its design capability was the seed of everything after.</p>
 
    <figure class="txt">
-<div class="tbl-scroll"><table class="grid" aria-label="Five employees by ten tasks. Green marks a task completed with no errors, amber a task completed with errors, red a task not completed. The last two rows give how many of the five completed each task and the total errors logged against it.">
-      <thead><tr><td class="who"></td><th scope="col">T1</th><th scope="col">T2</th><th scope="col">T3</th><th scope="col">T4</th><th scope="col">T5</th><th scope="col">T6</th><th scope="col">T7</th><th scope="col">T8</th><th scope="col">T9</th><th scope="col">T10</th></tr></thead>
+<div class="tbl-scroll"><table class="grid" aria-label="Five employees by ten tasks, ordered by result so the cleanest task and the steadiest employee sit top left. Green marks a task completed with no errors, amber a task completed with errors, red a task not completed. The last two rows give how many of the five completed each task and the total errors logged against it.">
+      <thead><tr><td class="who"></td><th scope="col">T2</th><th scope="col">T6</th><th scope="col">T10</th><th scope="col">T5</th><th scope="col">T7</th><th scope="col">T9</th><th scope="col">T8</th><th scope="col">T1</th><th scope="col">T4</th><th scope="col">T3</th></tr></thead>
       <tbody>
-       <tr><th scope="row">Employee 1</th><td><i class="err" title="completed with 3 errors">!</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="fail" title="not completed, 5 errors before stopping">&#10005;</i></td><td><i class="fail" title="not completed, 9 errors before stopping">&#10005;</i></td><td><i class="err" title="completed with 1 error">!</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="err" title="completed with 1 error">!</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="err" title="completed with 2 errors">!</i></td><td><i class="err" title="completed with 1 error">!</i></td></tr>
-       <tr><th scope="row">Employee 2</th><td><i class="err" title="completed with 3 errors">!</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="fail" title="not completed, 2 errors before stopping">&#10005;</i></td><td><i class="err" title="completed with 6 errors">!</i></td><td><i class="err" title="completed with 1 error">!</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="err" title="completed with 3 errors">!</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td></tr>
-       <tr><th scope="row">Employee 3</th><td><i class="err" title="completed with 3 errors">!</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="err" title="completed with 4 errors">!</i></td><td><i class="err" title="completed with 3 errors">!</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="err" title="completed with 1 error">!</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td></tr>
-       <tr><th scope="row">Employee 4</th><td><i class="err" title="completed with 2 errors">!</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="fail" title="not completed, 3 errors before stopping">&#10005;</i></td><td><i class="err" title="completed with 1 error">!</i></td><td><i class="err" title="completed with 1 error">!</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="err" title="completed with 2 errors">!</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td></tr>
-       <tr><th scope="row">Employee 5</th><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="err" title="completed with 3 errors">!</i></td><td><i class="err" title="completed with 3 errors">!</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="err" title="completed with 1 error">!</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td></tr>
+       <tr><th scope="row">Employee 5</th><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="err" title="completed with 1 error">!</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="err" title="completed with 3 errors">!</i></td><td><i class="err" title="completed with 3 errors">!</i></td></tr>
+       <tr><th scope="row">Employee 3</th><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="err" title="completed with 1 error">!</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="err" title="completed with 3 errors">!</i></td><td><i class="err" title="completed with 3 errors">!</i></td><td><i class="err" title="completed with 4 errors">!</i></td></tr>
+       <tr><th scope="row">Employee 4</th><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="err" title="completed with 1 error">!</i></td><td><i class="err" title="completed with 2 errors">!</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="err" title="completed with 2 errors">!</i></td><td><i class="err" title="completed with 1 error">!</i></td><td><i class="fail" title="not completed, 3 errors before stopping">&#10005;</i></td></tr>
+       <tr><th scope="row">Employee 2</th><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="err" title="completed with 1 error">!</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="err" title="completed with 3 errors">!</i></td><td><i class="err" title="completed with 3 errors">!</i></td><td><i class="err" title="completed with 6 errors">!</i></td><td><i class="fail" title="not completed, 2 errors before stopping">&#10005;</i></td></tr>
+       <tr><th scope="row">Employee 1</th><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="err" title="completed with 1 error">!</i></td><td><i class="err" title="completed with 1 error">!</i></td><td><i class="err" title="completed with 1 error">!</i></td><td><i class="err" title="completed with 2 errors">!</i></td><td><i class="ok" title="completed, no errors">&#10003;</i></td><td><i class="err" title="completed with 3 errors">!</i></td><td><i class="fail" title="not completed, 9 errors before stopping">&#10005;</i></td><td><i class="fail" title="not completed, 5 errors before stopping">&#10005;</i></td></tr>
       </tbody>
       <tfoot>
-       <tr><th scope="row">completed</th><td>5/5</td><td>5/5</td><td>2/5</td><td>4/5</td><td>5/5</td><td>5/5</td><td>5/5</td><td>5/5</td><td>5/5</td><td>5/5</td></tr>
-       <tr><th scope="row">errors</th><td>11</td><td>0</td><td>17</td><td>22</td><td>3</td><td>0</td><td>3</td><td>4</td><td>3</td><td>1</td></tr>
+       <tr><th scope="row">completed</th><td>5/5</td><td>5/5</td><td>5/5</td><td>5/5</td><td>5/5</td><td>5/5</td><td>5/5</td><td>5/5</td><td>4/5</td><td>2/5</td></tr>
+       <tr><th scope="row">errors</th><td>0</td><td>0</td><td>1</td><td>3</td><td>3</td><td>3</td><td>4</td><td>11</td><td>22</td><td>17</td></tr>
       </tfoot>
      </table></div>
      <p class="key"><i class="ok">&#10003;</i>completed<i class="err">!</i>completed with errors<i class="fail">&#10005;</i>not completed</p>
      <ol class="tasks">
      <li><b>T1</b> identify the site's purpose</li><li><b>T2</b> find recent announcements</li><li><b>T3</b> find a role within a department</li><li><b>T4</b> find a colleague by expertise</li><li><b>T5</b> find contact details and location</li><li><b>T6</b> find slide templates</li><li><b>T7</b> find the icon library</li><li><b>T8</b> find the editorial guide</li><li><b>T9</b> find upcoming events</li><li><b>T10</b> add an event to a calendar</li>
     </ol>
-    <figcaption>Fig. 2 · The intranet study, October 2017. Five staff, ten tasks, coded for completion and errors. Counts are raw: at five participants a percentage or an average would imply a precision the study cannot carry. Finding a role inside a department was the one task most people could not finish. Eight recommendations followed, ranked by impact and effort; the org-chart fix came first.</figcaption>
+    <figcaption>Fig. 2 · The intranet study, October 2017. Five staff, ten tasks, coded for completion and errors. Rows and columns are ordered by result rather than by number, which puts the trouble in one corner; the study was testing the site, not the staff. Counts are raw, because at five people a percentage or an average would imply a precision the study cannot carry. Finding a role inside a department was the one task most could not finish. Eight recommendations followed, ranked by impact and effort, and the org-chart fix came first.</figcaption>
    </figure>
 
    <p>The study also bought a second thing. The front-end work was outsourced as well, and on the strength of the intranet readout I was allowed to write code standards and start pulling that work back. It took most of the autumn and a great many one-to-one conversations. That was the rehearsal for what happened at Inovalon a year later, at forty times the cost.</p>
@@ -844,6 +848,24 @@ figure:not(.in) .a{animation-play-state:paused}
   if(!('IntersectionObserver' in window)) for(var i=0;i<figs.length;i++) figs[i].classList.add('in');
   else { var ao=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); ao.unobserve(e.target); } }); },{threshold:0.15});
    for(var i=0;i<figs.length;i++) ao.observe(figs[i]); }
+ }
+
+ /* Fig. 2: the grid fills in best first, accelerating, and the totals land last. */
+ var tg=document.querySelector('.grid');
+ if(tg && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  var tcells=[].slice.call(tg.querySelectorAll('tbody i')), tfoot=tg.querySelector('tfoot'), tt=[];
+  tg.classList.add('anim');
+  var runGrid=function(){
+   for(var q=0;q<tt.length;q++) clearTimeout(tt[q]);
+   tt=[]; for(var q=0;q<tcells.length;q++) tcells[q].classList.remove('on');
+   tfoot.classList.remove('on');
+   var at=260, step=115;
+   tcells.forEach(function(c,i){ tt.push(setTimeout(function(){ c.classList.add('on'); },at)); at+=step; step=Math.max(7,step*0.935); });
+   tt.push(setTimeout(function(){ tfoot.classList.add('on'); },at+300));
+  };
+  if(!('IntersectionObserver' in window)) runGrid();
+  else { var go=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ runGrid(); go.unobserve(e.target); } }); },{threshold:0.35});
+   go.observe(tg); }
  }
 
  /* Hero: one seat to a hundred. */
