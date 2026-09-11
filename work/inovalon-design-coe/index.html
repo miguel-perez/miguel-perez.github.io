@@ -272,6 +272,31 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
 .key .fail{color:#C8461B}
 .key span{margin-left:6px;color:#8a929e}
 
+/* Storyboard panels hold a real fragment of the interface, floated on a ground */
+.uic{display:flex;align-items:center;justify-content:center;height:172px;padding:18px;background:rgba(0,61,121,.04)}
+.uic-c{background:#fff;border:1px solid rgba(0,61,121,.14);border-radius:5px;box-shadow:0 3px 14px rgba(0,61,121,.14);padding:11px 13px;width:100%;max-width:250px;font:12px/1.5 'Source Sans 3',sans-serif;color:#2b3a4d}
+.uic-k{display:block;font:10px/1.6 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;color:#5e6b7d}
+.uic-b{font-weight:600;color:#003D79}
+.uic-r{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.uic-chip{display:inline-block;padding:1px 7px;border-radius:10px;font:10px/1.6 'Fira Code',monospace;background:rgba(0,61,121,.08);color:#003D79;white-space:nowrap}
+.uic-chip.x{background:rgba(200,70,27,.1);color:#8a929e;text-decoration:line-through;text-decoration-color:#C8461B}
+.uic-chip.g{background:rgba(115,150,74,.2);color:#4F6E2B}
+.uic-mut{opacity:.4}
+.uic-ev{margin-top:6px;font:10px/1.6 'Fira Code',monospace;color:#5e6b7d}
+.uic-ev u{text-decoration:none;color:#003D79;background:rgba(115,150,74,.2);border-bottom:1px solid rgba(115,150,74,.7);padding:0 2px}
+.uic-line{height:1px;background:rgba(0,61,121,.1);margin:8px 0}
+.uic-rows{display:flex;flex-direction:column;gap:4px;margin-top:4px}
+.uic-rows span{display:block;height:7px;border-radius:4px;background:rgba(0,61,121,.13)}
+.uic-rows span.g{background:rgba(115,150,74,.35)}
+.uic-pg{display:flex;gap:2px;margin-top:7px}
+.uic-pg i{flex:1;height:16px;border-radius:1px;background:rgba(0,61,121,.1)}
+.uic-pg i.on{background:#003D79}
+.uic-pg i.m{background:rgba(115,150,74,.55)}
+.uic-add{margin-top:8px;border:1px dashed rgba(0,61,121,.4);border-radius:4px;padding:7px 9px;display:flex;justify-content:space-between;align-items:center;color:#003D79;font-size:11px}
+.uic-bar{height:5px;border-radius:3px;background:rgba(0,61,121,.12);overflow:hidden;margin:7px 0}
+.uic-bar i{display:block;height:100%;width:50%;background:#003D79}
+.uic-btn{display:inline-block;border:1px solid #003D79;border-radius:4px;padding:4px 9px;font-size:11px;font-weight:600;color:#003D79}
+
 /* Storyboard panels */
 .sb{display:grid;grid-template-columns:1fr;gap:22px 18px}
 @media (min-width:560px){.sb{grid-template-columns:repeat(2,minmax(0,1fr))}}
@@ -631,12 +656,20 @@ figure:not(.in) .a{animation-play-state:paused}
      <div class="cmp-part s">
       <div class="cmp-h"><b>THE SESSIONS · what reviewers actually do</b><span>eight findings; these six moved a screen</span></div>
       <div class="sb">
-     <div><span class="fr"><svg viewBox="0 0 200 125" role="img" aria-label="She starts by confirming she has the right patient and the right dates of service. Nothing else counts until that does."><g fill="none" stroke="#003D79" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="26" y="30" width="148" height="64" rx="3"/><path d="M26 48h148"/><path d="M40 64h44M40 78h30"/><path d="M104 64h50M104 78h34"/></g><g fill="none" stroke="#73964A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="150" cy="42" r="9"/><path d="M157 49l9 9"/></g></svg></span><p><b>01</b>She starts by confirming she has the right patient and the right dates of service. Nothing else counts until that does.</p></div>
-     <div><span class="fr"><svg viewBox="0 0 200 125" role="img" aria-label="She reads what is already known about the patient before she looks at anything the system found."><g fill="none" stroke="#003D79" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="30" y="24" width="140" height="34" rx="3"/><path d="M42 36h60M42 46h40"/><rect x="30" y="68" width="140" height="34" rx="3" stroke-dasharray="4 4"/><path d="M42 80h60M42 90h40" stroke-opacity=".5"/></g><g fill="none" stroke="#73964A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M30 41h-12M18 36v10"/></g></svg></span><p><b>02</b>She reads what is already known about the patient before she looks at anything the system found.</p></div>
-     <div><span class="fr"><svg viewBox="0 0 200 125" role="img" aria-label="A suggestion arrives with a confidence score. She does not act on the score. She goes into the record to find the sentence behind it."><g fill="none" stroke="#003D79" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="18" y="26" width="88" height="74" rx="3"/><path d="M28 42h68M28 54h68M28 78h68M28 88h44"/><rect x="126" y="42" width="56" height="30" rx="3"/><path d="M134 54h40"/><circle cx="176" cy="38" r="7"/></g><g fill="none" stroke="#73964A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M28 66h56"/><path d="M122 60h-16"/><path d="M112 55l-6 5 6 5"/></g></svg></span><p><b>03</b>A suggestion arrives with a confidence score. She does not act on the score. She goes into the record to find the sentence behind it.</p></div>
-     <div><span class="fr"><svg viewBox="0 0 200 125" role="img" aria-label="She works in pages, not in highlights. Where a thing sits in the record is part of whether she believes it."><g fill="none" stroke="#003D79" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="40" y="22" width="88" height="80" rx="2"/><rect x="48" y="30" width="88" height="80" rx="2"/><path d="M60 48h64M60 60h64M60 84h40"/><path d="M148 34h14M148 50h14M148 66h14M148 82h14"/></g><g fill="none" stroke="#73964A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M60 72h48"/><path d="M148 50h14"/></g></svg></span><p><b>04</b>She works in pages, not in highlights. Where a thing sits in the record is part of whether she believes it.</p></div>
-     <div><span class="fr"><svg viewBox="0 0 200 125" role="img" aria-label="She finds a condition the system did not. She needs somewhere to put it, in her own words, without leaving the record."><g fill="none" stroke="#003D79" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="20" y="24" width="92" height="76" rx="3"/><path d="M30 40h72M30 52h72M30 76h72M30 86h46"/><rect x="130" y="40" width="52" height="20" rx="3"/><path d="M138 50h30"/></g><g fill="none" stroke="#73964A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="66" cy="64" rx="38" ry="8"/><rect x="130" y="70" width="52" height="24" rx="3" stroke-dasharray="4 3"/><path d="M147 82h18M156 73v18"/></g></svg></span><p><b>05</b>She finds a condition the system did not. She needs somewhere to put it, in her own words, without leaving the record.</p></div>
-     <div><span class="fr"><svg viewBox="0 0 200 125" role="img" aria-label="Charts run long and get interrupted. She has to be able to stop in the middle and pick the same record up later."><g fill="none" stroke="#003D79" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="26" y="34" width="148" height="54" rx="3"/><path d="M40 50h120"/><circle cx="150" cy="70" r="12"/><path d="M150 63v7l5 4"/></g><g fill="none" stroke="#73964A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M40 50h52"/><path d="M52 76c-8 0-14-5-14-12"/><path d="M33 62l5 3-5 3"/></g></svg></span><p><b>06</b>Charts run long and get interrupted. She has to be able to stop in the middle and pick the same record up later.</p></div>
+      <div><div class="fr"><div class="uic"><div class="uic-c"><div class="uic-k">Patient</div><div class="uic-r"><span class="uic-b">Sample patient</span><span class="uic-chip">DOB withheld</span></div>
+        <div class="uic-line"></div><div class="uic-k">Dates of service</div><div>03/21/2016 &ndash; 04/21/2016</div></div></div></div><p><b>01</b>She starts by confirming she has the right patient and the right dates of service. Nothing else counts until that does.</p></div>
+      <div><div class="fr"><div class="uic"><div class="uic-c"><div class="uic-k">Known conditions &middot; 3</div><div class="uic-rows"><span></span><span></span><span></span></div>
+        <div class="uic-line"></div><div class="uic-k uic-mut">Suggested &middot; 6</div><div class="uic-rows uic-mut"><span></span><span></span></div></div></div></div><p><b>02</b>She reads what is already known about the patient before she looks at anything the system found.</p></div>
+      <div><div class="fr"><div class="uic"><div class="uic-c"><div class="uic-r"><span class="uic-b">HCC 96</span><span class="uic-chip x">0.94 confidence</span></div>
+        <div>Specified heart arrhythmias</div>
+        <div class="uic-ev">page 4 &middot; <u>&ldquo;Atrial fibrillation (I48.91)&rdquo;</u></div></div></div></div><p><b>03</b>A suggestion arrives with a confidence score. She does not act on the score. She goes into the record to find the sentence behind it.</p></div>
+      <div><div class="fr"><div class="uic"><div class="uic-c"><div class="uic-r"><span class="uic-b">Chart</span><span class="uic-chip">page 4 of 20</span></div>
+        <div class="uic-pg"><i></i><i></i><i></i><i class="on"></i><i></i><i class="m"></i><i></i><i></i><i></i><i class="m"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="uic-ev">two pages carry this condition</div></div></div></div><p><b>04</b>She works in pages, not in highlights. Where a thing sits in the record is part of whether she believes it.</p></div>
+      <div><div class="fr"><div class="uic"><div class="uic-c"><div class="uic-k">Suggested &middot; 6</div><div class="uic-rows"><span></span><span></span></div>
+        <div class="uic-add"><span>Capture a condition the model missed</span><span class="uic-chip g">+</span></div></div></div></div><p><b>05</b>She finds a condition the system did not. She needs somewhere to put it, in her own words, without leaving the record.</p></div>
+      <div><div class="fr"><div class="uic"><div class="uic-c"><div class="uic-r"><span class="uic-k">Progress</span><span class="uic-chip">3 of 6</span></div><div class="uic-bar"><i></i></div>
+        <div class="uic-r"><span class="uic-btn">Save and close</span><span class="uic-ev" style="margin:0">resume later</span></div></div></div></div><p><b>06</b>Charts run long and get interrupted. She has to be able to stop in the middle and pick the same record up later.</p></div>
       </div>
      </div>
      <div class="cmp-part a">
