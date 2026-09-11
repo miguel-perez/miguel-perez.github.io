@@ -320,6 +320,11 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
 .bp-phase{background:rgba(0,61,121,.06);color:#003D79;font:600 13px/1.25 'Source Sans 3',sans-serif}
 .bp-phase small{display:block;margin-top:3px;font:10px/1.5 'Fira Code',monospace;color:#5e6b7d;letter-spacing:.05em;text-transform:uppercase}
 .bp-corner{background:rgba(0,61,121,.06);border-left:0}
+
+.bp-trx-l{align-items:flex-start;padding-top:12px;line-height:1.45}
+.bp-trx{padding:10px 14px 4px}
+.bp-trx svg{display:block;width:100%;height:auto}
+.bp-rule-t{border-top:1px solid rgba(0,61,121,.35);color:#003D79}
 .bp-rule{grid-column:1/-1;border-left:0;border-bottom:0;border-top:1px dashed rgba(0,61,121,.55);padding:5px 11px;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:#5e6b7d;background:#fff}
 .bp-cell b{display:block;font-weight:400;color:#003D79}
 .bp-cell i{font-style:normal;color:#5e6b7d}
@@ -776,6 +781,15 @@ figure:not(.in) .a{animation-play-state:paused}
 
    <figure>
 <div class="fig-scroll"><div class="bp" style="--bp-n:5" role="img" aria-label="A service blueprint of the design centre of excellence across five phases: acquisition, activation, retention, referral and impact. Lanes for practitioner actions, manager actions, frontstage, backstage, supporting systems, and the measure leadership sees.">
+            <div class="bp-lane bp-trx-l">Practitioners<br>certified</div><div class="bp-cell bp-span bp-trx"><svg viewBox="0 0 1005 116" role="img" aria-label="Practitioners certified over six periods: a pilot of six in September 2019 and a first cohort of twenty that October, both of which ran, then forty, sixty, eighty and a hundred planned through 2020.">
+       <line x1="20" y1="88" x2="985" y2="88" stroke="#003D79" stroke-opacity=".28"/>
+       <path d="M45 84.0 L227 74.8" fill="none" stroke="#73964A" stroke-width="2.5"/>
+       <path d="M227 74.8 L409 61.6 L591 48.4 L773 35.2 L955 22.0" fill="none" stroke="#73964A" stroke-width="2" stroke-dasharray="5 5" stroke-opacity=".75"/>
+       <circle cx="45" cy="84.0" r="4.5" fill="#73964A" stroke="#73964A" stroke-width="1.5"/><circle cx="227" cy="74.8" r="4.5" fill="#73964A" stroke="#73964A" stroke-width="1.5"/><circle cx="409" cy="61.6" r="4" fill="#fff" stroke="#73964A" stroke-width="1.5"/><circle cx="591" cy="48.4" r="4" fill="#fff" stroke="#73964A" stroke-width="1.5"/><circle cx="773" cy="35.2" r="4" fill="#fff" stroke="#73964A" stroke-width="1.5"/><circle cx="955" cy="22.0" r="4" fill="#fff" stroke="#73964A" stroke-width="1.5"/>
+       <g font-family="Source Sans 3,sans-serif" font-weight="600" font-size="15" fill="#003D79"><text x="45" y="73.0" text-anchor="middle">6</text><text x="227" y="63.8" text-anchor="middle">20</text><text x="409" y="50.6" text-anchor="middle">40</text><text x="591" y="37.4" text-anchor="middle">60</text><text x="773" y="24.2" text-anchor="middle">80</text><text x="955" y="11.0" text-anchor="middle">100</text></g>
+       <g font-family="Fira Code,monospace" font-size="11" fill="#5e6b7d"><text x="45" y="106" text-anchor="middle">pilot · Sep 2019</text><text x="227" y="106" text-anchor="middle">Q4 2019</text><text x="409" y="106" text-anchor="middle">Q1 2020</text><text x="591" y="106" text-anchor="middle">Q2 2020</text><text x="773" y="106" text-anchor="middle">Q3 2020</text><text x="955" y="106" text-anchor="middle">Q4 2020</text></g>
+      </svg></div>
+      <div class="bp-rule bp-rule-t">the loop below, run once a quarter</div>
       <div class="bp-corner"></div><div class="bp-phase">Acquisition<small>monthly</small></div><div class="bp-phase">Activation<small>quarterly · 3 days</small></div><div class="bp-phase">Retention<small>every two weeks</small></div><div class="bp-phase">Referral<small>one week</small></div><div class="bp-phase">Impact<small>quarterly</small></div>
       <div class="bp-lane">Practitioner</div><div class="bp-cell">Visits the design portal. Sits in on a remote lunch-and-learn. Signs up for the newsletter.</div><div class="bp-cell">Completes the sign-up form. Interviews with the centre. Books travel and blocks the time.</div><div class="bp-cell">Analyses challenges and opportunities. Observes people at work. Envisions what could be different.</div><div class="bp-cell">Nominates or refers a colleague who already does the work.</div><div class="bp-cell">Presents a case study at the quarterly review.</div>
       <div class="bp-lane">Their manager</div><div class="bp-cell">Hears about the programme from a peer.</div><div class="bp-cell">Approves the three days and the travel.</div><div class="bp-cell">Allows a direct report to spend more time on design.</div><div class="bp-cell">Puts a name forward.</div><div class="bp-cell">Approves the case study and tracks progress.</div>
@@ -788,28 +802,11 @@ figure:not(.in) .a{animation-play-state:paused}
       <div class="bp-lane">The one measure</div><div class="bp-cell bp-metric">nominees and volunteers per quarter</div><div class="bp-cell bp-metric">nominees who pass basic training</div><div class="bp-cell bp-metric">practitioners generating research insights</div><div class="bp-cell bp-metric">nominations that become practitioners</div><div class="bp-cell bp-metric">practitioners with reported effect on revenue</div>
      </div></div>
     <div class="loop">&#8617; viral coefficient · new practitioners an existing practitioner generates</div>
-    <figcaption>Fig. 10 · The programme as a service blueprint, redrawn from the June 2019 workbook in the standard anatomy. The manager lane came out of the manager interviews, where every one of them raised who controls a practitioner's afternoons. The bottom row is the one number leadership would see for each phase.</figcaption>
+    <figcaption>Fig. 10 · The programme as a service blueprint, redrawn from the June 2019 workbook in the standard anatomy. The lane across the top is what the loop compounds to, on its own axis of quarters rather than phases: a pilot of six and a first cohort of twenty, both of which ran after I left, then the schedule toward a hundred. The manager lane came out of the manager interviews, where every one of them raised who controls a practitioner's afternoons. The bottom row is the one number leadership would see for each phase.</figcaption>
    </figure>
 
-   <p>LUMA Institute would deliver two of the three training days and the playbook. Userlytics records and redacts <strong>protected health information</strong>, which let studies run under HIPAA. Glean.ly's alpha programme gave us a research repository built for the job. A pilot of six was set for September 2019 and the first cohort of twenty for October, then one a quarter toward a hundred practitioners leading research.</p>
+   <p>LUMA Institute would deliver two of the three training days and the playbook. Userlytics records and redacts <strong>protected health information</strong>, which let studies run under HIPAA. Glean.ly's alpha programme gave us a research repository built for the job. With the partners settled, the schedule went in the plan.</p>
 
-   <figure class="dia">
-<div class="fig-scroll"><svg viewBox="0 0 760 260" aria-label="Certification plan: a pilot of six in September 2019, then cohorts of twenty per quarter from October 2019 toward one hundred practitioners by the end of 2020">
-     <line x1="40" y1="220" x2="740" y2="220" stroke="#003D79" stroke-opacity=".5"/>
-     <g>
-      <rect x="50" y="211" width="60" height="9" fill="none" stroke="#003D79" stroke-width="1.5" stroke-dasharray="3 3" class="a" style="transform-box:fill-box;transform-origin:bottom;animation:grow .5s ease-out .1s both"/>
-      <rect x="140" y="190" width="90" height="30" fill="#73964A" class="a" style="transform-box:fill-box;transform-origin:bottom;animation:grow .5s ease-out .3s both"/>
-      <rect x="260" y="160" width="90" height="60" fill="none" stroke="#003D79" stroke-width="1.5" class="a" style="transform-box:fill-box;transform-origin:bottom;animation:grow .5s ease-out .6s both"/>
-      <rect x="380" y="130" width="90" height="90" fill="none" stroke="#003D79" stroke-width="1.5" class="a" style="transform-box:fill-box;transform-origin:bottom;animation:grow .5s ease-out .9s both"/>
-      <rect x="500" y="100" width="90" height="120" fill="none" stroke="#003D79" stroke-width="1.5" class="a" style="transform-box:fill-box;transform-origin:bottom;animation:grow .5s ease-out 1.2s both"/>
-      <rect x="620" y="70" width="90" height="150" fill="none" stroke="#003D79" stroke-width="1.5" class="a" style="transform-box:fill-box;transform-origin:bottom;animation:grow .5s ease-out 1.5s both"/>
-     </g>
-     <g font-family="Source Sans 3,sans-serif" font-weight="600" font-size="16" fill="#003D79" text-anchor="middle"><text x="80" y="200">6</text><text x="185" y="178">20</text><text x="305" y="148">40</text><text x="425" y="118">60</text><text x="545" y="88">80</text><text x="665" y="58">100</text></g>
-     <g font-family="Fira Code,monospace" font-size="12" fill="#5e6b7d" text-anchor="middle"><text x="80" y="244">pilot · Sep</text><text x="185" y="244">Q4 2019</text><text x="305" y="244">Q1 2020</text><text x="425" y="244">Q2 2020</text><text x="545" y="244">Q3 2020</text><text x="665" y="244">Q4 2020</text></g>
-     <text x="40" y="30" font-family="Fira Code,monospace" font-size="12" fill="#5e6b7d">practitioners certified · 20 per cohort, quarterly</text>
-    </svg></div>
-    <figcaption>Fig. 11 · The certification plan as approved in June 2019. I left in July, before the pilot ran. Dashed is the pilot; filled is the founding cohort the survey found; outlined is the schedule toward a hundred.</figcaption>
-   </figure>
 
    <p>The postings drew more than 200 qualified applicants in two months, which answered him. I left in July 2019 with the core team hired and the first cohort on the calendar. The pilot ran that September and the first cohort started in October, both after I had gone.</p>
    <span class="methods"><b>METHODS</b> · design maturity model · double-loop learning · communities of practice · pirate metrics · service blueprint · ladder of participation</span>
