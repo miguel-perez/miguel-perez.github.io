@@ -6,7 +6,8 @@ body{margin:0;background:#f4f5f8;color:#15171c;font-family:'Instrument Serif',Ge
 .hero-cap{position:absolute;top:44px;right:clamp(20px,4vw,56px);width:250px;font:12px/1.6 'Fira Code',monospace;color:#5b606b}
 @media(max-width:760px){.hero{min-height:0;padding-bottom:48px}.hero-eyebrow{max-width:none}.hero-copy{margin-top:56px}.hero-chart{position:static;width:calc(100% + 2 * clamp(20px,4vw,56px));height:clamp(220px,58vw,300px);margin:64px calc(-1 * clamp(20px,4vw,56px)) 0}.hero-cap{position:static;width:auto;margin:20px 0 0}}
 @keyframes dash{to{stroke-dashoffset:0}}@keyframes pop{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:scale(1)}}@keyframes show{to{opacity:1}}@keyframes spin{to{transform:rotate(360deg)}}
-.site-nav{position:sticky;top:0;z-index:10;background:rgba(244,245,248,.9);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid rgba(21,23,28,.12)}
+.site-nav{position:sticky;top:0;z-index:10;background:rgba(244,245,248,.72);backdrop-filter:blur(20px) saturate(1.5);-webkit-backdrop-filter:blur(20px) saturate(1.5);border-bottom:1px solid rgba(21,23,28,.12)}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.site-nav{background:rgba(244,245,248,.96)}}
 .site-nav-inner{max-width:1440px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px 24px;padding:20px clamp(20px,4vw,56px)}
 .site-nav .wordmark{font-size:22px;font-style:italic}
 .site-nav nav{display:flex;flex-wrap:wrap;gap:36px;font:12px 'Fira Code',monospace;letter-spacing:.1em;text-transform:uppercase}
