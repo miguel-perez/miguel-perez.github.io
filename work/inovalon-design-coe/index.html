@@ -20,13 +20,13 @@ a:hover{text-decoration:underline;text-decoration-color:#73964A;text-underline-o
 .case-header{padding-top:56px;padding-bottom:56px}
 .hero{display:grid;grid-template-columns:minmax(0,7fr) minmax(280px,5fr);gap:32px 56px;align-items:stretch;margin-top:28px}
 .hero-text{min-width:0;container-type:inline-size}
-.hero-art{position:relative;min-height:380px;border:1px solid rgba(0,61,121,.18);border-radius:6px;overflow:hidden;background:#fff;display:flex;flex-direction:column;align-items:center;padding:28px 28px 14px;cursor:pointer}
+.hero-art{position:relative;min-height:380px;background:#fff;display:flex;flex-direction:column;align-items:center;padding:8px 0 0;cursor:pointer}
 .seats{display:grid;grid-template-columns:repeat(10,1fr);gap:clamp(5px,.8vw,10px);width:min(100%,340px);aspect-ratio:1;margin:auto 0}
 .seats i{display:block;border-radius:50%;background:rgba(0,61,121,.07);transform:scale(.5);transition:background .4s,transform .45s cubic-bezier(.2,.8,.2,1)}
 .seats i.d{background:#003D79;transform:scale(1)}
 .seats i.p{background:#73964A;transform:scale(1)}
 .hero-art .cap{width:100%;margin-top:24px;font:11px/1.7 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;color:#5e6b7d;pointer-events:none}
-.hero-art .cap b{display:block;font-weight:400;color:#003D79;min-height:1.7em}
+.hero-art .cap b{display:block;font-weight:400;color:#003D79;height:3.4em;overflow:hidden}
 .hero-art .cap i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
 .hero-art .cap i.d{background:#003D79}
 .hero-art .cap i.p{background:#73964A;margin-left:14px}
@@ -347,7 +347,7 @@ figure:not(.in) .a{animation-play-state:paused}
  .pane + .pane{border-left:0;border-top:1px solid rgba(0,61,121,.18)}
  .survey{grid-template-columns:1fr}
  .hero{grid-template-columns:1fr}
- .hero-art{min-height:0;padding:24px}
+ .hero-art{min-height:0;padding:8px 0 0}
  .seats{width:min(100%,260px)}
  .sheet thead{display:none}
  .sheet,.sheet tbody,.sheet tr,.sheet td{display:block;width:100%}
@@ -392,13 +392,13 @@ figure:not(.in) .a{animation-play-state:paused}
    <p class="lede">Avalere Health hired its first UX designer in July 2017. Nobody on the software team had direct access to users, so the work started with one low-risk study and grew by earning the next permission. Two years later design was a corporate goal at the Inovalon parent, with approved headcount and a plan to certify a hundred practitioners.</p>
    <div class="facts-row">
     <div><span class="k">Role</span><span>First UX designer at Avalere Health, then Senior Manager, Design Strategy at Inovalon and founder of the Design Center of Excellence.</span></div>
-    <div><span class="k">Timeline</span><span> 2017 to 2019. Philadelphia, then remote from Denver.</span></div>
+    <div><span class="k">Timeline</span><span>July 2017 to July 2019. Philadelphia, then remote from Denver.</span></div>
     <div><span class="k">Team</span><span>A design researcher from June 2018. Product and engineering leads across four business units. LUMA Institute, Userlytics, Glean.ly.</span></div>
    </div>
   </div>
-  <div class="hero-art" id="hero-art" role="img" aria-label="1 designer in 2017, 4 by 2019, a first cohort of 20 practitioners that October, and 100 the programme was planned to reach, shown as a filling grid of a hundred seats." title="Replay">
+  <div class="hero-art" id="hero-art" role="img" aria-label="A grid of a hundred seats filling up: one designer in July 2017, four by 2019, a first cohort of twenty practitioners that October, and the hundred the programme was planned to reach." title="Replay">
    <div class="seats" id="seats"></div>
-   <span class="cap"><b id="seats-cap">2017: 1 designer · 2019: a first cohort of 20 · the plan: 100</b><i class="d"></i>designers hired<i class="p"></i>practitioners</span>
+   <span class="cap"><b id="seats-cap">2017: one designer · the plan: a hundred</b><i class="d"></i>designers hired<i class="p"></i>practitioners</span>
   </div>
  </div>
  <div class="numbers">
@@ -851,9 +851,9 @@ figure:not(.in) .a{animation-play-state:paused}
   var stages=[
    {n:1,cap:'July 2017 · one UX designer'},
    {n:2,cap:'June 2018 · a design researcher joins'},
-   {n:4,cap:'2019 plan · four designers, a corporate goal'},
-   {n:24,cap:'October 2019 · the first cohort of twenty'},
-   {n:100,cap:'the plan: a hundred practitioners, twenty a quarter'}];
+   {n:4,cap:'2019 plan · four designers'},
+   {n:24,cap:'October 2019 · a first cohort of twenty'},
+   {n:100,cap:'the plan · a hundred practitioners'}];
   var timers=[], reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches, onScreen=false;
   function cls(i){ return i<4?'d':'p'; }
   function play(){
