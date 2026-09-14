@@ -1,4 +1,4 @@
-/* The site footer, shared by every layout through _includes/footer.html. Colours come from
+/* The site footer, shared by every layout through _includes/footer.html. Colors come from
    the page as custom properties so a study's street applies; the fallbacks are the homepage's. */
 .site-footer-inner{max-width:1440px;margin:0 auto;padding:0 clamp(20px,4vw,56px) 64px}
 .site-footer-block{margin-top:96px;border-top:1px solid var(--footer-rule,rgba(21,23,28,.18));padding-top:20px;font:12px/1.7 'Fira Code',monospace;color:var(--footer-ink,#5b606b)}

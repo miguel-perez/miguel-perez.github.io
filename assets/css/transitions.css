@@ -1,7 +1,7 @@
 /* Cross-document page transitions. Every page opts in, so a navigation between
    any two of them animates; a browser without support does a plain navigation.
    The header is its own layer and keeps its box, the content fades out, the
-   root (which is now just the body colour) shifts, then the new content fades in. */
+   root (which is now just the body color) shifts, then the new content fades in. */
 @view-transition{navigation:auto}
 .site-nav,.nav{view-transition-name:header}
 .site-main{view-transition-name:content}
