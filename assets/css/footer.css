@@ -1,0 +1,10 @@
+/* The site footer, shared by every layout through _includes/footer.html. Colours come from
+   the page as custom properties so a study's street applies; the fallbacks are the homepage's. */
+.site-footer-inner{max-width:1440px;margin:0 auto;padding:0 clamp(20px,4vw,56px) 64px}
+.site-footer-block{margin-top:96px;border-top:1px solid var(--footer-rule,rgba(21,23,28,.18));padding-top:20px;font:12px/1.7 'Fira Code',monospace;color:var(--footer-ink,#5b606b)}
+.site-footer-row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:20px 40px}
+.site-footer-place{max-width:600px}
+.site-footer-social{display:flex;align-items:center;gap:20px;color:var(--footer-text,#3a3e48)}
+.site-footer .social{display:inline-flex}
+.site-footer .social:hover{color:var(--footer-accent,#c2532f);text-decoration:none}
+.site-footer-legal{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 40px;margin-top:24px}
