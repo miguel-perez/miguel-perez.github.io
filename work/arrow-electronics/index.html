@@ -47,7 +47,6 @@ h1 em{font-style:normal;color:#0084D5}
 @media (max-width:520px){.numbers{grid-template-columns:1fr}}
 @media (min-width:920px){.numbers{grid-template-columns:repeat(4,minmax(0,1fr))}}
 .numbers b{display:block;font:700 44px/1 'Helvetica Neue',Helvetica,Archivo,Arial,sans-serif;letter-spacing:-.03em;color:#fff}
-.numbers b.acc{color:#0084D5}
 .numbers span{display:block;margin-top:8px;font:12px/1.6 'Fira Code',monospace;color:#bbb}
 .body{padding-top:48px;padding-bottom:0}
 .story{margin:0 auto;min-width:0}
@@ -126,31 +125,46 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#555
 .obs q{font:16px/1.35 'Instrument Serif',serif;color:#333;quotes:"\201C" "\201D"}
 .obs .src{font:10px/1.6 'Fira Code',monospace;color:#555;letter-spacing:.04em;text-transform:uppercase}
 
-/* Fig. 10: the eight levers */
-.sheet{width:100%;border-collapse:collapse;font:13px/1.45 'Helvetica Neue',Helvetica,Archivo,Arial,sans-serif;color:#333}
-.sheet th{font:11px 'Fira Code',monospace;letter-spacing:.04em;text-transform:uppercase;color:#555;font-weight:400;text-align:left;padding:10px 14px;border-bottom:1px solid rgba(0,0,0,.18);white-space:nowrap;vertical-align:bottom}
-.sheet td{padding:10px 14px;border-bottom:1px solid rgba(0,0,0,.1);text-align:left;vertical-align:top}
-.sheet td:first-child{color:#000}
-.sheet td:first-child i{display:block;font-style:normal;font:11px/1.5 'Fira Code',monospace;color:#555;margin-top:1px}
-.sheet tr.total td{border-top:1px solid rgba(0,0,0,.35);border-bottom:1px solid rgba(0,0,0,.35);padding-top:13px;padding-bottom:13px;font:700 16px 'Helvetica Neue',Helvetica,Archivo,Arial,sans-serif;color:#000;letter-spacing:-.01em;background:rgba(0,0,0,.03)}
-.sheet tr.total td i{display:inline;font-style:normal;font-weight:400;color:#555;font-size:13px;letter-spacing:0;margin:0}
 
-/* Fig. 11: two speculative screens */
-.two{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
-.two > div{display:flex;flex-direction:column;gap:8px;min-width:0}
-.two-h{font:11px/1.7 'Fira Code',monospace;letter-spacing:.06em;color:#555}
-.steps{display:flex;flex-wrap:wrap;align-items:center;gap:6px;padding:12px 16px;border-bottom:1px solid rgba(0,0,0,.1);font:11px 'Fira Code',monospace;color:#555}
-.steps i{font-style:normal;color:rgba(0,0,0,.35)}
-.chip{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:12px 16px 14px;padding:10px 12px;border:1px dashed rgba(0,0,0,.35);border-radius:4px;font:12px 'Fira Code',monospace;color:#000}
-.chip b{font:700 15px 'Helvetica Neue',Helvetica,Archivo,Arial,sans-serif}
-.prod{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding:12px}
-.prod > div{border:1px solid rgba(0,0,0,.18);border-radius:4px;padding:10px 12px;display:flex;flex-direction:column;gap:6px;min-width:0}
-.prod b{font-weight:700;color:#000}
-.prod i{font-style:normal;font:10px/1.6 'Fira Code',monospace;color:#555}
-.prod .pill{align-self:flex-start}
-.btn{display:inline-block;align-self:flex-start;font:700 12px 'Helvetica Neue',Helvetica,Archivo,Arial,sans-serif;padding:5px 10px;border-radius:4px;border:1px solid #0069AA;background:#0069AA;color:#fff;margin-top:auto}
-.prod-h{padding:12px 16px 0;font:11px/1.6 'Fira Code',monospace;letter-spacing:.04em;text-transform:uppercase;color:#555}
-.prod-h b{display:block;font:700 14px 'Helvetica Neue',Helvetica,Archivo,Arial,sans-serif;letter-spacing:0;text-transform:none;color:#000}
+
+/* Fig. 9: the speculative portal, one application */
+.app{border:1px solid rgba(0,0,0,.18);border-radius:10px;overflow:hidden;background:#f2f3f5;font:13px/1.45 'Helvetica Neue',Helvetica,Archivo,Arial,sans-serif;color:#333;box-shadow:0 24px 60px rgba(0,0,0,.12)}
+.app-top{display:flex;flex-wrap:wrap;align-items:center;gap:10px 28px;padding:14px 20px;background:#000;color:#fff}
+.app-brand{font-weight:700;font-size:14px;letter-spacing:-.01em}
+.app-top nav{display:flex;flex-wrap:wrap;gap:8px 18px;font:11px 'Fira Code',monospace;letter-spacing:.08em;text-transform:uppercase;color:#bbb}
+.app-top nav .on{color:#fff;border-bottom:2px solid #0084D5;padding-bottom:2px}
+.app-user{margin-left:auto;font:11px 'Fira Code',monospace;color:#bbb}
+.app-body{padding:20px}
+.app-h{font-size:15px;color:#333;margin-bottom:16px}
+.app-h b{color:#000}
+.app-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.card{background:#fff;border-radius:8px;padding:16px;box-shadow:0 1px 2px rgba(0,0,0,.06),0 8px 24px rgba(0,0,0,.05);display:flex;flex-direction:column;gap:10px;min-width:0}
+.c-orders{grid-column:span 2}
+.card-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font:10px 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;color:#555}
+.card-h b{font:700 14px 'Helvetica Neue',Helvetica,Archivo,Arial,sans-serif;color:#000;letter-spacing:-.01em;text-transform:none}
+.card .big{font:700 30px/1 'Helvetica Neue',Helvetica,Archivo,Arial,sans-serif;color:#000;letter-spacing:-.02em}
+.card .sub{font-size:12px;color:#555}
+.card .row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 0;border-top:1px solid rgba(0,0,0,.08)}
+.card .row > span:first-child{min-width:0}
+.card .row i,.ord-n i{display:block;font-style:normal;font:10px/1.5 'Fira Code',monospace;color:#555}
+.card .row .pill{flex:0 0 auto}
+.card .btn{margin-top:auto}
+.bar{height:6px;border-radius:3px;background:rgba(0,0,0,.08);overflow:hidden}
+.bar i{display:block;height:100%;background:#0069AA}
+.ord{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) minmax(0,1fr);gap:8px 16px;align-items:center;padding:10px 0;border-top:1px solid rgba(0,0,0,.08)}
+.ord-n{color:#000}
+.ord-s{font:11px/1.5 'Fira Code',monospace;color:#555}
+.ord-s u{text-decoration:none;color:#0069AA;border-bottom:1px solid rgba(0,105,170,.4)}
+.tl{display:flex;align-items:center}
+.tl i{flex:0 0 10px;width:10px;height:10px;border-radius:50%;background:rgba(0,0,0,.15)}
+.tl i.on{background:#0069AA}
+.tl i.w{background:#fff;border:2px solid #0069AA;box-sizing:border-box}
+.tl s{flex:1;height:2px;background:rgba(0,0,0,.12);text-decoration:none}
+.tl s.on{background:#0069AA}
+.tl-key{display:flex;justify-content:space-between;font:9px 'Fira Code',monospace;letter-spacing:.04em;text-transform:uppercase;color:#555;padding-top:4px}
+.funnel{display:block;width:100%;height:auto}
+.btn{display:inline-block;align-self:flex-start;font:700 12px 'Helvetica Neue',Helvetica,Archivo,Arial,sans-serif;padding:6px 11px;border-radius:5px;border:1px solid #0069AA;background:#0069AA;color:#fff}
+@media (max-width:1000px){.app-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
 /* Alignment diagrams drawn as grids: the journey map and the process. */
 .bp{display:grid;grid-template-columns:120px repeat(var(--bp-n,8),minmax(0,1fr));border:1px solid rgba(0,0,0,.3);border-radius:6px;overflow:hidden;background:#fff;font:11px/1.5 'Fira Code',monospace;color:#333}
@@ -161,26 +175,18 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#555
 .bp-corner{background:rgba(0,0,0,.06);border-left:0}
 .bp-cell b{display:block;font-weight:400;color:#000}
 .bp-cell i{font-style:normal;color:#555}
-.bp-cell .fq{display:block;height:4px;margin:6px 0 2px;background:rgba(0,0,0,.08);border-radius:2px;overflow:hidden}
-.bp-cell .fq i{display:block;height:100%;width:calc(var(--n)*5%);background:#0069AA}
 .bp-span{grid-column:2/-1;background:rgba(0,105,170,.06);color:#000}
 .bp-act{font:12px/1.4 'Instrument Serif',serif;color:#333;font-style:italic}
 .loop{margin-top:10px;font:11px/1.6 'Fira Code',monospace;color:#555;border-top:1px dashed rgba(0,0,0,.35);padding-top:8px}
 .key{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;margin:0;font:11px/1.7 'Fira Code',monospace;color:#555}
 .story p.key{margin:0;font:11px/1.7 'Fira Code',monospace;color:#555}
 .key b{font-weight:400;color:#0069AA}
+.key i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:6px;vertical-align:-1px}
 @media (max-width:900px){.fig-scroll .bp{min-width:1180px}}
 
-/* Fig. 8: the affinity wall */
-.wall{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:10px;font:10px/1.45 'Fira Code',monospace;color:#333}
-.wall > div{display:flex;flex-direction:column;gap:6px;min-width:0}
-.wall-h{font:700 12px/1.3 'Helvetica Neue',Helvetica,Archivo,Arial,sans-serif;color:#000;padding:6px 8px;border-top:2px solid #000}
-.wall .th{background:#0069AA;color:#fff;padding:5px 8px;border-radius:3px;letter-spacing:.02em}
-.wall .stk{background:rgba(0,0,0,.05);padding:7px 8px;border-radius:2px;min-height:44px;transform:rotate(var(--r,0deg))}
-.wall .stk.b{background:rgba(0,105,170,.12)}
-.wall .stk.e{opacity:.5;min-height:30px}
-@media (max-width:900px){.fig-scroll .wall{min-width:1100px}}
-@media (max-width:1000px){.two{grid-template-columns:1fr}}
+/* Fig. 7: the workshops */
+.photos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.photos img{display:block;width:100%;height:auto;border-radius:4px}
 
 figure:not(.in) .a{animation-play-state:paused}
 @keyframes dash{to{stroke-dashoffset:0}}
@@ -192,17 +198,11 @@ figure:not(.in) .a{animation-play-state:paused}
  .hero{grid-template-columns:1fr}
  .hero-art{min-height:0;padding:8px 0 0}
  .hero-art canvas,.hero-art .cap{width:min(100%,320px)}
- .prod{grid-template-columns:1fr 1fr}
- .sheet thead{display:none}
- .sheet,.sheet tbody,.sheet tr,.sheet td{display:block;width:100%}
- .sheet tr{padding:12px 16px;border-bottom:1px solid rgba(0,0,0,.1)}
- .sheet td{padding:0;border:0;text-align:left;white-space:normal}
- .sheet td:first-child{margin-bottom:6px}
- .sheet td+td{display:flex;flex-wrap:wrap;gap:0 10px;align-items:baseline;padding:2px 0}
- .sheet td+td::before{content:attr(data-y);flex:0 0 96px;font:10px 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;color:#555}
- .sheet tr.total{padding-top:14px;padding-bottom:14px;border-top:1px solid rgba(0,0,0,.35);border-bottom:1px solid rgba(0,0,0,.35)}
- .sheet tr.total td{border:0;padding:0}
- .sheet tr.total td+td{display:none}
+ .photos{grid-template-columns:1fr}
+ .app-grid{grid-template-columns:1fr}
+ .c-orders{grid-column:auto}
+ .ord{grid-template-columns:1fr}
+ .app-body{padding:14px}
  .fig-scroll svg{min-width:620px}
  .fig-scroll::after{content:"← scroll sideways →";display:block;margin-top:6px;font:10px/1.6 'Fira Code',monospace;color:#555;letter-spacing:.04em}
 }
@@ -234,8 +234,8 @@ figure:not(.in) .a{animation-play-state:paused}
  <div class="numbers">
   <div><b>39</b><span>interviews: 8 project team, 17 employees, 11 resellers, 3 suppliers</span></div>
   <div><b>1,600+</b><span>observations, coded in an Airtable repository</span></div>
-  <div><b>50+</b><span>insights; 24 carded with frequency and severity</span></div>
-  <div><b class="acc">8</b><span>profitability levers; 3 revenue, 5 cost, my reading</span></div>
+  <div><b>50+</b><span>insights, on an eight-stage journey map and five personas</span></div>
+  <div><b>8</b><span>profitability levers; 3 revenue, 5 cost, my reading</span></div>
  </div>
 </div></section>
 
@@ -411,7 +411,7 @@ figure:not(.in) .a{animation-play-state:paused}
 
    <h3>The repository</h3>
    <p>Every recording went to transcription, and every transcript was cut into <strong>observations</strong>: one statement, one speaker, one place in the journey, tagged by role and by topic, in an Airtable base built for the purpose. By the second week of January the base held more than 1,600 of them. The number matters less than what it made possible. A query could pull every observation about invoicing from every operations lead, or everything a supplier had said about marketing funds, and the team could read the evidence behind a claim instead of taking my word for it.</p>
-   <p>Insights were written on top of the observations, not instead of them. Each insight card carried the observations behind it, its place in the journey, a count of how many observations supported it, and a severity score from one to five. Twenty-four cards covered the reseller side. Fifty-odd insights in all went onto two alignment diagrams: a journey map with eight stages, from campaigns to growth, and personas for a reseller's executive, sales, operations, and IT functions and for a supplier's distribution manager.</p>
+   <p>Insights were written on top of the observations, not instead of them. Each insight card carried the observations behind it and its place in the journey, so anyone could get from a claim back to who said what. Fifty-odd insights went onto two alignment diagrams: a journey map with eight stages, from campaigns to growth, and personas for a reseller's executive, sales, operations, and IT functions and for a supplier's distribution manager.</p>
 
    <figure>
     <div class="ui" role="img" aria-label="The research repository, redrawn: tab counts for interviews, transcripts, observations, insights, themes, and opportunities; three observation cards tagged by role and topic with paraphrased quotes; and the chain from interviews to levers.">
@@ -432,68 +432,22 @@ figure:not(.in) .a{animation-play-state:paused}
       <div class="bp-corner"></div><div class="bp-phase">Campaigns</div><div class="bp-phase">Leads</div><div class="bp-phase">Opportunities</div><div class="bp-phase">Contracts</div><div class="bp-phase">Quotes</div><div class="bp-phase">Orders</div><div class="bp-phase">Invoices</div><div class="bp-phase">Growth</div>
       <div class="bp-lane">Jobs to be done</div><div class="bp-cell">Fund, run, and track campaigns.</div><div class="bp-cell">Generate and qualify leads.</div><div class="bp-cell">Review the pipeline, prospect, build alliances, sell services.</div><div class="bp-cell">Register the deal, fund it, manage annuities.</div><div class="bp-cell">Configure the bill of materials, create the quote.</div><div class="bp-cell">Place and track orders.</div><div class="bp-cell">Bill customers, pay invoices.</div><div class="bp-cell">Manage distributors and certifications, track revenue, hire, automate.</div>
       <div class="bp-lane">Pain point</div>
-      <div class="bp-cell"><b>Sales and marketing data are not integrated, so campaign return is hard to show.</b><span class="fq" style="--n:8"><i></i></span><i>8 observations · severity 5</i></div>
-      <div class="bp-cell"><b>Most new business comes from referrals; resellers may not know Arrow can help.</b><span class="fq" style="--n:11"><i></i></span><i>11 observations · severity 5</i></div>
-      <div class="bp-cell"><b>Enterprise end clients may not pay for managed services.</b><span class="fq" style="--n:11"><i></i></span><i>11 observations · severity 5</i></div>
-      <div class="bp-cell"><b>Funding a deal through finance brings frustration and delay.</b><span class="fq" style="--n:10"><i></i></span><i>10 observations · severity 5</i></div>
-      <div class="bp-cell"><b>Hard to know what is available, what vendors require, and how to get special pricing.</b><span class="fq" style="--n:10"><i></i></span><i>10 observations · severity 2</i></div>
-      <div class="bp-cell"><b>ETAs come by phone and email; supply chain slips are unpredictable.</b><span class="fq" style="--n:12"><i></i></span><i>12 observations · severity 5</i></div>
-      <div class="bp-cell"><b>Invoices carry errors and odd amounts, some for pennies.</b><span class="fq" style="--n:20"><i></i></span><i>20 observations · severity 1</i></div>
-      <div class="bp-cell"><b>Monitoring every vendor's program requirements is slow and error-prone.</b><span class="fq" style="--n:15"><i></i></span><i>15 observations · severity 4</i></div>
+      <div class="bp-cell"><b>Sales and marketing data are not integrated, so campaign return is hard to show.</b></div>
+      <div class="bp-cell"><b>Most new business comes from referrals; resellers may not know Arrow can help.</b></div>
+      <div class="bp-cell"><b>Enterprise end clients may not pay for managed services.</b></div>
+      <div class="bp-cell"><b>Funding a deal through finance brings frustration and delay.</b></div>
+      <div class="bp-cell"><b>Hard to know what is available, what vendors require, and how to get special pricing.</b></div>
+      <div class="bp-cell"><b>ETAs come by phone and email; supply chain slips are unpredictable.</b></div>
+      <div class="bp-cell"><b>Invoices carry errors and odd amounts, some for pennies.</b></div>
+      <div class="bp-cell"><b>Monitoring every vendor's program requirements is slow and error-prone.</b></div>
       <div class="bp-lane">Desired outcome</div><div class="bp-cell">Real-time tracking of campaign return.</div><div class="bp-cell">More qualified leads.</div><div class="bp-cell">Meet revenue goals faster.</div><div class="bp-cell">Fund deals without delay.</div><div class="bp-cell">Faster speed to quote, with rebates and pricing looked up.</div><div class="bp-cell">Control shipping actions; manage customer expectations.</div><div class="bp-cell">One invoice format, on one schedule.</div><div class="bp-cell">Relevance in new areas; faster partner enablement.</div>
       <div class="bp-lane">Lever · Act IV</div><div class="bp-cell bp-act">MDF manager</div><div class="bp-cell bp-act">none: a workflow, not a tool</div><div class="bp-cell bp-act">Predictive cross-sells; reseller network</div><div class="bp-cell bp-act">Credit manager</div><div class="bp-cell bp-act">Quote builder</div><div class="bp-cell bp-act">Fulfillment center</div><div class="bp-cell bp-act">policy, not a tool</div><div class="bp-cell bp-act">Certification manager</div>
       <div class="bp-lane">Across all eight</div><div class="bp-cell bp-span">Self-serve platform: single sign-on and one channel for messages, so a partner has one place to go.</div>
      </div></div>
-    <figcaption>Fig. 6 · The February journey map, redrawn to one job, one pain, one outcome per stage. The count under each pain is the number of observations behind that insight card, and the bar is that count out of twenty. The bottom two rows are where Act IV ends up.</figcaption>
+    <figcaption>Fig. 6 · The February journey map, redrawn to one job, one pain, one outcome per stage. Every pain point is an insight card with the observations behind it. The bottom two rows are where Act IV ends up.</figcaption>
    </figure>
 
-   <figure class="dia">
-<div class="fig-scroll"><svg viewBox="0 0 760 400" aria-label="Twenty-four reseller insights plotted by the number of observations behind each, zero to twenty, against severity from one to five. Nine are numbered: track order, fund deal, automate tasks, generate leads, sell services, and track campaign at severity five; manage certifications at four; manage distributors at three and pay invoices at one, both with twenty observations.">
-     <g stroke="#000" stroke-opacity=".12" stroke-dasharray="3 4"><line x1="80" y1="60" x2="730" y2="60"/><line x1="80" y1="130" x2="730" y2="130"/><line x1="80" y1="200" x2="730" y2="200"/><line x1="80" y1="270" x2="730" y2="270"/><line x1="80" y1="340" x2="730" y2="340"/></g>
-     <line x1="80" y1="360" x2="730" y2="360" stroke="#000" stroke-opacity=".45"/>
-     <g font-family="Fira Code,monospace" font-size="11" fill="#555">
-      <text x="80" y="380" text-anchor="middle">0</text><text x="240" y="380" text-anchor="middle">5</text><text x="400" y="380" text-anchor="middle">10</text><text x="560" y="380" text-anchor="middle">15</text><text x="720" y="380" text-anchor="middle">20</text>
-      <text x="405" y="398" text-anchor="middle">OBSERVATIONS BEHIND THE INSIGHT</text>
-      <text x="62" y="64" text-anchor="end">5</text><text x="62" y="134" text-anchor="end">4</text><text x="62" y="204" text-anchor="end">3</text><text x="62" y="274" text-anchor="end">2</text><text x="62" y="344" text-anchor="end">1</text>
-      <text x="22" y="200" text-anchor="middle" transform="rotate(-90 22 200)">SEVERITY</text>
-      <text x="726" y="44" text-anchor="end">raised often, hurts most ↗</text>
-     </g>
-     <g fill="#000" fill-opacity=".45">
-      <circle cx="336" cy="193" r="6"><title>Qualify leads · 8 observations · severity 3</title></circle>
-      <circle cx="272" cy="270" r="6"><title>Review the pipeline · 6 · severity 2</title></circle>
-      <circle cx="400" cy="340" r="6"><title>Prospect · 10 · severity 1</title></circle>
-      <circle cx="368" cy="123" r="6"><title>Build alliances · 9 · severity 4</title></circle>
-      <circle cx="208" cy="270" r="6"><title>Register the deal · 4 · severity 2</title></circle>
-      <circle cx="176" cy="340" r="6"><title>Manage annuities · 3 · severity 1</title></circle>
-      <circle cx="400" cy="270" r="6"><title>Configure the bill of materials · 10 · severity 2</title></circle>
-      <circle cx="240" cy="200" r="6"><title>Create the quote · 5 · severity 3</title></circle>
-      <circle cx="368" cy="200" r="6"><title>Place the order · 9 · severity 3</title></circle>
-      <circle cx="272" cy="200" r="6"><title>Bill customers · 6 · severity 3</title></circle>
-      <circle cx="368" cy="137" r="6"><title>Track revenue · 9 · severity 4</title></circle>
-      <circle cx="464" cy="200" r="6"><title>Drive profitability · 12 · severity 3</title></circle>
-      <circle cx="336" cy="207" r="6"><title>Build relevance · 8 · severity 3</title></circle>
-      <circle cx="592" cy="270" r="6"><title>Hire employees · 16 · severity 2</title></circle>
-      <circle cx="400" cy="130" r="6"><title>Leverage tools · 10 · severity 4</title></circle>
-     </g>
-     <g fill="#0069AA">
-      <circle cx="464" cy="60" r="7" class="a" style="transform-box:fill-box;transform-origin:center;animation:pop .4s ease-out .1s both"><title>Track the order · 12 · severity 5</title></circle>
-      <circle cx="400" cy="53" r="7" class="a" style="transform-box:fill-box;transform-origin:center;animation:pop .4s ease-out .2s both"><title>Fund the deal · 10 · severity 5</title></circle>
-      <circle cx="400" cy="67" r="7" class="a" style="transform-box:fill-box;transform-origin:center;animation:pop .4s ease-out .3s both"><title>Automate tasks · 10 · severity 5</title></circle>
-      <circle cx="432" cy="53" r="7" class="a" style="transform-box:fill-box;transform-origin:center;animation:pop .4s ease-out .4s both"><title>Generate leads · 11 · severity 5</title></circle>
-      <circle cx="432" cy="67" r="7" class="a" style="transform-box:fill-box;transform-origin:center;animation:pop .4s ease-out .5s both"><title>Sell services · 11 · severity 5</title></circle>
-      <circle cx="336" cy="60" r="7" class="a" style="transform-box:fill-box;transform-origin:center;animation:pop .4s ease-out .6s both"><title>Track the campaign · 8 · severity 5</title></circle>
-      <circle cx="560" cy="130" r="7" class="a" style="transform-box:fill-box;transform-origin:center;animation:pop .4s ease-out .7s both"><title>Manage certifications · 15 · severity 4</title></circle>
-      <circle cx="720" cy="200" r="7" class="a" style="transform-box:fill-box;transform-origin:center;animation:pop .4s ease-out .8s both"><title>Manage distributors · 20 · severity 3</title></circle>
-      <circle cx="720" cy="340" r="7" class="a" style="transform-box:fill-box;transform-origin:center;animation:pop .4s ease-out .9s both"><title>Pay invoices · 20 · severity 1</title></circle>
-     </g>
-     <g font-family="Fira Code,monospace" font-size="10" fill="#0069AA">
-      <text x="476" y="64">1</text><text x="389" y="50" text-anchor="end">2</text><text x="389" y="72" text-anchor="end">3</text><text x="444" y="50">4</text><text x="444" y="72">5</text><text x="325" y="64" text-anchor="end">6</text><text x="572" y="134">7</text><text x="708" y="204" text-anchor="end">8</text><text x="708" y="344" text-anchor="end">9</text>
-     </g>
-    </svg></div>
-    <p class="key"><span><b>1</b> track the order</span><span><b>2</b> fund the deal</span><span><b>3</b> automate tasks</span><span><b>4</b> generate leads</span><span><b>5</b> sell services</span><span><b>6</b> track the campaign</span><span><b>7</b> manage certifications</span><span><b>8</b> manage distributors</span><span><b>9</b> pay invoices</span></p>
-    <figcaption>Fig. 7 · The 24 reseller insight cards, each scored for how many observations sat behind it and for severity on a five-point scale, redrawn from the card deck. Raw counts, because fourteen customers is not a sample to take percentages of. The penny invoices were raised most and hurt least; order tracking and deal funding were raised often and hurt most.</figcaption>
-   </figure>
-   <span class="methods"><b>METHODS</b> · field visits · transcription and coding · atomic research repository · insight cards · journey map · personas</span>
+   <span class="methods"><b>METHODS</b> · field visits · transcription and coding · atomic research repository · journey map · personas</span>
   </section>
 
   <section class="act" id="act-4">
@@ -502,117 +456,126 @@ figure:not(.in) .a{animation-play-state:paused}
    <p>The alignment diagrams were built to be argued with, so we put them on the wall and invited the arguments. Four ideation workshops in late January and early February brought together people from sales, IT, finance, operations, marketing, and engineering, most of whom had never been in a room like it. They were Arrow's first design-thinking workshops. Each ran the same way: read the journey map, stand at the stage you know best, write what you would change on a sticky, and put it where it belongs.</p>
    <p>About four hundred stickies came off the walls. We typed them into the repository as ideas, tagged to the same journey stages as the observations, and sorted them into twenty themes. Some were tools. Some were the same complaint from the inside, and a few of those were about how Arrow treated its own partners, which no tool would fix. The point of the sorting was to let the themes collapse into design opportunities small enough to test and large enough to matter, and eight of them did.</p>
 
+
    <figure>
-<div class="fig-scroll"><div class="wall" role="img" aria-label="An affinity wall: eight columns by journey stage, twenty theme headers, and a sample of paraphrased workshop stickies.">
-     <div><span class="wall-h">Campaigns</span><span class="th">Campaign tracker</span><span class="th">Lead generation</span><span class="th">Marketing</span><span class="stk" style="--r:-1deg">ROI is hard to measure, so the funds go unspent</span><span class="stk e"></span><span class="stk b" style="--r:1deg">one view of a campaign, lead to order</span><span class="stk e"></span></div>
-     <div><span class="wall-h">Leads</span><span class="th">Deal registration</span><span class="th">Pipeline</span><span class="stk" style="--r:1deg">registering a deal is a daily manual chore</span><span class="stk e"></span><span class="stk b" style="--r:-1deg">where is our human capital best spent?</span></div>
-     <div><span class="wall-h">Opportunities</span><span class="th">Reports</span><span class="th">Multi-year tool</span><span class="stk e"></span><span class="stk" style="--r:-1deg">which deals have stalled, and why</span><span class="stk b" style="--r:2deg">multi-year deals on a one-item SKU</span><span class="stk e"></span></div>
-     <div><span class="wall-h">Contracts</span><span class="th">Multi-year contracts</span><span class="th">Credit</span><span class="stk" style="--r:1deg">credit decisions in hours, not days</span><span class="stk e"></span><span class="stk b" style="--r:-2deg">one contract view across the years</span></div>
-     <div><span class="wall-h">Quotes</span><span class="th">Quotes workflow</span><span class="th">Special pricing</span><span class="th">Integrations</span><span class="stk" style="--r:-1deg">one quote, hardware and software together</span><span class="stk b" style="--r:1deg">special pricing before the quote, not after</span><span class="stk e"></span></div>
-     <div><span class="wall-h">Orders</span><span class="th">Order tracking</span><span class="th">Communication</span><span class="stk b" style="--r:1deg">people say automation; what does it mean?</span><span class="stk" style="--r:-1deg">an ETA without a phone call</span><span class="stk e"></span><span class="stk e"></span></div>
-     <div><span class="wall-h">Invoices</span><span class="th">Billing</span><span class="th">Data accuracy</span><span class="th">Workflow</span><span class="stk" style="--r:2deg">penny invoices</span><span class="stk e"></span><span class="stk b" style="--r:-1deg">one format, one schedule</span></div>
-     <div><span class="wall-h">Growth</span><span class="th">Automation</span><span class="th">Education</span><span class="th">Enablement</span><span class="stk" style="--r:-1deg">program changes with notice</span><span class="stk b" style="--r:1deg">training tied to the vendor program</span><span class="stk e"></span></div>
-    </div></div>
-    <p class="key"><span>about 400 stickies</span><span>·</span><span>20 themes</span><span>·</span><span>8 levers</span></p>
-    <figcaption>Fig. 8 · The affinity wall from the four workshops, redrawn as a sample. The twenty theme headers are the real ones; the stickies shown are a handful of about four hundred, paraphrased. Some columns collapsed into a tool and some into a policy, and the wall made the difference visible.</figcaption>
+    <div class="photos">
+     <img src="/work/arrow-electronics/img/workshop-1.jpg" width="1600" height="1200" alt="The workshop room before the first session: eight blue stage placards over blank sheets along one wall, a facilitator at the front, participants at tables." loading="lazy">
+     <img src="/work/arrow-electronics/img/workshop-2.jpg" width="1600" height="1200" alt="Participants standing at the wall, backs to the camera, placing sticky notes under the stages from Leads to Grow." loading="lazy">
+     <img src="/work/arrow-electronics/img/workshop-3.jpg" width="1600" height="1200" alt="The finished wall, every stage lined with sticky notes along the journey line, and participants working at laptops in front of it." loading="lazy">
+    </div>
+    <figcaption>Fig. 7 · Arrow's first design-thinking workshops, January and February 2020: the map on the wall before the first session, the stages filling up, and the room working from it afterwards. About four hundred stickies came off these walls.</figcaption>
    </figure>
 
    <h3>Hypotheses, not features</h3>
    <p>Each opportunity was written as a <strong>hypothesis statement</strong>: we believe this outcome would be achieved if these people could attain this thing with this tool. Written that way, an idea carries its own test. The core team scored nine of them on a matrix of value against risk, where risk meant how much it would hurt Arrow not to act. One of the nine was not a tool at all. It was the team's own capability to keep doing this research, and they put it at the lowest risk and the highest value on the board.</p>
-   <p>To price the experiments against the rest of the 2020 backlog we used <strong>cost of delay divided by duration</strong>, so that a research experiment and a feature could be ranked on the same axis at sprint planning.</p>
-
-   <figure class="txt">
-<div class="fig-scroll"><svg viewBox="0 0 560 490" aria-label="Nine hypotheses on a five-by-five grid of risk against value. The team's own research capability sits ringed at the lowest risk and highest value; the quote builder at the highest of both; the reseller network at low value and low risk.">
-     <g stroke="#000" stroke-opacity=".3" stroke-dasharray="4 4"><line x1="162" y1="40" x2="162" y2="440"/><line x1="254" y1="40" x2="254" y2="440"/><line x1="346" y1="40" x2="346" y2="440"/><line x1="438" y1="40" x2="438" y2="440"/><line x1="70" y1="120" x2="530" y2="120"/><line x1="70" y1="200" x2="530" y2="200"/><line x1="70" y1="280" x2="530" y2="280"/><line x1="70" y1="360" x2="530" y2="360"/></g>
-     <g fill="none" stroke="#0069AA" stroke-width="1.5"><path d="M70 440H526"/><path d="M526 436l6 4-6 4"/><path d="M70 440V44"/><path d="M66 50l4-6 4 6"/></g>
-     <g font-family="Fira Code,monospace" font-size="10" fill="#555">
-      <text x="70" y="460">LOW RISK</text><text x="530" y="460" text-anchor="end">HIGH RISK</text>
-      <text x="300" y="480" text-anchor="middle">if we do not act, how much does it hurt Arrow?</text>
-      <text x="24" y="240" text-anchor="middle" transform="rotate(-90 24 240)">VALUE · LOW TO HIGH</text>
-     </g>
-     <g fill="#000" fill-opacity=".7">
-      <circle cx="208" cy="80" r="7" class="a" style="transform-box:fill-box;transform-origin:center;animation:pop .4s ease-out .1s both"/>
-      <circle cx="484" cy="80" r="7" class="a" style="transform-box:fill-box;transform-origin:center;animation:pop .4s ease-out .2s both"/>
-      <circle cx="392" cy="160" r="7" class="a" style="transform-box:fill-box;transform-origin:center;animation:pop .4s ease-out .3s both"/>
-      <circle cx="254" cy="160" r="7" class="a" style="transform-box:fill-box;transform-origin:center;animation:pop .4s ease-out .4s both"/>
-      <circle cx="300" cy="240" r="7" class="a" style="transform-box:fill-box;transform-origin:center;animation:pop .4s ease-out .5s both"/>
-      <circle cx="438" cy="240" r="7" class="a" style="transform-box:fill-box;transform-origin:center;animation:pop .4s ease-out .6s both"/>
-      <circle cx="116" cy="240" r="7" class="a" style="transform-box:fill-box;transform-origin:center;animation:pop .4s ease-out .7s both"/>
-      <circle cx="208" cy="320" r="7" class="a" style="transform-box:fill-box;transform-origin:center;animation:pop .4s ease-out .8s both"/>
-     </g>
-     <circle cx="116" cy="80" r="9" fill="none" stroke="#0069AA" stroke-width="2.5" class="a" style="transform-box:fill-box;transform-origin:center;animation:pop .4s ease-out 1s both"/>
-     <g font-family="Instrument Serif,serif" font-size="14" fill="#333" text-anchor="middle">
-      <text x="116" y="104" fill="#0069AA">the research capability</text><text x="208" y="104">MDF manager</text><text x="484" y="104">quote builder</text>
-      <text x="392" y="184">certification manager</text><text x="254" y="184">fulfillment center</text>
-      <text x="300" y="264">credit manager</text><text x="438" y="264">integrations</text><text x="116" y="264">predictive cross-sells</text>
-      <text x="208" y="344">reseller network</text>
-     </g>
-    </svg></div>
-    <figcaption>Fig. 9 · Nine hypotheses on risk against value, redrawn from the prioritization board. The ringed one is the research capability itself: the team scored its own ability to keep learning as the lowest-risk, highest-value thing on the board, and the process in Act V is what that decision bought.</figcaption>
-   </figure>
+   <p>Eight came through as design opportunities: seven tools, and the self-serve platform they would all sit on, which was never scored because it was the ground for the rest. By my reading of their impact lines, three grow revenue and five cut cost. To price them against the rest of the 2020 backlog we used <strong>cost of delay divided by duration</strong>, so that a research experiment and a feature could be ranked on the same axis at sprint planning.</p>
 
    <figure class="dia">
-    <div class="tbl-scroll"><table class="sheet" aria-label="Eight levers in four themes: the need, the design opportunity, the intended impact, and whether I read it as revenue or cost.">
-     <thead><tr><th>Need</th><th>Design opportunity</th><th>Impact</th><th>Reading</th></tr></thead>
-     <tbody>
-      <tr class="total"><td colspan="4">Self-serve platform <i>· one entry point</i></td></tr>
-      <tr><td>A single place to go<i>every stage</i></td><td data-y="Opportunity">Single sign-on and a customer messaging platform</td><td data-y="Impact">One way to reach Arrow, for every partner</td><td data-y="Reading"><span class="pill l">cost</span></td></tr>
-      <tr class="total"><td colspan="4">Increase marketing development funds</td></tr>
-      <tr><td>Track campaign return<i>campaigns</i></td><td data-y="Opportunity">MDF manager: the customer journey from lead to order, visualized</td><td data-y="Impact">Larger average funds, tracked in real time</td><td data-y="Reading"><span class="pill h">revenue</span></td></tr>
-      <tr class="total"><td colspan="4">Meet revenue goals faster</td></tr>
-      <tr><td>Prospect opportunities<i>opportunities</i></td><td data-y="Opportunity">Predictive cross-sells and up-sells</td><td data-y="Impact">Better up-sell conversion; incentives reached faster</td><td data-y="Reading"><span class="pill h">revenue</span></td></tr>
-      <tr><td>Build alliances<i>opportunities</i></td><td data-y="Opportunity">Reseller network: a profiler that coordinates introductions</td><td data-y="Impact">More qualified leads</td><td data-y="Reading"><span class="pill h">revenue</span></td></tr>
-      <tr><td>Monitor vendor programs<i>growth</i></td><td data-y="Opportunity">Certification manager: program changes and the training they call for</td><td data-y="Impact">Faster partner onboarding and enablement</td><td data-y="Reading"><span class="pill l">cost</span></td></tr>
-      <tr class="total"><td colspan="4">Shorten work cycles</td></tr>
-      <tr><td>Configure bills of materials<i>quotes</i></td><td data-y="Opportunity">Quote builder: a shared configurator with live pricing, rebates, and availability</td><td data-y="Impact">Faster speed to quote</td><td data-y="Reading"><span class="pill l">cost</span></td></tr>
-      <tr><td>Fund deals<i>contracts</i></td><td data-y="Opportunity">Credit manager: a credit release tool</td><td data-y="Impact">Faster speed to order</td><td data-y="Reading"><span class="pill l">cost</span></td></tr>
-      <tr><td>Track orders<i>orders</i></td><td data-y="Opportunity">Fulfillment center: control shipping actions, subscribe to status</td><td data-y="Impact">Fewer work cycles; expectations managed</td><td data-y="Reading"><span class="pill l">cost</span></td></tr>
-     </tbody>
-    </table></div>
-    <figcaption>Fig. 10 · The eight levers as handed off in March 2020, redrawn from the stakeholder deck. Seven are named tools; the eighth is the platform they would sit on. The revenue-or-cost column is my reading of each impact line, not the team's label.</figcaption>
+<div class="fig-scroll"><svg viewBox="0 0 760 500" aria-label="Nine hypotheses on a five-by-five grid of risk against value, each with its intended impact and a reading as revenue or cost. The team's own research capability sits ringed at the lowest risk and highest value; the quote builder at the highest of both; the reseller network at low value and low risk; the integrations hypothesis was not carried forward.">
+     <g stroke="#000" stroke-opacity=".3" stroke-dasharray="4 4"><line x1="218" y1="40" x2="218" y2="440"/><line x1="346" y1="40" x2="346" y2="440"/><line x1="474" y1="40" x2="474" y2="440"/><line x1="602" y1="40" x2="602" y2="440"/><line x1="90" y1="120" x2="730" y2="120"/><line x1="90" y1="200" x2="730" y2="200"/><line x1="90" y1="280" x2="730" y2="280"/><line x1="90" y1="360" x2="730" y2="360"/></g>
+     <g fill="none" stroke="#0069AA" stroke-width="1.5"><path d="M90 440H726"/><path d="M726 436l6 4-6 4"/><path d="M90 440V44"/><path d="M86 50l4-6 4 6"/></g>
+     <g font-family="Fira Code,monospace" font-size="10" fill="#555">
+      <text x="90" y="462">LOW RISK</text><text x="730" y="462" text-anchor="end">HIGH RISK</text>
+      <text x="410" y="484" text-anchor="middle">if we do not act, how much does it hurt Arrow?</text>
+      <text x="34" y="240" text-anchor="middle" transform="rotate(-90 34 240)">VALUE · LOW TO HIGH</text>
+     </g>
+     <g class="a" style="transform-box:fill-box;transform-origin:center;animation:pop .5s ease-out .1s both">
+      <circle cx="154" cy="80" r="10" fill="none" stroke="#0069AA" stroke-width="2.5"/>
+      <circle cx="282" cy="80" r="8" fill="#0069AA"/><circle cx="154" cy="240" r="8" fill="#0069AA"/><circle cx="282" cy="320" r="8" fill="#0069AA"/>
+      <circle cx="666" cy="80" r="8" fill="#000" fill-opacity=".7"/><circle cx="538" cy="160" r="8" fill="#000" fill-opacity=".7"/><circle cx="346" cy="160" r="8" fill="#000" fill-opacity=".7"/><circle cx="410" cy="240" r="8" fill="#000" fill-opacity=".7"/>
+      <circle cx="602" cy="240" r="8" fill="none" stroke="#000" stroke-opacity=".45" stroke-width="1.5" stroke-dasharray="3 3"/>
+     </g>
+     <g font-family="Instrument Serif,serif" font-size="14" fill="#333" text-anchor="middle" stroke="#fff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">
+      <text x="154" y="102" fill="#0069AA">the research capability</text><text x="282" y="102">MDF manager</text><text x="666" y="102">quote builder</text>
+      <text x="346" y="182">fulfillment center</text><text x="538" y="182">certification manager</text>
+      <text x="154" y="262">predictive cross-sells</text><text x="410" y="262">credit manager</text><text x="602" y="262">CRM and ERP integrations</text>
+      <text x="282" y="342">reseller network</text>
+     </g>
+     <g font-family="Fira Code,monospace" font-size="9.5" fill="#555" text-anchor="middle" stroke="#fff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">
+      <text x="154" y="116">evidence first</text><text x="282" y="116">bigger funds · revenue</text><text x="666" y="116">speed to quote · cost</text>
+      <text x="346" y="196">fewer work cycles · cost</text><text x="538" y="196">faster enablement · cost</text>
+      <text x="154" y="276">up-sell conversion · revenue</text><text x="410" y="276">speed to order · cost</text><text x="602" y="276">not carried forward</text>
+      <text x="282" y="356">qualified leads · revenue</text>
+     </g>
+    </svg></div>
+    <p class="key"><span><i style="background:#0069AA"></i>revenue, my reading</span><span><i style="background:rgba(0,0,0,.7)"></i>cost</span><span><i style="border:2px solid #0069AA"></i>the capability itself</span><span>the eighth lever, the self-serve platform, is the ground the other seven sit on and was not scored</span></p>
+    <figcaption>Fig. 8 · Nine hypotheses on risk against value, redrawn from the prioritization board, with each lever's intended impact under its name. The ringed one is the research capability itself: the team scored its own ability to keep learning as the lowest-risk, highest-value thing on the board, and the process in Act V is what that decision bought.</figcaption>
    </figure>
+
+
    <span class="methods"><b>METHODS</b> · design-thinking workshops · affinity mapping · hypothesis statements · risk × value prioritization · cost of delay</span>
   </section>
 
   <section class="act" id="act-5">
    <span class="label">V · Arrow Electronics · February to March 2020</span>
    <h2>Mockups asked leadership what evidence counts.</h2>
-   <p>Day ninety fell on 10 February, and the team wanted to walk into its executive one-on-ones with something to react to. So the two most promising opportunities became <strong>speculative designs</strong>: screens drawn to look like a product that did not exist, one for tracking an order from quote to invoice and one for suggesting what else a reseller might buy. They were props for a conversation, not a plan to build, and each executive was told so. The question they were there to ask was the one the executive summary ended on: what criteria or evidence would the business need to be sure a problem we had found was worth solving with a self-serve tool, and which problems would be better solved by changing a workflow or a policy?</p>
+   <p>Day ninety fell on 10 February, and the team wanted to walk into its executive one-on-ones with something to react to. So the opportunities became <strong>speculative designs</strong>: one partner portal, drawn as if it already existed, with each lever as a panel of a single dashboard. Orders tracked from quote to invoice. Credit released without a phone call. A quote builder with live pricing. Products suggested for an open quote, campaign funds and what they returned, vendor certifications flagged before they lapsed, and introductions to other resellers. They were props for a conversation, not a plan to build, and each executive was told so. The question they were there to ask was the one the executive summary ended on: what criteria or evidence would the business need to be sure a problem we had found was worth solving with a self-serve tool, and which problems would be better solved by changing a workflow or a policy?</p>
    <p>The answers became the design team's next steps. Some opportunities would go back to a partner panel for testing. Some would go nowhere until finance changed how it worked. The finding underneath all eight was that a portal could carry only part of the partner experience. The rest lived in Arrow's own processes, and the team wrote that down for leadership instead of boiling the ocean.</p>
 
+
    <figure>
-    <div class="two">
-     <div>
-      <span class="two-h">FULFILLMENT CENTER · track the order</span>
-      <div class="ui" role="img" aria-label="A speculative order tracker with synthetic orders: a stepper from quote to invoice, four orders with status and expected dates, and an available-credit chip.">
-       <div class="ui-bar"><b>Partner portal · Orders</b><span class="label">synthetic data</span></div>
-       <div class="steps"><span class="pill h">Quote</span><i>→</i><span class="pill h">Order</span><i>→</i><span class="pill k">Acknowledged</span><i>→</i><span class="pill l">Shipped</span><i>→</i><span class="pill l">Invoiced</span></div>
-       <div class="tbl-scroll"><table class="tbl">
-        <thead><tr><th>Order</th><th>Status</th><th>Expected</th></tr></thead>
-        <tbody>
-         <tr><td>Storage array, 24-bay</td><td><span class="pill k">Acknowledged</span></td><td>12 Mar · subscribed</td></tr>
-         <tr><td>Network switches, 48-port × 6</td><td><span class="pill h">Shipped</span></td><td>9 Mar · tracking</td></tr>
-         <tr><td>Firewall subscription, 3-year</td><td><span class="pill l">Invoiced</span></td><td>delivered</td></tr>
-         <tr><td>Rack servers, 2U × 4</td><td><span class="pill m">Backordered</span></td><td>hold or split the shipment</td></tr>
-        </tbody>
-       </table></div>
-       <div class="chip"><span>Available credit · <b>$48,200</b></span><span class="pill h">Request an increase</span></div>
-      </div>
-     </div>
-     <div>
-      <span class="two-h">PREDICTIVE CROSS-SELLS · prospect opportunities</span>
-      <div class="ui" role="img" aria-label="A speculative cross-sell panel with synthetic products: three suggestions for the quote in progress, each with stock status and an add-to-quote button.">
-       <div class="ui-bar"><b>Partner portal · Products</b><span class="label">synthetic data</span></div>
-       <div class="prod-h">Suggested for this quote<b>From the configuration and recent orders</b></div>
-       <div class="prod">
-        <div><b>Rack server, 2U</b><i>Compute · pairs with the switches</i><span class="pill m">In stock</span><span class="btn">Add to quote</span></div>
-        <div><b>Firewall subscription, 3-year</b><i>Security · renews with the deal</i><span class="pill l">Low stock</span><span class="btn">Add to quote</span></div>
-        <div><b>Backup appliance</b><i>Storage · pairs with the array</i><span class="pill m">In stock</span><span class="btn">Add to quote</span></div>
+    <div class="app" role="img" aria-label="A speculative partner portal, one application with the eight opportunities as panels: orders in flight on a quote-to-invoice timeline, available credit with a request button, a quote builder with live pricing, products suggested for an open quote, campaign funds and their return by stage, vendor program certifications with one expiring, and introductions to other resellers. The shell is the self-serve platform with single sign-on. Synthetic data throughout.">
+     <div class="app-top"><span class="app-brand">Partner portal</span><nav><span class="on">Dashboard</span><span>Quotes</span><span>Orders</span><span>Programs</span><span>Funds</span><span>Network</span></nav><span class="app-user">Sample Reseller · signed in once</span></div>
+     <div class="app-body">
+      <div class="app-h"><b>Tuesday.</b> Three orders in flight, one quote waiting on pricing, one certification expiring in 30 days.</div>
+      <div class="app-grid">
+       <div class="card c-orders">
+        <div class="card-h"><b>Orders in flight</b><span>Fulfillment center</span></div>
+        <div class="ord"><span class="ord-n">Storage array, 24-bay<i>PO 4471 · placed 2 Mar</i></span><div class="tl"><i class="on"></i><s class="on"></s><i class="on"></i><s class="on"></s><i class="on"></i><s></s><i></i><s></s><i></i></div><span class="ord-s">Acknowledged · expected 12 Mar · <u>notify me</u></span></div>
+        <div class="ord"><span class="ord-n">Network switches, 48-port × 6<i>PO 4466 · placed 27 Feb</i></span><div class="tl"><i class="on"></i><s class="on"></s><i class="on"></i><s class="on"></s><i class="on"></i><s class="on"></s><i class="on"></i><s></s><i></i></div><span class="ord-s">Shipped · arrives 9 Mar · <u>track</u></span></div>
+        <div class="ord"><span class="ord-n">Rack servers, 2U × 4<i>PO 4480 · placed 4 Mar</i></span><div class="tl"><i class="on"></i><s class="on"></s><i class="on"></i><s></s><i class="w"></i><s></s><i></i><s></s><i></i></div><span class="ord-s">Backordered · <u>hold</u> or <u>split the shipment</u></span></div>
+        <div class="tl-key"><span>quote</span><span>order</span><span>acknowledged</span><span>shipped</span><span>invoiced</span></div>
+       </div>
+       <div class="card c-credit">
+        <div class="card-h"><b>Available credit</b><span>Credit manager</span></div>
+        <div class="big">$48,200</div>
+        <div class="bar"><i style="width:64%"></i></div>
+        <div class="sub">of a $75,000 line · two orders pending release</div>
+        <span class="btn">Request an increase</span>
+       </div>
+       <div class="card c-quote">
+        <div class="card-h"><b>Quote Q-2041</b><span>Quote builder</span></div>
+        <div class="sub">14 lines · hardware and software in one bill of materials</div>
+        <div class="row"><span>Special pricing</span><span class="pill m">applied</span></div>
+        <div class="row"><span>Availability</span><span class="pill m">13 of 14 in stock</span></div>
+        <div class="row"><span>Rebates</span><span class="pill l">2 eligible</span></div>
+        <span class="btn">Open the configurator</span>
+       </div>
+       <div class="card c-suggest">
+        <div class="card-h"><b>Suggested for Q-2041</b><span>Predictive cross-sells</span></div>
+        <div class="row"><span>Backup appliance<i>pairs with the array</i></span><span class="pill m">In stock</span></div>
+        <div class="row"><span>Firewall subscription, 3-year<i>renews with the deal</i></span><span class="pill l">Low stock</span></div>
+        <div class="row"><span>Managed services, 12 months<i>through a partner</i></span><span class="pill m">Available</span></div>
+        <span class="btn">Add to quote</span>
+       </div>
+       <div class="card c-funds">
+        <div class="card-h"><b>Campaign funds</b><span>MDF manager</span></div>
+        <div class="sub">Q1 campaign · $12,000 allocated · $9,400 used</div>
+        <svg viewBox="0 0 300 118" aria-hidden="true" class="funnel">
+         <g font-family="Fira Code,monospace" font-size="9" fill="#555"><text x="0" y="14">awareness</text><text x="0" y="36">inquiries</text><text x="0" y="58">consideration</text><text x="0" y="80">intent</text><text x="0" y="102">purchase</text></g>
+         <g fill="rgba(0,105,170,.18)"><rect x="96" y="4" width="200" height="14" rx="2"/><rect x="96" y="26" width="200" height="14" rx="2"/><rect x="96" y="48" width="200" height="14" rx="2"/><rect x="96" y="70" width="200" height="14" rx="2"/><rect x="96" y="92" width="200" height="14" rx="2"/></g>
+         <g fill="#0069AA"><rect x="96" y="4" width="200" height="14" rx="2"/><rect x="96" y="26" width="118" height="14" rx="2"/><rect x="96" y="48" width="74" height="14" rx="2"/><rect x="96" y="70" width="41" height="14" rx="2"/><rect x="96" y="92" width="22" height="14" rx="2"/></g>
+         <g font-family="Fira Code,monospace" font-size="9" fill="#fff"><text x="290" y="14" text-anchor="end">2,140</text><text x="208" y="36" text-anchor="end">412</text><text x="164" y="58" text-anchor="end">96</text></g>
+         <g font-family="Fira Code,monospace" font-size="9" fill="#555"><text x="142" y="80">31</text><text x="123" y="102">9 orders · $86k</text></g>
+        </svg>
+       </div>
+       <div class="card c-programs">
+        <div class="card-h"><b>Vendor programs</b><span>Certification manager</span></div>
+        <div class="row"><span>Security vendor · Advanced partner<i>renewal needs two certified engineers</i></span><span class="pill k">30 days</span></div>
+        <div class="row"><span>Storage vendor · Certified<i>current through December</i></span><span class="pill m">current</span></div>
+        <div class="row"><span>Cloud vendor · program changed<i>new requirement since March</i></span><span class="pill l">review</span></div>
+        <span class="btn">See the training that qualifies</span>
+       </div>
+       <div class="card c-network">
+        <div class="card-h"><b>Introductions</b><span>Reseller network</span></div>
+        <div class="sub">Two resellers near this deal can cover the managed services the end customer asked for.</div>
+        <div class="row"><span>Managed services partner<i>same region · 4 shared vendors</i></span><span class="pill m">match</span></div>
+        <span class="btn">Request an introduction</span>
        </div>
       </div>
      </div>
     </div>
-    <figcaption>Fig. 11 · Two of the speculative screens shown in executive one-on-ones, redrawn with synthetic data. They were props for a question, what evidence would justify building this, and not a product, and nobody in the room mistook them for one.</figcaption>
+    <figcaption>Fig. 9 · The speculative portal shown in executive one-on-ones, redrawn as one application with synthetic data. Every panel is one of the eight levers and the shell, one login and one place to go, is the eighth. It was a prop for a question, what evidence would justify building this, and nobody in the room mistook it for a product.</figcaption>
    </figure>
 
    <h3>People, process, tools</h3>
@@ -628,7 +591,7 @@ figure:not(.in) .a{animation-play-state:paused}
       <div class="bp-lane">Technology</div><div class="bp-cell">Miro, Airtable</div><div class="bp-cell">Miro, Airtable</div><div class="bp-cell">Miro, Airtable</div><div class="bp-cell">Miro, Airtable</div><div class="bp-cell">Figma, Office</div><div class="bp-cell">Heap, Teams</div><div class="bp-cell">Descript, Miro, Airtable</div><div class="bp-cell">Figma, Miro, Airtable</div>
      </div></div>
     <div class="loop">&#8617; at sprint planning, cost of delay ÷ duration ranks research experiments and features on one axis; discovery runs one track above delivery and feeds it at every planning</div>
-    <figcaption>Fig. 12 · The process left behind, redrawn from the February documentation. Four ceremonies the team already ran, eight activities across them, and a named owner for each. The people row is the payload: a process nobody owns is a poster.</figcaption>
+    <figcaption>Fig. 10 · The process left behind, redrawn from the February documentation. Four ceremonies the team already ran, eight activities across them, and a named owner for each. The people row is the payload: a process nobody owns is a poster.</figcaption>
    </figure>
    <span class="methods"><b>METHODS</b> · speculative design · executive one-on-ones · epic hypothesis statements · process documentation</span>
   </section>
@@ -649,7 +612,7 @@ figure:not(.in) .a{animation-play-state:paused}
     <blockquote><p>“Very skilled at taking an evidence-based approach (UX Atomic Research) to problem solving… Miguel came in day 1 and with him he brought a wealth of knowledge and expertise to the team.”</p><footer>Senior UX designer on the team, later a staff product designer · 2020</footer></blockquote>
    </div>
 
-   <p class="colophon"><b>Colophon</b> · Names and companies are withheld, quotes attributed by role, and interview material paraphrased. Artifacts are redrawn and screens use synthetic data; nothing is a screenshot. The clustering in the header uses real counts and simulated positions.</p>
+   <p class="colophon"><b>Colophon</b> · Names and companies are withheld, quotes attributed by role, and interview material paraphrased. Artifacts are redrawn and the portal is a reconstruction with synthetic data, not a screenshot; the photographs are from the workshops. The clustering in the header uses real counts and simulated positions.</p>
 
    <div class="next">
     <a class="back" href="/#work">← All work</a>
@@ -691,7 +654,7 @@ figure:not(.in) .a{animation-play-state:paused}
     seeds.push({x:x,y:y,on:false}); }
    var sg=side*0.09, lo=m*0.5, hi=side-m*0.5;
    for(i=0;i<NPTS;i++){ var s=seeds[i%NSEED]; x=Math.min(hi,Math.max(lo,s.x+gauss(r)*sg)); y=Math.min(hi,Math.max(lo,s.y+gauss(r)*sg));
-    pts.push({x:s.x,y:s.y,tx:s.x,ty:s.y,hx:x,hy:y,c:0,on:false,blue:false}); }
+    pts.push({x:s.x,y:s.y,tx:s.x,ty:s.y,hx:x,hy:y,c:0,on:false,blue:false,u:r(),v:r()}); }
   }
   /* k-means++ seeding over the home positions */
   function kppInit(k){ var r=kr, c=[], i, d2=[], sum, pick;
@@ -738,8 +701,10 @@ figure:not(.in) .a{animation-play-state:paused}
   function at(ms,fn){ timers.push(setTimeout(fn,ms)); }
   function cap(t){ capEl.textContent=t; }
   function stop(){ for(var k=0;k<timers.length;k++)clearTimeout(timers[k]); timers=[]; running=false; if(raf)cancelAnimationFrame(raf); raf=0; }
-  function gather(){ for(var j=0;j<NPTS;j++){ var p=pts[j], c=cents[p.c]; p.tx=c.x+(p.hx-c.x)*0.35; p.ty=c.y+(p.hy-c.y)*0.35; } }
-  function settle(){ for(var j=0;j<NPTS;j++){ var p=pts[j], L=levers[cents[p.c].l]; p.tx=L.x+(p.hx-L.x)*0.22; p.ty=L.y+(p.hy-L.y)*0.22; p.blue=true; } }
+  /* Gather onto a disc around the centroid, uniform in area so the blob is round, keeping each point's bearing so it moves the short way. */
+  function disc(p,cx,cy,R,n,n0){ var a=Math.atan2(p.hy-cy,p.hx-cx)+(p.v-0.5)*1.2, rr=R*Math.sqrt(p.u)*Math.sqrt(Math.max(n,n0*0.2)/n0); p.tx=cx+Math.cos(a)*rr; p.ty=cy+Math.sin(a)*rr; }
+  function gather(){ for(var j=0;j<NPTS;j++){ var p=pts[j], c=cents[p.c]; disc(p,c.x,c.y,side*0.032,c.n,32); } }
+  function settle(){ for(var j=0;j<NPTS;j++){ var p=pts[j], L=levers[cents[p.c].l]; disc(p,L.x,L.y,side*0.06,L.n,200); p.blue=true; } }
   function play(){
    stop(); seed(); stage=0; var i;
    running=true; raf=requestAnimationFrame(frame);
