@@ -13,6 +13,7 @@
 <meta name="robots" content="noindex,nofollow">
 {%- endif %}
 <link rel="canonical" href="{{ page.url | absolute_url }}">
+{%- include person.html %}
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="{% if page.url == '/' %}website{% else %}article{% endif %}">
 <meta property="og:url" content="{{ page.url | absolute_url }}">

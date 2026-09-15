@@ -1,0 +1,123 @@
+---
+layout: site
+title: "One-page résumé"
+description: "Miguel Pérez-Holdsworth on one page: level, location, work authorization, certification, the numbers, and every role since 2008."
+person: true
+---
+<style>
+.rs{max-width:1040px;margin:0 auto;padding:64px clamp(20px,4vw,56px) 0}
+.rs h1{margin:0;font-size:clamp(40px,5vw,64px);line-height:1;font-weight:400;letter-spacing:-.01em}
+.rs .who{margin:16px 0 0;font-size:22px;line-height:1.3;color:#3a3e48}
+.rs .contact{margin:22px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px 28px;font:13px/1.6 'Fira Code',monospace;color:#3a3e48}
+.rs .contact a{display:inline-block;padding:20px 0;margin:-20px 0}
+.rs .k{font:12px 'Fira Code',monospace;letter-spacing:.08em;text-transform:uppercase;color:#5b606b}
+.rs .facts{margin:40px 0 0;border-top:1px solid rgba(21,23,28,.35);border-bottom:1px solid rgba(21,23,28,.25);padding:24px 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:20px 40px}
+.rs .facts dd{margin:6px 0 0;font-size:17px;line-height:1.4}
+.rs h2{margin:56px 0 0;font:12px 'Fira Code',monospace;letter-spacing:.08em;text-transform:uppercase;color:#5b606b}
+.rs p{margin:16px 0 0;max-width:760px;font-size:19px;line-height:1.45;color:#3a3e48}
+.rs .nums{margin:20px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:28px}
+.rs .nums div{border-top:1px solid rgba(21,23,28,.35);padding-top:14px;display:flex;flex-direction:column;gap:6px}
+.rs .nums .n{font-size:44px;line-height:1;letter-spacing:-.02em;color:#c2532f}
+.rs .nums .t{font-size:17px;line-height:1.3}
+.rs .nums .s{font:12px/1.6 'Fira Code',monospace;color:#5b606b}
+.rs .roles{margin:20px 0 0;border-bottom:1px solid rgba(21,23,28,.25)}
+.rs .role{border-top:1px solid rgba(21,23,28,.25);padding:14px 0;display:grid;grid-template-columns:110px minmax(0,1fr);gap:4px 28px;align-items:baseline}
+.rs .role .yrs{font:12px 'Fira Code',monospace;color:#5b606b}
+.rs .role .org{font-size:20px;line-height:1.2}
+.rs .role .ttl{grid-column:2;font:12px/1.6 'Fira Code',monospace;color:#5b606b}
+.rs .role .what{grid-column:2;font-size:16px;line-height:1.4;color:#3a3e48}
+.rs .links{margin:16px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px 28px;font:13px/1.6 'Fira Code',monospace;color:#3a3e48}
+.rs .links a{display:inline-block;padding:20px 0;margin:-20px 0}
+.rs .get{margin:56px 0 0}
+.rs .get a{font-size:24px;font-style:italic;color:#c2532f}
+.rs .colophon{margin:64px 0 0;border-top:1px solid rgba(21,23,28,.35);padding-top:16px;font:12px/1.8 'Fira Code',monospace;color:#5b606b}
+.print-only{display:none}
+@media (max-width:640px){.rs .role{grid-template-columns:1fr}.rs .role .ttl,.rs .role .what{grid-column:1}}
+@media print{
+ @page{size:letter;margin:.45in}
+ body{background:#fff;color:#000}
+ .site-nav,.site-footer,.no-print{display:none!important}
+ .print-only{display:block}
+ .rs{max-width:none;padding:0}
+ .rs h1{font-size:22px}
+ .rs .who{margin-top:3px;font-size:11px;line-height:1.3}
+ .rs .contact{margin-top:6px;gap:2px 14px;font-size:8px}
+ .rs .contact a,.rs .links a{padding:0;margin:0}
+ .rs .k,.rs h2,.rs .role .yrs,.rs .role .ttl,.rs .nums .s{font-size:7.5px;letter-spacing:.06em}
+ .rs .facts{margin-top:8px;padding:6px 0;gap:3px 12px;grid-template-columns:repeat(5,minmax(0,1fr))}
+ .rs .facts dd{margin-top:2px;font-size:8.5px;line-height:1.28}
+ .rs h2{margin-top:8px}
+ .rs p{margin-top:5px;max-width:none;font-size:9.5px;line-height:1.35}
+ .rs .nums{margin-top:4px;gap:12px;grid-template-columns:repeat(4,minmax(0,1fr))}
+ .rs .nums div{padding-top:4px;gap:1px}
+ .rs .nums .n{font-size:16px}
+ .rs .nums .t{font-size:8.5px;line-height:1.25}
+ .rs .roles{margin-top:4px}
+ .rs .role{padding:3px 0;grid-template-columns:58px minmax(0,1fr);gap:0 10px}
+ .rs .role .org{font-size:10px}
+ .rs .role .what{font-size:8.5px;line-height:1.28}
+ .rs .links{margin-top:3px;gap:1px 12px;font-size:7.5px}
+ .rs .colophon{margin-top:6px;padding-top:4px;font-size:7px}
+ a{color:inherit;text-decoration:none}
+}
+</style>
+<section class="rs">
+ <h1>Miguel Ángel Pérez-Holdsworth</h1>
+ <p class="who" style="margin-top:16px">Product designer, design researcher, front-end. Building software since 2008. I set up the A/B test, the usability study, or the evaluation harness first, then ship the design and hand the team the system that runs it.</p>
+ <ul class="contact">
+  <li><a href="mailto:mail@miguel.design">mail@miguel.design</a></li>
+  <li><a href="https://linkedin.com/in/miguelux">linkedin.com/in/miguelux</a></li>
+  <li><a href="https://github.com/miguel-perez">github.com/miguel-perez</a></li>
+  <li><a href="https://miguel.design/">miguel.design</a></li>
+ </ul>
+ <dl class="facts">
+  <div><dt class="k">Level</dt><dd>Staff or principal individual contributor. Has led as a senior manager and founded a design center of excellence.</dd></div>
+  <div><dt class="k">Based</dt><dd>Denver, Colorado. Remote preferred; Philadelphia from 2027.</dd></div>
+  <div><dt class="k">Work authorization</dt><dd>US citizen. No sponsorship needed.</dd></div>
+  <div><dt class="k">Certification</dt><dd>NN/g UX Certification, UX Management specialty, 2019. UXC #1029705.</dd></div>
+  <div><dt class="k">Titles, translated</dt><dd>“Digital Service Expert” is a senior service designer; the employer's own alternate title was Solutions Architect/Engineer.</dd></div>
+ </dl>
+
+ <h2 id="outcomes">Key outcomes</h2>
+ <div class="nums">
+  <div><span class="n">8 of 8</span><span class="t">top-task completion, up from fewer than 1 in 3</span><span class="s">Love With Food account redesign · 2016 · unmoderated study, coded</span></div>
+  <div><span class="n">4,300+</span><span class="t">GitHub stars, 2,600+ live sites a decade on</span><span class="s">smoothState.js · 2014 · verified via API and BuiltWith, 2026</span></div>
+  <div><span class="n">−26%</span><span class="t">design spend, capacity doubled (modeled)</span><span class="s">Inovalon · 2018 · founded the Design CoE</span></div>
+  <div><span class="n">48→72%</span><span class="t">expert agreement, with a NO-GO on the record</span><span class="s">Sonder · 2020 to now · 13 fidelity cycles</span></div>
+ </div>
+
+ <h2>Experience</h2>
+ <div class="roles">
+  <div class="role"><span class="yrs">2024 – now</span><span class="org">Colorado Digital Service, Governor's Office of Information Technology</span><span class="ttl">Digital Service Expert (Service Designer)</span><span class="what">State payroll modernization and sign-in for myColorado; assumption mapping credited in the State's case study. Technology procurement consultation for agencies and vendors.</span></div>
+  <div class="role"><span class="yrs">2011 – now</span><span class="org">WRKPACK Co., independent practice</span><span class="ttl">Principal Designer</span><span class="what">Staffed research and design consultancy under signed agreements since 2015. Arrow Electronics via ClientSolv (2019–2020): 39 interviews, 1,600+ observations, eight profitability levers in 90 days; the process and repository stayed with the team. Turo via Huge, Autodesk via Tomorrow Partners, Whistle Labs, Tenasol.</span></div>
+  <div class="role"><span class="yrs">2022 – 2023</span><span class="org">Opportunity@Work</span><span class="ttl">Senior Manager of Design Research, Innovation Engine</span><span class="what">Community-centered engagement and action research for a Gates-funded innovation team.</span></div>
+  <div class="role"><span class="yrs">2018 – 2019</span><span class="org">Inovalon Holdings</span><span class="ttl">Senior Manager, Design Strategy · Founder, Design Center of Excellence</span><span class="what">Founded the Design Center of Excellence; a $687k vendor contract replaced, total design spend −26%, capacity doubled (modeled); design became a corporate goal with approved headcount.</span></div>
+  <div class="role"><span class="yrs">2017</span><span class="org">Avalere Health, an Inovalon company</span><span class="ttl">User Experience Designer/Developer</span><span class="what">First UX hire. Started with one usability study of the intranet, which earned direct access to users and the next permission.</span></div>
+  <div class="role"><span class="yrs">2017</span><span class="org">City of Philadelphia, Office of Open Data and Digital Transformation</span><span class="ttl">Design Fellow</span><span class="what">19+ interviews and an intercept survey on the open-data portal, ending in a press conference.</span></div>
+  <div class="role"><span class="yrs">2016</span><span class="org">CID Entertainment</span><span class="ttl">Product Designer</span><span class="what">A 90-day market-entry strategy and Curadora, an MVP that converted prospects to paying customers.</span></div>
+  <div class="role"><span class="yrs">2014 – 2015</span><span class="org">Love With Food</span><span class="ttl">UX Designer &amp; Front-End Developer</span><span class="what">Responsive redesign with a 60% sign-up lift by A/B test; account top-task completion from under 30% to 8 of 8. Method published in UX Collective, 2019.</span></div>
+  <div class="role"><span class="yrs">2011 – 2014</span><span class="org">WebLinc Commerce</span><span class="ttl">Lead Front-End Developer</span><span class="what">Lead front-end for Free People, BHLDN, Terrain and others; design-system program, i18n playbook, onboarding.</span></div>
+  <div class="role"><span class="yrs">2010 – 2011</span><span class="org">Sides Media</span><span class="ttl">Web Developer</span><span class="what">CMS builds and custom front-ends for agency clients.</span></div>
+  <div class="role"><span class="yrs">2008 – 2010</span><span class="org">Freelance</span><span class="ttl">Pixel artist and self-taught front-end developer</span><span class="what">Efencea, a PvP tower-defense game co-created at 16, first playable in eight days and still live.</span></div>
+ </div>
+
+ <h2>Self-initiated</h2>
+ <div class="roles">
+  <div class="role"><span class="yrs">2025 – now</span><span class="org">GameLab</span><span class="what">48 pre-registered experiments, 34 falsifications, tournament evaluation, citations enforced in CI.</span></div>
+  <div class="role"><span class="yrs">2020 – now</span><span class="org">Sonder</span><span class="what">LLM-assisted synthesis benchmarked against expert coding; 48% → 72% agreement over 13 fidelity cycles, with a NO-GO on a statistically significant win.</span></div>
+  <div class="role"><span class="yrs">2020</span><span class="org">FAIR UXR</span><span class="what">A free eight-lesson course on FAIR research repositories.</span></div>
+  <div class="role"><span class="yrs">2014</span><span class="org">smoothState.js</span><span class="what">Open-source page transitions; 4,300+ stars and 2,600+ live sites a decade on. Featured on CSS-Tricks.</span></div>
+ </div>
+
+ <h2>Check for yourself</h2>
+ <ul class="links">
+  <li><a href="https://uxdesign.cc/how-to-adapt-to-the-challenge-of-remote-collaboration-f563a7821e99">UX Collective, 2019: the Love With Food method</a></li>
+  <li><a href="https://css-tricks.com/add-page-transitions-css-smoothstate-js/">CSS-Tricks, 2014: smoothState.js</a></li>
+  <li><a href="https://oit.colorado.gov">oit.colorado.gov, 2024: the State's payroll case study</a></li>
+  <li><a href="https://linkedin.com/in/miguelux">LinkedIn: 15 recommendations</a></li>
+  <li><a href="https://www.nngroup.com/ux-certification/verify/">NN/g certification registry</a></li>
+ </ul>
+
+ <div class="get no-print"><a href="/assets/miguel-perez-holdsworth-resume.pdf" class="cta">Download this page as a PDF →</a></div>
+ <div class="colophon">Kept in step with the case studies on miguel.design. Testimonials there are quoted by role; small-sample results are given as raw counts. <span class="print-only">Printed from miguel.design/resume/.</span></div>
+</section>
