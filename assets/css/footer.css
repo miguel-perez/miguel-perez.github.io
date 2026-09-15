@@ -11,4 +11,5 @@
 .site-footer-more span{letter-spacing:.08em;text-transform:uppercase}
 .site-footer-more a{color:var(--footer-text,#3a3e48);display:inline-block;padding:21px 0;margin:-21px 0}
 .site-footer-legal{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 40px;margin-top:24px}
-.site-footer-legal a{display:inline-block;padding:19px 0;margin:-19px 0}
+.site-footer-links{display:flex;flex-wrap:wrap;gap:12px 28px}
+.site-footer-legal a{display:inline-block;padding:19px 8px;margin:-19px -8px}

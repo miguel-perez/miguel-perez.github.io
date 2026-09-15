@@ -11,7 +11,7 @@ _includes/person.html  Person structured data (JSON-LD), emitted on pages with `
 _layouts/site.html     head + the site header and footer, for the homepage and pages that share its styling
 _layouts/study.html    head + the page's own body (each case study owns its markup and CSS)
 index.html             homepage; the work filters are assets/js/work-filter.js
-resume/index.html      the one-page résumé; its print stylesheet is the source of the PDF below
+resume/index.html      the résumé, linked from the footer; its print stylesheet is the source of the PDF below
 assets/miguel-perez-holdsworth-resume.pdf   printed from /resume/ (see Résumé PDF)
 work/<slug>/index.html one case study per folder; images alongside in img/
 assets/css/site.css    homepage styling shared through the site layout
@@ -70,4 +70,4 @@ python3 -m http.server 8931 --directory _site &
   --virtual-time-budget=5000 --print-to-pdf=assets/miguel-perez-holdsworth-resume.pdf http://localhost:8931/resume/
 ```
 
-It must stay one page (`pdfinfo` reports `Pages: 1`); the print rules at the top of `resume/index.html` set the sizes.
+It is condensed from the career register's master résumé and should stay at two Letter pages (`pdfinfo` reports `Pages: 2`); the print rules at the top of `resume/index.html` set the sizes. The footer links to `/resume/` from every page.

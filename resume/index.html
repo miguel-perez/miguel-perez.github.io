@@ -1,123 +1,202 @@
 ---
 layout: site
-title: "One-page résumé"
-description: "Miguel Pérez-Holdsworth on one page: level, location, work authorization, certification, the numbers, and every role since 2008."
+title: "Résumé"
+description: "Miguel Ángel Pérez-Holdsworth: product designer, design researcher and front-end developer, building software since 2008. Every role, condensed."
 person: true
 ---
 <style>
 .rs{max-width:1040px;margin:0 auto;padding:64px clamp(20px,4vw,56px) 0}
 .rs h1{margin:0;font-size:clamp(40px,5vw,64px);line-height:1;font-weight:400;letter-spacing:-.01em}
-.rs .who{margin:16px 0 0;font-size:22px;line-height:1.3;color:#3a3e48}
+.rs .tag{margin:18px 0 0;font-size:26px;line-height:1.25;font-style:italic;color:#c2532f}
 .rs .contact{margin:22px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px 28px;font:13px/1.6 'Fira Code',monospace;color:#3a3e48}
 .rs .contact a{display:inline-block;padding:20px 0;margin:-20px 0}
-.rs .k{font:12px 'Fira Code',monospace;letter-spacing:.08em;text-transform:uppercase;color:#5b606b}
-.rs .facts{margin:40px 0 0;border-top:1px solid rgba(21,23,28,.35);border-bottom:1px solid rgba(21,23,28,.25);padding:24px 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(220px,100%),1fr));gap:20px 40px}
-.rs .facts dd{margin:6px 0 0;font-size:17px;line-height:1.4}
 .rs h2{margin:56px 0 0;font:12px 'Fira Code',monospace;letter-spacing:.08em;text-transform:uppercase;color:#5b606b}
 .rs p{margin:16px 0 0;max-width:760px;font-size:19px;line-height:1.45;color:#3a3e48}
-.rs .nums{margin:20px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:28px}
-.rs .nums div{border-top:1px solid rgba(21,23,28,.35);padding-top:14px;display:flex;flex-direction:column;gap:6px}
-.rs .nums .n{font-size:44px;line-height:1;letter-spacing:-.02em;color:#c2532f}
-.rs .nums .t{font-size:17px;line-height:1.3}
-.rs .nums .s{font:12px/1.6 'Fira Code',monospace;color:#5b606b}
+.rs .skills{margin:16px 0 0;padding:0;list-style:none;max-width:860px}
+.rs .skills li{margin:0 0 10px;font-size:16px;line-height:1.45;color:#3a3e48}
+.rs .skills b{font-weight:400;color:#15171c}
 .rs .roles{margin:20px 0 0;border-bottom:1px solid rgba(21,23,28,.25)}
-.rs .role{border-top:1px solid rgba(21,23,28,.25);padding:14px 0;display:grid;grid-template-columns:110px minmax(0,1fr);gap:4px 28px;align-items:baseline}
+.rs .role{border-top:1px solid rgba(21,23,28,.25);padding:16px 0;display:grid;grid-template-columns:110px minmax(0,1fr);gap:4px 28px;align-items:baseline}
 .rs .role .yrs{font:12px 'Fira Code',monospace;color:#5b606b}
 .rs .role .org{font-size:20px;line-height:1.2}
 .rs .role .ttl{grid-column:2;font:12px/1.6 'Fira Code',monospace;color:#5b606b}
-.rs .role .what{grid-column:2;font-size:16px;line-height:1.4;color:#3a3e48}
-.rs .links{margin:16px 0 0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:6px 28px;font:13px/1.6 'Fira Code',monospace;color:#3a3e48}
+.rs .role .what{grid-column:2;margin:0;font-size:16px;line-height:1.4;color:#3a3e48}
+.rs .role ul{grid-column:2;margin:6px 0 0;padding:0 0 0 18px;font-size:16px;line-height:1.4;color:#3a3e48}
+.rs .role li{margin:4px 0 0}
+.rs .role .sub{display:block;margin-top:10px;color:#15171c}
+.rs .links{margin:16px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;font:13px/1.6 'Fira Code',monospace;color:#3a3e48}
 .rs .links a{display:inline-block;padding:20px 0;margin:-20px 0}
 .rs .get{margin:56px 0 0}
 .rs .get a{font-size:24px;font-style:italic;color:#c2532f}
 .rs .colophon{margin:64px 0 0;border-top:1px solid rgba(21,23,28,.35);padding-top:16px;font:12px/1.8 'Fira Code',monospace;color:#5b606b}
 .print-only{display:none}
-@media (max-width:640px){.rs .role{grid-template-columns:1fr}.rs .role .ttl,.rs .role .what{grid-column:1}}
+@media (max-width:640px){.rs .role{grid-template-columns:1fr}.rs .role .ttl,.rs .role .what,.rs .role ul{grid-column:1}}
 @media print{
- @page{size:letter;margin:.45in}
+ @page{size:letter;margin:.5in}
  body{background:#fff;color:#000}
  .site-nav,.site-footer,.no-print{display:none!important}
- .print-only{display:block}
+ .print-only{display:inline}
  .rs{max-width:none;padding:0}
  .rs h1{font-size:22px}
- .rs .who{margin-top:3px;font-size:11px;line-height:1.3}
- .rs .contact{margin-top:6px;gap:2px 14px;font-size:8px}
+ .rs .tag{margin-top:3px;font-size:11px}
+ .rs .contact{margin-top:5px;gap:2px 12px;font-size:8px}
  .rs .contact a,.rs .links a{padding:0;margin:0}
- .rs .k,.rs h2,.rs .role .yrs,.rs .role .ttl,.rs .nums .s{font-size:7.5px;letter-spacing:.06em}
- .rs .facts{margin-top:8px;padding:6px 0;gap:3px 12px;grid-template-columns:repeat(5,minmax(0,1fr))}
- .rs .facts dd{margin-top:2px;font-size:8.5px;line-height:1.28}
- .rs h2{margin-top:8px}
- .rs p{margin-top:5px;max-width:none;font-size:9.5px;line-height:1.35}
- .rs .nums{margin-top:4px;gap:12px;grid-template-columns:repeat(4,minmax(0,1fr))}
- .rs .nums div{padding-top:4px;gap:1px}
- .rs .nums .n{font-size:16px}
- .rs .nums .t{font-size:8.5px;line-height:1.25}
+ .rs h2,.rs .role .yrs,.rs .role .ttl{font-size:7.5px;letter-spacing:.06em}
+ .rs h2{margin-top:10px}
+ .rs p{margin-top:4px;max-width:none;font-size:9.5px;line-height:1.35}
+ .rs .skills{margin-top:3px;max-width:none}
+ .rs .skills li{margin:0 0 2px;font-size:8.8px;line-height:1.32}
  .rs .roles{margin-top:4px}
- .rs .role{padding:3px 0;grid-template-columns:58px minmax(0,1fr);gap:0 10px}
- .rs .role .org{font-size:10px}
- .rs .role .what{font-size:8.5px;line-height:1.28}
- .rs .links{margin-top:3px;gap:1px 12px;font-size:7.5px}
- .rs .colophon{margin-top:6px;padding-top:4px;font-size:7px}
+ .rs .role{padding:4px 0;grid-template-columns:58px minmax(0,1fr);gap:0 10px;break-inside:avoid}
+ .rs .role .org{font-size:10.5px}
+ .rs .role .what,.rs .role ul{font-size:8.8px;line-height:1.32}
+ .rs .role ul{margin-top:2px;padding-left:12px}
+ .rs .role li{margin:1px 0 0}
+ .rs .role .sub{margin-top:3px}
+ .rs .links{margin-top:3px;gap:1px;font-size:8px}
+ .rs .colophon{margin-top:8px;padding-top:4px;font-size:7px}
  a{color:inherit;text-decoration:none}
 }
 </style>
 <section class="rs">
  <h1>Miguel Ángel Pérez-Holdsworth</h1>
- <p class="who" style="margin-top:16px">Product designer, design researcher, front-end. Building software since 2008. I set up the A/B test, the usability study, or the evaluation harness first, then ship the design and hand the team the system that runs it.</p>
+ <p class="tag">I write the test before the design, and the failures stay on the record.</p>
  <ul class="contact">
   <li><a href="mailto:mail@miguel.design">mail@miguel.design</a></li>
   <li><a href="https://linkedin.com/in/miguelux">linkedin.com/in/miguelux</a></li>
   <li><a href="https://github.com/miguel-perez">github.com/miguel-perez</a></li>
-  <li><a href="https://miguel.design/">miguel.design</a></li>
+  <li>Denver, Colorado · remote preferred</li>
+  <li>US citizen · no sponsorship needed</li>
  </ul>
- <dl class="facts">
-  <div><dt class="k">Level</dt><dd>Staff or principal individual contributor. Has led as a senior manager and founded a design center of excellence.</dd></div>
-  <div><dt class="k">Based</dt><dd>Denver, Colorado. Remote preferred; Philadelphia from 2027.</dd></div>
-  <div><dt class="k">Work authorization</dt><dd>US citizen. No sponsorship needed.</dd></div>
-  <div><dt class="k">Certification</dt><dd>NN/g UX Certification, UX Management specialty, 2019. UXC #1029705.</dd></div>
-  <div><dt class="k">Titles, translated</dt><dd>“Digital Service Expert” is a senior service designer; the employer's own alternate title was Solutions Architect/Engineer.</dd></div>
- </dl>
 
- <h2 id="outcomes">Key outcomes</h2>
- <div class="nums">
-  <div><span class="n">8 of 8</span><span class="t">top-task completion, up from fewer than 1 in 3</span><span class="s">Love With Food account redesign · 2016 · unmoderated study, coded</span></div>
-  <div><span class="n">4,300+</span><span class="t">GitHub stars, 2,600+ live sites a decade on</span><span class="s">smoothState.js · 2014 · verified via API and BuiltWith, 2026</span></div>
-  <div><span class="n">−26%</span><span class="t">design spend, capacity doubled (modeled)</span><span class="s">Inovalon · 2018 · founded the Design CoE</span></div>
-  <div><span class="n">48→72%</span><span class="t">expert agreement, with a NO-GO on the record</span><span class="s">Sonder · 2020 to now · 13 fidelity cycles</span></div>
- </div>
+ <h2>Summary</h2>
+ <p>Product designer and design researcher, building software since 2008. Started as a freelance pixel artist and self-taught front-end developer, led front-end for enterprise e-commerce brands, moved into research and product design, founded and ran a Design Center of Excellence at a healthcare data company, ran an independent research and design practice with staffed subcontractors, and most recently served as a Digital Service Expert with Colorado Digital Service on the State's payroll modernization. Since 2020, building and evaluating LLM tooling for qualitative research, benchmarked against expert human coding. The pattern across roles: build the measurement before the redesign, then ship the thing and the system that maintains it.</p>
+
+ <h2>Skills</h2>
+ <ul class="skills">
+  <li><b>Research and measurement.</b> Discovery and stakeholder interviews, contextual inquiry, empathy mapping, personas and segmentation, journey maps and service blueprints; moderated and unmoderated usability testing with coded results, five-second tests, intercept surveys, questionnaire design with correlation and factor analysis, SUS and SUPR-Q, A/B testing, monadic ad testing, assumption mapping and testable hypotheses, GOMS modeling, design-maturity assessment; atomic research repositories, FAIR data principles, HIPAA-compliant research with de-identification.</li>
+  <li><b>AI and evaluation engineering.</b> LLM-assisted qualitative synthesis; evaluation harnesses with pre-registered rules, fidelity gates and NO-GO decisions; expert-coding agreement and V-measure; blinded human-versus-machine coding studies; contamination audits by n-gram containment; speaker-attribution bleed measurement; MCP tool evaluation; tournament evaluation with Wilson-scored tiers; CI-enforced citation graphs.</li>
+  <li><b>Product and interaction design.</b> Design systems and style guides; wireframes to high-fidelity prototypes; subscription commerce and account management; enterprise e-commerce; healthcare SaaS; B2B self-service portals; identity and sign-in; responsive, internationalized and bidirectional layouts; brand identity, decks and marketing sites; pixel art and game design.</li>
+  <li><b>Front-end and software.</b> HTML, CSS, JavaScript, TypeScript, PHP; React, Handlebars, Tailwind UI; Node CLIs and web apps with live billing; CMS builds; build and asset pipelines on S3; Docker; open-source authorship and npm publishing; automated test suites at unit, integration and end-to-end levels; analytics instrumentation.</li>
+  <li><b>Leadership, facilitation and teaching.</b> Business cases and formula-linked budget models; vendor in-housing, MSAs and SOWs; hiring and compensation analysis with HR; certification curricula and cohort training; onboarding programs and mentoring; ideation workshops; lunch-and-learns, a public eight-lesson course, conference talks and press-conference readouts.</li>
+  <li><b>Tools.</b> Figma, Sketch, Abstract, Photoshop, Mural, Airtable, Userlytics, Glean.ly, Heap, Mechanical Turk, GitHub, npm, Docker, S3, BuiltWith.</li>
+ </ul>
 
  <h2>Experience</h2>
  <div class="roles">
-  <div class="role"><span class="yrs">2024 – now</span><span class="org">Colorado Digital Service, Governor's Office of Information Technology</span><span class="ttl">Digital Service Expert (Service Designer)</span><span class="what">State payroll modernization and sign-in for myColorado; assumption mapping credited in the State's case study. Technology procurement consultation for agencies and vendors.</span></div>
-  <div class="role"><span class="yrs">2011 – now</span><span class="org">WRKPACK Co., independent practice</span><span class="ttl">Principal Designer</span><span class="what">Staffed research and design consultancy under signed agreements since 2015. Arrow Electronics via ClientSolv (2019–2020): 39 interviews, 1,600+ observations, eight profitability levers in 90 days; the process and repository stayed with the team. Turo via Huge, Autodesk via Tomorrow Partners, Whistle Labs, Tenasol.</span></div>
-  <div class="role"><span class="yrs">2022 – 2023</span><span class="org">Opportunity@Work</span><span class="ttl">Senior Manager of Design Research, Innovation Engine</span><span class="what">Community-centered engagement and action research for a Gates-funded innovation team.</span></div>
-  <div class="role"><span class="yrs">2018 – 2019</span><span class="org">Inovalon Holdings</span><span class="ttl">Senior Manager, Design Strategy · Founder, Design Center of Excellence</span><span class="what">Founded the Design Center of Excellence; a $687k vendor contract replaced, total design spend −26%, capacity doubled (modeled); design became a corporate goal with approved headcount.</span></div>
-  <div class="role"><span class="yrs">2017</span><span class="org">Avalere Health, an Inovalon company</span><span class="ttl">User Experience Designer/Developer</span><span class="what">First UX hire. Started with one usability study of the intranet, which earned direct access to users and the next permission.</span></div>
-  <div class="role"><span class="yrs">2017</span><span class="org">City of Philadelphia, Office of Open Data and Digital Transformation</span><span class="ttl">Design Fellow</span><span class="what">19+ interviews and an intercept survey on the open-data portal, ending in a press conference.</span></div>
-  <div class="role"><span class="yrs">2016</span><span class="org">CID Entertainment</span><span class="ttl">Product Designer</span><span class="what">A 90-day market-entry strategy and Curadora, an MVP that converted prospects to paying customers.</span></div>
-  <div class="role"><span class="yrs">2014 – 2015</span><span class="org">Love With Food</span><span class="ttl">UX Designer &amp; Front-End Developer</span><span class="what">Responsive redesign with a 60% sign-up lift by A/B test; account top-task completion from under 30% to 8 of 8. Method published in UX Collective, 2019.</span></div>
-  <div class="role"><span class="yrs">2011 – 2014</span><span class="org">WebLinc Commerce</span><span class="ttl">Lead Front-End Developer</span><span class="what">Lead front-end for Free People, BHLDN, Terrain and others; design-system program, i18n playbook, onboarding.</span></div>
-  <div class="role"><span class="yrs">2010 – 2011</span><span class="org">Sides Media</span><span class="ttl">Web Developer</span><span class="what">CMS builds and custom front-ends for agency clients.</span></div>
-  <div class="role"><span class="yrs">2008 – 2010</span><span class="org">Freelance</span><span class="ttl">Pixel artist and self-taught front-end developer</span><span class="what">Efencea, a PvP tower-defense game co-created at 16, first playable in eight days and still live.</span></div>
+  <div class="role"><span class="yrs">2024 – present</span><span class="org">Colorado Digital Service, Governor's Office of Information Technology</span><span class="ttl">Digital Service Expert (Service Designer) · Denver, remote</span>
+   <ul>
+    <li>On the team modernizing Colorado's 40-year-old state payroll system: the federal Quality Assurance Surveillance Plan adapted as the quality standard, an automated test suite at unit, integration and end-to-end levels, and biweekly usability testing with state employees. The State published the approach as a case study in October 2024.</li>
+    <li>Helped facilitate the assumption mapping that put correctness, not speed, first; the State's case study credits the team with the facilitation.</li>
+    <li>Second workstream: identity and sign-in for the State's resident identity platform, past two million registered users by June 2026.</li>
+    <li>Technology procurement consultation: advised agencies and vendors on solicitation and contract language, applying evaluation design to procurement. Built a design-practice survey from two of Jeanne Liedtka's instruments; started a twice-monthly Lean UX book club whose takeaways reshaped the weekly design sync.</li>
+   </ul>
+  </div>
+  <div class="role"><span class="yrs">2011 – present</span><span class="org">WRKPACK Co., independent practice</span><span class="ttl">Principal Designer · remote</span>
+   <p class="what">A staffed research and design consultancy rather than a solo practice: subcontractors under signed agreements since 2015, client MSAs and SOWs, conversion optimization and experimentation as the core business.</p>
+   <ul>
+    <li><b class="sub">Arrow Electronics, via ClientSolv · 2019 – 2020.</b> A 90-day discovery engagement before an investment in a self-service portal for partners: 39 recorded interviews across stakeholders, employees, resellers and suppliers; four ideation workshops across Sales, IT, Finance, Operations, Marketing and Engineering; an atomic research repository of 1,600+ observations and 50+ co-created insights; eight ways a portal could drive profitability, three on revenue and five on cost. The process and repository stayed with the team.</li>
+    <li><b class="sub">Whistle Labs · 2020 – 2022.</b> Re-hired by the Love With Food founder four years on. Research through redesign: seven recorded interviews into personas and test scripts, a product-market-fit survey and competitive analysis, A/B infrastructure and Heap analytics, and training the web and mobile teams to run research. Owners of flight-risk animals emerged as the loyalty segment; the homepage and campaign were rebuilt around it.</li>
+    <li><b class="sub">Turo, via Huge · 2021 – 2022.</b> A monadic multivariate test exposing 400 participants to four TV commercials and out-of-home banners with segment-based sampling, ten listening sessions, and a repeatable campaign-evaluation method.</li>
+    <li><b class="sub">Autodesk, via Tomorrow Partners · 2021.</b> Coded interview recordings, storyboarded the current state, and co-created future-state scenarios and stage diagrams for a ten-stage generative-design workflow.</li>
+    <li><b class="sub">Tenasol · 2023 – 2024.</b> The full design surface for an AI text-analytics startup ahead of its raise, with two subcontractors: brand identity, product UI, investor decks and website.</li>
+    <li><b class="sub">Smaller engagements · 2011 – 2021.</b> Usability testing, analytics audits, customer surveys and SUPR-Q for an e-commerce retailer; CRO and UX audits and roadmaps under MSA and SOW; learning-platform UI; design systems and voice-and-tone documentation.</li>
+   </ul>
+  </div>
+  <div class="role"><span class="yrs">2022 – 2023</span><span class="org">Opportunity@Work</span><span class="ttl">Senior Manager of Design Research, Innovation Engine · remote</span>
+   <ul>
+    <li>Ran community-centered engagements and action research for the STARs-as-customers team (workers Skilled Through Alternative Routes), funded by the Gates Foundation; conducted the intake interviews for the community fellowship's design-a-thon.</li>
+   </ul>
+  </div>
+  <div class="role"><span class="yrs">2018 – 2019</span><span class="org">Inovalon Holdings</span><span class="ttl">Senior Manager, Design Strategy · Founder, Design Center of Excellence · remote from Denver</span>
+   <ul>
+    <li>Built the business case that replaced the design vendor's $687k-a-year contract with four in-house designers: total design spend fell 26% while delivery capacity doubled (modeled). Design became an official corporate goal in 2019 with approved headcount.</li>
+    <li>Ran a design-maturity survey (100+ responses across four business units), identified a founding cohort of 20 practitioners, and designed the certification program: 20 per cohort, quarterly, toward 100 actively leading research. Owned hiring for the new team: job descriptions and the compensation analysis with HR; 200+ qualified applicants answered the claim that designers would not want to work there.</li>
+    <li>Two years of discovery research and strategic design avoided roughly $2.4M in code rewrites (own estimate). One instance: a prototype of a medical natural-language-processing product, built for about a tenth of the production budget, shipped for the annual client event in three months; contextual inquiry found clinicians did not fully trust automated tools, so the product was repositioned as an enabler and its interface simplified on that finding.</li>
+    <li>Built the design-ops infrastructure for the in-house transition: a documented, version-controlled design system, front-end governance, onboarding and compliance processes, and an atomic research repository; research ran on protected health information under HIPAA with de-identification built in.</li>
+    <li>For a market-analysis product built on external research alone, captured the assumptions, evaluated them with clients, and convinced the sales team to ask research questions on calls; contract sizes grew and a new department formed to find repeatable services.</li>
+   </ul>
+  </div>
+  <div class="role"><span class="yrs">2017</span><span class="org">Avalere Health, an Inovalon company</span><span class="ttl">User Experience Designer/Developer · Philadelphia</span>
+   <ul>
+    <li>First UX hire, with no direct access to users. Ran the company's first rigorous usability study, of the intranet, with five employees on ten tasks; the readout taught HR leadership what user research is, and that alliance became the business case for the Center of Excellence. Introduced human-centered design company-wide through lunch-and-learns tested with colleagues first.</li>
+   </ul>
+  </div>
+  <div class="role"><span class="yrs">2017</span><span class="org">City of Philadelphia, Office of Open Data and Digital Transformation</span><span class="ttl">Design Fellow</span>
+   <ul>
+    <li>19+ in-depth interviews with community leaders, journalists, analysts and developers, a usability study of the open-data portal, and an intercept survey on it; synthesized three systemic challenges, proposed interface concepts and a service blueprint, and presented the findings at a City press conference.</li>
+   </ul>
+  </div>
+  <div class="role"><span class="yrs">2016</span><span class="org">CID Entertainment</span><span class="ttl">Product Designer · Philadelphia</span>
+   <ul>
+    <li>A 90-day market-entry strategy for the festival-fan market on lean and design principles; roughly 60 customer interviews across the team, the first wave run personally with the scripts, guides and recruiting funnel the team then used. Shipped Curadora, an MVP that converted prospects into paying customers, with a behavioral-tracking and innovation-accounting plan.</li>
+   </ul>
+  </div>
+  <div class="role"><span class="yrs">2014 – 2015</span><span class="org">Love With Food</span><span class="ttl">UX Designer &amp; Front-End Developer · remote</span>
+   <ul>
+    <li>Led research, design and front-end for a responsive redesign that lifted sign-up conversion 60%, measured by A/B test; the full method is published in UX Collective (2019).</li>
+    <li>A 118-variable member questionnaire with correlation and factor analysis derived two personas; nine interviews per segment; six documented homepage generations from wireframe to live across five breakpoints.</li>
+    <li>Built the front end: a Handlebars template system, a responsive build pipeline, versioned assets on S3, and a design system engineers could extend.</li>
+    <li>Redesigned account management on a support-cost signal and tested a high-fidelity prototype unmoderated: top-task completion rose from below 30% to eight of eight participants.</li>
+   </ul>
+  </div>
+  <div class="role"><span class="yrs">2011 – 2014</span><span class="org">WebLinc Commerce</span><span class="ttl">Lead Front-End Developer · Philadelphia</span>
+   <ul>
+    <li>Shipped front-end for Free People, BHLDN, Terrain, One Stop Plus and others on an enterprise e-commerce platform; pioneered a design-system and style-guide program, borrowed from game tilesets, that became the company standard.</li>
+    <li>Led the Free People China internationalization: tokenized strings, layouts rebuilt for variable phrase lengths and both text directions, then rolled out to further countries, with the internal i18n guide. Built the new-hire onboarding program and mentored the developers routed through the team.</li>
+   </ul>
+  </div>
+  <div class="role"><span class="yrs">2010 – 2011</span><span class="org">Sides Media</span><span class="ttl">Web Developer · Philadelphia</span>
+   <ul>
+    <li>Built CMS-powered sites in HTML, CSS, JavaScript and PHP from agency comps, two or three at a time; trusted with client conversations and technical estimation at 18.</li>
+   </ul>
+  </div>
+  <div class="role"><span class="yrs">2008 – 2010</span><span class="org">Freelance pixel artist</span><span class="ttl">Sprite sheets, tilesets and UI for about ten indie and commercial games</span>
+   <ul>
+    <li>Co-created Efencea, a PvP tower-defense game, at 16: first playable in eight days, rebalanced on player feedback, still live.</li>
+   </ul>
+  </div>
  </div>
 
  <h2>Self-initiated</h2>
  <div class="roles">
-  <div class="role"><span class="yrs">2025 – now</span><span class="org">GameLab</span><span class="what">48 pre-registered experiments, 34 falsifications, tournament evaluation, citations enforced in CI.</span></div>
-  <div class="role"><span class="yrs">2020 – now</span><span class="org">Sonder</span><span class="what">LLM-assisted synthesis benchmarked against expert coding; 48% → 72% agreement over 13 fidelity cycles, with a NO-GO on a statistically significant win.</span></div>
-  <div class="role"><span class="yrs">2020</span><span class="org">FAIR UXR</span><span class="what">A free eight-lesson course on FAIR research repositories.</span></div>
-  <div class="role"><span class="yrs">2014</span><span class="org">smoothState.js</span><span class="what">Open-source page transitions; 4,300+ stars and 2,600+ live sites a decade on. Featured on CSS-Tricks.</span></div>
+  <div class="role"><span class="yrs">2020 – present</span><span class="org">Sonder</span><span class="ttl">LLM-assisted synthesis for discovery research, and the harness that decides whether it earns its place</span>
+   <ul>
+    <li>Benchmarked against expert human coding over 13 fidelity cycles: agreement rose from 48% to 72%, persona coverage from 50% to 92% (V-measure 0.61 to 0.86). Ran a blind human-versus-machine coding study with pseudonymized speakers and a pre-registered rule locking the human read first.</li>
+    <li>The harness twice overruled the result its author wanted: a NO-GO on a statistically significant win, and a circular self-metric caught (98.7% claimed against 55% measured). A source-comparison study measured 34% speaker-attribution bleed on found data against 0% on interviews; a second data class ran at 0.00% contamination against a 5% bar, for $25.44.</li>
+   </ul>
+  </div>
+  <div class="role"><span class="yrs">2025 – present</span><span class="org">GameLab</span><span class="ttl">Game balance made measurable</span>
+   <ul>
+    <li>48 pre-registered experiments, 34 falsifications; tournament evaluation with Wilson-scored tiers, entropy, Nash support and Hodge decomposition; a CI-enforced citation graph on the design record. A $101 paid fake-door test of 15 concepts (9,205 impressions, 9.4% click-through) that also caught its own blind spots.</li>
+   </ul>
+  </div>
+  <div class="role"><span class="yrs">2014</span><span class="org">smoothState.js</span><span class="ttl">Open-source page transitions with attention-triggered prefetch</span>
+   <ul>
+    <li>4,300+ GitHub stars, 2,600+ live sites a decade on; a CSS-Tricks guest post and a Hacker News launch.</li>
+   </ul>
+  </div>
+  <div class="role"><span class="yrs">2020</span><span class="org">FAIR UXR</span><span class="ttl">A free eight-lesson course on FAIR research repositories</span>
+   <ul>
+    <li>Extended atomic UX research with the FAIR data principles; launched on Instagram with video lessons, templates and check-for-understanding segments, teaching a practice already run in production at Inovalon and Arrow.</li>
+   </ul>
+  </div>
  </div>
 
- <h2>Check for yourself</h2>
+ <h2>Writing and talks</h2>
  <ul class="links">
-  <li><a href="https://uxdesign.cc/how-to-adapt-to-the-challenge-of-remote-collaboration-f563a7821e99">UX Collective, 2019: the Love With Food method</a></li>
-  <li><a href="https://css-tricks.com/add-page-transitions-css-smoothstate-js/">CSS-Tricks, 2014: smoothState.js</a></li>
-  <li><a href="https://oit.colorado.gov">oit.colorado.gov, 2024: the State's payroll case study</a></li>
-  <li><a href="https://linkedin.com/in/miguelux">LinkedIn: 15 recommendations</a></li>
-  <li><a href="https://www.nngroup.com/ux-certification/verify/">NN/g certification registry</a></li>
+  <li><a href="https://uxdesign.cc/how-to-adapt-to-the-challenge-of-remote-collaboration-f563a7821e99">"How to adapt to the challenge of remote collaboration," UX Collective, 2019</a></li>
+  <li><a href="https://uxdesign.cc/an-8-bit-introduction-to-ux-design-6f96480432e4">"An 8-bit introduction to UX design," UX Collective, 2018</a></li>
+  <li><a href="https://css-tricks.com/add-page-transitions-css-smoothstate-js/">"Add page transitions with CSS and smoothState.js," CSS-Tricks, 2014</a></li>
+  <li>"Estimating the efficiency of UI without users," GOMS cognitive modeling, Philly Tech Week 2015</li>
  </ul>
 
- <div class="get no-print"><a href="/assets/miguel-perez-holdsworth-resume.pdf" class="cta">Download this page as a PDF →</a></div>
- <div class="colophon">Kept in step with the case studies on miguel.design. Testimonials there are quoted by role; small-sample results are given as raw counts. <span class="print-only">Printed from miguel.design/resume/.</span></div>
+ <h2>Credentials</h2>
+ <ul class="links">
+  <li><a href="https://www.nngroup.com/ux-certification/verify/">NN/g UX Certification, UX Management specialty, May 2019 · UXC #1029705</a></li>
+  <li><a href="https://linkedin.com/in/miguelux">15 written LinkedIn recommendations</a></li>
+ </ul>
+
+ <div class="get no-print"><a href="/assets/miguel-perez-holdsworth-resume.pdf" class="cta">Download as a PDF →</a></div>
+ <div class="colophon">Condensed from a longer working résumé. Numbers carry their qualifier where one applies; testimonials on this site are quoted by role. <span class="print-only">Printed from miguel.design/resume/.</span></div>
 </section>
