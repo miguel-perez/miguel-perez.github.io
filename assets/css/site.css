@@ -31,3 +31,7 @@ body{margin:0;background:#f4f5f8;color:#15171c;font-family:'Instrument Serif',Ge
 .work-links{display:flex;flex-wrap:wrap;gap:4px 18px;font:12px/1.6 'Fira Code',monospace}
 .work-links a{color:#a8422a;white-space:nowrap;display:inline-block;padding:20px 0;margin:-20px 0}
 .work-tags{flex:0 1 200px;font:12px/1.6 'Fira Code',monospace;color:#5b606b;text-align:right;margin-left:auto;text-wrap:balance}
+/* Motion. The hero chart draws once, in under five seconds, and rests. The cycle diagram moves only while hovered or after a tap. Reduced motion shows every end state. */
+.a-spin{animation:spin 12s linear infinite paused}
+.live .a-spin{animation-play-state:running}
+@media (prefers-reduced-motion:reduce){.a-dash,.a-in,.a-spin{animation:none!important}.a-dash{stroke-dashoffset:0!important}.a-in{opacity:1!important;transform:none!important}}

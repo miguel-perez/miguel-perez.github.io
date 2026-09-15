@@ -365,12 +365,12 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
 @media (min-width:1000px){.lab canvas{height:clamp(300px,26vw,400px)}}
 .lab-note{font:12px/1.6 'Fira Code',monospace;color:#2b3a4d}
 
-figure:not(.in) .a{animation-play-state:paused}
+figure:not(.in) .a{animation-play-state:paused!important}
 @keyframes dash{to{stroke-dashoffset:0}}
 @keyframes grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
 @keyframes growx{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 @media (max-width:900px){.old-body{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.a[stroke-dashoffset]{stroke-dashoffset:0!important}}
 @media (max-width:720px){
  .review{grid-template-columns:1fr}
  .pane + .pane{border-left:0;border-top:1px solid rgba(0,61,121,.18)}
@@ -881,30 +881,44 @@ figure:not(.in) .a{animation-play-state:paused}
 
 <script>
 (function(){
- /* Entrance animations wait until their figure is on screen. */
+ /* Enough of an element is on screen when the given share of it shows, or a third of the viewport's height of it does, so tall figures still count. */
+ var TH=[0,.05,.1,.15,.2,.25,.3,.35];
+ function seen(e,r){ var rh=(e.rootBounds&&e.rootBounds.height)||window.innerHeight; return e.isIntersecting&&(e.intersectionRatio>=r||e.intersectionRect.height>=0.3*rh); }
+
+ /* Entrance animations wait until their figure is on screen, and rewind once it has left, so scrolling back plays them again. */
  var anim=document.querySelectorAll('figure .a');
  if(anim.length){
   var figs=[]; for(var i=0;i<anim.length;i++){ var f=anim[i].closest('figure'); if(figs.indexOf(f)<0) figs.push(f); }
+  var anims=function(f){ var out=[], els=f.querySelectorAll('.a'); for(var j=0;j<els.length;j++){ if(!els[j].getAnimations) break; var as=els[j].getAnimations(); for(var k=0;k<as.length;k++) if(as[k].animationName) out.push(as[k]); } return out; };
+  var enter=function(f){ f.classList.add('in'); anims(f).forEach(function(a){ a.play(); }); };
+  var leave=function(f){ f.classList.remove('in'); anims(f).forEach(function(a){ a.pause(); a.currentTime=0; }); };
   if(!('IntersectionObserver' in window)) for(var i=0;i<figs.length;i++) figs[i].classList.add('in');
-  else { var ao=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); ao.unobserve(e.target); } }); },{threshold:0.15});
+  else { var ao=new IntersectionObserver(function(es){ es.forEach(function(e){
+    if(seen(e,0.15)){ if(!e.target.classList.contains('in')) enter(e.target); }
+    else if(!e.isIntersecting&&e.target.classList.contains('in')) leave(e.target); }); },{threshold:TH});
    for(var i=0;i<figs.length;i++) ao.observe(figs[i]); }
  }
 
- /* Fig. 2: the grid fills in task by task, accelerating, and the totals land last. */
+ /* Fig. 2: the grid fills in task by task, accelerating, and the totals land last. It clears once it has scrolled away, so it plays again on the way back. */
  var tg=document.querySelector('.grid');
  if(tg && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-  var tcells=[].slice.call(tg.querySelectorAll('tbody i')), tfoot=tg.querySelector('tfoot'), tt=[];
+  var tcells=[].slice.call(tg.querySelectorAll('tbody i')), tfoot=tg.querySelector('tfoot'), tt=[], gridOn=false;
   tg.classList.add('anim');
-  var runGrid=function(){
+  var clearGrid=function(){
    for(var q=0;q<tt.length;q++) clearTimeout(tt[q]);
    tt=[]; for(var q=0;q<tcells.length;q++) tcells[q].classList.remove('on');
    tfoot.classList.remove('on');
+  };
+  var runGrid=function(){
+   clearGrid();
    var at=260, step=115;
    tcells.forEach(function(c,i){ tt.push(setTimeout(function(){ c.classList.add('on'); },at)); at+=step; step=Math.max(7,step*0.935); });
    tt.push(setTimeout(function(){ tfoot.classList.add('on'); },at+300));
   };
   if(!('IntersectionObserver' in window)) runGrid();
-  else { var go=new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ runGrid(); go.unobserve(e.target); } }); },{threshold:0.35});
+  else { var go=new IntersectionObserver(function(es){ es.forEach(function(e){
+    if(seen(e,0.35)){ if(!gridOn){ gridOn=true; runGrid(); } }
+    else if(!e.isIntersecting&&gridOn){ gridOn=false; clearGrid(); } }); },{threshold:TH});
    go.observe(tg); }
  }
 
@@ -923,29 +937,31 @@ figure:not(.in) .a{animation-play-state:paused}
    {n:24,cap:'Oct 2019 · four designers, a cohort of twenty'},
    {n:100,cap:'the plan · a hundred practitioners'}];
   var finalCap=stages[stages.length-1].cap;
-  var timers=[], reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches, onScreen=false;
+  var timers=[], reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches, onScreen=false, running=false;
   function cls(i){ return i<4?'d':'p'; }
+  /* One pass, under five seconds, then it rests on the last frame. Hovering, tapping, or scrolling back plays it again. */
   function play(){
    for(var k=0;k<timers.length;k++) clearTimeout(timers[k]); timers=[];
    for(var i=0;i<100;i++) cells[i].el.className='';
    if(reduced){ for(var i=0;i<100;i++) cells[i].el.className=cls(i); capEl.textContent=finalCap; return; }
-   var t=300, prev=0;
+   running=true;
+   var t=250, prev=0;
    for(var s=0;s<stages.length;s++){
-    var st=stages[s], span=Math.min(1100,80*(st.n-prev));
+    var st=stages[s], span=Math.min(650,55*(st.n-prev));
     (function(text,at){ timers.push(setTimeout(function(){ capEl.textContent=text; },at)); })(st.cap,t);
     for(var i=prev;i<st.n;i++){ (function(i,at){ timers.push(setTimeout(function(){ cells[i].el.className=cls(i); },at)); })(i, t+(i-prev)/(st.n-prev)*span); }
-    t+=span+1000; prev=st.n;
+    t+=span+560; prev=st.n;
    }
-   timers.push(setTimeout(function(){ capEl.textContent=finalCap; },t));
-   timers.push(setTimeout(function(){ if(onScreen&&!document.hidden) play(); },t+4200));
+   timers.push(setTimeout(function(){ capEl.textContent=finalCap; running=false; },t));
   }
-  function stop(){ for(var k=0;k<timers.length;k++) clearTimeout(timers[k]); timers=[]; }
+  function stop(){ for(var k=0;k<timers.length;k++) clearTimeout(timers[k]); timers=[]; running=false; }
   if(reduced||!('IntersectionObserver' in window)){ onScreen=true; play(); }
   else new IntersectionObserver(function(es){ es.forEach(function(e){
-   if(e.isIntersecting){ if(!onScreen){ onScreen=true; play(); } }
-   else { onScreen=false; stop(); } }); },{threshold:0.3}).observe(artEl);
+   if(seen(e,0.3)){ if(!onScreen){ onScreen=true; play(); } }
+   else if(!e.isIntersecting){ onScreen=false; stop(); } }); },{threshold:TH}).observe(artEl);
   document.addEventListener('visibilitychange',function(){ if(document.hidden) stop(); else if(onScreen&&!reduced) play(); });
   artEl.addEventListener('click',play);
+  artEl.addEventListener('pointerenter',function(e){ if(e.pointerType!=='touch'&&onScreen&&!running) play(); });
  }
 
  /* Boids (Reynolds, 1986), for Fig. 3. */

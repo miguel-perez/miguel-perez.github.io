@@ -15,12 +15,12 @@ description: "I set up the A/B test, the usability study, or the evaluation harn
  <svg viewBox="0 0 1440 440" preserveAspectRatio="xMaxYMax slice" class="hero-chart" style="display:block;pointer-events:none" aria-hidden="true">
   <g stroke="#15171c" stroke-opacity=".18" stroke-width="1"><line x1="120" y1="392" x2="120" y2="400"></line><line x1="360" y1="392" x2="360" y2="400"></line><line x1="600" y1="392" x2="600" y2="400"></line><line x1="840" y1="392" x2="840" y2="400"></line><line x1="1080" y1="392" x2="1080" y2="400"></line><line x1="1320" y1="392" x2="1320" y2="400"></line><line x1="56" y1="400" x2="1384" y2="400"></line></g>
   <g font-family="Fira Code,monospace" font-size="13" fill="#5b606b"><text x="120" y="422" text-anchor="middle">wireframe</text><text x="360" y="422" text-anchor="middle">gen 2</text><text x="600" y="422" text-anchor="middle">gen 3</text><text x="840" y="422" text-anchor="middle">gen 4</text><text x="1080" y="422" text-anchor="middle">gen 5</text><text x="1320" y="422" text-anchor="middle">live</text></g>
-  <path d="M0 330 C 400 328, 800 322, 1440 318" fill="none" stroke="#15171c" stroke-opacity=".28" stroke-width="1.2" stroke-dasharray="1500" stroke-dashoffset="1500" style="animation:dash 2.4s ease-out .2s forwards"></path>
-  <path d="M0 330 C 500 330, 700 320, 900 250 S 1200 60, 1440 40" fill="none" stroke="#c2532f" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="1700" stroke-dashoffset="1700" style="animation:dash 2.8s cubic-bezier(.4,0,.2,1) .4s forwards"></path>
+  <path d="M0 330 C 400 328, 800 322, 1440 318" fill="none" stroke="#15171c" stroke-opacity=".28" stroke-width="1.2" stroke-dasharray="1500" stroke-dashoffset="1500" class="a-dash" style="animation:dash 2.4s ease-out .2s forwards"></path>
+  <path d="M0 330 C 500 330, 700 320, 900 250 S 1200 60, 1440 40" fill="none" stroke="#c2532f" stroke-width="2.2" stroke-linecap="round" stroke-dasharray="1700" stroke-dashoffset="1700" class="a-dash" style="animation:dash 2.8s cubic-bezier(.4,0,.2,1) .4s forwards"></path>
   <line x1="880" y1="60" x2="880" y2="400" stroke="#15171c" stroke-opacity=".25" stroke-dasharray="3 5"></line>
   <text x="890" y="72" font-family="Fira Code,monospace" font-size="13" fill="#5b606b">A/B test starts</text>
-  <circle cx="1320" cy="60" r="5" fill="#c2532f" style="transform-box:fill-box;transform-origin:center;opacity:0;animation:pop .4s ease-out 3s forwards"></circle>
-  <text x="1300" y="46" text-anchor="end" font-family="Fira Code,monospace" font-size="13" font-weight="600" fill="#c2532f" style="opacity:0;animation:show .4s ease-out 3.1s forwards">+60% sign-ups</text>
+  <circle cx="1320" cy="60" r="5" fill="#c2532f" class="a-in" style="transform-box:fill-box;transform-origin:center;opacity:0;animation:pop .4s ease-out 3s forwards"></circle>
+  <text x="1300" y="46" text-anchor="end" font-family="Fira Code,monospace" font-size="13" font-weight="600" fill="#c2532f" class="a-in" style="opacity:0;animation:show .4s ease-out 3.1s forwards">+60% sign-ups</text>
   <text x="1300" y="330" text-anchor="end" font-family="Fira Code,monospace" font-size="13" fill="#5b606b">control</text>
  </svg>
  <div class="hero-cap">Love With Food, 2015. A/B tested. Method in UX Collective, 2019.</div>
@@ -42,22 +42,22 @@ description: "I set up the A/B test, the usability study, or the evaluation harn
    </ol>
   </div>
   <div style="display:flex;flex-direction:column;align-items:center;gap:20px;padding-top:24px">
-   <svg viewBox="0 0 560 520" style="width:100%;max-width:520px;height:auto;display:block;overflow:visible" aria-label="The design cycle: the design is released to people, people are observed into a model, the model is compiled into the next design">
+   <svg id="cycle" viewBox="0 0 560 520" style="width:100%;max-width:520px;height:auto;display:block;overflow:visible" aria-label="The design cycle: the design is released to people, people are observed into a model, the model is compiled into the next design">
     <defs><marker id="hp-mi" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#15171c"></path></marker><marker id="hp-mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#c2532f"></path></marker></defs>
     <rect x="14" y="14" width="532" height="476" fill="none" stroke="#15171c" stroke-opacity=".3"></rect>
     <text x="18" y="508" font-family="Fira Code,monospace" font-size="12" fill="#5b606b">the frame · on a review clock</text>
-    <circle cx="536" cy="504" r="7" fill="none" stroke="#15171c" stroke-opacity=".6"></circle><g style="transform-origin:536px 504px;animation:spin 12s linear infinite"><line x1="536" y1="504" x2="536" y2="498.5" stroke="#c2532f" stroke-width="1.5"></line></g>
+    <circle cx="536" cy="504" r="7" fill="none" stroke="#15171c" stroke-opacity=".6"></circle><g class="a-spin" style="transform-origin:536px 504px"><line x1="536" y1="504" x2="536" y2="498.5" stroke="#c2532f" stroke-width="1.5"></line></g>
     <circle cx="470" cy="380" r="62" fill="none" stroke="#15171c" stroke-opacity=".35" stroke-dasharray="3 5"></circle>
-    <path d="M292 100 Q 440 180 468 366" fill="none" stroke="#c2532f" stroke-width="1.6" stroke-dasharray="5 6" marker-end="url(#hp-mr)" style="opacity:0;animation:show .6s .6s forwards"></path>
-    <path d="M460 388 Q 280 470 104 386" fill="none" stroke="#c2532f" stroke-width="1.6" stroke-dasharray="5 6" marker-end="url(#hp-mr)" style="opacity:0;animation:show .6s 1.4s forwards"></path>
-    <path d="M92 366 Q 120 180 268 100" fill="none" stroke="#15171c" stroke-width="1.6" marker-end="url(#hp-mi)" stroke-dasharray="420" stroke-dashoffset="420" style="animation:dash 1.2s ease-out 2.2s forwards"></path>
+    <path d="M292 100 Q 440 180 468 366" fill="none" stroke="#c2532f" stroke-width="1.6" stroke-dasharray="5 6" marker-end="url(#hp-mr)" class="a-in" style="opacity:0;animation:show .6s .6s forwards"></path>
+    <path d="M460 388 Q 280 470 104 386" fill="none" stroke="#c2532f" stroke-width="1.6" stroke-dasharray="5 6" marker-end="url(#hp-mr)" class="a-in" style="opacity:0;animation:show .6s 1.4s forwards"></path>
+    <path d="M92 366 Q 120 180 268 100" fill="none" stroke="#15171c" stroke-width="1.6" marker-end="url(#hp-mi)" stroke-dasharray="420" stroke-dashoffset="420" class="a-dash" style="animation:dash 1.2s ease-out 2.2s forwards"></path>
     <rect x="272" y="82" width="16" height="16" fill="#15171c"></rect>
     <circle cx="470" cy="380" r="9" fill="#c2532f"></circle>
     <rect x="83" y="373" width="14" height="14" fill="#15171c" transform="rotate(45 90 380)"></rect>
     <g font-family="Fira Code,monospace" font-size="12" letter-spacing="2" fill="#15171c" text-anchor="middle"><text x="280" y="66">THE DESIGN</text><text x="470" y="462">PEOPLE</text><text x="90" y="412">THE MODEL</text></g>
     <text x="470" y="480" text-anchor="middle" font-family="Fira Code,monospace" font-size="12" fill="#5b606b">line of interaction</text>
     <g font-family="Instrument Serif,serif" font-style="italic" font-size="17" fill="#3a3e48"><text x="452" y="200">released to</text><text x="280" y="466" text-anchor="middle">observed into</text><text x="112" y="205" text-anchor="end">compiled into</text></g>
-    <circle r="5" fill="#c2532f" style="opacity:0;animation:show .3s 3.4s forwards"><animateMotion dur="9s" begin="3.4s" repeatCount="indefinite" path="M292 100 Q 440 180 468 366 L460 388 Q 280 470 104 386 L92 366 Q 120 180 268 100 Z"></animateMotion></circle>
+    <g transform="translate(292 100)"><circle r="5" fill="#c2532f" class="a-in" style="opacity:0;animation:show .3s 3.4s forwards"><animateMotion id="cycle-lap" dur="9s" begin="indefinite" fill="remove" path="M0 0 Q 148 80 176 266 L168 288 Q -12 370 -188 286 L-200 266 Q -172 80 -24 0 Z"></animateMotion></circle></g>
    </svg>
    <p style="margin:0;max-width:520px;font:12px/1.7 'Fira Code',monospace;color:#5b606b">The two arrows that touch people are crossings, so they come with consent, a meter, and a way to say no.</p>
   </div>
@@ -215,3 +215,23 @@ description: "I set up the A/B test, the usability study, or the evaluation harn
   <a href="mailto:mail@miguel.design" style="margin-top:23px;font-size:clamp(24px,2.4vw,34px);font-style:italic;color:#c2532f;overflow-wrap:anywhere" class="cta">mail@miguel.design →</a>
 </section>
 <script src="/assets/js/work-filter.js" defer></script>
+<script>
+(function(){
+ /* The cycle diagram rests until the pointer is over it. It runs while hovered, finishes its lap after the pointer leaves, and a tap gives one lap. Nothing here starts on its own. */
+ var svg=document.getElementById('cycle'), lap=document.getElementById('cycle-lap');
+ if(!svg||!lap||!lap.beginElement) return;
+ var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches, hover=false, running=false, guard=0;
+ function done(){ running=false; if(hover&&!document.hidden) start(); else svg.classList.remove('live'); }
+ function start(){
+  if(running||reduced) return;
+  running=true; svg.classList.add('live');
+  try{ lap.beginElement(); }catch(e){ running=false; svg.classList.remove('live'); return; }
+  clearTimeout(guard); guard=setTimeout(done,9300);
+ }
+ lap.addEventListener('endEvent',function(){ clearTimeout(guard); done(); });
+ svg.addEventListener('pointerenter',function(e){ if(e.pointerType!=='touch'){ hover=true; start(); } });
+ svg.addEventListener('pointerleave',function(e){ if(e.pointerType!=='touch'){ hover=false; if(!running) svg.classList.remove('live'); } });
+ svg.addEventListener('click',function(){ if(!running) start(); });
+ document.addEventListener('visibilitychange',function(){ if(document.hidden) hover=false; });
+})();
+</script>
