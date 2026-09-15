@@ -7,5 +7,5 @@
   </div>
  </div>
  <div class="site-footer-more">{%- assign studies = site.html_pages | where: "layout", "study" | sort: "url" %}<span>More work</span>{%- for s in studies %}{%- if s.draft or s.url == page.url %}{% continue %}{% endif %}<a href="{{ s.url }}">{{ s.client | default: s.title }}</a>{%- endfor %}</div>
- <div class="site-footer-legal"><span>© 2026 Miguel Ángel Pérez-Holdsworth</span><span class="site-footer-links"><a href="/resume/">Résumé</a><a href="https://www.nngroup.com/ux-certification/verify/">NN/g UX Certification · UX Management · UXC #1029705</a></span></div>
+ <div class="site-footer-legal"><span>© 2026 Miguel Ángel Pérez-Holdsworth</span><span class="site-footer-links"><a href="/resume/">Résumé</a> <a href="https://www.nngroup.com/ux-certification/verify/">NN/g UX Certification · UX Management · UXC #1029705</a></span></div>
 </div></div></footer>
