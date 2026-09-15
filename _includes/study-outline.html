@@ -1,0 +1,7 @@
+{%- assign numerals = "I,II,III,IV,V,VI,VII" | split: "," %}
+<ol class="outline">
+{%- for a in page.acts %}
+    <li><a href="#act-{{ forloop.index }}"><b>{{ numerals[forloop.index0] }}</b><span>{{ a.title }}</span></a></li>
+{%- endfor %}
+    <li><a href="#afterwards"><b>After</b><span>{{ page.after }}</span></a></li>
+   </ol>

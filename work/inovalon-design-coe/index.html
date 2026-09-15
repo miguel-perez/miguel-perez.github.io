@@ -3,128 +3,73 @@ title: "From first UX hire to a corporate goal with headcount"
 client: "Inovalon / Avalere Health"
 description: "Avalere Health hired its first UX designer in July 2017. Two years later design was a corporate goal at the Inovalon parent, with approved headcount and a plan to certify a hundred practitioners. A case study in change management."
 fonts: [source-sans-3]
+engagement: "Avalere Health, then Inovalon"
+period: "July 2017 to July 2019"
+read: 17
+facts:
+  - k: "Team"
+    v: "A distributed software team, headquarters in Washington DC. A design researcher from June 2018. Product and engineering leads across four business units. LUMA Institute, Userlytics, Glean.ly."
+  - k: "Role"
+    v: "First UX designer at Avalere Health, then Senior Manager, Design Strategy at Inovalon and founder of the Design Center of Excellence."
+  - k: "Timeline"
+    v: "July 2017 to July 2019. Remote, from Philadelphia and then Denver."
+numbers:
+  - n: "$687k"
+    s: "vendor contract replaced, 2018"
+  - n: "−26%"
+    s: "total design spend, 2019 plan"
+  - n: "×2"
+    s: "delivery capacity, modeled"
+  - n: "200+"
+    s: "qualified applicants in 24 hours"
+acts:
+  - where: "Avalere Health"
+    when: "2017"
+    title: "One designer, no users, two allies."
+    methods: ["task-based usability study", "workshop facilitation", "Cynefin", "tame versus wicked problems", "values-based framing"]
+  - where: "Avalere Health"
+    when: "late 2017"
+    title: "Questions before the demo. Contracts grew."
+    methods: ["customer discovery", "assumption mapping", "solution interviews", "service blueprint"]
+  - where: "Inovalon"
+    when: "2018"
+    title: "Design came in-house. Spend fell 26%."
+    methods: ["Innovator's Compass", "hypothesis statements and proto-personas", "atomic research repository", "boundary objects"]
+  - where: "Inovalon"
+    when: "2018"
+    title: "A tenth caught the wrong scenario."
+    methods: ["minimum viable product and innovation accounting", "context scenarios", "sketching before building", "contextual inquiry", "the ironies of automation"]
+  - where: "Inovalon"
+    when: "2019"
+    title: "Told not to bother. 200 applied."
+    methods: ["design maturity model", "double-loop learning", "communities of practice", "pirate metrics", "service blueprint", "ladder of participation"]
+after: "What it changed after I left."
+colophon: "Names are withheld and quotes attributed by role. Screens are reconstructions with synthetic data, not screenshots."
 ---
 <style>
-/* Street: Inovalon. Regal Blue ink on white, Asparagus at display sizes only, Source Sans for headlines. Store: Fira Code labels, Instrument Serif body. */
-body{margin:0;background:#fff;color:#003D79;font-family:'Instrument Serif',Georgia,serif;-webkit-font-smoothing:antialiased;--footer-ink:#5e6b7d;--footer-text:#2b3a4d;--footer-rule:rgba(0,61,121,.18);--footer-accent:#73964A}
-*{box-sizing:border-box}
-a{color:inherit;text-decoration:none}
-a:hover{text-decoration:underline;text-decoration-color:#73964A;text-underline-offset:3px}
-.wrap{max-width:1440px;margin:0 auto;padding-left:clamp(20px,4vw,56px);padding-right:clamp(20px,4vw,56px)}
-.nav{position:sticky;top:0;z-index:10;background:rgba(255,255,255,.72);backdrop-filter:blur(20px) saturate(1.5);-webkit-backdrop-filter:blur(20px) saturate(1.5);border-bottom:1px solid rgba(0,61,121,.14)}
-@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.nav{background:rgba(255,255,255,.96)}}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0 24px;padding-top:6px;padding-bottom:6px;min-height:70px}
-.wordmark{font-size:22px;font-style:italic;display:inline-flex;align-items:center;min-height:58px}
-.nav nav{display:flex;flex-wrap:wrap;gap:36px;font:12px 'Fira Code',monospace;letter-spacing:.1em;text-transform:uppercase;color:#2b3a4d}
-.nav nav a{display:inline-flex;align-items:center;min-height:58px;padding:0 12px;margin:0 -12px}
-@media(max-width:760px){.nav nav{gap:24px}}
-.nav nav .contact{color:#003D79;text-decoration:underline;text-underline-offset:4px}
-.label{font:12px 'Fira Code',monospace;letter-spacing:.08em;text-transform:uppercase;color:#5e6b7d}
-.case-header{padding-top:56px;padding-bottom:56px}
-.hero{display:grid;grid-template-columns:minmax(0,7fr) minmax(320px,5fr);gap:32px 56px;align-items:stretch;margin-top:28px}
-.hero-text{min-width:0;container-type:inline-size}
-.hero-art{position:relative;min-height:380px;background:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px 0;cursor:pointer}
+/* Street: Inovalon. Regal Blue ink on white, Asparagus at display sizes only, Source Sans for headlines. The store (Fira Code labels, Instrument Serif body, the rails and figures) is assets/css/study.css; the tokens below are the street. */
+body{--ink:#003D79;--ink-rgb:0,61,121;--text:#2b3a4d;--muted:#5e6b7d;--accent:#73964A;--accent-rgb:115,150,74;--head:'Source Sans 3',sans-serif;--head-weight:600;--bp-lane:136px;
+ --footer-ink:#5e6b7d;--footer-text:#2b3a4d;--footer-rule:rgba(0,61,121,.18);--footer-accent:#73964A}
 .seats{display:grid;grid-template-columns:repeat(10,1fr);gap:clamp(5px,.8vw,10px);width:min(100%,400px);aspect-ratio:1;margin:0}
 .seats i{display:block;border-radius:50%;background:rgba(0,61,121,.07);transform:scale(.5);transition:background .4s,transform .45s cubic-bezier(.2,.8,.2,1)}
 .seats i.d{background:#003D79;transform:scale(1)}
 .seats i.p{background:#73964A;transform:scale(1)}
-.hero-art .cap{width:min(100%,400px);margin-top:16px;font:11px/1.7 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;color:#5e6b7d;pointer-events:none}
-.hero-art .cap b{display:block;font-weight:400;color:#003D79;height:1.7em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.hero-art .cap #seats-cap{color:#5e6b7d}
-.hero-art .cap i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
+.hero-art .cap{width:min(100%,400px)}
 .hero-art .cap i.d{background:#003D79}
 .hero-art .cap i.p{background:#73964A;margin-left:14px}
-.facts-row{display:grid;grid-template-columns:1fr;gap:20px 32px;margin-top:40px;font:12px/1.65 'Fira Code',monospace;color:#2b3a4d}
-@container (min-width:660px){.facts-row{grid-template-columns:repeat(3,minmax(0,1fr))}}
-.facts-row > div{border-top:1px solid rgba(0,61,121,.35);padding-top:10px}
-.facts-row span{display:block}
-.facts-row .k{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#5e6b7d;margin-bottom:2px}
-.case-header .meta{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 40px}
-.case-header .meta .jump{color:#003D79;text-decoration:none;border-bottom:1px solid rgba(0,61,121,.35)}
-.case-header .meta .jump:hover{border-bottom-color:#003D79}
-h1{margin:0;max-width:1100px;font:600 clamp(44px,6vw,88px)/.98 'Source Sans 3',sans-serif;letter-spacing:-.025em;text-wrap:balance}
-h1 em{font-style:normal;color:#73964A}
-.lede{margin:32px 0 0;max-width:720px;font-size:22px;line-height:1.4;color:#2b3a4d}
-.numbers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 40px;margin-top:56px;border-top:1px solid rgba(0,61,121,.35);padding-top:24px}
-@media (max-width:520px){.numbers{grid-template-columns:1fr}}
-@media (min-width:920px){.numbers{grid-template-columns:repeat(4,minmax(0,1fr))}}
-.numbers b{display:block;font:600 44px/1 'Source Sans 3',sans-serif;letter-spacing:-.03em}
-.numbers span{display:block;margin-top:8px;font:12px/1.6 'Fira Code',monospace;color:#5e6b7d}
-.body{padding-top:48px;padding-bottom:0}
-.story{margin:0 auto;min-width:0}
-.act{margin:72px 0 0;display:grid;grid-template-columns:1fr min(800px,100%) 1fr}
-.act > *{grid-column:2;min-width:0}
-.act > figure{grid-column:1/-1}
-.act > figure.dia{width:100%;max-width:1040px;justify-self:center}
-.act > figure.txt{grid-column:2}
-.act:first-child{margin-top:0}
-.act .label{display:block}
-.story h2{margin:10px 0 0;font:600 clamp(30px,3vw,40px)/1.1 'Source Sans 3',sans-serif;letter-spacing:-.02em}
-.story h3{margin:44px 0 0;font:600 22px/1.2 'Source Sans 3',sans-serif;letter-spacing:-.01em}
-.story p{margin:16px 0 0;font-size:19px;line-height:1.55;color:#2b3a4d}
-.story h2 + p{margin-top:20px}
-.story strong{font-weight:400;color:#003D79;border-bottom:1px solid #73964A}
-/* The outline: the timeline and one row per act. */
-.outline{margin:36px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr));gap:24px 32px}
-.outline li{border-top:1px solid rgba(0,61,121,.25);padding-top:10px;min-width:0}
-.outline a{display:block;min-height:58px;font-size:19px;line-height:1.3;color:#003D79}
-.outline a:hover{text-decoration:none}
-.outline a:hover span{text-decoration:underline;text-decoration-color:#73964A;text-underline-offset:3px}
-.outline b{display:block;margin-bottom:4px;font:12px/1.7 'Fira Code',monospace;letter-spacing:.08em;text-transform:uppercase;font-weight:400;color:#5e6b7d}
-figure{margin:40px 0 0;display:flex;flex-direction:column;gap:14px}
-figure svg{width:100%;height:auto;display:block;overflow:visible}
-.fig-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
-.fig-scroll:focus-visible{outline:2px solid #73964A;outline-offset:4px}
-figcaption{font:12px/1.7 'Fira Code',monospace;color:#5e6b7d;max-width:800px;margin-left:auto;margin-right:auto}
-figcaption b{font-weight:400;color:#003D79}
+h1{letter-spacing:-.025em}
 .tasks{margin:0;padding:0;list-style:none;columns:220px;column-gap:24px;font:11px/1.6 'Fira Code',monospace;color:#5e6b7d}
 .tasks li{break-inside:avoid}
 .tasks li b{font-weight:400;color:#003D79}
 .steps{margin:20px 0 0;padding:0;list-style:none;counter-reset:s;columns:300px;column-gap:40px}
 .steps li{counter-increment:s;break-inside:avoid;border-top:1px solid rgba(0,61,121,.25);padding:12px 0;font-size:17px;line-height:1.4;color:#2b3a4d;display:flex;gap:14px}
 .steps li::before{content:counter(s,decimal-leading-zero);font:12px/1.7 'Fira Code',monospace;color:#5e6b7d;flex:0 0 24px}
-.quotes{margin:64px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:32px}
-blockquote{margin:0}
-blockquote p{margin:0;font-size:20px;line-height:1.3;font-style:italic;color:#2b3a4d}
-blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6b7d}
-.after{margin:20px 0 0;padding:0;list-style:none}
-.after li{border-top:1px solid rgba(0,61,121,.25);padding:16px 0;font-size:18px;line-height:1.5;color:#2b3a4d}
-.after li:last-child{border-bottom:1px solid rgba(0,61,121,.25)}
-.after b{font-weight:400;color:#003D79}
-.methods{display:block;margin:28px 0 0;padding-top:12px;border-top:1px solid rgba(0,61,121,.18);font:12px/1.8 'Fira Code',monospace;letter-spacing:.04em;color:#5e6b7d}
-.methods b{font-weight:400;color:#003D79;letter-spacing:.08em}
-.colophon{margin:64px 0 0;border-top:1px solid rgba(0,61,121,.35);padding-top:16px;font:12px/1.8 'Fira Code',monospace;color:#5e6b7d}
-.colophon b{font-weight:400;color:#003D79;letter-spacing:.08em;text-transform:uppercase}
-.next{margin:48px 0 0;border-top:1px solid rgba(0,61,121,.35);padding-top:28px}
-.back{font:13px 'Fira Code',monospace;color:#5e6b7d;display:inline-block;padding:22px 0;margin:-22px 0}
 
-/* Reconstructed artifacts. Redrawn from the originals with synthetic data; nothing is a screenshot. */
-.ui{border:1px solid rgba(0,61,121,.3);border-radius:6px;background:#fff;overflow:hidden;font:13px/1.45 'Source Sans 3',sans-serif;color:#2b3a4d}
-.ui-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 20px;padding:10px 16px;border-bottom:1px solid rgba(0,61,121,.18);background:rgba(0,61,121,.04)}
-.ui-bar b{font-weight:600;color:#003D79}
-.ui-bar .label{font-size:11px}
-.tabs{display:flex;gap:2px;overflow-x:auto;padding:8px 8px 0;border-bottom:1px solid rgba(0,61,121,.18);scrollbar-width:none}
-.tabs::-webkit-scrollbar{display:none}
-@media(max-width:760px){.ui[role="img"] .tabs{overflow:hidden}}
-.tabs span{flex:0 0 auto;padding:6px 10px;border-radius:4px 4px 0 0;font:11px 'Fira Code',monospace;color:#5e6b7d;white-space:nowrap}
-.tabs span i{font-style:normal;color:#003D79}
-.tabs span.on{background:#003D79;color:#fff}
-.tabs span.on i{color:#fff}
-.tbl{width:100%;border-collapse:collapse}
-.tbl th{font:11px 'Fira Code',monospace;letter-spacing:.04em;text-transform:uppercase;color:#5e6b7d;font-weight:400;text-align:left;padding:10px 12px;border-bottom:1px solid rgba(0,61,121,.18);white-space:nowrap}
-.tbl td{padding:9px 12px;border-bottom:1px solid rgba(0,61,121,.1);vertical-align:middle;white-space:nowrap}
-.tbl td:first-child{width:38%}
-.tbl-scroll{overflow-x:auto}
 .redact{display:inline-block;height:10px;border-radius:5px;background:rgba(0,61,121,.28);vertical-align:middle}
-.num{font:600 13px 'Source Sans 3',sans-serif;color:#003D79}
-.pill{display:inline-block;padding:2px 8px;border-radius:10px;font:11px 'Fira Code',monospace;line-height:1.5}
 .pill.h{background:#003D79;color:#fff}
 .pill.m{background:rgba(0,61,121,.14);color:#003D79}
-.pill.l{background:rgba(0,61,121,.05);color:#5e6b7d;border:1px solid rgba(0,61,121,.18)}
 .pill.g{background:rgba(115,150,74,.18);color:#003D79}
-.chain{display:flex;flex-wrap:wrap;align-items:center;gap:8px 6px;padding:12px 16px;border-top:1px solid rgba(0,61,121,.18);font:11px 'Fira Code',monospace;color:#5e6b7d}
-.chain b{font:600 16px 'Source Sans 3',sans-serif;color:#003D79;margin-right:4px}
-.chain i{font-style:normal;color:rgba(0,61,121,.7);padding:0 4px}
+.chain i{color:rgba(0,61,121,.7)}
 
 /* Fig. 7: the budget sheet, redrawn */
 .sheet{width:100%;border-collapse:collapse;font:13px/1.45 'Source Sans 3',sans-serif;color:#2b3a4d}
@@ -266,7 +211,6 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
 .funnel .o{font:13px/1.35 'Source Sans 3',sans-serif;color:#2b3a4d}
 .funnel .m{font:12px/1.4 'Instrument Serif',serif;color:#2b3a4d;font-style:italic}
 .funnel-scroll{overflow:visible}
-.loop{margin-top:10px;font:11px/1.6 'Fira Code',monospace;color:#5e6b7d;border-top:1px dashed rgba(0,61,121,.35);padding-top:8px}
 
 /* Fig. 2: the task grid. Color is the outcome, the number is errors. */
 .grid{width:100%;border-collapse:collapse;table-layout:fixed;font:12px 'Fira Code',monospace;color:#5e6b7d}
@@ -285,8 +229,7 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
 .grid.anim tbody i.on{opacity:1;transform:scale(1);transition:opacity .3s ease-out,transform .3s cubic-bezier(.2,.8,.2,1)}
 .grid.anim tfoot{opacity:0}
 .grid.anim tfoot.on{opacity:1;transition:opacity .55s ease-out}
-.key{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;margin:0;font:11px/1.7 'Fira Code',monospace;color:#5e6b7d}
-.story p.key{font:11px/1.7 'Fira Code',monospace;color:#5e6b7d;margin:0}
+.key{gap:6px 8px}
 .key i{display:inline-block;font-style:normal;font:700 13px/1 'Source Sans 3',sans-serif;margin-left:14px}
 .key i:first-child{margin-left:0}
 .key .ok{color:#5F7F35}
@@ -334,21 +277,12 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
 /* Service blueprints, drawn in the conventional anatomy: customer actions, a line of
    interaction, frontstage, a line of visibility, backstage, a line of internal
    interaction, then support. Prefixed so nothing collides. */
-.bp{display:grid;grid-template-columns:136px repeat(var(--bp-n,5),minmax(0,1fr));border:1px solid rgba(0,61,121,.3);border-radius:6px;overflow:hidden;background:#fff;font:12px/1.5 'Fira Code',monospace;color:#2b3a4d}
-.bp > div{padding:9px 11px;border-bottom:1px solid rgba(0,61,121,.08);border-left:1px solid rgba(0,61,121,.08)}
-.bp-lane{grid-column:1;border-left:0;background:rgba(0,61,121,.035);color:#003D79;font-size:12px;letter-spacing:.05em;text-transform:uppercase;display:flex;align-items:center}
-.bp-phase{background:rgba(0,61,121,.06);color:#003D79;font:600 13px/1.25 'Source Sans 3',sans-serif}
-.bp-phase small{display:block;margin-top:3px;font:11px/1.5 'Fira Code',monospace;color:#5e6b7d;letter-spacing:.05em;text-transform:uppercase}
-.bp-corner{background:rgba(0,61,121,.06);border-left:0}
 
 .bp-trx-l{align-items:flex-start;padding-top:12px;line-height:1.45}
 .bp-trx{padding:10px 14px 4px}
 .bp-trx svg{display:block;width:100%;height:auto}
 .bp-rule-t{border-top:1px solid rgba(0,61,121,.35);color:#003D79}
 .bp-rule{grid-column:1/-1;border-left:0;border-bottom:0;border-top:1px dashed rgba(0,61,121,.55);padding:5px 11px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:#5e6b7d;background:#fff}
-.bp-cell b{display:block;font-weight:400;color:#003D79}
-.bp-cell i{font-style:normal;color:#5e6b7d}
-.bp-span{grid-column:2/-1}
 .bp-chain{display:flex;flex-wrap:wrap;gap:4px 0;align-items:center}
 .bp-chain span{white-space:nowrap}
 .bp-chain u{text-decoration:none;color:rgba(0,61,121,.45);padding:0 7px}
@@ -365,18 +299,11 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#5e6
 @media (min-width:1000px){.lab canvas{height:clamp(300px,26vw,400px)}}
 .lab-note{font:12px/1.6 'Fira Code',monospace;color:#2b3a4d}
 
-figure:not(.in) .a{animation-play-state:paused!important}
-@keyframes dash{to{stroke-dashoffset:0}}
-@keyframes grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
-@keyframes growx{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 @media (max-width:900px){.old-body{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.a[stroke-dashoffset]{stroke-dashoffset:0!important}}
 @media (max-width:720px){
  .review{grid-template-columns:1fr}
  .pane + .pane{border-left:0;border-top:1px solid rgba(0,61,121,.18)}
  .survey{grid-template-columns:1fr}
- .hero{grid-template-columns:1fr}
- .hero-art{min-height:0;padding:8px 0 0}
  .seats{width:min(100%,300px)}
  .sheet thead{display:none}
  .sheet,.sheet tbody,.sheet tr,.sheet td{display:block;width:100%}
@@ -398,45 +325,28 @@ figure:not(.in) .a{animation-play-state:paused!important}
  .funnel > div{border-top:1px solid rgba(0,61,121,.25);padding:14px 0 16px;display:grid;grid-template-columns:1fr 1fr;gap:6px 16px}
  .funnel > div:first-child{border-top:2px solid #003D79}
  .funnel .n{grid-column:1/-1}
- .fig-scroll svg{min-width:620px}
  .grid{table-layout:auto}
  .grid i{font-size:13px}
  .grid td{padding:2px}
  .grid th{padding:5px 2px}
  .grid tbody th,.grid tfoot th{padding-right:8px}
- .fig-scroll::after{content:"← scroll sideways →";display:block;margin-top:6px;font:12px/1.6 'Fira Code',monospace;color:#5e6b7d;letter-spacing:.04em}
 }
 </style>
 
-<header class="nav"><div class="wrap">
- <a class="wordmark" href="/">miguel.design</a>
- <nav><a href="/#methods">Methods</a><a href="/#work">Work</a><a class="contact" href="/#talk">Contact</a></nav>
-</div></header>
-
-<main class="site-main">
 <section class="case-header wrap">
- <div class="meta label"><span>Case study · Avalere Health, then Inovalon · July 2017 to July 2019</span><span>17-minute read · <a class="jump" href="#afterwards">outcomes in a minute ↓</a></span></div>
+ {% include study-meta.html %}
  <div class="hero">
   <div class="hero-text">
    <h1>From first UX hire to a <em>corporate goal</em> with headcount.</h1>
    <p class="lede">Avalere Health hired its first UX designer in July 2017. Nobody on the software team had direct access to users, so the work started with one low-risk study and grew by earning the next permission. Two years later design was a corporate goal at the Inovalon parent, with approved headcount and a plan to certify a hundred practitioners.</p>
-   <div class="facts-row">
-    <div><span class="k">Team</span><span>A distributed software team, headquarters in Washington DC. A design researcher from June 2018. Product and engineering leads across four business units. LUMA Institute, Userlytics, Glean.ly.</span></div>
-    <div><span class="k">Role</span><span>First UX designer at Avalere Health, then Senior Manager, Design Strategy at Inovalon and founder of the Design Center of Excellence.</span></div>
-    <div><span class="k">Timeline</span><span>July 2017 to July 2019. Remote, from Philadelphia and then Denver.</span></div>
-   </div>
+   {% include study-facts.html %}
   </div>
   <div class="hero-art" id="hero-art" role="img" aria-label="A grid of a hundred seats filling up: one designer in July 2017, four by 2019, a first cohort of twenty practitioners that October, and the hundred the Design Center of Excellence was planned to reach." title="Replay">
    <div class="seats" id="seats"></div>
-   <span class="cap"><b class="sum">2017: one designer · the plan: a hundred</b><b id="seats-cap">Jul 2017 · one UX designer</b><i class="d"></i>designers hired<i class="p"></i>practitioners</span>
+   <span class="cap"><b class="sum">2017: one designer · the plan: a hundred</b><b id="seats-cap" class="now">Jul 2017 · one UX designer</b><i class="d"></i>designers hired<i class="p"></i>practitioners</span>
   </div>
  </div>
- <div class="numbers">
-  <div><b>$687k</b><span>vendor contract replaced, 2018</span></div>
-  <div><b>−26%</b><span>total design spend, 2019 plan</span></div>
-  <div><b>×2</b><span>delivery capacity, modeled</span></div>
-  <div><b>200+</b><span>qualified applicants in 24 hours</span></div>
- </div>
+ {% include study-numbers.html %}
 </section>
 
 <section class="body wrap">
@@ -467,19 +377,11 @@ figure:not(.in) .a{animation-play-state:paused!important}
     <figcaption>Fig. 1 · Two employers, one story. January 2018 is the move to the Inovalon parent, with a promotion. The dashed segment is the approved plan past my departure.</figcaption>
    </figure>
 
-   <ol class="outline">
-    <li><a href="#act-1"><b>I</b><span>One designer, no users, two allies.</span></a></li>
-    <li><a href="#act-2"><b>II</b><span>Questions before the demo. Contracts grew.</span></a></li>
-    <li><a href="#act-3"><b>III</b><span>Design came in-house. Spend fell 26%.</span></a></li>
-    <li><a href="#act-4"><b>IV</b><span>A tenth caught the wrong scenario.</span></a></li>
-    <li><a href="#act-5"><b>V</b><span>Told not to bother. 200 applied.</span></a></li>
-    <li><a href="#afterwards"><b>After</b><span>What it changed after I left.</span></a></li>
-   </ol>
+   {% include study-outline.html %}
   </section>
 
   <section class="act" id="act-1">
-   <span class="label">I · Avalere Health · 2017</span>
-   <h2>One designer, no users, two allies.</h2>
+   {% include study-act.html n=1 %}
    <p>Avalere Health is a healthcare policy and data firm headquartered in Washington, DC, owned by Inovalon since 2015. The software team had shipped a market-analytics product and was chasing feature requests. I joined in July 2017 as its first UX designer, working from a coworking space in Philadelphia. The team was spread across four states with the developers at headquarters, so nearly all of it happened over a screen share.</p>
    <p>Nobody on the team had ever watched a user, and the objection I met was not about money. It was why anything needed to be easy to use at all, when staff could simply learn the tool. That is a fair question if you have never seen someone fail at one, and I had no recording to show anyone.</p>
 
@@ -533,12 +435,11 @@ figure:not(.in) .a{animation-play-state:paused!important}
     </div>
     <figcaption>Fig. 3 · The deck's opening slide, both formations running, with Cynefin underneath them: the triangle for complicated problems, where an expert can find the answer, and the swarm for complex ones, where nobody can until they try something. Analysts recognized the triangle at once. It is how the company already worked.</figcaption>
    </figure>
-   <span class="methods"><b>METHODS</b> · task-based usability study · workshop facilitation · Cynefin · tame versus wicked problems · values-based framing</span>
+   {% include study-methods.html n=1 %}
   </section>
 
   <section class="act" id="act-2">
-   <span class="label">II · Avalere Health · late 2017</span>
-   <h2>Questions before the demo. Contracts grew.</h2>
+   {% include study-act.html n=2 %}
    <p>The session gave the company a way to say when an expert should lead and when a team should swarm. The product that was not selling was the first chance to use it. The market-analytics product was a year past its first release. A market study had been commissioned at the start, so the team felt the research was done. Prospects kept asking for one more feature before they would buy: the shape of a <strong>build trap</strong>.</p>
    <p>In the deck's terms the team had picked a leader and flown in formation behind it. The market study was the expert, its answers were treated as known, and each objection from a prospect was absorbed as a feature rather than read as a signal. The problem was complex and they were working it as if it were complicated.</p>
    <p>I joined the demos and interviewed fifteen stakeholders to surface the assumptions behind the product and its business model. The buyers were busy executives, and the company wanted a finished product in the room. I asked to try it the other way round, and to put questions before the demo. Sales let me in as the inquisitive product person. In Cynefin's terms that is probe, sense and respond. In the deck's terms it was the swarm, with the prospect inside it.</p>
@@ -566,12 +467,11 @@ figure:not(.in) .a{animation-play-state:paused!important}
     </svg></div>
     <figcaption>Fig. 4 · The service blueprint's top lane. The loop is the build trap: each objection became a feature. Leading with the problem moved the demo to the third step and made it a dashboard built for that prospect in Looker. Whatever kept recurring became the next prototype, and only then a product.</figcaption>
    </figure>
-   <span class="methods"><b>METHODS</b> · customer discovery · assumption mapping · solution interviews · service blueprint</span>
+   {% include study-methods.html n=2 %}
   </section>
 
   <section class="act" id="act-3">
-   <span class="label">III · Inovalon · 2018</span>
-   <h2>Design came in-house. Spend fell 26%.</h2>
+   {% include study-act.html n=3 %}
    <p>The sales work traveled further than I expected. In January 2018 a reorganization moved me to the Inovalon parent with a promotion. In June a design researcher joined, recruited out of the Philadelphia design scene and working from the same coworking space as me while the rest of the company stayed remote. Together we set out to understand about a dozen product teams and bring the work outsourced to a design vendor back in-house.</p>
    <p>Managers and tech leads liked the vendor: high-fidelity mockups, fast and consistent. They also said nobody was responsible for the whole client experience, or for tying it back to the measures the company ran on. Analysts wrote requirements, the vendor drew screens, and nobody in between asked why.</p>
    <p>With each team we ran the <strong>Innovator's Compass</strong>, a one-page canvas for framing a problem before solving it. It gave us workstreams and testable hypotheses. Findings went into an atomic research repository, and every two weeks we ran two or three experiments against them.</p>
@@ -650,12 +550,11 @@ figure:not(.in) .a{animation-play-state:paused!important}
     </div>
     <figcaption>Fig. 7 · The budget sheet from the September 2018 business case, redrawn. Staff cost is formula-linked to the compensation analysis and the vendor line to the executed contract, so an assumption changed anywhere moved the total. Velocity is the model's own estimate of delivery, not a measurement.</figcaption>
    </figure>
-   <span class="methods"><b>METHODS</b> · Innovator's Compass · hypothesis statements and proto-personas · atomic research repository · boundary objects</span>
+   {% include study-methods.html n=3 %}
   </section>
 
   <section class="act" id="act-4">
-   <span class="label">IV · Inovalon · 2018</span>
-   <h2>A tenth caught the wrong scenario.</h2>
+   {% include study-act.html n=4 %}
    <p>This ran alongside the business case rather than after it. In April 2018 Inovalon had launched a service that reads medical records and finds conditions a chart review would miss. Prospects wanted to review the findings themselves. The product team arrived with the interface already designed: not built, but written out as a requirements document the size of a book, with a budget to match. The deadline was Client Congress, the annual client conference, at the end of September.</p>
    <p>I pushed back. A tenth of the budget would buy a high-fidelity demo instead of production code, which we could change as fast as we learned, and it would leave room for a round of research first. Inovalon had about four hundred contract clinicians doing chart reviews, so the people we were building for were already inside the company, and we went to watch them work. We captured the team's assumptions in a business model canvas and held off on writing a scenario until the sessions had run.</p>
    <h3>What the requirements got wrong</h3>
@@ -778,12 +677,11 @@ figure:not(.in) .a{animation-play-state:paused!important}
 
    <h3>What a tenth bought</h3>
    <p>The prototype cost about a tenth of what the build would have, and it changed the design before the other nine tenths were committed. Over two years the practice put every build it touched through the same tenth. By its own accounting, the rework that never had to be scoped came to an estimated <strong>$2.4M</strong>.</p>
-   <span class="methods"><b>METHODS</b> · minimum viable product and innovation accounting · context scenarios · sketching before building · contextual inquiry · the ironies of automation</span>
+   {% include study-methods.html n=4 %}
   </section>
 
   <section class="act" id="act-5">
-   <span class="label">V · Inovalon · 2019</span>
-   <h2>Told not to bother. 200 applied.</h2>
+   {% include study-act.html n=5 %}
    <p>One product was enough to argue with. Scale was the next problem. After the ABILITY Network acquisition in 2018, Inovalon had dozens of development teams across four business units and two designers to serve them. Hiring our way out did not pencil. The AVP who ran one of the product lines told me not to bother trying. In that view, Inovalon was not the kind of place designers would want to work, so building the capability inside was wasted effort.</p>
    <p>The strategy became growing practitioners inside the teams instead: a <strong>Design Center of Excellence</strong> that trains, mentors, and certifies people who already do the work, and lets teams decide when to hire a designer.</p>
    <p>One empathy map on a skeptical stakeholder set the direction. The analysts had the domain knowledge; what they lacked was method. So we would train them.</p>
@@ -850,7 +748,7 @@ figure:not(.in) .a{animation-play-state:paused!important}
 
 
    <p>The approved headcount went out as job postings that spring. I had worked the job descriptions over with other design managers around Philadelphia first, trying drafts on them until the scope was right and the role read as one worth wanting. More than 200 qualified people applied in the first 24 hours. The AVP was wrong about that, and I had been wrong about how hard it would be. I left in July 2019 with the core team hired and the first cohort on the calendar. The pilot ran that September and the first cohort started in October, both after I had gone.</p>
-   <span class="methods"><b>METHODS</b> · design maturity model · double-loop learning · communities of practice · pirate metrics · service blueprint · ladder of participation</span>
+   {% include study-methods.html n=5 %}
   </section>
 
   <section class="act" id="afterwards">
@@ -869,35 +767,16 @@ figure:not(.in) .a{animation-play-state:paused!important}
     <blockquote><p>“A transformative force multiplier” whose team “initiated design research, performed service design, UX experiments, aligned business stakeholders, and successfully managed external design and software development resources.”</p><footer>Hiring manager · VP, Software and Data Analytics · Avalere Health · 2019</footer></blockquote>
    </div>
 
-   <p class="colophon"><b>Colophon</b> · Names are withheld and quotes attributed by role. Screens are reconstructions with synthetic data, not screenshots.</p>
-
-   <div class="next">
-    <a class="back" href="/#work">← All work</a>
-   </div>
+   {% include study-colophon.html %}
   </section>
  </article>
 </section>
-</main>
 
 <script>
 (function(){
- /* Enough of an element is on screen when the given share of it shows, or a third of the viewport's height of it does, so tall figures still count. */
+ /* The hero counts as on screen when the given share of it shows, or a third of the viewport's height of it does. Figures are gated by assets/js/study.js. */
  var TH=[0,.05,.1,.15,.2,.25,.3,.35];
  function seen(e,r){ var rh=(e.rootBounds&&e.rootBounds.height)||window.innerHeight; return e.isIntersecting&&(e.intersectionRatio>=r||e.intersectionRect.height>=0.3*rh); }
-
- /* Entrance animations wait until their figure is on screen, and rewind once it has left, so scrolling back plays them again. */
- var anim=document.querySelectorAll('figure .a');
- if(anim.length){
-  var figs=[]; for(var i=0;i<anim.length;i++){ var f=anim[i].closest('figure'); if(figs.indexOf(f)<0) figs.push(f); }
-  var anims=function(f){ var out=[], els=f.querySelectorAll('.a'); for(var j=0;j<els.length;j++){ if(!els[j].getAnimations) break; var as=els[j].getAnimations(); for(var k=0;k<as.length;k++) if(as[k].animationName) out.push(as[k]); } return out; };
-  var enter=function(f){ f.classList.add('in'); anims(f).forEach(function(a){ a.play(); }); };
-  var leave=function(f){ f.classList.remove('in'); anims(f).forEach(function(a){ a.pause(); a.currentTime=0; }); };
-  if(!('IntersectionObserver' in window)) for(var i=0;i<figs.length;i++) figs[i].classList.add('in');
-  else { var ao=new IntersectionObserver(function(es){ es.forEach(function(e){
-    if(seen(e,0.15)){ if(!e.target.classList.contains('in')) enter(e.target); }
-    else if(!e.isIntersecting&&e.target.classList.contains('in')) leave(e.target); }); },{threshold:TH});
-   for(var i=0;i<figs.length;i++) ao.observe(figs[i]); }
- }
 
  /* Fig. 2: the grid fills in task by task, accelerating, and the totals land last. It clears once it has scrolled away, so it plays again on the way back. */
  var tg=document.querySelector('.grid');

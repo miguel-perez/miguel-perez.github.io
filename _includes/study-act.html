@@ -1,0 +1,6 @@
+{%- comment %}The head of act n: its label line and six-word heading, from page.acts. The page opens the section itself so its tags stay balanced: <section class="act" id="act-1">{% include study-act.html n=1 %}{% endcomment %}
+{%- assign numerals = "I,II,III,IV,V,VI,VII" | split: "," %}
+{%- assign i = include.n | minus: 1 %}
+{%- assign a = page.acts[i] %}
+<span class="label">{{ numerals[i] }} · {{ a.where }} · {{ a.when }}</span>
+   <h2>{{ a.title }}</h2>

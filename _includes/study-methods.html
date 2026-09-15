@@ -1,0 +1,3 @@
+{%- assign i = include.n | minus: 1 %}
+{%- assign a = page.acts[i] %}
+<span class="methods"><b>METHODS</b> · {{ a.methods | join: " · " }}</span>

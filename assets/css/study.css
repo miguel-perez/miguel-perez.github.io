@@ -1,0 +1,156 @@
+/* The store, shared by every case study through _layouts/study.html. What stays constant:
+   the wordmark and nav type, hairlines, Fira Code labels, Instrument Serif body, the number
+   strip, the facts rail, figure numbering, and the colophon. The street is the client's
+   published tokens and headline face, set as custom properties on body in the page's own
+   <style>. A study only sets what differs from the defaults below; the header and the nav
+   have their own tokens so a study can invert them (Arrow's black header block). */
+body{margin:0;background:var(--page-bg,#fff);color:var(--ink,#000);font-family:'Instrument Serif',Georgia,serif;-webkit-font-smoothing:antialiased;
+ --ink:#000;--ink-rgb:0,0,0;--text:#333;--muted:#555;--accent:#000;--accent-rgb:0,0,0;
+ --head:'Helvetica Neue',Helvetica,Arial,sans-serif;--head-weight:700;
+ --nav-bg:rgba(255,255,255,.72);--nav-bg-solid:rgba(255,255,255,.96);--nav-rule:rgba(var(--ink-rgb),.14);--nav-text:var(--text);--nav-ink:var(--ink);--nav-accent:var(--accent);
+ --hd-bg:transparent;--hd-ink:var(--ink);--hd-text:var(--text);--hd-muted:var(--muted);--hd-rule:rgba(var(--ink-rgb),.35);--hd-accent:var(--accent)}
+*{box-sizing:border-box}
+a{color:inherit;text-decoration:none}
+a:hover{text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px}
+.wrap{max-width:1440px;margin:0 auto;padding-left:clamp(20px,4vw,56px);padding-right:clamp(20px,4vw,56px)}
+
+/* Nav. A 70px box with 58px hit areas, so the wordmark's font swap cannot move the page. */
+.nav{position:sticky;top:0;z-index:10;background:var(--nav-bg);backdrop-filter:blur(20px) saturate(1.5);-webkit-backdrop-filter:blur(20px) saturate(1.5);border-bottom:1px solid var(--nav-rule);color:var(--nav-ink)}
+@supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.nav{background:var(--nav-bg-solid)}}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0 24px;padding-top:6px;padding-bottom:6px;min-height:70px}
+.nav a:hover{text-decoration-color:var(--nav-accent)}
+.wordmark{font-size:22px;font-style:italic;display:inline-flex;align-items:center;min-height:58px}
+.nav nav{display:flex;flex-wrap:wrap;gap:36px;font:12px 'Fira Code',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--nav-text)}
+.nav nav a{display:inline-flex;align-items:center;min-height:58px;padding:0 12px;margin:0 -12px}
+@media(max-width:760px){.nav nav{gap:24px}}
+.nav nav .contact{color:var(--nav-ink);text-decoration:underline;text-underline-offset:4px}
+
+/* Case header: the meta line, the hero (text and art), the facts rail, the numbers strip. */
+.label{font:12px 'Fira Code',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.case-header{background:var(--hd-bg);color:var(--hd-ink);padding-top:56px;padding-bottom:56px}
+.case-header .label{color:var(--hd-muted)}
+.case-header .meta{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 40px}
+.case-header .meta .jump{color:var(--hd-ink);text-decoration:none;border-bottom:1px solid var(--hd-rule)}
+.case-header .meta .jump:hover{border-bottom-color:var(--hd-ink)}
+.case-header a:hover{text-decoration-color:var(--hd-accent)}
+.hero{display:grid;grid-template-columns:minmax(0,7fr) minmax(320px,5fr);gap:32px 56px;align-items:stretch;margin-top:28px}
+.hero-text{min-width:0;container-type:inline-size}
+.hero-art{position:relative;min-height:380px;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px 0;cursor:pointer}
+.hero-art .cap{min-width:0;overflow:hidden;margin-top:16px;font:11px/1.7 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--hd-muted);pointer-events:none}
+.hero-art .cap b{display:block;font-weight:400;color:var(--hd-ink);height:1.7em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hero-art .cap b.now{color:var(--hd-muted)}
+.hero-art .cap i{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px}
+.facts-row{display:grid;grid-template-columns:1fr;gap:20px 32px;margin-top:40px;font:12px/1.65 'Fira Code',monospace;color:var(--hd-text)}
+@container (min-width:660px){.facts-row{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.facts-row > div{border-top:1px solid var(--hd-rule);padding-top:10px}
+.facts-row span{display:block}
+.facts-row .k{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--hd-muted);margin-bottom:2px}
+h1{margin:0;max-width:1100px;font:var(--head-weight) clamp(44px,6vw,88px)/.98 var(--head);letter-spacing:-.03em;text-wrap:balance}
+h1 em{font-style:normal;color:var(--hd-accent)}
+.lede{margin:32px 0 0;max-width:720px;font-size:22px;line-height:1.4;color:var(--hd-text)}
+.numbers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px 40px;margin-top:56px;border-top:1px solid var(--hd-rule);padding-top:24px}
+@media (max-width:520px){.numbers{grid-template-columns:1fr}}
+@media (min-width:920px){.numbers{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.numbers b{display:block;font:var(--head-weight) 44px/1 var(--head);letter-spacing:-.03em;color:var(--hd-ink)}
+.numbers span{display:block;margin-top:8px;font:12px/1.6 'Fira Code',monospace;color:var(--hd-muted)}
+
+/* The story: acts on an 800px measure, figures allowed to grow to 1040px. */
+.body{padding-top:48px;padding-bottom:0}
+.story{margin:0 auto;min-width:0}
+.act{margin:72px 0 0;display:grid;grid-template-columns:1fr min(800px,100%) 1fr}
+.act > *{grid-column:2;min-width:0}
+.act > figure{grid-column:1/-1}
+.act > figure.dia{width:100%;max-width:1040px;justify-self:center}
+.act > figure.txt{grid-column:2}
+.act:first-child{margin-top:0}
+.act .label{display:block}
+.story h2{margin:10px 0 0;font:var(--head-weight) clamp(30px,3vw,40px)/1.1 var(--head);letter-spacing:-.02em;color:var(--ink)}
+.story h3{margin:44px 0 0;font:var(--head-weight) 22px/1.2 var(--head);letter-spacing:-.01em;color:var(--ink)}
+.story p{margin:16px 0 0;font-size:19px;line-height:1.55;color:var(--text)}
+.story h2 + p{margin-top:20px}
+.story strong{font-weight:400;color:var(--ink);border-bottom:1px solid var(--accent)}
+.story q{quotes:"\201C" "\201D"}
+/* The outline: the timeline and one row per act. */
+.outline{margin:36px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr));gap:24px 32px}
+.outline li{border-top:1px solid rgba(var(--ink-rgb),.25);padding-top:10px;min-width:0}
+.outline a{display:block;min-height:58px;font-size:19px;line-height:1.3;color:var(--ink)}
+.outline a:hover{text-decoration:none}
+.outline a:hover span{text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px}
+.outline b{display:block;margin-bottom:4px;font:12px/1.7 'Fira Code',monospace;letter-spacing:.08em;text-transform:uppercase;font-weight:400;color:var(--muted)}
+figure{margin:40px 0 0;display:flex;flex-direction:column;gap:14px}
+figure svg{width:100%;height:auto;display:block;overflow:visible}
+.fig-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.fig-scroll:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+figcaption{font:12px/1.7 'Fira Code',monospace;color:var(--muted);max-width:800px;margin-left:auto;margin-right:auto}
+figcaption b{font-weight:400;color:var(--ink)}
+.key{display:flex;flex-wrap:wrap;align-items:center;margin:0;font:11px/1.7 'Fira Code',monospace;color:var(--muted)}
+.story p.key{margin:0;font:11px/1.7 'Fira Code',monospace;color:var(--muted)}
+.loop{margin-top:10px;font:11px/1.6 'Fira Code',monospace;color:var(--muted);border-top:1px dashed rgba(var(--ink-rgb),.35);padding-top:8px}
+.quotes{margin:64px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:32px}
+blockquote{margin:0}
+blockquote p{margin:0;font-size:20px;line-height:1.3;font-style:italic;color:var(--text)}
+blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:var(--muted)}
+.after{margin:20px 0 0;padding:0;list-style:none}
+.after li{border-top:1px solid rgba(var(--ink-rgb),.25);padding:16px 0;font-size:18px;line-height:1.5;color:var(--text)}
+.after li:last-child{border-bottom:1px solid rgba(var(--ink-rgb),.25)}
+.after b{font-weight:400;color:var(--ink)}
+.methods{display:block;margin:28px 0 0;padding-top:12px;border-top:1px solid rgba(var(--ink-rgb),.18);font:12px/1.8 'Fira Code',monospace;letter-spacing:.04em;color:var(--muted)}
+.methods b{font-weight:400;color:var(--ink);letter-spacing:.08em}
+.story p.colophon{margin:64px 0 0;border-top:1px solid rgba(var(--ink-rgb),.35);padding-top:16px;font:12px/1.8 'Fira Code',monospace;color:var(--muted)}
+.colophon b{font-weight:400;color:var(--ink);letter-spacing:.08em;text-transform:uppercase}
+.next{margin:48px 0 0;border-top:1px solid rgba(var(--ink-rgb),.35);padding-top:28px}
+.back{font:13px 'Fira Code',monospace;color:var(--muted);display:inline-block;padding:22px 0;margin:-22px 0}
+
+/* Reconstructed artifacts. Redrawn from the originals with synthetic data; nothing is a screenshot. */
+.ui{border:1px solid rgba(var(--ink-rgb),.3);border-radius:6px;background:#fff;overflow:hidden;font:13px/1.45 var(--head);color:var(--text)}
+.ui-bar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 20px;padding:10px 16px;border-bottom:1px solid rgba(var(--ink-rgb),.18);background:rgba(var(--ink-rgb),.04)}
+.ui-bar b{font-weight:var(--head-weight);color:var(--ink)}
+.ui-bar .label{font-size:11px}
+.tabs{display:flex;gap:2px;overflow-x:auto;padding:8px 8px 0;border-bottom:1px solid rgba(var(--ink-rgb),.18);scrollbar-width:none}
+.tabs::-webkit-scrollbar{display:none}
+@media(max-width:760px){.ui[role="img"] .tabs{overflow:hidden}}
+.tabs span{flex:0 0 auto;padding:6px 10px;border-radius:4px 4px 0 0;font:11px 'Fira Code',monospace;color:var(--muted);white-space:nowrap}
+.tabs span i{font-style:normal;color:var(--ink)}
+.tabs span.on{background:var(--ink);color:#fff}
+.tabs span.on i{color:#fff}
+.tbl{width:100%;border-collapse:collapse}
+.tbl th{font:11px 'Fira Code',monospace;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);font-weight:400;text-align:left;padding:10px 12px;border-bottom:1px solid rgba(var(--ink-rgb),.18);white-space:nowrap}
+.tbl td{padding:9px 12px;border-bottom:1px solid rgba(var(--ink-rgb),.1);vertical-align:middle;white-space:nowrap}
+.tbl td:first-child{width:38%}
+.tbl tr:last-child td{border-bottom:0}
+.tbl-scroll{overflow-x:auto}
+.num{font:var(--head-weight) 13px var(--head);color:var(--ink)}
+.pill{display:inline-block;padding:2px 8px;border-radius:10px;font:11px 'Fira Code',monospace;line-height:1.5}
+.pill.l{background:rgba(var(--ink-rgb),.05);color:var(--muted);border:1px solid rgba(var(--ink-rgb),.18)}
+.chain{display:flex;flex-wrap:wrap;align-items:center;gap:8px 6px;padding:12px 16px;border-top:1px solid rgba(var(--ink-rgb),.18);font:11px 'Fira Code',monospace;color:var(--muted)}
+.chain b{font:var(--head-weight) 16px var(--head);color:var(--ink);margin-right:4px}
+.chain i{font-style:normal;padding:0 4px}
+
+/* Alignment diagrams drawn as grids: journey maps, blueprints, process maps. --bp-n is the
+   number of phase columns, set inline on each diagram. */
+.bp{display:grid;grid-template-columns:var(--bp-lane,120px) repeat(var(--bp-n,5),minmax(0,1fr));border:1px solid rgba(var(--ink-rgb),.3);border-radius:6px;overflow:hidden;background:#fff;font:12px/1.5 'Fira Code',monospace;color:var(--text)}
+.bp > div{padding:9px 11px;border-bottom:1px solid rgba(var(--ink-rgb),.08);border-left:1px solid rgba(var(--ink-rgb),.08)}
+.bp-lane{grid-column:1;border-left:0;background:rgba(var(--ink-rgb),.035);color:var(--ink);font-size:12px;letter-spacing:.05em;text-transform:uppercase;display:flex;align-items:center}
+.bp-phase{background:rgba(var(--ink-rgb),.06);color:var(--ink);font:var(--head-weight) 13px/1.25 var(--head)}
+.bp-phase small{display:block;margin-top:3px;font:12px/1.5 'Fira Code',monospace;color:var(--muted);letter-spacing:.05em;text-transform:uppercase;font-weight:400}
+.bp-corner{background:rgba(var(--ink-rgb),.06);border-left:0}
+.bp-cell b{display:block;font-weight:400;color:var(--ink)}
+.bp-cell i{font-style:normal;color:var(--muted)}
+.bp-span{grid-column:2/-1}
+
+/* Motion. Entrance animations are gated by assets/js/study.js: a figure's .a elements play
+   once it is on screen, rewind when it leaves, and replay on the way back. The gate needs
+   !important because an inline animation shorthand sets animation-play-state:running.
+   Reduced motion shows every end state. */
+figure:not(.in) .a{animation-play-state:paused!important}
+@keyframes dash{to{stroke-dashoffset:0}}
+@keyframes grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes growx{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes pop{from{opacity:0;transform:scale(.4)}to{opacity:1;transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.a[stroke-dashoffset]{stroke-dashoffset:0!important}}
+@media (max-width:720px){
+ .hero{grid-template-columns:1fr}
+ .hero-art{min-height:0;padding:8px 0 0}
+ .fig-scroll svg{min-width:620px}
+ .fig-scroll::after{content:"← scroll sideways →";display:block;margin-top:6px;font:12px/1.6 'Fira Code',monospace;color:var(--muted);letter-spacing:.04em}
+}
