@@ -1,7 +1,7 @@
 ---
 title: "Ninety days, 39 interviews, eight levers on profitability"
+client: "Arrow Electronics"
 description: "Arrow Electronics' enterprise computing group wanted evidence before investing in a self-service portal for its partners. Through ClientSolv I ran a 90-day research pilot: 39 interviews and more than 1,600 observations, synthesized with the team into more than 50 insights and eight ways a portal could drive profitability. The people, process, and tools for user research stayed with the team."
-draft: true
 fonts: [archivo]
 ---
 <style>
@@ -13,10 +13,12 @@ a:hover{text-decoration:underline;text-decoration-color:#0069AA;text-underline-o
 .wrap{max-width:1440px;margin:0 auto;padding-left:clamp(20px,4vw,56px);padding-right:clamp(20px,4vw,56px)}
 .nav{position:sticky;top:0;z-index:10;background:rgba(0,0,0,.8);backdrop-filter:blur(20px) saturate(1.5);-webkit-backdrop-filter:blur(20px) saturate(1.5);border-bottom:1px solid rgba(255,255,255,.2);color:#fff}
 @supports not ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.nav{background:rgba(0,0,0,.96)}}
-.nav .wrap{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px 24px;padding-top:20px;padding-bottom:20px}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:0 24px;padding-top:6px;padding-bottom:6px;min-height:70px}
 .nav a:hover{text-decoration-color:#0084D5}
-.wordmark{font-size:22px;font-style:italic}
+.wordmark{font-size:22px;font-style:italic;display:inline-flex;align-items:center;min-height:58px}
 .nav nav{display:flex;flex-wrap:wrap;gap:36px;font:12px 'Fira Code',monospace;letter-spacing:.1em;text-transform:uppercase;color:#d9d9d9}
+.nav nav a{display:inline-flex;align-items:center;min-height:58px;padding:0 12px;margin:0 -12px}
+@media(max-width:760px){.nav nav{gap:24px}}
 .nav nav .contact{color:#fff;text-decoration:underline;text-decoration-color:#0084D5;text-underline-offset:4px}
 .label{font:12px 'Fira Code',monospace;letter-spacing:.08em;text-transform:uppercase;color:#555}
 .case-header{background:#000;color:#fff;padding-top:56px;padding-bottom:56px}
@@ -66,13 +68,14 @@ h1 em{font-style:normal;color:#0084D5}
 /* The outline: the timeline and one row per act. */
 .outline{margin:36px 0 0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(230px,100%),1fr));gap:24px 32px}
 .outline li{border-top:1px solid rgba(0,0,0,.25);padding-top:10px;min-width:0}
-.outline a{display:block;font-size:19px;line-height:1.3;color:#000}
+.outline a{display:block;min-height:58px;font-size:19px;line-height:1.3;color:#000}
 .outline a:hover{text-decoration:none}
 .outline a:hover span{text-decoration:underline;text-decoration-color:#0069AA;text-underline-offset:3px}
 .outline b{display:block;margin-bottom:4px;font:11px/1.7 'Fira Code',monospace;letter-spacing:.08em;text-transform:uppercase;font-weight:400;color:#555}
 figure{margin:40px 0 0;display:flex;flex-direction:column;gap:14px}
 figure svg{width:100%;height:auto;display:block;overflow:visible}
 .fig-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+.fig-scroll:focus-visible{outline:2px solid #0069AA;outline-offset:4px}
 figcaption{font:12px/1.7 'Fira Code',monospace;color:#555;max-width:800px;margin-left:auto;margin-right:auto}
 figcaption b{font-weight:400;color:#000}
 .quotes{margin:64px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(200px,100%),1fr));gap:32px}
@@ -88,7 +91,7 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#555
 .colophon{margin:64px 0 0;border-top:1px solid rgba(0,0,0,.35);padding-top:16px;font:12px/1.8 'Fira Code',monospace;color:#555}
 .colophon b{font-weight:400;color:#000;letter-spacing:.08em;text-transform:uppercase}
 .next{margin:48px 0 0;border-top:1px solid rgba(0,0,0,.35);padding-top:28px}
-.back{font:13px 'Fira Code',monospace;color:#555}
+.back{font:13px 'Fira Code',monospace;color:#555;display:inline-block;padding:22px 0;margin:-22px 0}
 
 /* Reconstructed artifacts. Redrawn from the originals with synthetic data; nothing is a screenshot. */
 .ui{border:1px solid rgba(0,0,0,.3);border-radius:6px;background:#fff;overflow:hidden;font:13px/1.45 'Helvetica Neue',Helvetica,Archivo,Arial,sans-serif;color:#333}
@@ -97,6 +100,7 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#555
 .ui-bar .label{font-size:11px}
 .tabs{display:flex;gap:2px;overflow-x:auto;padding:8px 8px 0;border-bottom:1px solid rgba(0,0,0,.18);scrollbar-width:none}
 .tabs::-webkit-scrollbar{display:none}
+@media(max-width:760px){.ui[role="img"] .tabs{overflow:hidden}}
 .tabs span{flex:0 0 auto;padding:6px 10px;border-radius:4px 4px 0 0;font:11px 'Fira Code',monospace;color:#555;white-space:nowrap}
 .tabs span i{font-style:normal;color:#000}
 .tabs span.on{background:#000;color:#fff}
@@ -115,7 +119,7 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#555
 .pill.k{background:#000;color:#fff}
 .chain{display:flex;flex-wrap:wrap;align-items:center;gap:8px 6px;padding:12px 16px;border-top:1px solid rgba(0,0,0,.18);font:11px 'Fira Code',monospace;color:#555}
 .chain b{font:700 16px 'Helvetica Neue',Helvetica,Archivo,Arial,sans-serif;color:#000;margin-right:4px}
-.chain i{font-style:normal;color:rgba(0,0,0,.4);padding:0 4px}
+.chain i{font-style:normal;color:rgba(0,0,0,.55);padding:0 4px}
 .chain .pill{margin-right:2px}
 
 /* Fig. 5: observation cards from the repository */
@@ -123,7 +127,7 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#555
 .obs > div{border:1px solid rgba(0,0,0,.18);border-left:3px solid #0069AA;border-radius:4px;padding:12px 14px;display:flex;flex-direction:column;gap:10px;min-width:0}
 .obs .tg{display:flex;flex-direction:row;flex-wrap:wrap;gap:4px}
 .obs q{font:16px/1.35 'Instrument Serif',serif;color:#333;quotes:"\201C" "\201D"}
-.obs .src{font:10px/1.6 'Fira Code',monospace;color:#555;letter-spacing:.04em;text-transform:uppercase}
+.obs .src{font:11px/1.6 'Fira Code',monospace;color:#555;letter-spacing:.04em;text-transform:uppercase}
 
 
 
@@ -140,15 +144,16 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#555
 .app-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
 .card{background:#fff;border-radius:8px;padding:16px;box-shadow:0 1px 2px rgba(0,0,0,.06),0 8px 24px rgba(0,0,0,.05);display:flex;flex-direction:column;gap:10px;min-width:0}
 .c-orders{grid-column:span 2}
-.card-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font:10px 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;color:#555}
+.card-h{display:flex;justify-content:space-between;align-items:baseline;gap:10px;font:11px 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;color:#555}
 .card-h b{font:700 14px 'Helvetica Neue',Helvetica,Archivo,Arial,sans-serif;color:#000;letter-spacing:-.01em;text-transform:none}
 .card .big{font:700 30px/1 'Helvetica Neue',Helvetica,Archivo,Arial,sans-serif;color:#000;letter-spacing:-.02em}
 .card .sub{font-size:12px;color:#555}
 .card .row{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:8px 0;border-top:1px solid rgba(0,0,0,.08)}
 .card .row > span:first-child{min-width:0}
-.card .row i,.ord-n i{display:block;font-style:normal;font:10px/1.5 'Fira Code',monospace;color:#555}
+.card .row i,.ord-n i{display:block;font-style:normal;font:11px/1.5 'Fira Code',monospace;color:#555}
 .card .row .pill{flex:0 0 auto}
 .card .btn{margin-top:auto}
+@media(max-width:760px){.btn{min-height:58px}}
 .bar{height:6px;border-radius:3px;background:rgba(0,0,0,.08);overflow:hidden}
 .bar i{display:block;height:100%;background:#0069AA}
 .ord{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr) minmax(0,1fr);gap:8px 16px;align-items:center;padding:10px 0;border-top:1px solid rgba(0,0,0,.08)}
@@ -161,9 +166,9 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#555
 .tl i.w{background:#fff;border:2px solid #0069AA;box-sizing:border-box}
 .tl s{flex:1;height:2px;background:rgba(0,0,0,.12);text-decoration:none}
 .tl s.on{background:#0069AA}
-.tl-key{display:flex;justify-content:space-between;font:9px 'Fira Code',monospace;letter-spacing:.04em;text-transform:uppercase;color:#555;padding-top:4px}
+.tl-key{display:flex;justify-content:space-between;font:11px 'Fira Code',monospace;letter-spacing:.04em;text-transform:uppercase;color:#555;padding-top:4px}
 .funnel{display:block;width:100%;height:auto}
-.btn{display:inline-block;align-self:flex-start;font:700 12px 'Helvetica Neue',Helvetica,Archivo,Arial,sans-serif;padding:6px 11px;border-radius:5px;border:1px solid #0069AA;background:#0069AA;color:#fff}
+.btn{display:inline-flex;align-items:center;min-height:38px;align-self:flex-start;font:700 12px 'Helvetica Neue',Helvetica,Archivo,Arial,sans-serif;padding:6px 12px;border-radius:5px;border:1px solid #0069AA;background:#0069AA;color:#fff}
 @media (max-width:1000px){.app-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
 /* Alignment diagrams drawn as grids: the journey map and the process. */
@@ -171,7 +176,7 @@ blockquote footer{margin-top:16px;font:12px/1.6 'Fira Code',monospace;color:#555
 .bp > div{padding:9px 11px;border-bottom:1px solid rgba(0,0,0,.08);border-left:1px solid rgba(0,0,0,.08)}
 .bp-lane{grid-column:1;border-left:0;background:rgba(0,0,0,.035);color:#000;font-size:10px;letter-spacing:.05em;text-transform:uppercase;display:flex;align-items:center}
 .bp-phase{background:rgba(0,0,0,.06);color:#000;font:700 13px/1.25 'Helvetica Neue',Helvetica,Archivo,Arial,sans-serif}
-.bp-phase small{display:block;margin-top:3px;font:10px/1.5 'Fira Code',monospace;color:#555;letter-spacing:.05em;text-transform:uppercase;font-weight:400}
+.bp-phase small{display:block;margin-top:3px;font:11px/1.5 'Fira Code',monospace;color:#555;letter-spacing:.05em;text-transform:uppercase;font-weight:400}
 .bp-corner{background:rgba(0,0,0,.06);border-left:0}
 .bp-cell b{display:block;font-weight:400;color:#000}
 .bp-cell i{font-style:normal;color:#555}
@@ -204,7 +209,7 @@ figure:not(.in) .a{animation-play-state:paused}
  .ord{grid-template-columns:1fr}
  .app-body{padding:14px}
  .fig-scroll svg{min-width:620px}
- .fig-scroll::after{content:"← scroll sideways →";display:block;margin-top:6px;font:10px/1.6 'Fira Code',monospace;color:#555;letter-spacing:.04em}
+ .fig-scroll::after{content:"← scroll sideways →";display:block;margin-top:6px;font:11px/1.6 'Fira Code',monospace;color:#555;letter-spacing:.04em}
 }
 </style>
 
@@ -248,7 +253,7 @@ figure:not(.in) .a{animation-play-state:paused}
    <p>Ninety days to put evidence in the 2020 plan, and leave the team able to keep gathering it.</p>
 
    <figure class="dia">
-<div class="fig-scroll"><svg viewBox="0 0 760 230" aria-label="Timeline from 12 November 2019 to 5 March 2020. Four sprints through 3 January, the journey map in mid January, four workshops in late January and early February, the executive summary at day 90 on 10 February, the process documented on 19 February, and handoff on 5 March.">
+<div tabindex="0" role="region" aria-label="Figure, scrolls sideways" class="fig-scroll"><svg viewBox="0 0 760 230" aria-label="Timeline from 12 November 2019 to 5 March 2020. Four sprints through 3 January, the journey map in mid January, four workshops in late January and early February, the executive summary at day 90 on 10 February, the process documented on 19 February, and handoff on 5 March.">
      <rect x="20" y="108" width="540" height="24" fill="#000" fill-opacity=".06"/>
      <rect x="428" y="108" width="114" height="24" fill="#0069AA" fill-opacity=".14"/>
      <line x1="20" y1="120" x2="560" y2="120" stroke="#000" stroke-opacity=".45" stroke-width="1.5" stroke-dasharray="540" stroke-dashoffset="540" class="a" style="animation:dash 1.8s ease-out .2s forwards"/>
@@ -288,7 +293,7 @@ figure:not(.in) .a{animation-play-state:paused}
    <p>Three artifacts came out of that week. An <strong>Innovators' Compass</strong> put the team's principles, observations, ideas, and experiments on one page, with the people it was for in the middle. A provisional <strong>stakeholder map</strong> drew who at Arrow talked to whom on the reseller side and the supplier side, the first picture anyone had of where the experience could break. And an experiment backlog in Airtable cut the ninety days into two-week sprints with due dates, so the research ran on the cadence of the software team it was for.</p>
 
    <figure class="dia">
-<div class="fig-scroll"><svg viewBox="0 0 760 340" aria-label="Directed graph of who talks to whom: four reseller roles above, six Arrow enterprise computing functions in the middle, three supplier roles below. Solid arrows carry orders and quotes, dashed arrows programs and funds, dotted arrows communication.">
+<div tabindex="0" role="region" aria-label="Figure, scrolls sideways" class="fig-scroll"><svg viewBox="0 0 760 340" aria-label="Directed graph of who talks to whom: four reseller roles above, six Arrow enterprise computing functions in the middle, three supplier roles below. Solid arrows carry orders and quotes, dashed arrows programs and funds, dotted arrows communication.">
      <defs><marker id="ah2" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0l8 4-8 4z" fill="#000" fill-opacity=".7"/></marker></defs>
      <g font-family="Fira Code,monospace" font-size="11" fill="#555"><text x="20" y="16">RESELLER</text><text x="20" y="136">ARROW</text><text x="20" y="256">SUPPLIER</text></g>
      <g fill="#0069AA" fill-opacity=".08" stroke="#0069AA"><rect x="65" y="24" width="120" height="40" rx="3"/><rect x="235" y="24" width="120" height="40" rx="3"/><rect x="405" y="24" width="120" height="40" rx="3"/><rect x="575" y="24" width="120" height="40" rx="3"/></g>
@@ -325,7 +330,7 @@ figure:not(.in) .a{animation-play-state:paused}
     <div class="ui" role="img" aria-label="The Airtable experiment backlog, redrawn: nine experiments with status, sprint, and due date across sprints zero to three, as it stood at the end of November 2019.">
      <div class="ui-bar"><b>Partner research · Experiments</b><span class="label">end of November 2019</span></div>
      <div class="tabs"><span class="on">Experiments <i>9</i></span><span>Sprints <i>4</i></span><span>Stakeholders</span><span>Interviews</span><span>Observations</span><span>Insights</span></div>
-     <div class="tbl-scroll"><table class="tbl">
+     <div tabindex="0" role="region" aria-label="Table, scrolls sideways" class="tbl-scroll"><table class="tbl">
       <thead><tr><th>Experiment</th><th>Status</th><th>Sprint</th><th>Due</th></tr></thead>
       <tbody>
        <tr><td>Project stakeholder interviews</td><td><span class="pill h">Complete</span></td><td>Sprint 0</td><td>22 Nov 2019</td></tr>
@@ -348,12 +353,12 @@ figure:not(.in) .a{animation-play-state:paused}
   <section class="act" id="act-2">
    <span class="label">II · Arrow Electronics · November to December 2019</span>
    <h2>Employees first, to earn the customers.</h2>
-   <p>Customers were the point, and the team did not yet have the standing to ask for them. Account executives owned those relationships, and a consultant's request to interview a reseller's executive gets declined by default. So sprint 1 went to the people inside Arrow who already talked to partners every day: seventeen interviews across executives, sales, IT, finance, operations, marketing, and engineering.</p>
+   <p>Customers were the point, and the team did not yet have the standing to ask for them. Account executives owned those relationships. A consultant's request to interview a reseller's executive gets declined by default. So sprint 1 went to the people inside Arrow who already talked to partners every day. That meant seventeen interviews across executives, sales, IT, finance, operations, marketing, and engineering.</p>
    <p>The account executives got the fullest version. We recorded each conversation, and with each one drew the partner's year on the wall in sticky notes: what happened before a sale and after it, what came around weekly and quarterly, and where the phone calls came from. The maps were rough on purpose. A paper map drawn with the person in an hour says what the person believes. The point was to collect the internal assumptions in a form the customer interviews could confirm or overturn. The provisional personas that came out of the sprint were labeled provisional for the same reason.</p>
    <p>The same weeks doubled as training. Team members sat in on interviews, then ran their own with me in the room, then coded what they heard into the repository. By the time we went to customers, the team had watched the questions work on colleagues. That is what earned the next permission: business development, which sat on the project team, agreed to let me interview their customers directly, on Arrow's behalf, and the rest of the project stood on it.</p>
 
    <figure class="txt">
-<div class="fig-scroll"><svg viewBox="0 0 760 214" aria-label="A wall of sticky notes along a horizontal line labeled yearly, pre-sale, post-sale, renewals, weekly, and quarterly, with rows for what goes well, time, pain, and ideas. Redrawn from a photograph of the session.">
+<div tabindex="0" role="region" aria-label="Figure, scrolls sideways" class="fig-scroll"><svg viewBox="0 0 760 214" aria-label="A wall of sticky notes along a horizontal line labeled yearly, pre-sale, post-sale, renewals, weekly, and quarterly, with rows for what goes well, time, pain, and ideas. Redrawn from a photograph of the session.">
      <g font-family="Fira Code,monospace" font-size="9" fill="#555" letter-spacing=".06em"><text x="14" y="62">GOOD</text><text x="14" y="112">TIME</text><text x="14" y="154">PAIN</text><text x="14" y="198">IDEAS</text></g>
      <line x1="58" y1="108" x2="740" y2="108" stroke="#000" stroke-opacity=".7" stroke-width="1.5" stroke-linecap="round"/>
      <g stroke="#000" stroke-opacity=".35" stroke-dasharray="3 4"><line x1="470" y1="20" x2="470" y2="200"/><line x1="560" y1="20" x2="560" y2="200"/><line x1="630" y1="20" x2="630" y2="200"/><line x1="700" y1="20" x2="700" y2="200"/></g>
@@ -407,11 +412,11 @@ figure:not(.in) .a{animation-play-state:paused}
    <span class="label">III · Arrow Electronics · December 2019 to January 2020</span>
    <h2>Fourteen customers, unfiltered, one query away.</h2>
    <p>Fourteen interviews with customers followed, eleven at resellers and three at suppliers, from executives and sales leads to the operations people who keyed the orders. Two of the reseller conversations happened on their premises. Each ran about an hour and was recorded. I ran every one of them, alone or with a team member observing, so the customer was talking to a researcher and not to the account executive who owned the relationship. That is why the material came back unfiltered.</p>
-   <p>Resellers described purchase orders by the thousand, keyed by hand; invoices that arrived with six decimal places, or for a single penny; order status that came by phone; and a credit process that slowed deals at the moment they were ready to close. Suppliers described a distributor they could not see into: no dashboard for the programs they funded, and no way to show their own leadership what those programs had returned. A few of them said things about how Arrow treated its partners, and the team heard them in the customer's own words.</p>
+   <p>Resellers described purchase orders by the thousand, keyed by hand. Invoices arrived with six decimal places, or for a single penny. Order status came by phone. A credit process slowed deals at the moment they were ready to close. Suppliers described a distributor they could not see into. There was no dashboard for the programs they funded, and no way to show their own leadership what those programs had returned. A few of them said things about how Arrow treated its partners, and the team heard them in the customer's own words.</p>
 
    <h3>The repository</h3>
-   <p>Every recording went to transcription, and every transcript was cut into <strong>observations</strong>: one statement, one speaker, one place in the journey, tagged by role and by topic, in an Airtable base built for the purpose. By the second week of January the base held more than 1,600 of them. A query could pull every observation about invoicing from every operations lead, or everything a supplier had said about market development funds, the money suppliers put up for resellers' campaigns, and the team could read the evidence behind a claim instead of taking my word for it.</p>
-   <p>Insights were written on top of the observations. Each insight card carried the observations behind it and its place in the journey, so anyone could get from a claim back to who said what. More than fifty insights went onto a journey map with eight stages, from campaigns to growth, and onto five personas: a reseller's executive, sales, operations, and IT, and a supplier's distribution manager.</p>
+   <p>Every recording went to transcription. Every transcript was cut into <strong>observations</strong>: one statement, one speaker, one place in the journey, tagged by role and by topic. They lived in an Airtable base built for the purpose. By the second week of January the base held more than 1,600 of them. A query could pull every observation about invoicing from every operations lead. It could pull everything a supplier had said about market development funds, the money suppliers put up for resellers' campaigns. The team could read the evidence behind a claim instead of taking my word for it.</p>
+   <p>Insights were written on top of the observations. Each insight card carried the observations behind it and its place in the journey, so anyone could get from a claim back to who said what. More than fifty insights went onto a journey map with eight stages, from campaigns to growth. They also went onto five personas: a reseller's executive, sales, operations, and IT, and a supplier's distribution manager.</p>
 
    <figure>
     <div class="ui" role="img" aria-label="The research repository, redrawn: tab counts for interviews, transcripts, observations, insights, themes, and opportunities; three observation cards tagged by role and topic with paraphrased quotes; and the chain from interviews to levers.">
@@ -428,7 +433,7 @@ figure:not(.in) .a{animation-play-state:paused}
    </figure>
 
    <figure>
-<div class="fig-scroll"><div class="bp" style="--bp-n:8" role="img" aria-label="Eight journey stages by four lanes: the jobs a partner has to get done, the main pain point with the number of observations behind it, the outcome partners asked for, and the lever from Act IV that addresses it. A final row spans all eight stages for the self-serve platform.">
+<div tabindex="0" role="region" aria-label="Figure, scrolls sideways" class="fig-scroll"><div class="bp" style="--bp-n:8" role="img" aria-label="Eight journey stages by four lanes: the jobs a partner has to get done, the main pain point with the number of observations behind it, the outcome partners asked for, and the lever from Act IV that addresses it. A final row spans all eight stages for the self-serve platform.">
       <div class="bp-corner"></div><div class="bp-phase">Campaigns</div><div class="bp-phase">Leads</div><div class="bp-phase">Opportunities</div><div class="bp-phase">Contracts</div><div class="bp-phase">Quotes</div><div class="bp-phase">Orders</div><div class="bp-phase">Invoices</div><div class="bp-phase">Growth</div>
       <div class="bp-lane">Jobs to be done</div><div class="bp-cell">Fund, run, and track campaigns.</div><div class="bp-cell">Generate and qualify leads.</div><div class="bp-cell">Review the pipeline, prospect, build alliances, sell services.</div><div class="bp-cell">Register the deal, fund it, manage annuities.</div><div class="bp-cell">Configure the bill of materials, create the quote.</div><div class="bp-cell">Place and track orders.</div><div class="bp-cell">Bill customers, pay invoices.</div><div class="bp-cell">Manage distributors and certifications, track revenue, hire, automate.</div>
       <div class="bp-lane">Pain point</div>
@@ -453,7 +458,7 @@ figure:not(.in) .a{animation-play-state:paused}
   <section class="act" id="act-4">
    <span class="label">IV · Arrow Electronics · January to February 2020</span>
    <h2>Eight levers. A ninth: keep researching.</h2>
-   <p>The journey map and the personas were built to be argued with, so we put them on the wall and invited the arguments. Four ideation workshops in late January and early February, Arrow's first design-thinking workshops, brought together people from sales, IT, finance, operations, marketing, and engineering. Each ran the same way: read the journey map, stand at the stage you know best, write what you would change on a sticky, and put it where it belongs.</p>
+   <p>The journey map and the personas were built to be argued with, so we put them on the wall and invited the arguments. Four ideation workshops ran in late January and early February, Arrow's first design-thinking workshops. They brought together people from sales, IT, finance, operations, marketing, and engineering. Each ran the same way: read the journey map, stand at the stage you know best, write what you would change on a sticky, and put it where it belongs.</p>
    <p>About four hundred stickies came off the walls. We typed them into the repository as ideas, tagged to the same journey stages as the observations, and sorted them into twenty themes. Some were tools. Some were the same complaint from the inside, and a few of those were about how Arrow treated its own partners, which no tool would fix. The sorting was there to let twenty themes collapse into design opportunities the team could test, and they collapsed into eight.</p>
 
 
@@ -471,7 +476,7 @@ figure:not(.in) .a{animation-play-state:paused}
    <p>The ninth hypothesis was not a tool at all. It was the team's own capability to keep doing this research, and they scored it as the highest-value, lowest-risk thing on the board. That score is what the last act is about.</p>
 
    <figure class="dia">
-<div class="fig-scroll"><svg viewBox="0 0 760 500" aria-label="Nine hypotheses on a five-by-five grid: value, how much it would hurt Arrow not to act, against risk, how much could go wrong in building it. Each carries its intended impact and a reading as revenue or cost. The team's own research capability sits ringed at the highest value and lowest risk; the quote builder at the highest of both; the reseller network at low value and low risk; the integrations hypothesis was not carried forward.">
+<div tabindex="0" role="region" aria-label="Figure, scrolls sideways" class="fig-scroll"><svg viewBox="0 0 760 500" aria-label="Nine hypotheses on a five-by-five grid: value, how much it would hurt Arrow not to act, against risk, how much could go wrong in building it. Each carries its intended impact and a reading as revenue or cost. The team's own research capability sits ringed at the highest value and lowest risk; the quote builder at the highest of both; the reseller network at low value and low risk; the integrations hypothesis was not carried forward.">
      <g stroke="#000" stroke-opacity=".3" stroke-dasharray="4 4"><line x1="218" y1="40" x2="218" y2="440"/><line x1="346" y1="40" x2="346" y2="440"/><line x1="474" y1="40" x2="474" y2="440"/><line x1="602" y1="40" x2="602" y2="440"/><line x1="90" y1="120" x2="730" y2="120"/><line x1="90" y1="200" x2="730" y2="200"/><line x1="90" y1="280" x2="730" y2="280"/><line x1="90" y1="360" x2="730" y2="360"/></g>
      <g fill="none" stroke="#0069AA" stroke-width="1.5"><path d="M90 440H726"/><path d="M726 436l6 4-6 4"/><path d="M90 440V44"/><path d="M86 50l4-6 4 6"/></g>
      <g font-family="Fira Code,monospace" font-size="10" fill="#555">
@@ -585,7 +590,7 @@ figure:not(.in) .a{animation-play-state:paused}
    <p>On 5 March I handed over the presentation for the wider team, the repository, the diagrams, and the process, and the engagement ended.</p>
 
    <figure>
-<div class="fig-scroll"><div class="bp" style="--bp-n:8" role="img" aria-label="Eight activities across four agile ceremonies, with who does each, the artifact it produces, and the tool it runs in.">
+<div tabindex="0" role="region" aria-label="Figure, scrolls sideways" class="fig-scroll"><div class="bp" style="--bp-n:8" role="img" aria-label="Eight activities across four agile ceremonies, with who does each, the artifact it produces, and the tool it runs in.">
       <div class="bp-corner"></div><div class="bp-phase" style="grid-column:span 3">Intake<small>as questions arrive</small></div><div class="bp-phase">Sprint planning<small>every two weeks</small></div><div class="bp-phase" style="grid-column:span 3">Sprint<small>continuous</small></div><div class="bp-phase">Sprint retro<small>every two weeks</small></div>
       <div class="bp-lane">Activity</div><div class="bp-cell"><b>Map questions and ideas</b></div><div class="bp-cell"><b>Prioritize questions and ideas</b></div><div class="bp-cell"><b>Plan experiments</b></div><div class="bp-cell"><b>Prioritize experiments</b></div><div class="bp-cell"><b>Build experiments</b></div><div class="bp-cell"><b>Measure results</b></div><div class="bp-cell"><b>Capture learnings</b></div><div class="bp-cell"><b>Share insights</b></div>
       <div class="bp-lane">People</div><div class="bp-cell">Designer, project stakeholders</div><div class="bp-cell">Manager, project manager</div><div class="bp-cell">Researcher, project manager</div><div class="bp-cell">Manager, director</div><div class="bp-cell">Designer, project stakeholders</div><div class="bp-cell">Researcher, users, project stakeholders</div><div class="bp-cell">Researcher</div><div class="bp-cell">Designer, project stakeholders</div>

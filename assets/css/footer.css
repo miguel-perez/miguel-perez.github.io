@@ -5,6 +5,10 @@
 .site-footer-row{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:20px 40px}
 .site-footer-place{max-width:600px}
 .site-footer-social{display:flex;align-items:center;gap:20px;color:var(--footer-text,#3a3e48)}
-.site-footer .social{display:inline-flex}
+.site-footer .social{display:inline-flex;padding:20px;margin:-20px}
 .site-footer .social:hover{color:var(--footer-accent,#c2532f);text-decoration:none}
+.site-footer-more{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 28px;margin-top:24px}
+.site-footer-more span{letter-spacing:.08em;text-transform:uppercase}
+.site-footer-more a{color:var(--footer-text,#3a3e48);display:inline-block;padding:21px 0;margin:-21px 0}
 .site-footer-legal{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 40px;margin-top:24px}
+.site-footer-legal a{display:inline-block;padding:19px 0;margin:-19px 0}
