@@ -122,6 +122,35 @@ h1 em{color:#000;background:var(--mark);padding:0 .06em;margin:0 -.06em;-webkit-
 .wf-cap{position:absolute;left:8px;bottom:8px;font:11px 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:rgba(255,255,255,.88);padding:2px 5px;border-radius:2px}
 @media (max-width:560px){.wf-body{grid-template-columns:1fr}.wf-rail,.wf-side{border:0;border-top:1px solid rgba(0,0,0,.12)}.wf-rail{order:2}.wf-side{order:3}.wf-mid{order:1}}
 
+/* Fig. 3: the paper sketch as six panels, each a real fragment of the interface on a ground. */
+.sb.three{gap:22px 18px}
+@media (min-width:900px){.sb.three{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.sk{position:relative;height:236px;border:1px solid rgba(0,0,0,.28);border-radius:6px;background:#F5F5F1;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:18px}
+.sk canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.sk-card{position:relative;width:100%;max-width:250px;background:#fff;border:1px solid rgba(0,0,0,.25);border-radius:5px;box-shadow:0 3px 14px rgba(0,0,0,.12);padding:11px 13px;font:11px/1.4 var(--head);color:var(--text);display:flex;flex-direction:column;gap:7px}
+.sk-k{font:11px 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.sk-in{display:flex;align-items:center;gap:8px;border:1px solid #000;border-radius:3px;padding:5px 8px;color:#000}
+.sk-in i{font-style:normal;color:var(--muted);font:11px 'Fira Code',monospace}
+.sk-in b{font-weight:400;color:var(--muted)}
+.sk-res{display:flex;justify-content:space-between;gap:8px;padding:5px 2px;border-top:1px solid rgba(0,0,0,.1);color:#000}
+.sk-res.on{background:var(--mark);margin:0 -4px;padding:5px 6px;border-radius:2px}
+.sk-res i{font-style:normal;font:11px 'Fira Code',monospace;color:var(--muted)}
+.sk-drop{border:1px dashed rgba(0,0,0,.5);border-radius:3px;padding:9px 8px;text-align:center;color:var(--muted);font:11px 'Fira Code',monospace}
+.sk-seg{display:flex;align-items:center;gap:3px}
+.sk-seg i{display:block;width:9px;height:13px;border:1px solid #000;background:#000}
+.sk-seg i.o{background:#fff}
+.sk-seg u{text-decoration:none;font:11px 'Fira Code',monospace;color:#000;margin-left:6px}
+.sk-r{display:flex;justify-content:space-between;gap:8px;color:#000}
+.sk-r i{font-style:normal;font:11px 'Fira Code',monospace;color:var(--muted)}
+.sk .wf-sl{margin:6px 3px 8px}
+.sk .wf-btn{align-self:flex-start;margin-top:2px}
+.sk .wf-tip{z-index:1}
+.sk .wf-cap{z-index:1}
+.sk-cur{position:absolute;z-index:1;width:16px;height:16px}
+.sk-cur::before{content:"";position:absolute;left:0;top:0;border:8px solid transparent;border-top:12px solid #000;border-left:6px solid #000;transform:rotate(-15deg)}
+.sk-cur::after{content:"";position:absolute;left:2px;top:2px;border:6px solid transparent;border-top:9px solid #fff;border-left:4px solid #fff;transform:rotate(-15deg)}
+.sk-loop{position:absolute;right:14px;top:12px;z-index:1;font:700 26px var(--head);color:#000;background:var(--mark);border:1px solid #000;border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center}
+
 /* Fig. 6: the explore screen, redrawn */
 .xp{border:1px solid rgba(0,0,0,.3);border-radius:8px;overflow:hidden;background:#fff;font:12px/1.4 var(--head);color:var(--text)}
 .xp-body{display:grid;grid-template-columns:150px minmax(0,1fr) 176px}
@@ -300,52 +329,16 @@ em.ok{background:#fff}em.warn{background:var(--mark)}em.pend{border-style:dashed
    {% include study-act.html n=2 %}
    <p>The first drawings were of the present. On 12 October I sketched the factory architect's day on paper, in the order the interviews described it. Search for a parcel or upload the site layout. Look at it from above. Drag a grid across it. Click floors onto the grid. Repeat until the massing meets the goals. The goals sat beside the site as three sliders, cost, sustainability, and constructability, with a button to add another. A second pass on 3 November tightened the panes.</p>
 
-   <figure class="dia">
-<div tabindex="0" role="region" aria-label="Figure, scrolls sideways" class="fig-scroll"><svg viewBox="0 0 760 290" aria-label="The 12 October sketch, redrawn. Five numbered steps: search for a parcel or upload a site layout; a top-down site view; drag a grid onto the site; click and scroll to add floors, shown as an isometric stack; and repeat. Below, the goals panel: a segmented cost bar, sustainability and constructability sliders, and an add-goal button.">
-     <g font-family="Fira Code,monospace" font-size="11" fill="#666" letter-spacing=".06em">
-      <text x="20" y="18">① SEARCH A PARCEL · UPLOAD A LAYOUT</text><text x="290" y="18">② SITE, TOP DOWN</text><text x="470" y="18">③ DRAG A GRID ONTO IT</text><text x="650" y="18">④ FLOORS</text>
-      <text x="20" y="196">GOALS</text><text x="650" y="196">⑤ REPEAT</text>
-     </g>
-     <g fill="none" stroke="#000" stroke-width="1.2">
-      <rect x="20" y="30" width="230" height="130" rx="4"/>
-      <rect x="34" y="46" width="200" height="26" rx="3"/><text x="44" y="63" font-family="Fira Code,monospace" font-size="11" fill="#666" stroke="none">search a parcel</text>
-      <rect x="34" y="88" width="140" height="56" rx="3" stroke-dasharray="4 3"/><text x="104" y="121" font-family="Fira Code,monospace" font-size="11" fill="#666" stroke="none" text-anchor="middle">upload ↑</text>
-      <rect x="186" y="88" width="48" height="56" rx="3"/>
-     </g>
-     <path d="M258 96h22" stroke="#000" stroke-width="1.2" fill="none" class="a" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" style="animation:dash .5s ease-out .3s forwards"/><path d="M276 92l6 4-6 4z" fill="#000"/>
-     <g fill="none" stroke="#000" stroke-width="1.2">
-      <rect x="290" y="30" width="160" height="130" rx="4"/>
-      <path d="M318 62l86-14 26 52-20 46-90 4z" fill="#F3F3EF"/>
-      <path d="M300 150l150-60M300 90l60-52" stroke-opacity=".35"/>
-     </g>
-     <path d="M458 96h22" stroke="#000" stroke-width="1.2" fill="none" class="a" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" style="animation:dash .5s ease-out .7s forwards"/><path d="M476 92l6 4-6 4z" fill="#000"/>
-     <g fill="none" stroke="#000" stroke-width="1.2">
-      <rect x="490" y="30" width="140" height="130" rx="4"/>
-      <g class="a" style="animation:pop .5s ease-out 1s both;transform-box:fill-box;transform-origin:center"><rect x="512" y="52" width="96" height="76" fill="#FFFF00" fill-opacity=".7"/><path d="M536 52v76M560 52v76M584 52v76M512 71h96M512 90h96M512 109h96" stroke-opacity=".4"/></g>
-      <g fill="#000"><circle cx="512" cy="52" r="3.5"/><circle cx="608" cy="52" r="3.5"/><circle cx="512" cy="128" r="3.5"/><circle cx="608" cy="128" r="3.5"/></g>
-     </g>
-     <text x="560" y="150" font-family="Instrument Serif,serif" font-style="italic" font-size="13" fill="#333" text-anchor="middle">click and drag the corners</text>
-     <path d="M638 96h14" stroke="#000" stroke-width="1.2" fill="none"/><path d="M648 92l6 4-6 4z" fill="#000"/>
-     <g stroke="#000" stroke-width="1" fill="#fff" class="a" style="animation:pop .5s ease-out 1.4s both;transform-box:fill-box;transform-origin:center">
-      <path d="M660 122l24-12 24 12-24 12z" fill="#F3F3EF"/>
-      <path d="M660 110l24-12 24 12-24 12z"/><path d="M660 110v12M708 110v12M684 122v12" stroke-opacity=".5"/>
-      <path d="M660 98l24-12 24 12-24 12z"/><path d="M660 98v12M708 98v12M684 110v12" stroke-opacity=".5"/>
-      <path d="M660 86l24-12 24 12-24 12z"/><path d="M660 86v12M708 86v12M684 98v12" stroke-opacity=".5"/>
-     </g>
-     <path d="M684 62v-20" stroke="#000" stroke-width="1.2" fill="none"/><path d="M680 46l4-6 4 6z" fill="#000"/>
-     <text x="700" y="150" font-family="Instrument Serif,serif" font-style="italic" font-size="13" fill="#333" text-anchor="middle">click, then scroll</text>
-     <path d="M720 176c0 30-20 40-60 40H520" stroke="#000" stroke-width="1.2" fill="none" stroke-dasharray="4 4"/><path d="M526 212l-8 4 8 4z" fill="#000"/>
-     <g font-family="Fira Code,monospace" font-size="11" fill="#666">
-      <text x="20" y="222">COST</text>
-      <g fill="#000"><rect x="86" y="212" width="8" height="12"/><rect x="98" y="212" width="8" height="12"/><rect x="110" y="212" width="8" height="12"/><rect x="122" y="212" width="8" height="12"/><rect x="134" y="212" width="8" height="12"/><rect x="146" y="212" width="8" height="12"/></g>
-      <g fill="none" stroke="#000"><rect x="158" y="212" width="8" height="12"/><rect x="170" y="212" width="8" height="12"/><rect x="182" y="212" width="8" height="12"/><rect x="194" y="212" width="8" height="12"/></g>
-      <text x="212" y="222">− +</text>
-      <text x="20" y="248">SUSTAINABILITY</text><line x1="150" y1="244" x2="330" y2="244" stroke="#000" stroke-width="1.5"/><circle cx="238" cy="244" r="6" fill="#fff" stroke="#000" stroke-width="1.5"/>
-      <text x="20" y="274">CONSTRUCTABILITY</text><line x1="150" y1="270" x2="330" y2="270" stroke="#000" stroke-width="1.5"/><circle cx="292" cy="270" r="6" fill="#fff" stroke="#000" stroke-width="1.5"/>
-      <rect x="370" y="236" width="100" height="30" rx="3" fill="none" stroke="#000" stroke-width="1.2"/><text x="420" y="255" text-anchor="middle" fill="#000">ADD GOAL</text>
-     </g>
-    </svg></div>
-    <figcaption>Fig. 3 · The paper sketch of 12 October, redrawn. The site, the grid, and the floors are the architect's hands on the model; the goals are the only thing the generator would later be asked to satisfy. Nothing in it generates yet, on purpose.</figcaption>
+   <figure>
+    <div class="sb three">
+     <div><div class="sk" role="img" aria-label="Step one: a search field reading search a parcel or address, with a matching result, Moonshot opportunity, 1.9 acres, selected, and a drop zone to upload a site layout as DWG or PDF."><div class="sk-card"><span class="sk-k">Site</span><span class="sk-in"><i>⌕</i><b>search a parcel or address</b></span><span class="sk-res on"><span>Moonshot opportunity</span><i>1.9 ac</i></span><span class="sk-res"><span>Pine St at 9th</span><i>0.4 ac</i></span><span class="sk-drop">upload a site layout ↑<br>DWG · PDF</span></div></div><p><b>①</b>Search a parcel, or upload the site layout the architect of record drew.</p></div>
+     <div><div class="sk" role="img" aria-label="Step two: the site seen from above, the parcel between its two streets and the neighbouring blocks."><canvas data-scene="top" aria-hidden="true"></canvas><span class="wf-cap">Top down · 1.9 ac · Oakland</span></div><p><b>②</b>Look at it from above, with the streets and the neighbours in place.</p></div>
+     <div><div class="sk" role="img" aria-label="Step three: a grid dragged onto the parcel, in yellow with corner handles, a cursor on one corner and a tip reading click and drag the corners."><canvas data-scene="grid" aria-hidden="true"></canvas><span class="sk-cur" style="left:69%;top:31%"></span><span class="wf-tip" style="left:10%;top:12%">click and drag the corners</span><span class="wf-cap">4 × 3 cells</span></div><p><b>③</b>Drag a grid across it. Every cell is one module's footprint.</p></div>
+     <div><div class="sk" role="img" aria-label="Step four: two stacks of modules, the newest floor in yellow, with a tip reading click, then scroll, three floors."><canvas data-scene="floors" aria-hidden="true"></canvas><span class="sk-cur" style="left:44%;top:26%"></span><span class="wf-tip" style="left:52%;top:14%">click, then scroll · 3 floors</span><span class="wf-cap">Floors</span></div><p><b>④</b>Click a cell and scroll to add floors, a module at a time.</p></div>
+     <div><div class="sk" role="img" aria-label="Step five: the full massing on the parcel with a repeat glyph, and a caption reading repeat until it meets the goals."><canvas data-scene="repeat" aria-hidden="true"></canvas><span class="sk-loop">↻</span><span class="wf-cap">Repeat until it meets the goals</span></div><p><b>⑤</b>Repeat until the massing meets the goals, then hand it to the factory's rules.</p></div>
+     <div><div class="sk" role="img" aria-label="The goals panel: cost as a segmented bar with six of ten segments filled and minus and plus controls, sustainability and constructability as sliders, and an add-goal button."><div class="sk-card"><span class="sk-k">Goals</span><span class="sk-r"><span>Cost</span><i>$/ft²</i></span><span class="sk-seg"><i></i><i></i><i></i><i></i><i></i><i></i><i class="o"></i><i class="o"></i><i class="o"></i><i class="o"></i><u>− +</u></span><span class="sk-r"><span>Sustainability</span><i>kgCO₂e/ft²</i></span><span class="wf-sl"><i style="left:48%"></i></span><span class="sk-r"><span>Constructability</span><i>% catalog</i></span><span class="wf-sl"><i style="left:78%"></i></span><span class="wf-btn">ADD GOAL +</span></div></div><p><b>Goals</b>Cost, sustainability, and constructability sat beside the site, with room for one more.</p></div>
+    </div>
+    <figcaption>Fig. 3 · The paper sketch of 12 October, redrawn as its six panels. The site, the grid, and the floors are the architect's hands on the model; the goals are the only thing the generator would later be asked to satisfy. Nothing in it generates yet, on purpose.</figcaption>
    </figure>
 
    <p>By 12 November the sketch had become a six-panel storyboard. Each panel was a wireframe of the same three-pane workspace: a catalog on the left, the model in the middle, goals and generated options on the right. The story stayed the architect's own job as it is today, with the generator drawn in at the three places it could fit. Working from the architect of record's drawings, the architect defines the site and the goals. Then comes a massing model inside the factory's rules, filled with standard modules. Two bathroom blocks go in one unit, and a two-bedroom module is auto-filled through the rest. Then the custom parts fail the program's occupancy requirement, and the fix is a small one the factory would recognize. An optimization proposes narrowing the kitchen sink in every module by a few inches. In the scenario, the building gains twenty units.</p>
@@ -610,6 +603,7 @@ em.ok{background:#fff}em.warn{background:var(--mark)}em.pend{border-style:dashed
   B.push({x:-1.8,y:-0.09,z:-9,w:1.2,h:0.1,d:18,c:STREET}); B.push({x:-9,y:-0.09,z:GY+0.5,w:18,h:0.1,d:1.2,c:STREET});
   B.push({x:-0.2,y:-0.02,z:-0.2,w:GX+0.4,h:0.03,d:GY+0.4,c:o.parcel||SLATE,e:[0,0,0,.55]});
   if(o.ctx!==false) for(i=0;i<CTX.length;i++){ var k=CTX[i]; B.push({x:k[0],y:0,z:k[1],w:k[2],h:k[3],d:k[4],c:CTXC}); }
+  if(o.grid){ for(i=1;i<GX;i++) B.push({x:i-0.02,y:0.015,z:-0.2,w:0.04,h:0.012,d:GY+0.4,c:INK}); for(j=1;j<GY;j++) B.push({x:-0.2,y:0.015,z:j-0.02,w:GX+0.4,h:0.012,d:0.04,c:INK}); }
   if(o.handles){ [[-0.28,-0.28],[GX+0.12,-0.28],[-0.28,GY+0.12],[GX+0.12,GY+0.12]].forEach(function(c){ B.push({x:c[0],y:0,z:c[1],w:0.16,h:0.16,d:0.16,c:INK}); }); }
   if(g) for(i=0;i<GX;i++)for(j=0;j<GY;j++){ var h=g[i*GY+j], full=Math.floor(h+1e-6), frac=h-full;
    for(f=0;f<full;f++) B.push(mod(i,j,f,1,o,a));
@@ -634,6 +628,8 @@ em.ok{background:#fff}em.warn{background:var(--mark)}em.pend{border-style:dashed
  var camSite={t:[2,0.3,1.5],az:-0.75,el:0.95,dist:11.5,fov:0.5,span:13}, camNear={t:[2,1.15,1.5],az:-0.62,el:0.5,dist:11.6,fov:0.46,span:11}, camCard={t:[2,1.25,1.5],az:-0.6,el:0.42,dist:10.2,fov:0.42,span:9.5};
  var SC={
   site:{g:Z,o:{},cam:camSite}, define:{g:Z,o:{parcel:YEL,handles:true},cam:camSite},
+  top:{g:Z,o:{},cam:{t:[2,0,1.5],az:-0.2,el:1.25,dist:12.5,fov:0.5,span:13}}, grid:{g:Z,o:{parcel:YEL,handles:true,grid:true},cam:{t:[2,0,1.5],az:-0.2,el:1.25,dist:11,fov:0.5,span:12}},
+  floors:{g:[3,0,0,3,0,0,0,0,0,0,0,0],o:{hl:function(i,j,f){ return f===2; }},cam:{t:[1.2,0.9,0.6],az:-0.62,el:0.42,dist:8.5,fov:0.46,span:9}}, repeat:{g:A,o:{},cam:camNear},
   apply:{g:A,o:{},cam:camNear}, customize:{g:A,o:{hl:function(i,j,f){ return i===1&&j===1&&f===1; }},cam:camNear},
   sample:{g:A,o:{},cam:camNear}, optimized:{g:[4,4,3,4,4,3,4,4,3,2,2,0],o:{hl:function(i,j,f){ return f===3||(i===3&&f<2); }},cam:camNear},
   share:{g:A,o:{alpha:.3},cam:camNear},
