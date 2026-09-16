@@ -44,7 +44,7 @@ acts:
     title: "The moonshot became a roadmap question."
     methods: ["concept deck", "interface overview", "user stories", "opportunity framing"]
 after: "What the concept left behind."
-colophon: "The factory and the acquired platform are described rather than named, and nobody interviewed is named. The scenarios are the concept's own, set on a real site in Oakland; their people and numbers are placeholders. Screens are redrawn from the wireframes and the sketches from the paper originals, so nothing is a screenshot. The header runs a real genetic algorithm over simulated massings."
+colophon: "The factory and the acquired platform are described rather than named, and nobody interviewed is named. The scenarios are the concept's own, set on a real site in Oakland; their people and numbers are placeholders. Screens are redrawn from the wireframes and the sketches from the paper originals, so nothing is a screenshot. The header and the rendered models are drawn in WebGL on the page, a real genetic algorithm over a simulated site; where WebGL is unavailable they draw in plain canvas."
 ---
 <style>
 /* Street: Autodesk. Black on white, Hello Yellow #FFFF00 as a marker behind black text rather than a text color (it is 1.07:1 on white), Warm Slate #D5D5CB for grounds, Slate #666 for the muted text. Artifakt for headlines, with Arial behind it, which is what Autodesk's own system specifies where the face is not installed. The store (Fira Code labels, Instrument Serif body, the rails and figures) is assets/css/study.css; the tokens below are the street. */
@@ -53,8 +53,9 @@ body{--text:#333;--muted:#666;--accent:#000;--accent-rgb:0,0,0;--head:'Artifakt 
 h1 em{color:#000;background:var(--mark);padding:0 .06em;margin:0 -.06em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
 .story strong{border-bottom:0;background:linear-gradient(transparent 58%,var(--mark) 58%)}
 .hero-art canvas{display:block;width:min(100%,440px);aspect-ratio:1}
+.hero-art #ga-plot{display:block;width:min(100%,440px);height:auto;margin-top:4px}
 .hero-art .cap{width:min(100%,440px)}
-.hero-art .cap i.k{background:#000}
+.hero-art .cap i.w{background:#fff;border:1px solid #000}
 .hero-art .cap i.y{background:var(--mark);border:1px solid #000;margin-left:14px}
 .pill.h{background:#000;color:#fff}
 .pill.m{background:var(--mark);color:#000;border:1px solid #000}
@@ -75,21 +76,54 @@ h1 em{color:#000;background:var(--mark);padding:0 .06em;margin:0 -.06em;-webkit-
 .themes > div{border-top:2px solid #000;padding:10px 0 0;font:17px/1.35 'Instrument Serif',serif;color:var(--text)}
 .themes > div b{display:block;font:11px/1.6 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-bottom:4px}
 
-/* Fig. 4: the storyboard panels, each a wireframe of the same three-pane workspace. */
-.sb{display:grid;grid-template-columns:1fr;gap:22px 18px}
-@media (min-width:560px){.sb{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media (min-width:900px){.sb{grid-template-columns:repeat(3,minmax(0,1fr))}}
+/* Fig. 4: the storyboard panels, each the same three-pane workspace with a rendered model in the middle. */
+.sb{display:grid;grid-template-columns:1fr;gap:26px 22px}
+@media (min-width:700px){.sb{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .sb > div{display:flex;flex-direction:column;gap:9px;min-width:0}
-.sb .fr{border:1px solid rgba(0,0,0,.28);border-radius:4px;background:#fff;overflow:hidden;display:block}
-.sb .fr svg{display:block;width:100%;height:auto}
 .story .sb p{margin:0;font:12px/1.6 'Fira Code',monospace;color:var(--text)}
 .story .sb p b{font-weight:400;color:var(--muted);margin-right:7px}
+.wf{border:1px solid rgba(0,0,0,.3);border-radius:6px;background:#fff;overflow:hidden;font:11px/1.35 var(--head);color:var(--text);box-shadow:0 1px 2px rgba(0,0,0,.05),0 10px 28px rgba(0,0,0,.06)}
+.wf-top,.xp-top{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;padding:9px 14px;border-bottom:1px solid rgba(0,0,0,.18);font:11px 'Fira Code',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.wf-top i,.xp-top i{width:14px;height:14px;background:#000;border-radius:2px;flex:0 0 14px;clip-path:polygon(0 100%,40% 0,100% 0,60% 100%)}
+.wf-top .on,.xp-top .on{color:#000;border-bottom:2px solid #000;padding-bottom:2px}
+.wf-top .pr,.xp-top .proj{margin-left:auto;text-transform:none;letter-spacing:0;color:#000}
+.wf-body{display:grid;grid-template-columns:120px minmax(0,1fr) 148px;min-height:250px}
+.wf-rail,.wf-side{padding:9px 10px;display:flex;flex-direction:column;gap:4px;min-width:0;font:11px/1.35 var(--head);color:var(--text)}
+.wf-rail{border-right:1px solid rgba(0,0,0,.12)}
+.wf-side{border-left:1px solid rgba(0,0,0,.12)}
+.wf-k{font:11px 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:5px 0 2px}
+.wf-k:first-child{margin-top:0}
+.wf-r{display:flex;justify-content:space-between;gap:6px;padding:2px 0;color:#000}
+.wf-r i{font-style:normal;color:var(--muted);font:11px 'Fira Code',monospace}
+.wf-r.on{background:var(--mark);margin:0 -6px;padding:2px 6px;border-radius:2px}
+.wf-r.mut{color:var(--muted)}
+.wf-in{border:1px solid rgba(0,0,0,.3);border-radius:3px;padding:3px 6px;color:var(--muted);font:11px 'Fira Code',monospace}
+.wf-in.dash{border-style:dashed;text-align:center;padding:8px 6px}
+.wf-sl{position:relative;height:1.5px;background:#000;margin:8px 3px 9px}
+.wf-sl i{position:absolute;top:-4px;width:9px;height:9px;border-radius:50%;background:#fff;border:1.2px solid #000;transform:translateX(-50%)}
+.wf-sl i.m{background:var(--mark)}
+.wf-bul{display:block;height:6px;background:rgba(0,0,0,.12);position:relative;margin:3px 0 4px}
+.wf-bul i{position:absolute;left:0;top:0;height:100%;background:#000}
+.wf-bul u{position:absolute;top:-3px;width:3px;height:12px;background:var(--mark);border:.8px solid #000}
+.wf-btn{align-self:flex-start;padding:4px 9px;border:1px solid #000;border-radius:3px;background:var(--mark);font:700 11px var(--head);color:#000;margin-top:4px}
+.wf-btn.q{background:#fff}
+.wf-c{display:block;width:100%;height:100%;min-height:250px;background:#fff}
+.wf-mid{position:relative;min-width:0;display:flex;flex-direction:column}
+.wf-mid.two{display:grid;grid-template-rows:1fr 1fr}
+.wf-mid.two .wf-c{min-height:125px}
+.wf-mid.two .wf-c + .wf-c{border-top:1px solid rgba(0,0,0,.15)}
+.wf-mid.two .wf-cap.b{top:auto;bottom:6px}
+.wf-mid.two .wf-cap.t{top:6px;bottom:auto}
+.wf-sheet{position:absolute;left:8%;right:8%;top:7%;background:#fff;border:1px solid #000;border-radius:4px;padding:12px 14px;box-shadow:0 8px 24px rgba(0,0,0,.14);display:flex;flex-direction:column;gap:4px;font:11px/1.4 var(--head);color:var(--text)}
+.wf-sheet b{display:block;font:700 12px var(--head);color:#000;margin-bottom:4px}
+.wf-sheet span{display:flex;justify-content:space-between;gap:8px;border-top:1px solid rgba(0,0,0,.1);padding:3px 0}
+.wf-sheet span u{text-decoration:none;color:#000}
+.wf-tip{position:absolute;font:11px 'Fira Code',monospace;color:#000;background:#fff;border:1px solid #000;border-radius:2px;padding:2px 6px;white-space:nowrap;max-width:calc(100% - 24px);overflow:hidden;text-overflow:ellipsis}
+.wf-cap{position:absolute;left:8px;bottom:8px;font:11px 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:rgba(255,255,255,.88);padding:2px 5px;border-radius:2px}
+@media (max-width:560px){.wf-body{grid-template-columns:1fr}.wf-rail,.wf-side{border:0;border-top:1px solid rgba(0,0,0,.12)}.wf-rail{order:2}.wf-side{order:3}.wf-mid{order:1}}
 
 /* Fig. 6: the explore screen, redrawn */
 .xp{border:1px solid rgba(0,0,0,.3);border-radius:8px;overflow:hidden;background:#fff;font:12px/1.4 var(--head);color:var(--text)}
-.xp-top{display:flex;flex-wrap:wrap;align-items:center;gap:8px 22px;padding:12px 16px;border-bottom:1px solid rgba(0,0,0,.18);font:11px 'Fira Code',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.xp-top .on{color:#000;border-bottom:2px solid #000;padding-bottom:2px}
-.xp-top .proj{margin-left:auto;text-transform:none;letter-spacing:0}
 .xp-body{display:grid;grid-template-columns:150px minmax(0,1fr) 176px}
 .xp-rail{border-right:1px solid rgba(0,0,0,.12);padding:10px 12px;font:11px/1.6 'Fira Code',monospace;color:var(--muted);min-width:0}
 .xp-rail b,.xp-side b{display:block;font:11px 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;color:#000;font-weight:400;margin:8px 0 4px}
@@ -97,8 +131,76 @@ h1 em{color:#000;background:var(--mark);padding:0 .06em;margin:0 -.06em;-webkit-
 .xp-rail div.on{color:#000;background:var(--mark);margin:0 -6px;padding:3px 6px}
 .xp-rail div.sub{padding-left:12px}
 .xp-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:rgba(0,0,0,.12)}
-.xp-card{background:#fff;padding:10px 12px;display:flex;flex-direction:column;gap:6px;min-width:0}
-.xp-card svg{width:100%;height:auto;display:block}
+.xp-card{background:#fff;padding:10px 12px;display:flex;flex-direction:column;gap:6px;min-width:0;position:relative}
+.xp-card canvas{display:block;width:100%;aspect-ratio:2/1.15;background:#fff}
+.xp-card .xp-tag{position:absolute;right:12px;top:10px;font:11px 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;color:#000;background:var(--mark);border:1px solid #000;border-radius:2px;padding:1px 6px}
+.xp-card .xp-n{font:700 12px var(--head);color:#000}
+.xp-chart div{display:flex;gap:14px;font:11px 'Fira Code',monospace;color:var(--muted)}
+.xp-chart div span::before{content:"";display:inline-block;width:14px;height:0;border-top:1.5px solid #000;vertical-align:middle;margin-right:5px}
+.xp-chart div span:first-child::before{border-color:rgba(0,0,0,.35)}
+.xp-chart div span:last-child::before{border-top-style:dashed}
+
+/* Fig. 8: the change request, and Fig. 9: the merge into the catalog */
+.cr-body{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,1fr)}
+.cr-left{min-width:0;border-right:1px solid rgba(0,0,0,.12)}
+.cr-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;padding:12px 16px 4px}
+.cr-h b{font:700 15px var(--head);color:#000}
+.cr-h span{font:11px 'Fira Code',monospace;color:var(--muted)}
+.cr-left canvas{display:block;width:100%;aspect-ratio:2/1;background:#fff}
+.cr-bom td,.cr-bom th{white-space:normal}
+.cr-bom td:first-child{width:auto}
+.cr-bom tr.x td{color:var(--muted);text-decoration:line-through;text-decoration-color:rgba(0,0,0,.45)}
+.cr-bom tr.y td{background:var(--mark);color:#000}
+.cr-bom tr.y td u{text-decoration:none;border-bottom:1px solid #000}
+.cr-right{padding:12px 16px 16px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.cr-k{font:11px 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:6px 0 2px}
+.cr-k:first-child{margin-top:0}
+.cr-list,.cr-appr{margin:0;padding:0;list-style:none}
+.cr-list li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 10px;padding:6px 0;border-top:1px solid rgba(0,0,0,.1);align-items:center}
+.cr-list li span{font:700 12px var(--head);color:#000}
+.cr-list li i{grid-column:1;font:11px 'Fira Code',monospace;color:var(--muted);font-style:normal}
+.cr-list li em,.cr-appr li em{grid-column:2;grid-row:1/3;font:11px 'Fira Code',monospace;font-style:normal;border:1px solid #000;border-radius:10px;padding:1px 8px;color:#000;white-space:nowrap}
+em.ok{background:#fff}em.warn{background:var(--mark)}em.pend{border-style:dashed;color:var(--muted)}
+.cr-appr li{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:5px 0;border-top:1px solid rgba(0,0,0,.1);font:12px var(--head);color:#000}
+.cr-appr li em{grid-row:auto}
+.btn{display:inline-flex;align-items:center;align-self:flex-start;min-height:38px;padding:6px 12px;border-radius:4px;border:1px solid #000;background:var(--mark);font:700 12px var(--head);color:#000;margin-top:6px}
+.btn.q{background:#fff}
+@media(max-width:760px){.btn{min-height:58px}}
+.mg-body{display:grid;grid-template-columns:200px minmax(0,1fr) 190px}
+.mg-rail,.mg-side{padding:12px 14px;font:11px/1.4 var(--head);color:var(--text);min-width:0;display:flex;flex-direction:column;gap:3px}
+.mg-rail{border-right:1px solid rgba(0,0,0,.12)}
+.mg-side{border-left:1px solid rgba(0,0,0,.12)}
+.mg-rail b,.mg-side b{font:11px 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:400;margin:6px 0 3px}
+.mg-rail b:first-child,.mg-side b:first-child{margin-top:0}
+.mg-comp{padding:5px 0;border-top:1px solid rgba(0,0,0,.1)}
+.mg-comp span{display:block;font-weight:700;color:#000}
+.mg-comp i{display:block;font:11px 'Fira Code',monospace;color:var(--muted);font-style:normal}
+.mg-comp.on{background:var(--mark);margin:0 -8px;padding:5px 8px;border-radius:2px}
+.mg-fam{color:var(--text);padding:1px 0}
+.mg-fam::before{content:"+";display:inline-block;width:11px;height:11px;border:1px solid #000;font:9px/11px var(--head);text-align:center;color:#000;margin-right:6px;vertical-align:1px}
+.mg-pr{padding:12px 18px 16px;min-width:0;display:flex;flex-direction:column;gap:8px;font:12px/1.45 var(--head);color:var(--text)}
+.mg-h{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 16px;padding-bottom:8px;border-bottom:1px solid rgba(0,0,0,.15)}
+.mg-h b{font:700 15px var(--head);color:#000}
+.mg-h .btn{margin:0}
+.mg-tabs{display:flex;gap:16px;font:11px 'Fira Code',monospace;color:var(--muted);border-bottom:1px solid rgba(0,0,0,.12);padding-bottom:6px}
+.mg-tabs .on{color:#000;border-bottom:2px solid #000;padding-bottom:5px;margin-bottom:-7px}
+.mg-item{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;padding:8px 0;border-top:1px solid rgba(0,0,0,.08)}
+.mg-item b{font:700 12px var(--head);color:#000}
+.mg-item i{font:11px 'Fira Code',monospace;color:var(--muted);font-style:normal;align-self:baseline}
+.mg-item p{grid-column:1/-1;margin:0;font:12px/1.45 var(--head);color:var(--text)}
+.mg-item p u{text-decoration:none;color:#000;border-bottom:1px solid rgba(0,0,0,.4);margin-left:8px;font:11px 'Fira Code',monospace}
+.mg-ok{display:flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid #000;border-radius:4px;font:700 12px var(--head);color:#000}
+.mg-ok::before{content:"✓";display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#000;color:#fff;font-size:11px}
+.mg-write{border:1px solid rgba(0,0,0,.25);border-radius:4px;padding:8px 10px;display:flex;flex-wrap:wrap;gap:6px 14px;font:11px 'Fira Code',monospace;color:var(--muted)}
+.mg-write .on{color:#000;border-bottom:2px solid #000}
+.mg-write div{flex-basis:100%;height:34px;border:1px solid rgba(0,0,0,.2);border-radius:3px}
+.mg-write .btn{min-height:30px;margin:0;padding:4px 10px}
+.mg-side div{display:flex;justify-content:space-between;gap:8px;padding:4px 0;border-top:1px solid rgba(0,0,0,.1);color:#000}
+.mg-side div i{font-style:normal;color:var(--muted);text-align:right}
+.mg-side div.y{background:var(--mark);margin:0 -6px;padding:4px 6px;border-radius:2px}
+@media(max-width:860px){.cr-body{grid-template-columns:1fr}.cr-left{border-right:0;border-bottom:1px solid rgba(0,0,0,.12)}.mg-body{grid-template-columns:1fr}.mg-rail,.mg-side{border:0;border-top:1px solid rgba(0,0,0,.12)}.mg-rail{order:2}.mg-side{order:3}.mg-pr{order:1}}
+.xp-chart{display:flex;flex-direction:column;gap:4px;margin:6px 0 10px}
+.xp-chart svg{width:100%;height:auto;display:block}
 .xp-d{display:flex;flex-wrap:wrap;gap:2px 10px;font:11px 'Fira Code',monospace;color:var(--muted)}
 .xp-d u{text-decoration:none;color:#000}
 .xp-v{display:flex;gap:6px;align-items:center;margin-top:auto}
@@ -111,13 +213,6 @@ h1 em{color:#000;background:var(--mark);padding:0 .06em;margin:0 -.06em;-webkit-
 .sl i.m{background:var(--mark)}
 .xp-side div{display:flex;justify-content:space-between;padding:3px 0;color:var(--text)}
 @media(max-width:760px){.xp-body{grid-template-columns:1fr}.xp-rail,.xp-side{border:0;border-top:1px solid rgba(0,0,0,.12)}.xp-top .proj{margin-left:0}}
-
-/* Fig. 8: nodes in the cascade */
-.cas rect{fill:#fff;stroke:#000;stroke-width:1}
-.cas rect.m{fill:#FFFF00}
-.cas rect.g{fill:#F3F3EF}
-.cas text{font-family:'Instrument Serif',serif;font-size:14px;fill:#333}
-.cas .lab{font-family:'Fira Code',monospace;font-size:11px;fill:#666;letter-spacing:.06em}
 
 @media (max-width:900px){.fig-scroll .bp{min-width:920px}}
 @media (max-width:760px){.flow{grid-template-columns:repeat(2,minmax(0,1fr))}.themes{grid-template-columns:1fr}}
@@ -134,9 +229,10 @@ h1 em{color:#000;background:var(--mark);padding:0 .06em;margin:0 -.06em;-webkit-
    <p class="lede">Autodesk wanted a moonshot. An architect designs a modular housing project inside a factory's catalog of proven parts. A generator explores the options between the brief and the factory floor. As part of the Tomorrow Partners team, I coded the client's factory-floor interviews and storyboarded the architect's day as it was. Then I drew it as it could be: ten screens across five stages, for six roles, with a person steering the generator at every step.</p>
    {% include study-facts.html %}
   </div>
-  <div class="hero-art" id="hero-art" role="img" aria-label="Thirty candidate massings on a four-by-three site evolve through twenty-eight generations of a genetic algorithm scored on density against daylight, and the four fittest are locked. The algorithm is real; the site and the scores are simulated." title="Replay">
+  <div class="hero-art" id="hero-art" role="img" aria-label="One city block in three dimensions. A genetic algorithm breeds thirty candidate massings a generation, scored half on density and half on daylight, the share of modules with open faces, and the fittest of each generation is drawn on the site as stacked modules, with the modules that changed since the last generation in yellow. The best fitness by generation is plotted beneath. The algorithm is real; the site and the scores are simulated." title="Replay">
    <canvas id="ga" aria-hidden="true"></canvas>
-   <span class="cap"><b class="sum">density against daylight · 30 a generation</b><b id="ga-cap" class="now">Gen 0 · 30 random massings</b><i class="k"></i>candidate<i class="y"></i>locked</span>
+   <svg id="ga-plot" viewBox="0 0 440 64" aria-hidden="true"><line x1="24" y1="52" x2="428" y2="52" stroke="#000" stroke-opacity=".3"/><polyline id="ga-line" fill="none" stroke="#000" stroke-width="1.5" points=""/><circle id="ga-dot" r="4" fill="#FFFF00" stroke="#000" stroke-width="1.2" cx="24" cy="52"/><g font-family="Fira Code,monospace" font-size="11" fill="#666"><text x="24" y="63">gen 0</text><text x="428" y="63" text-anchor="end">gen 28</text><text x="24" y="10">best fitness</text><text id="ga-fit" x="428" y="32" text-anchor="end">0.00</text></g></svg>
+   <span class="cap"><b class="sum">density against daylight · fittest drawn</b><b id="ga-cap" class="now">Gen 0 · 30 random massings</b><i class="w"></i>modules<i class="y"></i>changed this generation</span>
   </div>
  </div>
  {% include study-numbers.html %}
@@ -256,20 +352,15 @@ h1 em{color:#000;background:var(--mark);padding:0 .06em;margin:0 -.06em;-webkit-
    <p>With the storyboard up, we could argue about where a generator enters the day rather than whether it should. The massing step, the auto-fill, and the list of optimizations were the three places where the client's technology could do work an architect would recognize as their own.</p>
 
    <figure>
-    <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
-     <symbol id="wf" viewBox="0 0 300 190"><rect width="300" height="190" fill="#fff"/><rect width="300" height="16" fill="#000" fill-opacity=".06"/><g fill="#000" fill-opacity=".5"><rect x="8" y="6" width="22" height="4"/><rect x="36" y="6" width="22" height="4"/><rect x="64" y="6" width="22" height="4"/><rect x="92" y="6" width="22" height="4"/></g><rect x="0" y="16" width="64" height="174" fill="none" stroke="#000" stroke-opacity=".18"/><g fill="#000" fill-opacity=".08"><rect x="6" y="24" width="52" height="34"/><rect x="6" y="64" width="52" height="34"/><rect x="6" y="104" width="52" height="34"/></g><g fill="#000" fill-opacity=".3"><rect x="6" y="150" width="40" height="3"/><rect x="6" y="160" width="46" height="3"/><rect x="6" y="170" width="34" height="3"/><rect x="6" y="180" width="44" height="3"/></g><rect x="236" y="16" width="64" height="174" fill="none" stroke="#000" stroke-opacity=".18"/></symbol>
-     <symbol id="goals" viewBox="0 0 64 100"><g stroke="#000" stroke-opacity=".7"><line x1="8" y1="14" x2="56" y2="14"/><line x1="8" y1="30" x2="56" y2="30"/><line x1="8" y1="46" x2="56" y2="46"/></g><g fill="#fff" stroke="#000"><circle cx="30" cy="14" r="3.5"/><circle cx="38" cy="30" r="3.5"/><circle cx="24" cy="46" r="3.5"/></g><g fill="#000" fill-opacity=".08"><rect x="8" y="60" width="48" height="10"/><rect x="8" y="74" width="48" height="10"/><rect x="8" y="88" width="48" height="10"/></g></symbol>
-     <symbol id="mass" viewBox="0 0 120 90"><g stroke="#000" stroke-width="1" stroke-linejoin="round"><path d="M20 58l40-20 40 20-40 20z" fill="#F3F3EF"/><path d="M20 30l40-20 40 20-40 20z" fill="#fff"/><path d="M20 30v28l40 20V50z" fill="#e6e6e6"/><path d="M100 30v28L60 78V50z" fill="#c4c4c4"/><path d="M20 44l40 20M20 37l40 20M60 64l40-20M60 57l40-20" stroke-opacity=".3"/></g></symbol>
-    </defs></svg>
     <div class="sb">
-     <div><div class="fr"><svg viewBox="0 0 300 190" role="img" aria-label="Panel one: the workspace with the site plan in the middle and goals on the right."><use href="#wf"/><use href="#goals" x="236" y="20" width="64" height="100"/><g transform="translate(150 100)"><path d="M-60 10l60-40 60 20-50 46z" fill="#F3F3EF" stroke="#000"/><path d="M-70 40l150-70M-40 -30l50 90" stroke="#000" stroke-opacity=".25"/></g></svg></div><p><b>01</b>The job: stand between clients who want flexible, customizable buildings and a production line built for repetition.</p></div>
-     <div><div class="fr"><svg viewBox="0 0 300 190" role="img" aria-label="Panel two: define. The site outline with corner handles and the three goal sliders."><use href="#wf"/><use href="#goals" x="236" y="20" width="64" height="100"/><g transform="translate(150 100)"><path d="M-56 4l56-36 58 18-46 44z" fill="#FFFF00" fill-opacity=".7" stroke="#000"/><g fill="#000"><circle cx="-56" cy="4" r="3"/><circle cx="0" cy="-32" r="3"/><circle cx="58" cy="-14" r="3"/><circle cx="12" cy="30" r="3"/></g></g><text x="150" y="160" text-anchor="middle" font-family="Fira Code,monospace" font-size="9" fill="#666">SITE · BOUNDARIES · EXTENTS</text></svg></div><p><b>02</b>Define. With the architect of record, set the site, its boundaries, and the goals: cost, sustainability, constructability.</p></div>
-     <div><div class="fr"><svg viewBox="0 0 300 190" role="img" aria-label="Panel three: apply. A massing model in the middle, generated alternatives listed on the right."><use href="#wf"/><use href="#mass" x="90" y="50" width="120" height="90"/><g fill="#000" fill-opacity=".08"><rect x="242" y="24" width="52" height="18"/><rect x="242" y="46" width="52" height="18"/><rect x="242" y="68" width="52" height="18"/><rect x="242" y="90" width="52" height="18"/></g><rect x="242" y="24" width="52" height="18" fill="#FFFF00" stroke="#000"/><text x="268" y="130" text-anchor="middle" font-family="Fira Code,monospace" font-size="8" fill="#666">ALTERNATIVES</text></svg></div><p><b>03</b>Apply. Build the massing inside the factory's rules: standard parts, default rules from past builds, alternatives generated for the envelope.</p></div>
-     <div><div class="fr"><svg viewBox="0 0 300 190" role="img" aria-label="Panel four: customize. The massing with one module highlighted, and predefined modules in the catalog."><use href="#wf"/><use href="#mass" x="90" y="50" width="120" height="90"/><path d="M150 72l20-10 20 10-20 10z" fill="#FFFF00" stroke="#000"/><rect x="6" y="24" width="52" height="34" fill="#FFFF00" stroke="#000"/><use href="#goals" x="236" y="20" width="64" height="100"/></svg></div><p><b>04</b>Customize. Swap units for predefined modules, floor by floor. Two bathroom blocks in one unit; a two-bedroom module auto-filled through the rest.</p></div>
-     <div><div class="fr"><svg viewBox="0 0 300 190" role="img" aria-label="Panel five: optimize. Two stacked views, the sample and an optimization, with bullet graphs for cost, constructability, and sustainability on the right."><use href="#wf"/><use href="#mass" x="100" y="22" width="90" height="68"/><line x1="64" y1="102" x2="236" y2="102" stroke="#000" stroke-opacity=".3"/><use href="#mass" x="100" y="108" width="90" height="68"/><path d="M158 130l10-5 10 5-10 5z" fill="#FFFF00" stroke="#000"/><g transform="translate(242 26)"><g fill="#000" fill-opacity=".15"><rect y="0" width="52" height="6"/><rect y="20" width="52" height="6"/><rect y="40" width="52" height="6"/></g><g fill="#000"><rect y="0" width="34" height="6"/><rect y="20" width="42" height="6"/><rect y="40" width="26" height="6"/></g><g fill="#FFFF00" stroke="#000" stroke-width=".8"><rect x="38" y="-2" width="3" height="10"/><rect x="30" y="18" width="3" height="10"/><rect x="40" y="38" width="3" height="10"/></g><text y="62" font-family="Fira Code,monospace" font-size="8" fill="#666">COST · BUILD · SUSTAIN</text></g></svg></div><p><b>05</b>Optimize. The customizations fail the occupancy program. One proposal narrows the kitchen sink in every module; in the scenario, twenty more units.</p></div>
-     <div><div class="fr"><svg viewBox="0 0 300 190" role="img" aria-label="Panel six: share. A list of specifications with a share action, and the massing behind it."><use href="#wf"/><use href="#mass" x="90" y="50" width="120" height="90" opacity=".35"/><rect x="92" y="40" width="130" height="96" rx="3" fill="#fff" stroke="#000"/><g fill="#000" fill-opacity=".3"><rect x="102" y="52" width="80" height="4"/><rect x="102" y="64" width="100" height="4"/><rect x="102" y="76" width="70" height="4"/><rect x="102" y="88" width="90" height="4"/></g><rect x="102" y="104" width="54" height="18" rx="2" fill="#FFFF00" stroke="#000"/><text x="129" y="116" text-anchor="middle" font-family="Fira Code,monospace" font-size="8" fill="#000">SHARE</text></svg></div><p><b>06</b>Share. Tell the architect the program can be met more than one way, and show the client what building to the guidelines saved.</p></div>
+     <div><div class="wf" role="img" aria-label="Panel one: the workspace. The site in the middle with its two streets and the neighbouring blocks; a rail on the left to search a parcel or upload a layout and toggle layers; goals and optimizations on the right."><div class="wf-top"><i></i><span>Analyze</span><span class="on">Design</span><span>Explore</span><span>Library</span><span class="pr">Moonshot opportunity · site</span></div><div class="wf-body"><div class="wf-rail"><span class="wf-k">Site</span><span class="wf-in">search a parcel</span><span class="wf-in dash">upload layout ↑<br>DWG · PDF</span><span class="wf-k">Layers</span><span class="wf-r"><span>Plumbing</span><i>off</i></span><span class="wf-r"><span>Electricity</span><i>off</i></span><span class="wf-r"><span>Envelope</span><i>on</i></span><span class="wf-r"><span>Site layout</span><i>on</i></span></div><div class="wf-mid"><canvas class="wf-c" data-scene="site"></canvas><span class="wf-cap">Moonshot opportunity · 1.9 ac · Oakland</span></div><div class="wf-side"><span class="wf-k">Goals +</span><span class="wf-r"><span>Cost</span></span><span class="wf-sl"><i style="left:60%"></i></span><span class="wf-r"><span>Sustainability</span></span><span class="wf-sl"><i style="left:40%"></i></span><span class="wf-r"><span>Constructability</span></span><span class="wf-sl"><i style="left:52%"></i></span><span class="wf-k">Optimizations ↻</span><span class="wf-r mut"><span>Run a sample first</span></span></div></div></div><p><b>01</b>The job: stand between clients who want flexible, customizable buildings and a production line built for repetition.</p></div>
+     <div><div class="wf" role="img" aria-label="Panel two: define. The parcel is selected, in yellow with corner handles, and the goals on the right carry targets: cost at most 410 dollars a square foot, daylight at least 30 percent, catalog parts at least 92 percent, and an add-goal button."><div class="wf-top"><i></i><span>Analyze</span><span class="on">Design</span><span>Explore</span><span>Library</span><span class="pr">Moonshot opportunity · site</span></div><div class="wf-body"><div class="wf-rail"><span class="wf-k">Site</span><span class="wf-in">search a parcel</span><span class="wf-in dash">upload layout ↑<br>DWG · PDF</span><span class="wf-k">Layers</span><span class="wf-r"><span>Plumbing</span><i>off</i></span><span class="wf-r"><span>Electricity</span><i>off</i></span><span class="wf-r"><span>Envelope</span><i>on</i></span><span class="wf-r"><span>Site layout</span><i>on</i></span></div><div class="wf-mid"><canvas class="wf-c" data-scene="define"></canvas><span class="wf-tip" style="left:50%;top:14%">click and drag to add floors</span><span class="wf-cap">Site · boundaries · extents</span></div><div class="wf-side"><span class="wf-k">Goals</span><span class="wf-r on"><span>Cost</span><i>≤ $410/ft²</i></span><span class="wf-sl"><i class="m" style="left:60%"></i></span><span class="wf-r on"><span>Daylight</span><i>≥ 30%</i></span><span class="wf-sl"><i class="m" style="left:40%"></i></span><span class="wf-r on"><span>Catalog parts</span><i>≥ 92%</i></span><span class="wf-sl"><i class="m" style="left:52%"></i></span><span class="wf-btn">ADD GOAL +</span></div></div></div><p><b>02</b>Define. With the architect of record, set the site, its boundaries, and the goals: cost, sustainability, constructability.</p></div>
+     <div><div class="wf" role="img" aria-label="Panel three: apply. A massing of standard modules on the parcel. The left rail lists auto-complete brushes with their daylight gains; the right rail lists four generated envelopes with the first selected."><div class="wf-top"><i></i><span>Analyze</span><span class="on">Design</span><span>Explore</span><span>Library</span><span class="pr">Sample A</span></div><div class="wf-body"><div class="wf-rail"><span class="wf-k">Brushes</span><span class="wf-r on"><span>Single-loaded ring</span></span><span class="wf-r"><i>+30.3% daylight</i></span><span class="wf-r"><span>Stepped single-loaded</span></span><span class="wf-r"><i>+18.7% daylight</i></span><span class="wf-r"><span>Horseshoe</span></span><span class="wf-r"><i>+1.3% daylight</i></span><span class="wf-k">Rules</span><span class="wf-r"><span>From 14 past builds</span><i>on</i></span></div><div class="wf-mid"><canvas class="wf-c" data-scene="apply"></canvas><span class="wf-cap">Sample A · standard modules</span></div><div class="wf-side"><span class="wf-k">Alternatives</span><span class="wf-r on"><span>Envelope 1</span><i>+8.2%</i></span><span class="wf-r"><span>Envelope 2</span><i>+3.1%</i></span><span class="wf-r"><span>Envelope 3</span><i>−2.4%</i></span><span class="wf-r"><span>Envelope 4</span><i>−6.0%</i></span><span class="wf-k">Goals</span><span class="wf-r"><span>Cost</span></span><span class="wf-sl"><i style="left:60%"></i></span><span class="wf-r"><span>Sustainability</span></span><span class="wf-sl"><i style="left:40%"></i></span><span class="wf-r"><span>Constructability</span></span><span class="wf-sl"><i style="left:52%"></i></span></div></div></div><p><b>03</b>Apply. Build the massing inside the factory's rules: standard parts, default rules from past builds, alternatives generated for the envelope.</p></div>
+     <div><div class="wf" role="img" aria-label="Panel four: customize. The same massing with one module selected in yellow and a tip reading two-bed module A, auto-fill 14 units. The left rail lists the module types; the right rail reads the sample's units, floors, modules, daylight and waste."><div class="wf-top"><i></i><span>Analyze</span><span class="on">Design</span><span>Explore</span><span>Library</span><span class="pr">Sample A</span></div><div class="wf-body"><div class="wf-rail"><span class="wf-k">Modules</span><span class="wf-r on"><span>2-bed module A</span></span><span class="wf-r"><span>1-bed module</span></span><span class="wf-r"><span>Bathroom block</span><i>×2</i></span><span class="wf-r"><span>Stair core</span></span><span class="wf-k">Catalog</span><span class="wf-r"><span>Envelopes</span><i>›</i></span><span class="wf-r"><span>Corridors</span><i>›</i></span><span class="wf-r"><span>Facades</span><i>›</i></span></div><div class="wf-mid"><canvas class="wf-c" data-scene="customize"></canvas><span class="wf-tip" style="left:46%;top:14%">2-bed module A · auto-fill 14 units</span><span class="wf-cap">Swap units floor by floor</span></div><div class="wf-side"><span class="wf-k">Sample A</span><span class="wf-r"><span>Units</span><i>42</i></span><span class="wf-r"><span>Floors</span><i>3</i></span><span class="wf-r"><span>Modules</span><i>96</i></span><span class="wf-r"><span>Bathroom blocks</span><i>2</i></span><span class="wf-k">Performance</span><span class="wf-r"><span>Daylight</span><i>+12%</i></span><span class="wf-r"><span>Waste</span><i>−3%</i></span><span class="wf-r"><span>Occupancy</span><i>42/62</i></span></div></div></div><p><b>04</b>Customize. Swap units for predefined modules, floor by floor. Two bathroom blocks in one unit; a two-bedroom module auto-filled through the rest.</p></div>
+     <div><div class="wf" role="img" aria-label="Panel five: optimize. Two models stacked, sample A above and optimization 1 below with its added modules in yellow. The right rail carries bullet graphs for cost, constructability and sustainability against their targets, and the optimizations list with the kitchen-sink proposal selected: minus two inches, plus twenty units."><div class="wf-top"><i></i><span>Analyze</span><span class="on">Design</span><span>Explore</span><span>Library</span><span class="pr">Sample A · Optimization 1</span></div><div class="wf-body"><div class="wf-rail"><span class="wf-k">Modules</span><span class="wf-r on"><span>2-bed module A</span></span><span class="wf-r"><span>1-bed module</span></span><span class="wf-r"><span>Bathroom block</span><i>×2</i></span><span class="wf-r"><span>Stair core</span></span><span class="wf-k">Catalog</span><span class="wf-r"><span>Envelopes</span><i>›</i></span><span class="wf-r"><span>Corridors</span><i>›</i></span><span class="wf-r"><span>Facades</span><i>›</i></span></div><div class="wf-mid two"><canvas class="wf-c" data-scene="sample"></canvas><canvas class="wf-c" data-scene="optimized"></canvas><span class="wf-cap t">Sample A · 42 units</span><span class="wf-cap b">Optimization 1 · 62 units</span></div><div class="wf-side"><span class="wf-r"><span>Cost</span><i>$/ft²</i></span><span class="wf-bul"><i style="width:58%"></i><u style="left:64%"></u></span><span class="wf-r"><span>Constructability</span></span><span class="wf-bul"><i style="width:66%"></i><u style="left:60%"></u></span><span class="wf-r"><span>Sustainability</span></span><span class="wf-bul"><i style="width:48%"></i><u style="left:70%"></u></span><span class="wf-k">Optimizations</span><span class="wf-r on"><span>Kitchen sink −2 in</span><i>+20 units</i></span><span class="wf-r"><span>Corridor east–west</span><i>+4 units</i></span><span class="wf-r"><span>Stair core west</span><i>−1.2% cost</i></span></div></div></div><p><b>05</b>Optimize. The custom parts fail the occupancy program. One proposal narrows the kitchen sink in every module; in the scenario, twenty more units.</p></div>
+     <div><div class="wf" role="img" aria-label="Panel six: share. A specification sheet for sample A version 2 over the faded model: 62 units, 5 floors, 148 modules, 388 dollars a square foot, 58 kilograms of carbon dioxide equivalent a square foot, 96 percent catalog parts, and a button to share with the architect. The right rail lists the recipients."><div class="wf-top"><i></i><span>Analyze</span><span class="on">Design</span><span>Explore</span><span>Library</span><span class="pr">Sample A · v2</span></div><div class="wf-body"><div class="wf-rail"><span class="wf-k">Modules</span><span class="wf-r on"><span>2-bed module A</span></span><span class="wf-r"><span>1-bed module</span></span><span class="wf-r"><span>Bathroom block</span><i>×2</i></span><span class="wf-r"><span>Stair core</span></span><span class="wf-k">Catalog</span><span class="wf-r"><span>Envelopes</span><i>›</i></span><span class="wf-r"><span>Corridors</span><i>›</i></span><span class="wf-r"><span>Facades</span><i>›</i></span></div><div class="wf-mid"><canvas class="wf-c" data-scene="share"></canvas><div class="wf-sheet"><b>Specification · Sample A v2</b><span>Units<u>62</u></span><span>Floors<u>5</u></span><span>Modules<u>148</u></span><span>Cost<u>$388/ft²</u></span><span>Embodied carbon<u>58 kgCO₂e/ft²</u></span><span>Catalog parts<u>96%</u></span><span class="wf-btn">SHARE WITH THE ARCHITECT</span></div></div><div class="wf-side"><span class="wf-k">Recipients</span><span class="wf-r"><span>Architect of record</span><i>edit</i></span><span class="wf-r"><span>Client</span><i>view</i></span><span class="wf-r"><span>Manufacturing</span><i>edit</i></span><span class="wf-k">Versions</span><span class="wf-r on"><span>v2 · optimization 1</span></span><span class="wf-r"><span>v1 · sample A</span></span></div></div></div><p><b>06</b>Share. Tell the architect the program can be met more than one way, and show the client what building to the guidelines saved.</p></div>
     </div>
-    <figcaption>Fig. 4 · The six-panel storyboard of 12 November, redrawn as the same workspace six times. It is today's job, the factory's own architect adapting an outside firm's drawings, with the generator drawn in where it could fit: the alternatives in panel 03 and the optimizations in panel 05. Yellow marks what the architect is touching in each panel.</figcaption>
+    <figcaption>Fig. 4 · The six-panel storyboard of 12 November, redrawn as the same workspace six times, the models rendered on the page. It is today's job, the factory's own architect adapting an outside firm's drawings, with the generator drawn in where it could fit: the alternatives in panel 03 and the optimizations in panel 05. Yellow marks what the architect is touching in each panel.</figcaption>
    </figure>
    {% include study-methods.html n=2 %}
   </section>
@@ -301,25 +392,26 @@ h1 em{color:#000;background:var(--mark);padding:0 .06em;margin:0 -.06em;-webkit-
    <p>Two rounds of wireframes carried the scenarios into screens. The first round was the six-panel storyboard of 12 November, drawn as a workspace of its own. The second, finished on 23 November, followed the new protagonists through the five stages. It was an overview and nine stage screens, ten in all, and it moved inside the frame of the platform Autodesk had acquired.</p>
 
    <figure>
-    <div class="xp" role="img" aria-label="The explore screen, redrawn. A top bar with Analyze, Design, Explore selected, and Library. A left rail of scales: site, building, module, and unit, with unit open to interior wall, facade wall, and facade window. A two-by-three grid of generated window-wall outcomes, each with its change in daylight, views, and waste, a lock, and thumbs up and down; one is locked and one is upvoted. A right rail with goal weights for daylight, views, and waste, and a list of building attributes. Placeholder numbers.">
+    <div class="xp" role="img" aria-label="The explore screen, redrawn. A top bar with Analyze, Design, Explore selected, and Library. A left rail of scales: site, building, module, and unit, with unit open to interior wall, facade wall, and facade window. A two-by-three grid of generated outcomes, each a rendered massing with its change in daylight, views, and waste, and thumbs up and down; one is locked, one upvoted, one downvoted. A right rail with samples against goals, goal weights for daylight, views, and waste, and a list of building attributes. Placeholder numbers.">
      <div class="xp-top"><span>Analyze</span><span>Design</span><span class="on">Explore</span><span>Library</span><span class="proj">Oakland multifamily · design 1</span></div>
      <div class="xp-body">
       <div class="xp-rail">
        <b>Scales</b>
-       <div><span>Site</span><span>▾</span></div><div><span>Building</span><span>▾</span></div><div><span>Module</span><span>▾</span></div><div class="on"><span>Unit</span><span>▴</span></div>
-       <div class="sub"><span>Interior wall</span></div><div class="sub"><span>Facade wall</span></div><div class="sub on"><span>Facade window</span></div>
+       <div><span>Site</span><span>▾</span></div><div class="on"><span>Building</span><span>▴</span></div><div class="sub on"><span>Massing</span></div><div class="sub"><span>Circulation</span></div><div><span>Module</span><span>▾</span></div><div><span>Unit</span><span>▾</span></div>
        <b>Families</b>
        <div><span>Curtain panels</span></div><div><span>Doors</span></div><div><span>Windows</span></div>
       </div>
       <div class="xp-grid">
-       <div class="xp-card"><svg viewBox="0 0 200 84" aria-hidden="true"><path d="M8 26l150-20v56L8 82z" fill="#fff" stroke="#000"/><path d="M8 26l150-20M158 6v56" stroke="#000"/><g fill="none" stroke="#000" stroke-opacity=".35"><path d="M30 23v56M52 20v56M74 17v56M96 14v56M118 11v56M140 8v56"/></g><g fill="#FFFF00" stroke="#000"><path d="M40 30l28-4v26l-28 4z"/><path d="M100 22l28-4v26l-28 4z"/></g></svg><div class="xp-d"><span><u>+30.3%</u> daylight</span><span><u>+13.7%</u> views</span><span><u>−3.4%</u> waste</span></div><div class="xp-v"><span>▲</span><span>▼</span><i>unlocked</i></div></div>
-       <div class="xp-card"><svg viewBox="0 0 200 84" aria-hidden="true"><path d="M8 26l150-20v56L8 82z" fill="#fff" stroke="#000"/><path d="M8 26l150-20M158 6v56" stroke="#000"/><g fill="none" stroke="#000" stroke-opacity=".35"><path d="M30 23v56M52 20v56M74 17v56M96 14v56M118 11v56M140 8v56"/></g><g fill="#FFFF00" stroke="#000"><path d="M34 31l40-5v24l-40 5z"/><path d="M96 23l40-5v24l-40 5z"/></g></svg><div class="xp-d"><span><u>+20.5%</u> daylight</span><span><u>+5.7%</u> views</span><span><u>+0.7%</u> waste</span></div><div class="xp-v"><span class="on">▲</span><span>▼</span><i>upvoted</i></div></div>
-       <div class="xp-card"><svg viewBox="0 0 200 84" aria-hidden="true"><path d="M8 26l150-20v56L8 82z" fill="#fff" stroke="#000"/><path d="M8 26l150-20M158 6v56" stroke="#000"/><g fill="none" stroke="#000" stroke-opacity=".35"><path d="M30 23v56M52 20v56M74 17v56M96 14v56M118 11v56M140 8v56"/></g><g fill="#FFFF00" stroke="#000"><path d="M60 28l50-7v34l-50 7z"/></g></svg><div class="xp-d"><span><u>−15%</u> daylight</span><span><u>−10%</u> views</span><span><u>+20%</u> waste</span></div><div class="xp-v"><span>▲</span><span class="on">▼</span><i>downvoted</i></div></div>
-       <div class="xp-card"><svg viewBox="0 0 200 84" aria-hidden="true"><path d="M8 26l150-20v56L8 82z" fill="#fff" stroke="#000"/><path d="M8 26l150-20M158 6v56" stroke="#000"/><g fill="none" stroke="#000" stroke-opacity=".35"><path d="M30 23v56M52 20v56M74 17v56M96 14v56M118 11v56M140 8v56"/></g><g fill="#FFFF00" stroke="#000"><path d="M30 30l32-4v22l-32 4z"/><path d="M76 24l32-4v22l-32 4z"/><path d="M122 18l24-3v22l-24 3z"/></g></svg><div class="xp-d"><span><u>+10%</u> daylight</span><span><u>+10%</u> views</span><span><u>−10.5%</u> waste</span></div><div class="xp-v"><span>▲</span><span>▼</span><i>locked</i></div></div>
-       <div class="xp-card"><svg viewBox="0 0 200 84" aria-hidden="true"><path d="M8 26l150-20v56L8 82z" fill="#fff" stroke="#000"/><path d="M8 26l150-20M158 6v56" stroke="#000"/><g fill="none" stroke="#000" stroke-opacity=".35"><path d="M30 23v56M52 20v56M74 17v56M96 14v56M118 11v56M140 8v56"/></g><g fill="#FFFF00" stroke="#000"><path d="M20 31l120-16v30L20 61z"/></g></svg><div class="xp-d"><span><u>+35%</u> daylight</span><span><u>+25%</u> views</span><span><u>−23.7%</u> waste</span></div><div class="xp-v"><span>▲</span><span>▼</span><i>unlocked</i></div></div>
-       <div class="xp-card"><svg viewBox="0 0 200 84" aria-hidden="true"><path d="M8 26l150-20v56L8 82z" fill="#fff" stroke="#000"/><path d="M8 26l150-20M158 6v56" stroke="#000"/><g fill="none" stroke="#000" stroke-opacity=".35"><path d="M30 23v56M52 20v56M74 17v56M96 14v56M118 11v56M140 8v56"/></g><g fill="#FFFF00" stroke="#000"><path d="M20 28l120-16v14L20 42z"/><path d="M20 48l120-16v14L20 62z"/></g></svg><div class="xp-d"><span><u>+40%</u> daylight</span><span><u>+20%</u> views</span><span><u>−15%</u> waste</span></div><div class="xp-v"><span>▲</span><span>▼</span><i>unlocked</i></div></div>
+       <div class="xp-card"><b class="xp-n">Stepped single-loaded</b><canvas data-scene="o1" aria-hidden="true"></canvas><div class="xp-d"><span><u>+30.3%</u> daylight</span><span><u>+13.7%</u> views</span><span><u>−3.4%</u> waste</span></div><div class="xp-v"><span>▲</span><span>▼</span><i>unlocked</i></div></div>
+       <div class="xp-card"><b class="xp-n">Single-loaded ring</b><canvas data-scene="o2" aria-hidden="true"></canvas><div class="xp-d"><span><u>+20.5%</u> daylight</span><span><u>+5.7%</u> views</span><span><u>+0.7%</u> waste</span></div><div class="xp-v"><span class="on">▲</span><span>▼</span><i>upvoted</i></div></div>
+       <div class="xp-card"><b class="xp-n">Double-loaded slab</b><canvas data-scene="o3" aria-hidden="true"></canvas><div class="xp-d"><span><u>−15%</u> daylight</span><span><u>−10%</u> views</span><span><u>+20%</u> waste</span></div><div class="xp-v"><span>▲</span><span class="on">▼</span><i>downvoted</i></div></div>
+       <div class="xp-card"><span class="xp-tag">locked</span><b class="xp-n">Horseshoe</b><canvas data-scene="o4" aria-hidden="true"></canvas><div class="xp-d"><span><u>+10%</u> daylight</span><span><u>+10%</u> views</span><span><u>−10.5%</u> waste</span></div><div class="xp-v"><span>▲</span><span>▼</span><i>locked</i></div></div>
+       <div class="xp-card"><b class="xp-n">Split courtyard</b><canvas data-scene="o5" aria-hidden="true"></canvas><div class="xp-d"><span><u>+35%</u> daylight</span><span><u>+25%</u> views</span><span><u>−23.7%</u> waste</span></div><div class="xp-v"><span>▲</span><span>▼</span><i>unlocked</i></div></div>
+       <div class="xp-card"><b class="xp-n">Stepped terrace</b><canvas data-scene="o6" aria-hidden="true"></canvas><div class="xp-d"><span><u>+40%</u> daylight</span><span><u>+20%</u> views</span><span><u>−15%</u> waste</span></div><div class="xp-v"><span>▲</span><span>▼</span><i>unlocked</i></div></div>
       </div>
       <div class="xp-side">
+       <b>Samples vs goals</b>
+       <div class="xp-chart"><svg viewBox="0 0 150 64" aria-hidden="true"><g stroke="#000" stroke-opacity=".18"><line x1="10" y1="8" x2="10" y2="52"/><line x1="30" y1="8" x2="30" y2="52"/><line x1="50" y1="8" x2="50" y2="52"/><line x1="70" y1="8" x2="70" y2="52"/><line x1="90" y1="8" x2="90" y2="52"/><line x1="110" y1="8" x2="110" y2="52"/><line x1="130" y1="8" x2="130" y2="52"/></g><g font-family="Fira Code,monospace" font-size="7" fill="#666" text-anchor="middle"><text x="10" y="62">G1</text><text x="30" y="62">G2</text><text x="50" y="62">G3</text><text x="70" y="62">G4</text><text x="90" y="62">G5</text><text x="110" y="62">G6</text><text x="130" y="62">G7</text></g><polyline fill="none" stroke="#000" stroke-opacity=".35" stroke-width="1" points="10,30 30,22 50,40 70,18 90,34 110,26 130,38"/><polyline fill="none" stroke="#000" stroke-width="1.5" points="10,20 30,28 50,16 70,30 90,14 110,22 130,12"/><polyline fill="none" stroke="#000" stroke-width="1.5" stroke-dasharray="3 2" points="10,44 30,40 50,46 70,42 90,48 110,44 130,46"/><g fill="#FFFF00" stroke="#000" stroke-width="1"><circle cx="50" cy="16" r="2.5"/><circle cx="90" cy="14" r="2.5"/><circle cx="130" cy="12" r="2.5"/></g></svg><div><span>SA</span><span>SB</span><span>O1</span></div></div>
        <b>Goal weights</b>
        <div><span>Sustainability › Daylight</span></div><div class="sl"><i class="m" style="left:72%"></i></div>
        <div><span>Sustainability › Views</span></div><div class="sl"><i style="left:50%"></i></div>
@@ -329,7 +421,7 @@ h1 em{color:#000;background:var(--mark);padding:0 .06em;margin:0 -.06em;-webkit-
       </div>
      </div>
     </div>
-    <figcaption>Fig. 6 · Stage 2a, the explore screen, redrawn with placeholder numbers. The generator's work is the grid; the person's is everything around it: which scale to look at, which outcomes to keep, and how much each goal counts. Yellow marks the glazing the search is varying.</figcaption>
+    <figcaption>Fig. 6 · Stage 2a, the explore screen, redrawn with placeholder numbers and the six outcomes rendered on the page. The generator's work is the grid; the person's is everything around it: which scale to look at, which outcomes to keep, and how much each goal counts. The chart on the right is the wireframe's own: each sample against each goal.</figcaption>
    </figure>
 
    <p>The question in every stage was who is steering. So every stage put a hand on the machine, and each control does one specific thing to the search.</p>
@@ -357,38 +449,44 @@ h1 em{color:#000;background:var(--mark);padding:0 .06em;margin:0 -.06em;-webkit-
 
    <p>When a change came from the factory side, the screens showed the cascade instead of hiding it. A substituted window walks through the framing layout, the bill of materials, the robotic simulation, and the structural simulation. Then it walks back up to the cost and sustainability predictions the architect and the developer had agreed on. Everyone affected is notified, and the approvals move on.</p>
 
-   <figure class="dia">
-<div tabindex="0" role="region" aria-label="Figure, scrolls sideways" class="fig-scroll"><svg viewBox="0 0 760 300" class="cas" aria-label="The cascade in stage 3. A back-ordered window leads to an approved substitute, which fans out to the framing layout, the bill of materials, the robotic simulation, and the structural simulation; those feed the cost, sustainability, and constructability predictions; and everything ends at all stakeholders notified.">
-     <defs><marker id="cas-ah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0l8 4-8 4z" fill="#000"/></marker></defs>
-     <g class="lab"><text x="20" y="18">THE FACTORY SIDE</text><text x="300" y="18">EVERY DEPENDENCY</text><text x="560" y="18">BACK UP TO THE BRIEF</text></g>
-     <rect x="20" y="118" width="120" height="44" rx="3" class="g"/><text x="80" y="136" text-anchor="middle">Window model</text><text x="80" y="153" text-anchor="middle">back-ordered</text>
-     <rect x="160" y="118" width="120" height="44" rx="3" class="m"/><text x="220" y="136" text-anchor="middle">Substitute</text><text x="220" y="153" text-anchor="middle">approved</text>
-     <g><rect x="300" y="34" width="150" height="36" rx="3"/><text x="375" y="57" text-anchor="middle">Framing layout</text>
-      <rect x="300" y="90" width="150" height="36" rx="3"/><text x="375" y="113" text-anchor="middle">Bill of materials</text>
-      <rect x="300" y="146" width="150" height="36" rx="3"/><text x="375" y="169" text-anchor="middle">Robotic simulation</text>
-      <rect x="300" y="202" width="150" height="36" rx="3"/><text x="375" y="225" text-anchor="middle">Structural simulation</text></g>
-     <g><rect x="480" y="62" width="120" height="36" rx="3"/><text x="540" y="85" text-anchor="middle">Cost</text>
-      <rect x="480" y="118" width="120" height="36" rx="3"/><text x="540" y="141" text-anchor="middle">Sustainability</text>
-      <rect x="480" y="174" width="120" height="36" rx="3"/><text x="540" y="197" text-anchor="middle">Constructability</text></g>
-     <rect x="630" y="106" width="110" height="60" rx="3" class="g"/><text x="685" y="130" text-anchor="middle">Everyone</text><text x="685" y="147" text-anchor="middle">notified</text>
-     <g fill="none" stroke="#000" stroke-width="1.2" marker-end="url(#cas-ah)">
-      <path d="M140 140h18" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .4s ease-out .1s forwards"/>
-      <path d="M280 140C290 140 290 52 298 52" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out .5s forwards"/>
-      <path d="M280 140C290 140 290 108 298 108" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out .6s forwards"/>
-      <path d="M280 140C290 140 290 164 298 164" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out .7s forwards"/>
-      <path d="M280 140C290 140 290 220 298 220" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out .8s forwards"/>
-      <path d="M450 52C465 52 465 80 478 80" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 1.2s forwards"/>
-      <path d="M450 108C465 108 465 136 478 136" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 1.3s forwards"/>
-      <path d="M450 164C465 164 465 136 478 136" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 1.4s forwards"/>
-      <path d="M450 220C465 220 465 192 478 192" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 1.5s forwards"/>
-      <path d="M600 80C615 80 615 136 628 136" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 1.9s forwards"/>
-      <path d="M600 136h28" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 2s forwards"/>
-      <path d="M600 192C615 192 615 136 628 136" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 2.1s forwards"/>
-     </g>
-     <text x="80" y="200" text-anchor="middle" class="lab">PROCUREMENT MANAGER</text><text x="220" y="200" text-anchor="middle" class="lab">DESIGN TEAM</text>
-     <text x="380" y="282" text-anchor="middle" font-family="Instrument Serif,serif" font-style="italic" font-size="14" fill="#333">a person approves the change once; the dependencies are the generator's to keep straight</text>
-    </svg></div>
-    <figcaption>Fig. 8 · Stage 3b, the cascade from one substituted window, redrawn from the scenario. The screens' job was to show the whole chain to the people who had to approve it, so that nobody signed off on a window without seeing what it did to the cost.</figcaption>
+   <figure>
+    <div class="ui" role="img" aria-label="Stage 3b, the change request for window_frame_619, redrawn with placeholder data. Left: the framed wall panel with its two windows rendered in three dimensions, and the bill of materials with the back-ordered 5000 Series row struck through and the substitute 5200 Series row in yellow, 30 by 72 rough opening in place of 30 by 71. Right: the cascade of seven dependencies with their status, framing layout regenerated, bill of materials two lines changed, robotic simulation re-run, structural simulation passed, cost prediction up 1,240 dollars and flagged for review, sustainability within target, constructability unchanged; the approvals, structural engineer and production manager approved, procurement manager proposed, design team pending; and a button to approve and notify six stakeholders.">
+     <div class="xp-top"><i></i><span class="on">Analyze</span><span>Design</span><span>Explore</span><span>Library</span><span class="proj">Oakland multifamily · design 1 · change request</span></div>
+     <div class="cr-body">
+      <div class="cr-left">
+       <div class="cr-h"><b>window_frame_619</b><span>Facade window · module type B · 24 instances</span></div>
+       <canvas data-scene="wall" aria-hidden="true"></canvas>
+       <div tabindex="0" role="region" aria-label="Table, scrolls sideways" class="tbl-scroll"><table class="tbl cr-bom">
+        <thead><tr><th>Group</th><th>Brand</th><th>Material</th><th>Attributes</th><th>Qty</th><th>EPD</th></tr></thead>
+        <tbody>
+         <tr class="x"><td>AD01</td><td>All Weather Architectural</td><td>5000 Series · back-ordered</td><td>30″ × 71″ RO</td><td>24 ea</td><td>Fixed picture window</td></tr>
+         <tr class="y"><td>AD01</td><td>All Weather Architectural</td><td><u>5200 Series</u> · substitute</td><td><u>30″ × 72″ RO</u></td><td>24 ea</td><td>Fixed picture window</td></tr>
+        </tbody>
+       </table></div>
+      </div>
+      <div class="cr-right">
+       <b class="cr-k">Cascade · 7 dependencies</b>
+       <ul class="cr-list">
+        <li><span>Framing layout</span><i>regenerated · 2 studs moved per panel</i><em class="ok">done</em></li>
+        <li><span>Bill of materials</span><i>2 lines changed · 24 instances</i><em class="ok">done</em></li>
+        <li><span>Robotic simulation</span><i>cell plan B · +40 s a panel</i><em class="ok">done</em></li>
+        <li><span>Structural simulation</span><i>header span unchanged</i><em class="ok">passed</em></li>
+        <li><span>Cost prediction</span><i>+$1,240 on the project · within target</i><em class="warn">review</em></li>
+        <li><span>Sustainability</span><i>embodied carbon +0.4%</i><em class="ok">within target</em></li>
+        <li><span>Constructability</span><i>no change</i><em class="ok">passed</em></li>
+       </ul>
+       <b class="cr-k">Approvals</b>
+       <ul class="cr-appr">
+        <li>Structural engineer<em class="ok">approved</em></li>
+        <li>Production manager<em class="ok">approved</em></li>
+        <li>Procurement manager<em class="ok">proposed</em></li>
+        <li>Design team<em class="pend">pending</em></li>
+       </ul>
+       <span class="btn">Approve and notify 6 stakeholders</span>
+      </div>
+     </div>
+    </div>
+    <figcaption>Fig. 8 · Stage 3b, the change request for one substituted window, redrawn from the scenario with placeholder data. The screen's job was to show the whole chain to the people who had to approve it, so that nobody signed off on a window without seeing what it did to the cost.</figcaption>
    </figure>
    {% include study-methods.html n=4 %}
   </section>
@@ -398,25 +496,40 @@ h1 em{color:#000;background:var(--mark);padding:0 .06em;margin:0 -.06em;-webkit-
    <p>On 2 December the concept went to Autodesk as a deck. It held the five stages, the interface overview, the user stories, and all three rounds of drawing in the appendix. What the project team took from it, Autodesk's people included, was a placement rather than a feature list. The stages belonged inside the site-planning platform Autodesk had bought the year before. They would be new spaces in an application architects already opened, not a new tool beside it.</p>
    <p>The concept had walked the generator from the factory floor into the architect's day, and that day already happened inside the platform.</p>
 
-   <figure class="dia">
-<div tabindex="0" role="region" aria-label="Figure, scrolls sideways" class="fig-scroll"><svg viewBox="0 0 760 330" aria-label="Ten small screens in two rows of five, each a frame with a top bar and three panes, the pane in use marked yellow: the overview, then stages 0a translate the brief, 0b components and rules, 1 site boundaries, 2a navigate outcomes, 2b visualize differences, 2c walk the evolution, 3a component documentation, 3b approvals, and 4 merge into the catalog.">
-     <defs>
-      <symbol id="scr" viewBox="0 0 140 90"><rect x=".5" y=".5" width="139" height="89" rx="3" fill="#fff" stroke="#000"/><rect x="1" y="1" width="138" height="10" fill="#000" fill-opacity=".08"/><g fill="#000" fill-opacity=".45"><rect x="6" y="5" width="12" height="2.5"/><rect x="22" y="5" width="12" height="2.5"/><rect x="38" y="5" width="12" height="2.5"/><rect x="54" y="5" width="12" height="2.5"/></g><line x1="30" y1="11" x2="30" y2="89" stroke="#000" stroke-opacity=".2"/><line x1="110" y1="11" x2="110" y2="89" stroke="#000" stroke-opacity=".2"/></symbol>
-     </defs>
-     <g font-family="Fira Code,monospace" font-size="11" fill="#666" letter-spacing=".04em">
-      <g transform="translate(10 20)"><use href="#scr" width="140" height="90"/><rect x="1" y="11" width="138" height="78" fill="#FFFF00" fill-opacity=".55"/><text x="0" y="112">OVERVIEW</text><text x="0" y="128" fill="#333" font-family="Instrument Serif,serif" font-size="13" letter-spacing="0">the platform's frame</text></g>
-      <g transform="translate(160 20)"><use href="#scr" width="140" height="90"/><rect x="1" y="11" width="29" height="78" fill="#FFFF00" fill-opacity=".7"/><rect x="110" y="11" width="29" height="78" fill="#FFFF00" fill-opacity=".7"/><text x="0" y="112">0A · LIBRARY</text><text x="0" y="128" fill="#333" font-family="Instrument Serif,serif" font-size="13" letter-spacing="0">translate the brief</text></g>
-      <g transform="translate(310 20)"><use href="#scr" width="140" height="90"/><rect x="1" y="11" width="29" height="78" fill="#FFFF00" fill-opacity=".7"/><rect x="30" y="60" width="80" height="29" fill="#FFFF00" fill-opacity=".7"/><text x="0" y="112">0B · LIBRARY</text><text x="0" y="128" fill="#333" font-family="Instrument Serif,serif" font-size="13" letter-spacing="0">components and rules</text></g>
-      <g transform="translate(460 20)"><use href="#scr" width="140" height="90"/><path d="M52 40l36-14 24 12-20 30-38-6z" fill="#FFFF00" fill-opacity=".8" stroke="#000" stroke-width=".8"/><text x="0" y="112">1 · DESIGN</text><text x="0" y="128" fill="#333" font-family="Instrument Serif,serif" font-size="13" letter-spacing="0">site boundaries and extents</text></g>
-      <g transform="translate(610 20)"><use href="#scr" width="140" height="90"/><g fill="#FFFF00" fill-opacity=".7" stroke="#000" stroke-width=".6"><rect x="34" y="15" width="34" height="22"/><rect x="72" y="15" width="34" height="22"/><rect x="34" y="41" width="34" height="22"/><rect x="72" y="41" width="34" height="22"/><rect x="34" y="67" width="34" height="18"/><rect x="72" y="67" width="34" height="18"/></g><text x="0" y="112">2A · EXPLORE</text><text x="0" y="128" fill="#333" font-family="Instrument Serif,serif" font-size="13" letter-spacing="0">navigate the outcomes</text></g>
-      <g transform="translate(10 176)"><use href="#scr" width="140" height="90"/><rect x="32" y="13" width="37" height="74" fill="#FFFF00" fill-opacity=".7"/><rect x="71" y="13" width="37" height="74" fill="#FFFF00" fill-opacity=".35"/><text x="0" y="112">2B · EXPLORE</text><text x="0" y="128" fill="#333" font-family="Instrument Serif,serif" font-size="13" letter-spacing="0">visualize the differences</text></g>
-      <g transform="translate(160 176)"><use href="#scr" width="140" height="90"/><rect x="31" y="70" width="78" height="18" fill="#FFFF00" fill-opacity=".7"/><g fill="#000"><circle cx="40" cy="79" r="2"/><circle cx="58" cy="79" r="2"/><circle cx="76" cy="79" r="2"/><circle cx="94" cy="79" r="2"/></g><line x1="40" y1="79" x2="94" y2="79" stroke="#000"/><text x="0" y="112">2C · EXPLORE</text><text x="0" y="128" fill="#333" font-family="Instrument Serif,serif" font-size="13" letter-spacing="0">walk the evolution</text></g>
-      <g transform="translate(310 176)"><use href="#scr" width="140" height="90"/><rect x="31" y="58" width="108" height="31" fill="#FFFF00" fill-opacity=".7"/><g stroke="#000" stroke-opacity=".4"><line x1="31" y1="68" x2="139" y2="68"/><line x1="31" y1="78" x2="139" y2="78"/></g><text x="0" y="112">3A · ANALYZE</text><text x="0" y="128" fill="#333" font-family="Instrument Serif,serif" font-size="13" letter-spacing="0">component documentation</text></g>
-      <g transform="translate(460 176)"><use href="#scr" width="140" height="90"/><rect x="44" y="24" width="60" height="44" rx="2" fill="#FFFF00" fill-opacity=".8" stroke="#000" stroke-width=".8"/><text x="0" y="112">3B · ANALYZE</text><text x="0" y="128" fill="#333" font-family="Instrument Serif,serif" font-size="13" letter-spacing="0">approvals from the factory</text></g>
-      <g transform="translate(610 176)"><use href="#scr" width="140" height="90"/><rect x="44" y="24" width="60" height="44" rx="2" fill="#FFFF00" fill-opacity=".8" stroke="#000" stroke-width=".8"/><rect x="1" y="11" width="29" height="78" fill="#FFFF00" fill-opacity=".35"/><text x="0" y="112">4 · LIBRARY</text><text x="0" y="128" fill="#333" font-family="Instrument Serif,serif" font-size="13" letter-spacing="0">merge into the catalog</text></g>
-     </g>
-    </svg></div>
-    <figcaption>Fig. 9 · The ten screens of the second round as a contact sheet, with the pane in use in each marked. Two of the four spaces in the platform's own top bar, explore and analyze, carry six of the ten; the library bookends the loop.</figcaption>
+   <figure>
+    <div class="ui" role="img" aria-label="Stage 4, the library, redrawn with placeholder data. Left: the components in use, stepped double-loaded and double medium windows, and the families list. Middle: a merge panel titled F_OS engineering team with a merge pull request button; tabs for conversation, two commits and three files changed; the process engineer's comment approving the merge with the measured cost, install time and framing change; the digital fabrication specialist's two commits changing the bill of materials and adding a product id; a check that window_frame_619 has no conflicts with the base branch framing; and the merge message. Right: the part's details, family, rules, cost, install, framing, and searchable in generation set to yes.">
+     <div class="xp-top"><i></i><span>Analyze</span><span>Design</span><span>Explore</span><span class="on">Library</span><span class="proj">Multifamily component library</span></div>
+     <div class="mg-body">
+      <div class="mg-rail">
+       <b>Components in use</b>
+       <div class="mg-comp"><span>Stepped double-loaded</span><i>+30.3% daylight · +30.3% green space</i></div>
+       <div class="mg-comp on"><span>Double medium windows</span><i>+10% daylight · +10% views · −10.5% waste</i></div>
+       <b>Families</b>
+       <span class="mg-fam">Analytical links</span><span class="mg-fam">Annotation symbols</span><span class="mg-fam">Cable trays</span><span class="mg-fam">Casework</span><span class="mg-fam">Ceilings</span><span class="mg-fam">Columns</span><span class="mg-fam">Curtain panels</span><span class="mg-fam">Doors</span><span class="mg-fam">Duct systems</span><span class="mg-fam">Electrical fixtures</span><span class="mg-fam">Floors</span><span class="mg-fam">Windows</span>
+      </div>
+      <div class="mg-pr">
+       <div class="mg-h"><b>F_OS engineering team</b><span class="btn">Merge pull request</span></div>
+       <div class="mg-tabs"><span class="on">Conversation</span><span>Commits · 2</span><span>Files changed · 3</span></div>
+       <div class="mg-item"><b>Process engineer · admin</b><i>commented 16 min ago</i><p>Approved to merge. Measured on this project: $312 a unit, 14 minutes to install, a framing change of two studs. Reuse: multifamily, three to five floors.</p></div>
+       <div class="mg-item"><b>Digital fabrication specialist</b><i>added 2 commits 3 h ago</i><p>Changed BoM for window_frame_619<u>view detail</u><br>Added product id to window_frame_619 detail<u>view detail</u></p></div>
+       <div class="mg-ok">window_frame_619 has no conflicts with base branch framing</div>
+       <div class="mg-item"><b>Process engineer · admin</b><i>1 min ago</i><p>Merging window_frame_619 into multifamily component library</p></div>
+       <div class="mg-write"><span class="on">Write</span><span>Preview</span><div></div><span class="btn q">Comment</span></div>
+      </div>
+      <div class="mg-side">
+       <b>window_frame_619</b>
+       <div><span>Family</span><i>Facade window</i></div>
+       <div><span>Placement rule</span><i>corners</i></div>
+       <div><span>Supplier rule</span><i>west shore</i></div>
+       <div><span>Cost</span><i>$312 a unit</i></div>
+       <div><span>Install</span><i>14 min</i></div>
+       <div><span>Framing</span><i>2 studs</i></div>
+       <div><span>Robotic cell</span><i>plan B</i></div>
+       <div class="y"><span>Searchable in generation</span><i>yes</i></div>
+      </div>
+     </div>
+    </div>
+    <figcaption>Fig. 9 · Stage 4, the last of the ten screens: the factory's process engineer merging the new window into the catalog, redrawn from the wireframe's own merge panel with placeholder data. It sits in the library space of the platform's own top bar, which is the placement the deck argued.</figcaption>
    </figure>
    {% include study-methods.html n=5 %}
   </section>
@@ -440,73 +553,146 @@ h1 em{color:#000;background:var(--mark);padding:0 .06em;margin:0 -.06em;-webkit-
  /* The hero counts as on screen when the given share of it shows, or a third of the viewport's height of it does. Figures are gated by assets/js/study.js. */
  var TH=[0,.05,.1,.15,.2,.25,.3,.35];
  function seen(e,r){ var rh=(e.rootBounds&&e.rootBounds.height)||window.innerHeight; return e.isIntersecting&&(e.intersectionRatio>=r||e.intersectionRect.height>=0.3*rh); }
+ var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
- /* Hero: a real genetic algorithm. Thirty candidate massings on a four-by-three site, each cell a stack of zero to five floors, scored half on density and half on daylight (the share of floor faces with nothing in front of them), with a penalty for covering more than eight of the twelve cells. Tournament selection, uniform crossover, a little mutation, two elites kept in place. Seeded, so every run is the same. */
+ /* ---- A small renderer for flat-shaded boxes with black edges: WebGL, with a plain-canvas isometric fallback. No library. ---- */
+ var YEL=[1,1,0,1], WHITE=[1,1,1,1], INK=[0,0,0,1], SLATE=[.835,.835,.796,1], GROUND=[.965,.965,.955,1], STREET=[.99,.99,.985,1], CTXC=[.9,.9,.885,1];
+ function mul(a,b){ var o=new Float32Array(16); for(var c=0;c<4;c++)for(var r=0;r<4;r++){ var s=0; for(var k=0;k<4;k++) s+=a[k*4+r]*b[c*4+k]; o[c*4+r]=s; } return o; }
+ function persp(fov,asp,n,f){ var t=1/Math.tan(fov/2), o=new Float32Array(16); o[0]=t/asp; o[5]=t; o[10]=(f+n)/(n-f); o[11]=-1; o[14]=2*f*n/(n-f); return o; }
+ function lookAt(e,c){ var zx=e[0]-c[0],zy=e[1]-c[1],zz=e[2]-c[2],l=Math.hypot(zx,zy,zz); zx/=l;zy/=l;zz/=l; var xx=zz,xy=0,xz=-zx; l=Math.hypot(xx,xy,xz)||1; xx/=l;xy/=l;xz/=l; var yx=zy*xz-zz*xy,yy=zz*xx-zx*xz,yz=zx*xy-zy*xx; var o=new Float32Array(16); o[0]=xx;o[1]=yx;o[2]=zx;o[4]=xy;o[5]=yy;o[6]=zy;o[8]=xz;o[9]=yz;o[10]=zz;o[12]=-(xx*e[0]+xy*e[1]+xz*e[2]);o[13]=-(yx*e[0]+yy*e[1]+yz*e[2]);o[14]=-(zx*e[0]+zy*e[1]+zz*e[2]);o[15]=1; return o; }
+ function ts(x,y,z,w,h,d){ var o=new Float32Array(16); o[0]=w;o[5]=h;o[10]=d;o[12]=x;o[13]=y;o[14]=z;o[15]=1; return o; }
+ function eye(cam){ return [cam.t[0]+cam.dist*Math.cos(cam.el)*Math.sin(cam.az), cam.t[1]+cam.dist*Math.sin(cam.el), cam.t[2]+cam.dist*Math.cos(cam.el)*Math.cos(cam.az)]; }
+ var VS='attribute vec3 p;attribute vec3 n;uniform mat4 mvp;uniform mat4 mm;varying vec3 vn;void main(){vn=mat3(mm)*n;gl_Position=mvp*vec4(p,1.0);}';
+ var FS='precision mediump float;uniform vec4 c;uniform vec3 l;varying vec3 vn;void main(){float d=max(dot(normalize(vn),normalize(l)),0.0);float k=0.68+0.32*d;gl_FragColor=vec4(c.rgb*k*c.a,c.a);}';
+ function GL(cv){
+  var gl=cv.getContext('webgl',{antialias:true,alpha:true,premultipliedAlpha:true,preserveDrawingBuffer:true}); if(!gl) return null;
+  function sh(t,src){ var o=gl.createShader(t); gl.shaderSource(o,src); gl.compileShader(o); return gl.getShaderParameter(o,gl.COMPILE_STATUS)?o:null; }
+  var v=sh(gl.VERTEX_SHADER,VS), f=sh(gl.FRAGMENT_SHADER,FS); if(!v||!f) return null;
+  var pr=gl.createProgram(); gl.attachShader(pr,v); gl.attachShader(pr,f); gl.linkProgram(pr); if(!gl.getProgramParameter(pr,gl.LINK_STATUS)) return null; gl.useProgram(pr);
+  var aP=gl.getAttribLocation(pr,'p'), aN=gl.getAttribLocation(pr,'n'), uMVP=gl.getUniformLocation(pr,'mvp'), uMM=gl.getUniformLocation(pr,'mm'), uC=gl.getUniformLocation(pr,'c'), uL=gl.getUniformLocation(pr,'l');
+  var P=[],N=[],V=[[0,0,0],[1,0,0],[1,1,0],[0,1,0],[0,0,1],[1,0,1],[1,1,1],[0,1,1]];
+  function face(nx,ny,nz,a,b,c,d){ [a,b,c,a,c,d].forEach(function(i){ P.push(V[i][0],V[i][1],V[i][2]); N.push(nx,ny,nz); }); }
+  face(0,0,1,4,5,6,7); face(0,0,-1,1,0,3,2); face(1,0,0,5,1,2,6); face(-1,0,0,0,4,7,3); face(0,1,0,7,6,2,3); face(0,-1,0,0,1,5,4);
+  var E=[]; [[0,1],[1,2],[2,3],[3,0],[4,5],[5,6],[6,7],[7,4],[0,4],[1,5],[2,6],[3,7]].forEach(function(e){ E.push(V[e[0]][0],V[e[0]][1],V[e[0]][2],V[e[1]][0],V[e[1]][1],V[e[1]][2]); });
+  function buf(a){ var b=gl.createBuffer(); gl.bindBuffer(gl.ARRAY_BUFFER,b); gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(a),gl.STATIC_DRAW); return b; }
+  var bP=buf(P), bN=buf(N), bE=buf(E);
+  gl.enable(gl.DEPTH_TEST); gl.enable(gl.BLEND); gl.blendFunc(gl.ONE,gl.ONE_MINUS_SRC_ALPHA); gl.enable(gl.POLYGON_OFFSET_FILL); gl.polygonOffset(1,1);
+  return { draw:function(boxes,cam,W,H){
+   gl.viewport(0,0,W,H); gl.clearColor(0,0,0,0); gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
+   var vp=mul(persp(cam.fov,W/H,0.5,80),lookAt(eye(cam),cam.t)); gl.uniform3f(uL,0.45,1,0.35);
+   for(var i=0;i<boxes.length;i++){ var b=boxes[i], m=ts(b.x,b.y,b.z,b.w,b.h,b.d); gl.uniformMatrix4fv(uMM,false,m); gl.uniformMatrix4fv(uMVP,false,mul(vp,m));
+    gl.bindBuffer(gl.ARRAY_BUFFER,bP); gl.enableVertexAttribArray(aP); gl.vertexAttribPointer(aP,3,gl.FLOAT,false,0,0);
+    gl.bindBuffer(gl.ARRAY_BUFFER,bN); gl.enableVertexAttribArray(aN); gl.vertexAttribPointer(aN,3,gl.FLOAT,false,0,0);
+    gl.uniform4fv(uC,b.c); gl.drawArrays(gl.TRIANGLES,0,36);
+    if(b.e){ gl.bindBuffer(gl.ARRAY_BUFFER,bE); gl.vertexAttribPointer(aP,3,gl.FLOAT,false,0,0); gl.disableVertexAttribArray(aN); gl.vertexAttrib3f(aN,0,1,0); gl.uniform4fv(uC,b.e); gl.drawArrays(gl.LINES,0,24); } }
+  } };
+ }
+ function Iso(cv){ var ctx=cv.getContext('2d'); if(!ctx) return null;
+  function rgba(c){ return 'rgba('+Math.round(c[0]*255)+','+Math.round(c[1]*255)+','+Math.round(c[2]*255)+','+c[3]+')'; }
+  function shade(c,k){ return [c[0]*k,c[1]*k,c[2]*k,c[3]]; }
+  return { draw:function(boxes,cam,W,H){ ctx.setTransform(1,0,0,1,0,0); ctx.clearRect(0,0,W,H);
+   var s=Math.min(W,H)/(cam.span||12), cx=W/2-(cam.t[0]-cam.t[2])*0.866*s, cy=H*0.55-(cam.t[0]+cam.t[2])*0.5*s+cam.t[1]*0.9*s;
+   function Pt(x,y,z){ return [cx+(x-z)*0.866*s, cy+(x+z)*0.5*s-y*0.9*s]; }
+   function poly(pts,fill,stroke){ ctx.beginPath(); ctx.moveTo(pts[0][0],pts[0][1]); for(var k=1;k<pts.length;k++)ctx.lineTo(pts[k][0],pts[k][1]); ctx.closePath(); if(fill){ ctx.fillStyle=fill; ctx.fill(); } if(stroke){ ctx.strokeStyle=stroke; ctx.lineWidth=.8; ctx.stroke(); } }
+   var bs=boxes.slice().sort(function(a,b){ return (a.x+a.z+(a.w+a.d)/2)-(b.x+b.z+(b.w+b.d)/2)||a.y-b.y; });
+   for(var i=0;i<bs.length;i++){ var b=bs[i], e=b.e?rgba(b.e):null;
+    poly([Pt(b.x,b.y+b.h,b.z),Pt(b.x+b.w,b.y+b.h,b.z),Pt(b.x+b.w,b.y+b.h,b.z+b.d),Pt(b.x,b.y+b.h,b.z+b.d)],rgba(b.c),e);
+    if(b.h>0.05){ poly([Pt(b.x+b.w,b.y,b.z),Pt(b.x+b.w,b.y,b.z+b.d),Pt(b.x+b.w,b.y+b.h,b.z+b.d),Pt(b.x+b.w,b.y+b.h,b.z)],rgba(shade(b.c,.78)),e);
+     poly([Pt(b.x,b.y,b.z+b.d),Pt(b.x+b.w,b.y,b.z+b.d),Pt(b.x+b.w,b.y+b.h,b.z+b.d),Pt(b.x,b.y+b.h,b.z+b.d)],rgba(shade(b.c,.9)),e); } }
+  } };
+ }
+
+ /* ---- The site: a parcel, its two streets and the neighbouring blocks, and a massing of stacked modules on a four-by-three grid. ---- */
+ var GX=4, GY=3, HMAX=5, FH=0.62;
+ var CTX=[[-4.8,-1.2,2.6,1.5,3.6],[-4.8,3.0,2.6,0.9,2.0],[-4.6,5.9,2.6,2.0,2.2],[0.1,5.9,2.8,1.2,2.6],[3.6,5.9,2.8,1.7,2.2],[5.7,-0.8,2.6,2.2,3.2],[5.7,3.0,2.6,1.3,2.4],[-0.8,-4.2,2.8,1.6,2.4],[2.8,-4.2,3.0,0.9,2.4]];
+ function scene(g,o){ o=o||{}; var B=[], a=o.alpha==null?1:o.alpha, i,j,f;
+  B.push({x:-9,y:-0.1,z:-9,w:18,h:0.1,d:18,c:GROUND});
+  B.push({x:-1.8,y:-0.09,z:-9,w:1.2,h:0.1,d:18,c:STREET}); B.push({x:-9,y:-0.09,z:GY+0.5,w:18,h:0.1,d:1.2,c:STREET});
+  B.push({x:-0.2,y:-0.02,z:-0.2,w:GX+0.4,h:0.03,d:GY+0.4,c:o.parcel||SLATE,e:[0,0,0,.55]});
+  if(o.ctx!==false) for(i=0;i<CTX.length;i++){ var k=CTX[i]; B.push({x:k[0],y:0,z:k[1],w:k[2],h:k[3],d:k[4],c:CTXC}); }
+  if(o.handles){ [[-0.28,-0.28],[GX+0.12,-0.28],[-0.28,GY+0.12],[GX+0.12,GY+0.12]].forEach(function(c){ B.push({x:c[0],y:0,z:c[1],w:0.16,h:0.16,d:0.16,c:INK}); }); }
+  if(g) for(i=0;i<GX;i++)for(j=0;j<GY;j++){ var h=g[i*GY+j], full=Math.floor(h+1e-6), frac=h-full;
+   for(f=0;f<full;f++) B.push(mod(i,j,f,1,o,a));
+   if(frac>0.06) B.push(mod(i,j,full,frac,o,a)); }
+  return B; }
+ function mod(i,j,f,frac,o,a){ var hl=o.hl&&o.hl(i,j,f); return {x:i+0.05,y:f*FH+0.02,z:j+0.05,w:0.9,h:(FH-0.05)*frac,d:0.9,c:hl?YEL:[1,1,1,a],e:[0,0,0,a]}; }
+ /* A framed wall panel with two window openings, for the change request. */
+ function wall(){ var B=[], W=6.4, H=2.7, op=[[1.2,2.6],[3.8,5.4]], x;
+  B.push({x:0,y:0,z:0,w:W,h:0.12,d:0.22,c:WHITE,e:INK}); B.push({x:0,y:H-0.12,z:0,w:W,h:0.12,d:0.22,c:WHITE,e:INK});
+  for(x=0;x<=W-0.12;x+=0.4){ var inOp=op.some(function(o){ return x>o[0]-0.05&&x<o[1]-0.07; }); if(inOp) continue; B.push({x:x,y:0.12,z:0.03,w:0.12,h:H-0.24,d:0.16,c:WHITE,e:INK}); }
+  op.forEach(function(o){ B.push({x:o[0],y:0.12,z:0.03,w:0.12,h:H-0.24,d:0.16,c:WHITE,e:INK}); B.push({x:o[1]-0.12,y:0.12,z:0.03,w:0.12,h:H-0.24,d:0.16,c:WHITE,e:INK});
+   B.push({x:o[0],y:0.78,z:0.03,w:o[1]-o[0],h:0.12,d:0.16,c:WHITE,e:INK}); B.push({x:o[0],y:2.08,z:0.03,w:o[1]-o[0],h:0.14,d:0.16,c:WHITE,e:INK});
+   B.push({x:o[0]+0.12,y:0.9,z:0.07,w:o[1]-o[0]-0.24,h:1.18,d:0.06,c:YEL,e:INK}); });
+  return B; }
+
+ /* Static renders share one offscreen WebGL context and are copied into their canvases; without WebGL each canvas draws itself in isometric. */
+ var off=document.createElement('canvas'), offR=GL(off);
+ function renderInto(cv,boxes,cam){ var r=cv.getBoundingClientRect(), dpr=Math.min(window.devicePixelRatio||1,2), W=Math.max(2,Math.round(r.width*dpr)), H=Math.max(2,Math.round(r.height*dpr)); if(!r.width) return;
+  if(offR){ off.width=W; off.height=H; offR.draw(boxes,cam,W,H); cv.width=W; cv.height=H; cv.getContext('2d').drawImage(off,0,0); }
+  else { cv.width=W; cv.height=H; var iso=Iso(cv); if(iso) iso.draw(boxes,cam,W,H); } }
+ var Z=[0,0,0,0,0,0,0,0,0,0,0,0], A=[3,3,3,3,3,3,3,3,3,0,0,0];
+ var camSite={t:[2,0.3,1.5],az:-0.75,el:0.95,dist:11.5,fov:0.5,span:13}, camNear={t:[2,1.15,1.5],az:-0.62,el:0.5,dist:11.6,fov:0.46,span:11}, camCard={t:[2,1.25,1.5],az:-0.6,el:0.42,dist:10.2,fov:0.42,span:9.5};
+ var SC={
+  site:{g:Z,o:{},cam:camSite}, define:{g:Z,o:{parcel:YEL,handles:true},cam:camSite},
+  apply:{g:A,o:{},cam:camNear}, customize:{g:A,o:{hl:function(i,j,f){ return i===1&&j===1&&f===1; }},cam:camNear},
+  sample:{g:A,o:{},cam:camNear}, optimized:{g:[4,4,3,4,4,3,4,4,3,2,2,0],o:{hl:function(i,j,f){ return f===3||(i===3&&f<2); }},cam:camNear},
+  share:{g:A,o:{alpha:.3},cam:camNear},
+  o1:{g:[1,2,3,1,2,3,1,2,3,0,0,0],o:{ctx:false},cam:camCard}, o2:{g:[4,0,4,4,0,4,4,0,4,0,0,0],o:{ctx:false},cam:camCard}, o3:{g:[5,5,5,5,5,5,5,5,0,0,0,0],o:{ctx:false},cam:camCard},
+  o4:{g:[3,4,3,0,0,3,0,0,3,3,4,3],o:{ctx:false},cam:camCard}, o5:{g:[2,0,2,4,0,4,4,0,4,2,0,2],o:{ctx:false},cam:camCard}, o6:{g:[4,3,2,4,3,2,0,0,0,3,2,1],o:{ctx:false},cam:camCard},
+  wall:{boxes:wall(),cam:{t:[3.2,1.3,0.1],az:-0.5,el:0.24,dist:7.6,fov:0.5,span:8}} };
+ function renderStatics(){ var cs=document.querySelectorAll('canvas[data-scene]'); for(var i=0;i<cs.length;i++){ var k=cs[i].getAttribute('data-scene'), sc=SC[k]; if(!sc) continue; renderInto(cs[i], sc.boxes||scene(sc.g,sc.o), sc.cam); } }
+ renderStatics();
+
+ /* ---- Hero: a real genetic algorithm. Thirty candidate massings a generation, each cell a stack of zero to five modules, scored half on density and half on daylight (the share of modules with open faces), with a penalty for covering more than ten of the twelve cells. Tournament selection, uniform crossover, a little mutation, two elites kept in place, seeded so every run is the same. The fittest of each generation is drawn on the site. ---- */
  var cv=document.getElementById('ga');
- if(cv && cv.getContext){
-  var ctx=cv.getContext('2d'), capEl=document.getElementById('ga-cap'), artEl=document.getElementById('hero-art');
-  var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var COLS=6, ROWS=5, POP=30, GX=4, GY=3, HMAX=5, GENS=28, COVER=8, STEP=118, SEED=20211202;
-  var MARK='#FFFF00';
-  var side=0, dpr=1, tw=0, th=0, cw=18, hz=7;
-  var pop=[], disp=[], gen=0, locks=[], timers=[], raf=0, running=false, onScreen=false, r=null;
-  var CAP=['Gen 0 · 30 random massings','Gen 1 to 12 · select, cross, mutate','Gen 13 to 28 · converging on the goals','Gen 28 · the 4 fittest, locked'];
+ if(cv){
+  var glHero=GL(cv), isoHero=glHero?null:Iso(cv), capEl=document.getElementById('ga-cap'), artEl=document.getElementById('hero-art');
+  var lineEl=document.getElementById('ga-line'), dotEl=document.getElementById('ga-dot'), fitEl=document.getElementById('ga-fit');
+  var POP=30, GENS=28, COVER=10, STEP=104, SEED=20211202;
+  var side=0, dpr=1, pop=[], tie=[], disp=Z.slice(), gen=0, timers=[], raf=0, running=false, onScreen=false, r=null;
+  var bestG=null, changedAt=[], hist=[], az=-0.85, azTo=-0.85, t0=0;
   function rng(seed){ var a=seed>>>0; return function(){ a=(a+0x6D2B79F5)>>>0; var t=a; t=Math.imul(t^(t>>>15),t|1); t^=t+Math.imul(t^(t>>>7),t|61); return ((t^(t>>>14))>>>0)/4294967296; }; }
   function genome(){ var g=[]; for(var k=0;k<GX*GY;k++) g.push(r()<0.3?0:1+Math.floor(r()*HMAX)); return g; }
   var DI=[1,-1,0,0], DJ=[0,0,1,-1];
-  function fit(g){ var vol=0,cover=0,open=0,faces=0,i,j,z,d;
+  /* Density is modules over the site's capacity. Daylight is the share of modules with an open face, a module counting fully once two of its four faces have nothing in front of them. */
+  function score(g){ var vol=0,cover=0,lit=0,i,j,z,d;
    for(i=0;i<GX;i++)for(j=0;j<GY;j++){ var h=g[i*GY+j]; vol+=h; if(h)cover++;
-    for(z=0;z<h;z++)for(d=0;d<4;d++){ var ni=i+DI[d],nj=j+DJ[d]; var nh=(ni<0||ni>=GX||nj<0||nj>=GY)?0:g[ni*GY+nj]; if(nh<=z)open++; faces++; } }
-   if(!vol) return 0;
-   var f=0.5*vol/(GX*GY*HMAX)+0.5*open/faces; if(cover>COVER) f-=(cover-COVER)*0.08; return f; }
+    for(z=0;z<h;z++){ var o=0; for(d=0;d<4;d++){ var ni=i+DI[d],nj=j+DJ[d]; var nh=(ni<0||ni>=GX||nj<0||nj>=GY)?0:g[ni*GY+nj]; if(nh<=z)o++; } lit+=Math.min(1,o/2); } }
+   var den=vol/(GX*GY*HMAX), day=vol?lit/vol:0, f=vol?0.5*den+0.5*day:0; if(cover>COVER) f-=(cover-COVER)*0.08; return {f:f,den:den,day:day}; }
   function pick(){ var best=null,bf=-1; for(var k=0;k<3;k++){ var c=pop[Math.floor(r()*POP)]; if(c.f>bf){bf=c.f;best=c;} } return best; }
-  /* Slots ranked by fitness. A converged population has ties, so each slot carries a seeded tie-break; without it the locks would always land on the lowest slots. */
   function ranked(){ var idx=[]; for(var s=0;s<POP;s++)idx.push(s); idx.sort(function(a,b){ return (pop[b].f-pop[a].f)||(tie[b]-tie[a]); }); return idx; }
-  /* One generation. The two fittest stay in their slots; every other slot gets a child of two tournament winners. */
   function evolve(){ var idx=ranked(), e1=idx[0], e2=idx[1], next=[], s, k;
    for(s=0;s<POP;s++){ if(s===e1||s===e2){ next.push(pop[s]); continue; }
     var a=pick().g, b=pick().g, c=[];
     for(k=0;k<a.length;k++){ var v=r()<0.5?a[k]:b[k]; if(r()<0.1) v=r()<0.5?Math.max(0,v-1):Math.min(HMAX,v+1); c.push(v); }
-    next.push({g:c,f:fit(c)}); }
-   pop=next; gen++; }
-  function resize(){ var rect=cv.getBoundingClientRect(); dpr=Math.min(window.devicePixelRatio||1,2); side=rect.width; cv.width=Math.round(side*dpr); cv.height=Math.round(side*dpr); ctx.setTransform(dpr,0,0,dpr,0,0); tw=side/COLS; th=side/ROWS; cw=Math.min(18,(tw-10)/3.5); hz=cw*0.4; }
-  function P(ox,oy,i,j,z){ return [ox+(i-j)*cw/2, oy+(i+j)*cw/4-z*hz]; }
-  function poly(pts,fill,stroke){ ctx.beginPath(); ctx.moveTo(pts[0][0],pts[0][1]); for(var k=1;k<pts.length;k++)ctx.lineTo(pts[k][0],pts[k][1]); ctx.closePath(); if(fill){ ctx.fillStyle=fill; ctx.fill(); } if(stroke){ ctx.strokeStyle=stroke; ctx.stroke(); } }
-  function tile(s,g,f,lock){ var col=s%COLS,row=Math.floor(s/COLS), tx=col*tw, ty=row*th, ox=tx+tw/2-(GX-GY)*cw/4, oy=ty+12+HMAX*hz, i,j,k;
-   if(lock){ ctx.fillStyle=MARK; ctx.strokeStyle='#000'; ctx.lineWidth=1; ctx.beginPath(); ctx.roundRect?ctx.roundRect(tx+2.5,ty+2.5,tw-5,th-5,4):ctx.rect(tx+2.5,ty+2.5,tw-5,th-5); ctx.fill(); ctx.stroke(); }
-   ctx.lineWidth=0.8; ctx.lineJoin='round';
-   poly([P(ox,oy,0,0,0),P(ox,oy,GX,0,0),P(ox,oy,GX,GY,0),P(ox,oy,0,GY,0)], lock?'rgba(255,255,255,.6)':'rgba(213,213,203,.5)', 'rgba(0,0,0,.4)');
-   var order=[]; for(i=0;i<GX;i++)for(j=0;j<GY;j++) order.push([i,j]); order.sort(function(a,b){ return (a[0]+a[1])-(b[0]+b[1]); });
-   for(k=0;k<order.length;k++){ i=order[k][0]; j=order[k][1]; var h=g[i*GY+j]; if(h<0.08) continue;
-    poly([P(ox,oy,i,j+1,0),P(ox,oy,i+1,j+1,0),P(ox,oy,i+1,j+1,h),P(ox,oy,i,j+1,h)],'#e9e9e9','#000');
-    poly([P(ox,oy,i+1,j,0),P(ox,oy,i+1,j+1,0),P(ox,oy,i+1,j+1,h),P(ox,oy,i+1,j,h)],'#c2c2c2','#000');
-    poly([P(ox,oy,i,j,h),P(ox,oy,i+1,j,h),P(ox,oy,i+1,j+1,h),P(ox,oy,i,j+1,h)],'#fff','#000');
-    ctx.strokeStyle='rgba(0,0,0,.25)'; ctx.beginPath(); for(var z=1;z<h;z++){ var a=P(ox,oy,i+1,j,z), b=P(ox,oy,i+1,j+1,z); ctx.moveTo(a[0],a[1]); ctx.lineTo(b[0],b[1]); } ctx.stroke(); }
-   var bw=tw-16, bx=tx+8, by=ty+th-8, b=Math.max(0,Math.min(1,(f-0.2)/0.55));
-   ctx.fillStyle='rgba(0,0,0,.12)'; ctx.fillRect(bx,by,bw,3);
-   if(b>0){ ctx.fillStyle=MARK; ctx.fillRect(bx,by,bw*b,3); ctx.strokeStyle='#000'; ctx.lineWidth=0.6; ctx.strokeRect(bx+.5,by+.5,bw*b,3); } }
-  function draw(){ ctx.clearRect(0,0,side,side); for(var s=0;s<POP;s++) tile(s,disp[s],pop[s].f,locks.indexOf(s)>=0); }
-  function ease(){ for(var s=0;s<POP;s++){ var g=pop[s].g, d=disp[s]; for(var k=0;k<d.length;k++) d[k]+=(g[k]-d[k])*0.3; } }
+    var sc=score(c); next.push({g:c,f:sc.f,s:sc}); }
+   pop=next; gen++; takeBest(); }
+  function takeBest(){ var b=pop[ranked()[0]]; if(bestG) for(var k=0;k<b.g.length;k++) if(b.g[k]!==bestG[k]) changedAt[k]=gen; bestG=b.g.slice(); hist.push(b.f); plot(); return b; }
+  function plot(){ var pts=[]; for(var n=0;n<hist.length;n++) pts.push((24+n*404/GENS).toFixed(1)+','+(52-Math.max(0,Math.min(1,(hist[n]-0.3)/0.65))*40).toFixed(1)); lineEl.setAttribute('points',pts.join(' '));
+   var n=hist.length-1; dotEl.setAttribute('cx',(24+n*404/GENS).toFixed(1)); dotEl.setAttribute('cy',(52-Math.max(0,Math.min(1,(hist[n]-0.3)/0.65))*40).toFixed(1)); fitEl.textContent=hist[n].toFixed(2); }
+  function resize(){ var rect=cv.getBoundingClientRect(); dpr=Math.min(window.devicePixelRatio||1,2); side=rect.width; cv.width=Math.round(side*dpr); cv.height=Math.round(side*dpr); }
+  function draw(){ var boxes=scene(disp,{hl:function(i,j,f){ return gen-(changedAt[i*GY+j]||-9)<=1&&gen>0; }}); var cam={t:[2,1.1,1.5],az:az,el:0.52,dist:13.2,fov:0.46,span:12.5};
+   if(glHero) glHero.draw(boxes,cam,cv.width,cv.height); else if(isoHero) isoHero.draw(boxes,cam,cv.width,cv.height); }
+  function ease(){ for(var k=0;k<disp.length;k++) disp[k]+=(bestG[k]-disp[k])*0.22; az+=(azTo-az)*0.04; }
   function frame(){ if(!running)return; ease(); draw(); raf=requestAnimationFrame(frame); }
   function at(ms,fn){ timers.push(setTimeout(fn,ms)); }
   function cap(t){ capEl.textContent=t; }
+  function capNow(){ var b=pop[ranked()[0]]; cap('Gen '+gen+' · density '+b.s.den.toFixed(2)+' · daylight '+b.s.day.toFixed(2)); }
   function stop(){ for(var k=0;k<timers.length;k++)clearTimeout(timers[k]); timers=[]; running=false; if(raf)cancelAnimationFrame(raf); raf=0; }
-  var tie=[];
-  function seed(){ r=rng(SEED); pop=[]; disp=[]; locks=[]; tie=[]; gen=0; for(var s=0;s<POP;s++){ var g=genome(); pop.push({g:g,f:fit(g)}); disp.push(g.slice()); tie.push(r()); } }
-  function lockBest(){ locks=ranked().slice(0,4); }
+  function seed(){ r=rng(SEED); pop=[]; tie=[]; gen=0; bestG=null; changedAt=[]; hist=[]; for(var s=0;s<POP;s++){ var g=genome(), sc=score(g); pop.push({g:g,f:sc.f,s:sc}); tie.push(r()); } takeBest(); disp=Z.slice(); }
   /* One pass, under five seconds, then it rests on the last frame. Hovering, tapping, or scrolling back plays it again. */
-  function play(){ stop(); seed(); running=true; raf=requestAnimationFrame(frame); cap(CAP[0]);
-   for(var n=1;n<=GENS;n++)(function(n){ at(520+n*STEP,function(){ evolve(); if(n===1)cap(CAP[1]); if(n===13)cap(CAP[2]); }); })(n);
-   at(520+GENS*STEP+320,function(){ lockBest(); cap(CAP[3]); });
-   at(520+GENS*STEP+900,function(){ running=false; ease(); draw(); }); }
-  function still(){ stop(); seed(); for(var n=0;n<GENS;n++)evolve(); for(var s=0;s<POP;s++)disp[s]=pop[s].g.slice(); lockBest(); cap(CAP[3]); draw(); }
+  function play(){ stop(); seed(); az=-0.9; azTo=-0.45; running=true; raf=requestAnimationFrame(frame); cap('Gen 0 · 30 random massings');
+   for(var n=1;n<=GENS;n++)(function(n){ at(360+n*STEP,function(){ evolve(); capNow(); }); })(n);
+   at(360+GENS*STEP+560,function(){ running=false; for(var k=0;k<disp.length;k++)disp[k]=bestG[k]; az=azTo; draw(); }); }
+  function still(){ stop(); seed(); for(var n=0;n<GENS;n++)evolve(); disp=bestG.slice(); az=-0.45; capNow(); draw(); }
   resize();
   if(reduced||!('IntersectionObserver' in window)){ onScreen=true; if(reduced) still(); else play(); }
   else new IntersectionObserver(function(es){ es.forEach(function(e){ if(seen(e,0.3)){ if(!onScreen){ onScreen=true; play(); } } else if(!e.isIntersecting){ onScreen=false; stop(); } }); },{threshold:TH}).observe(artEl);
   document.addEventListener('visibilitychange',function(){ if(document.hidden) stop(); else if(onScreen){ if(reduced) still(); else play(); } });
   artEl.addEventListener('click',function(){ if(reduced) still(); else play(); });
   artEl.addEventListener('pointerenter',function(e){ if(e.pointerType!=='touch'&&onScreen&&!running&&!reduced) play(); });
-  var to; window.addEventListener('resize',function(){ clearTimeout(to); to=setTimeout(function(){ var w=cv.getBoundingClientRect().width; if(Math.abs(w-side)<1)return; resize(); if(reduced) still(); else if(onScreen) play(); else stop(); },150); });
+  /* A resize redraws the settled frame; it does not start another pass, since nobody asked for one. */
+  var to; window.addEventListener('resize',function(){ clearTimeout(to); to=setTimeout(function(){ renderStatics(); var w=cv.getBoundingClientRect().width; if(Math.abs(w-side)<1)return; resize(); if(running) draw(); else still(); },150); });
  }
 })();
 </script>
