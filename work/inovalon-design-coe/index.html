@@ -816,9 +816,10 @@ h1{letter-spacing:-.025em}
    {n:24,cap:'Oct 2019 · four designers, a cohort of twenty'},
    {n:100,cap:'the plan · a hundred practitioners'}];
   var finalCap=stages[stages.length-1].cap;
-  var timers=[], reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches, onScreen=false, running=false;
+  var timers=[], reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches, onScreen=false, played=false, running=false;
   function cls(i){ return i<4?'d':'p'; }
-  /* One pass, under five seconds, then it rests on the last frame. Hovering, tapping, or scrolling back plays it again. */
+  /* One pass the first time it comes on screen, then it rests on the last frame. Hovering or tapping plays it again.
+     Scrolling away mid-pass settles the end state, so a reader who comes back sees the finished frame; coming back does not replay. */
   function play(){
    for(var k=0;k<timers.length;k++) clearTimeout(timers[k]); timers=[];
    for(var i=0;i<100;i++) cells[i].el.className='';
@@ -834,11 +835,12 @@ h1{letter-spacing:-.025em}
    timers.push(setTimeout(function(){ capEl.textContent=finalCap; running=false; },t));
   }
   function stop(){ for(var k=0;k<timers.length;k++) clearTimeout(timers[k]); timers=[]; running=false; }
-  if(reduced||!('IntersectionObserver' in window)){ onScreen=true; play(); }
+  function settle(){ stop(); for(var i=0;i<100;i++) cells[i].el.className=cls(i); capEl.textContent=finalCap; }
+  if(reduced||!('IntersectionObserver' in window)){ onScreen=true; played=true; play(); }
   else new IntersectionObserver(function(es){ es.forEach(function(e){
-   if(seen(e,0.3)){ if(!onScreen){ onScreen=true; play(); } }
-   else if(!e.isIntersecting){ onScreen=false; stop(); } }); },{threshold:TH}).observe(artEl);
-  document.addEventListener('visibilitychange',function(){ if(document.hidden) stop(); else if(onScreen&&!reduced) play(); });
+   if(seen(e,0.3)){ onScreen=true; if(!played){ played=true; play(); } }
+   else if(!e.isIntersecting){ onScreen=false; if(running) settle(); } }); },{threshold:TH}).observe(artEl);
+  document.addEventListener('visibilitychange',function(){ if(document.hidden&&running) settle(); });
   artEl.addEventListener('click',play);
   artEl.addEventListener('pointerenter',function(e){ if(e.pointerType!=='touch'&&onScreen&&!running) play(); });
  }
