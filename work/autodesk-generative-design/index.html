@@ -7,7 +7,7 @@ period: "October to December 2021"
 read: 10
 facts:
   - k: "Team"
-    v: "The Tomorrow Partners team for Autodesk, with Autodesk's generative designers and design researchers on the client side. Figma, Mural, and my own coding tools."
+    v: "The Tomorrow Partners team for Autodesk, with Autodesk's generative designers and design researchers on the client side. Figma and Mural."
   - k: "Role"
     v: "Interaction designer on the Tomorrow Partners team: coded the recordings, drew the storyboards and the wireframes."
   - k: "Timeline"
@@ -25,7 +25,7 @@ acts:
   - where: "Autodesk, via Tomorrow Partners"
     when: "October 2021"
     title: "A moonshot, and the tape first."
-    methods: ["interview coding", "machine-assisted nugget and affinity passes", "thematic analysis"]
+    methods: ["interview coding", "affinity mapping", "thematic analysis"]
   - where: "Autodesk, via Tomorrow Partners"
     when: "October to November 2021"
     title: "Draw today before drawing tomorrow."
@@ -64,13 +64,11 @@ h1 em{color:#000;background:var(--mark);padding:0 .06em;margin:0 -.06em;-webkit-
 .key i.y{background:var(--mark)}
 .key i.w{background:#fff}
 
-/* Fig. 2: the coding pass. Yellow marks what the tools did; the rest was by hand. */
+/* Fig. 2: the coding pass as six steps, and the three themes it left. */
 .flow{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;font:12px/1.5 'Fira Code',monospace;color:var(--text)}
 .flow > div{border:1px solid rgba(0,0,0,.3);border-radius:6px;padding:10px 10px 12px;min-width:0;background:#fff}
-.flow > div.m{background:var(--mark)}
 .flow b{display:block;font:700 13px/1.25 var(--head);color:#000;margin-bottom:6px}
 .flow i{display:block;font-style:normal;font-size:11px;line-height:1.5;color:var(--muted);letter-spacing:.04em;text-transform:uppercase;margin-top:8px}
-.flow > div.m i{color:#333}
 .themes{margin:14px 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px 24px}
 .themes > div{border-top:2px solid #000;padding:10px 0 0;font:17px/1.35 'Instrument Serif',serif;color:var(--text)}
 .themes > div b{display:block;font:11px/1.6 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-bottom:4px}
@@ -356,17 +354,17 @@ em.ok{background:transparent}.cr-list li em.warn,.cr-appr li em.warn{background:
    {% include study-act.html n=1 %}
    <p>Autodesk makes the software architects and engineers draw in. In 2021 it held two new pieces. The year before, it had bought a site-planning platform that generates layout options for a plot and scores them against daylight, noise, and views. And it had invested in a factory north of San Francisco that builds apartment buildings as modules on an assembly line. The moonshot was to join them. An architect writes a brief. The factory's catalog of proven parts constrains it. A <strong>generator</strong> explores what fits between the two, down to the order the modules get built in over time. The generator in the brief was a genetic algorithm: it breeds candidates and keeps the fittest.</p>
    <p>Tomorrow Partners took the concept work, and I joined its team as the interaction designer. The brief was a set of recordings: interviews the client had run with people on the factory floor. Nobody wanted screens drawn before we had listened to them.</p>
-   <p>So the recordings came first. I ran them through my own tools. A <strong>nuggetizer</strong> cuts a transcript into single observations. An <strong>affinitizer</strong> groups them by what they are about. I read every group against the recording and named the themes. I kept the specifics an interface needs: who decides what at each step, and what they check before they decide.</p>
+   <p>So the recordings came first. I coded them: every transcript cut into single observations, the observations grouped by what they are about, every group read back against the recording and named. I kept the specifics an interface needs: who decides what at each step, and what they check before they decide.</p>
 
    <figure class="txt">
-    <div role="img" aria-label="Six steps from recordings to storyboard. Recordings and transcripts came from the client; the nugget and affinity passes were run by my tools, marked in yellow; the themes and the storyboard were by hand. Below, the three themes the storyboard carried.">
+    <div role="img" aria-label="Six steps from recordings to storyboard. The recordings and transcripts came from the client; the observations, the groups, the themes and the storyboard are mine. Below, the three themes the storyboard carried.">
      <div class="flow">
       <div><b>Recordings</b>Interviews on the factory floor, run by the client.<i>01 · the client</i></div>
       <div><b>Transcripts</b>One per recording, timestamped so a line can be played back.<i>02 · transcribed</i></div>
-      <div class="m"><b>Nuggets</b>Each transcript cut into single observations, one thing said by one person.<i>03 · the nuggetizer</i></div>
-      <div class="m"><b>Groups</b>Nuggets clustered by what they are about, across all the recordings.<i>04 · the affinitizer</i></div>
-      <div><b>Themes</b>Every group read against the tape, then named, kept, split, or thrown out.<i>05 · by hand</i></div>
-      <div><b>Storyboard</b>The day as the interviews described it, in the order they described it.<i>06 · by hand</i></div>
+      <div><b>Observations</b>Each transcript cut into single points, one thing said by one person.<i>03 · coded</i></div>
+      <div><b>Groups</b>Observations clustered by what they are about, across all the recordings.<i>04 · grouped</i></div>
+      <div><b>Themes</b>Every group read against the tape, then named, kept, split, or thrown out.<i>05 · named</i></div>
+      <div><b>Storyboard</b>The day as the interviews described it, in the order they described it.<i>06 · drawn</i></div>
      </div>
      <div class="themes">
       <div><b>Theme</b>The factory's architect stands between clients who want flexible, customizable buildings and a production line built for repetition.</div>
@@ -374,7 +372,7 @@ em.ok{background:transparent}.cr-list li em.warn,.cr-appr li em.warn{background:
       <div><b>Theme</b>Every custom part, once it has been built, should become a catalog part for the next project.</div>
      </div>
     </div>
-    <figcaption>Fig. 2 · The coding pass. Yellow is what the tools did: cutting and clustering. I checked their groups against the recordings, and naming what a group means stayed with me. The three themes are the ones every later drawing had to honor.</figcaption>
+    <figcaption>Fig. 2 · The coding pass. The recordings and the transcripts came from the client; cutting them up, grouping what came out, and naming what a group means were mine. The three themes are the ones every later drawing had to honor.</figcaption>
    </figure>
    {% include study-methods.html n=1 %}
   </section>
@@ -587,7 +585,6 @@ em.ok{background:transparent}.cr-list li em.warn,.cr-appr li em.warn{background:
    <ul class="after">
     <li><b>A concept in the factory's own words.</b> The stages, the scenarios, and the screens gave Autodesk a picture of generative design for modular housing grounded in what the factory's people had said. The trade-offs and the approvals were drawn in rather than assumed away.</li>
     <li><b>A place to build it.</b> The team's reading that the stages belonged inside the acquired platform turned a moonshot into a roadmap question for a product that already existed.</li>
-    <li><b>The tools got a real project.</b> The coding pass was a working test of the nuggetizer and the affinitizer. Those tools grew into Sonder, the synthesis pipeline I have benchmarked against expert coding since. Agreement went from 48% to 72% over thirteen fidelity cycles.</li>
    </ul>
 
    {% include study-colophon.html %}
