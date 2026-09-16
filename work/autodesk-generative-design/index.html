@@ -123,127 +123,181 @@ h1 em{color:#000;background:var(--mark);padding:0 .06em;margin:0 -.06em;-webkit-
 .wf-cap{position:absolute;left:8px;bottom:8px;font:11px 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);background:rgba(255,255,255,.88);padding:2px 5px;border-radius:2px}
 @media (max-width:560px){.wf-body{grid-template-columns:1fr;height:auto}.wf-c{min-height:230px}.wf-mid.two .wf-c{min-height:125px}.wf-rail,.wf-side{border:0;border-top:1px solid rgba(0,0,0,.12)}.wf-rail{order:2}.wf-side{order:3}.wf-mid{order:1}}
 
+/* The screens are dark, the way Autodesk's own product surfaces are, and the yellow reads better on them; the page around them stays white. One token set for every reconstructed screen. */
+body{--s-bg:#161616;--s-panel:#202020;--s-ink:#fff;--s-text:#d9d9d9;--s-muted:#a3a3a3;--s-rule:rgba(255,255,255,.14);--s-rule2:rgba(255,255,255,.32);--s-fill:rgba(255,255,255,.08)}
+
 /* Fig. 3: the paper sketch as six panels, each a real fragment of the interface on a ground. */
 .sb.three{gap:22px 18px}
 @media (min-width:900px){.sb.three{grid-template-columns:repeat(3,minmax(0,1fr))}}
-.sk{position:relative;height:236px;border:1px solid rgba(0,0,0,.28);border-radius:6px;background:#F5F5F1;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:18px}
+.sk{position:relative;height:236px;border:1px solid var(--s-rule2);border-radius:6px;background:var(--s-bg);overflow:hidden;display:flex;align-items:center;justify-content:center;padding:18px;color:var(--s-text)}
 .sk canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
-.sk-card{position:relative;width:100%;max-width:250px;background:#fff;border:1px solid rgba(0,0,0,.25);border-radius:5px;box-shadow:0 3px 14px rgba(0,0,0,.12);padding:11px 13px;font:11px/1.4 var(--head);color:var(--text);display:flex;flex-direction:column;gap:7px}
-.sk-k{font:11px 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
-.sk-in{display:flex;align-items:center;gap:8px;border:1px solid #000;border-radius:3px;padding:5px 8px;color:#000}
-.sk-in i{font-style:normal;color:var(--muted);font:11px 'Fira Code',monospace}
-.sk-in b{font-weight:400;color:var(--muted)}
-.sk-res{display:flex;justify-content:space-between;gap:8px;padding:5px 2px;border-top:1px solid rgba(0,0,0,.1);color:#000}
-.sk-res.on{background:var(--mark);margin:0 -4px;padding:5px 6px;border-radius:2px}
-.sk-res i{font-style:normal;font:11px 'Fira Code',monospace;color:var(--muted)}
-.sk-drop{border:1px dashed rgba(0,0,0,.5);border-radius:3px;padding:9px 8px;text-align:center;color:var(--muted);font:11px 'Fira Code',monospace}
+.sk-card{position:relative;width:100%;max-width:250px;background:var(--s-panel);border:1px solid var(--s-rule2);border-radius:5px;box-shadow:0 8px 28px rgba(0,0,0,.55);padding:11px 13px;font:11px/1.4 var(--head);color:var(--s-text);display:flex;flex-direction:column;gap:7px}
+.sk-k{font:11px 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--s-muted)}
+.sk-in{display:flex;align-items:center;gap:8px;border:1px solid var(--s-rule2);border-radius:3px;padding:5px 8px;color:var(--s-ink);background:rgba(0,0,0,.3)}
+.sk-in i{font-style:normal;color:var(--s-muted);font:11px 'Fira Code',monospace}
+.sk-in b{font-weight:400;color:var(--s-muted)}
+.sk-res{display:flex;justify-content:space-between;gap:8px;padding:5px 2px;border-top:1px solid var(--s-rule);color:var(--s-ink)}
+.sk-res.on{background:var(--mark);color:#000;margin:0 -4px;padding:5px 6px;border-radius:2px;border-top:0}
+.sk-res i{font-style:normal;font:11px 'Fira Code',monospace;color:var(--s-muted)}
+.sk-res.on i{color:#000}
+.sk-drop{border:1px dashed var(--s-rule2);border-radius:3px;padding:9px 8px;text-align:center;color:var(--s-muted);font:11px 'Fira Code',monospace}
 .sk-seg{display:flex;align-items:center;gap:3px}
-.sk-seg i{display:block;width:9px;height:13px;border:1px solid #000;background:#000}
-.sk-seg i.o{background:#fff}
-.sk-seg u{text-decoration:none;font:11px 'Fira Code',monospace;color:#000;margin-left:6px}
-.sk-r{display:flex;justify-content:space-between;gap:8px;color:#000}
-.sk-r i{font-style:normal;font:11px 'Fira Code',monospace;color:var(--muted)}
+.sk-seg i{display:block;width:9px;height:13px;border:1px solid var(--s-ink);background:var(--s-ink)}
+.sk-seg i.o{background:transparent}
+.sk-seg u{text-decoration:none;font:11px 'Fira Code',monospace;color:var(--s-ink);margin-left:6px}
+.sk-r{display:flex;justify-content:space-between;gap:8px;color:var(--s-ink)}
+.sk-r i{font-style:normal;font:11px 'Fira Code',monospace;color:var(--s-muted)}
 .sk .wf-sl{margin:6px 3px 8px}
 .sk .wf-btn{align-self:flex-start;margin-top:2px}
-.sk .wf-tip{z-index:1}
-.sk .wf-cap{z-index:1}
+.sk .wf-tip,.sk .wf-cap{z-index:1}
 .sk-cur{position:absolute;z-index:1;width:16px;height:16px}
-.sk-cur::before{content:"";position:absolute;left:0;top:0;border:8px solid transparent;border-top:12px solid #000;border-left:6px solid #000;transform:rotate(-15deg)}
-.sk-cur::after{content:"";position:absolute;left:2px;top:2px;border:6px solid transparent;border-top:9px solid #fff;border-left:4px solid #fff;transform:rotate(-15deg)}
+.sk-cur::before{content:"";position:absolute;left:0;top:0;border:8px solid transparent;border-top:12px solid #fff;border-left:6px solid #fff;transform:rotate(-15deg)}
+.sk-cur::after{content:"";position:absolute;left:2px;top:2px;border:6px solid transparent;border-top:9px solid #000;border-left:4px solid #000;transform:rotate(-15deg)}
 .sk-loop{position:absolute;right:14px;top:12px;z-index:1;font:700 26px var(--head);color:#000;background:var(--mark);border:1px solid #000;border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center}
 
+/* Fig. 4: the storyboard panels, each the same three-pane workspace with a rendered model in the middle. */
+.sb{display:grid;grid-template-columns:1fr;gap:26px 22px}
+@media (min-width:700px){.sb{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.sb > div{display:flex;flex-direction:column;gap:9px;min-width:0}
+.story .sb p{margin:0;min-height:38px;font:12px/1.6 'Fira Code',monospace;color:var(--text)}
+.story .sb p b{font-weight:400;color:var(--muted);margin-right:7px}
+.wf{border:1px solid var(--s-rule2);border-radius:6px;background:var(--s-bg);overflow:hidden;font:11px/1.35 var(--head);color:var(--s-text);box-shadow:0 1px 2px rgba(0,0,0,.2),0 12px 32px rgba(0,0,0,.18)}
+.wf-top,.xp-top{display:flex;flex-wrap:wrap;align-items:center;gap:8px 18px;padding:9px 14px;border-bottom:1px solid var(--s-rule);background:var(--s-panel);font:11px 'Fira Code',monospace;letter-spacing:.08em;text-transform:uppercase;color:var(--s-muted)}
+.wf-top i,.xp-top i{width:14px;height:14px;background:#fff;border-radius:2px;flex:0 0 14px;clip-path:polygon(0 100%,40% 0,100% 0,60% 100%)}
+.wf-top .on,.xp-top .on{color:var(--s-ink);border-bottom:2px solid var(--mark);padding-bottom:2px}
+.wf-top .pr,.xp-top .proj{margin-left:auto;text-transform:none;letter-spacing:0;color:var(--s-ink)}
+.wf-body{display:grid;grid-template-columns:120px minmax(0,1fr) 148px;height:300px}
+.wf-rail,.wf-side{padding:9px 10px;display:flex;flex-direction:column;gap:4px;min-width:0;min-height:0;overflow:hidden;font:11px/1.35 var(--head);color:var(--s-text);background:var(--s-panel)}
+.wf-rail{border-right:1px solid var(--s-rule)}
+.wf-side{border-left:1px solid var(--s-rule)}
+.wf-k{font:11px 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--s-muted);margin:5px 0 2px}
+.wf-k:first-child{margin-top:0}
+.wf-r{display:flex;justify-content:space-between;gap:6px;padding:2px 0;color:var(--s-ink)}
+.wf-r i{font-style:normal;color:var(--s-muted);font:11px 'Fira Code',monospace}
+.wf-r.on{background:var(--mark);color:#000;margin:0 -6px;padding:2px 6px;border-radius:2px}
+.wf-r.on i{color:#000}
+.wf-r.mut{color:var(--s-muted)}
+.wf-in{border:1px solid var(--s-rule2);border-radius:3px;padding:3px 6px;color:var(--s-muted);font:11px 'Fira Code',monospace;background:rgba(0,0,0,.3)}
+.wf-in.dash{border-style:dashed;text-align:center;padding:8px 6px;background:transparent}
+.wf-sl{position:relative;height:1.5px;background:var(--s-rule2);margin:8px 3px 9px}
+.wf-sl i{position:absolute;top:-4px;width:9px;height:9px;border-radius:50%;background:var(--s-bg);border:1.2px solid #fff;transform:translateX(-50%)}
+.wf-sl i.m{background:var(--mark);border-color:#000}
+.wf-bul{display:block;height:6px;background:var(--s-fill);position:relative;margin:3px 0 4px}
+.wf-bul i{position:absolute;left:0;top:0;height:100%;background:#fff}
+.wf-bul u{position:absolute;top:-3px;width:3px;height:12px;background:var(--mark);border:.8px solid #000}
+.wf-btn{align-self:flex-start;padding:4px 9px;border:1px solid #000;border-radius:3px;background:var(--mark);font:700 11px var(--head);color:#000;margin-top:4px}
+.wf-btn.q{background:transparent;color:#fff;border-color:#fff}
+.wf-c{display:block;width:100%;height:100%;min-height:0;background:var(--s-bg)}
+.wf-mid{position:relative;min-width:0;min-height:0;display:flex;flex-direction:column;overflow:hidden}
+.wf-mid.two{display:grid;grid-template-rows:1fr 1fr;min-height:0}
+.wf-mid.two .wf-c{min-height:0}
+.wf-mid.two .wf-c + .wf-c{border-top:1px solid var(--s-rule)}
+.wf-mid.two .wf-cap.b{top:auto;bottom:6px}
+.wf-mid.two .wf-cap.t{top:6px;bottom:auto}
+.wf-sheet{position:absolute;left:8%;right:8%;top:7%;background:var(--s-panel);border:1px solid var(--s-rule2);border-radius:4px;padding:12px 14px;box-shadow:0 12px 32px rgba(0,0,0,.6);display:flex;flex-direction:column;gap:4px;font:11px/1.4 var(--head);color:var(--s-text)}
+.wf-sheet b{display:block;font:700 12px var(--head);color:var(--s-ink);margin-bottom:4px}
+.wf-sheet span{display:flex;justify-content:space-between;gap:8px;border-top:1px solid var(--s-rule);padding:3px 0}
+.wf-sheet span u{text-decoration:none;color:var(--s-ink)}
+.wf-tip{position:absolute;font:11px 'Fira Code',monospace;color:#000;background:#fff;border:1px solid #000;border-radius:2px;padding:2px 6px;white-space:nowrap;max-width:calc(100% - 24px);overflow:hidden;text-overflow:ellipsis}
+.wf-cap{position:absolute;left:8px;bottom:8px;font:11px 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--s-muted);background:rgba(22,22,22,.88);padding:2px 5px;border-radius:2px}
+@media (max-width:560px){.wf-body{grid-template-columns:1fr;height:auto}.wf-c{min-height:230px}.wf-mid.two .wf-c{min-height:125px}.wf-rail,.wf-side{border:0;border-top:1px solid var(--s-rule)}.wf-rail{order:2}.wf-side{order:3}.wf-mid{order:1}}
+
 /* Fig. 6: the explore screen, redrawn */
-.xp{border:1px solid rgba(0,0,0,.3);border-radius:8px;overflow:hidden;background:#fff;font:12px/1.4 var(--head);color:var(--text)}
+.xp{border:1px solid var(--s-rule2);border-radius:8px;overflow:hidden;background:var(--s-bg);font:12px/1.4 var(--head);color:var(--s-text)}
 .xp-body{display:grid;grid-template-columns:150px minmax(0,1fr) 176px}
-.xp-rail{border-right:1px solid rgba(0,0,0,.12);padding:10px 12px;font:11px/1.6 'Fira Code',monospace;color:var(--muted);min-width:0}
-.xp-rail b,.xp-side b{display:block;font:11px 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;color:#000;font-weight:400;margin:8px 0 4px}
-.xp-rail div{display:flex;justify-content:space-between;gap:8px;padding:3px 0;color:var(--text)}
+.xp-rail{border-right:1px solid var(--s-rule);background:var(--s-panel);padding:10px 12px;font:11px/1.6 'Fira Code',monospace;color:var(--s-muted);min-width:0}
+.xp-rail b,.xp-side b{display:block;font:11px 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--s-ink);font-weight:400;margin:8px 0 4px}
+.xp-rail div{display:flex;justify-content:space-between;gap:8px;padding:3px 0;color:var(--s-text)}
 .xp-rail div.on{color:#000;background:var(--mark);margin:0 -6px;padding:3px 6px}
 .xp-rail div.sub{padding-left:12px}
-.xp-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:rgba(0,0,0,.12)}
-.xp-card{background:#fff;padding:10px 12px;display:flex;flex-direction:column;gap:6px;min-width:0;position:relative}
-.xp-card canvas{display:block;width:100%;aspect-ratio:2/1.15;background:#fff}
+.xp-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--s-rule)}
+.xp-card{background:var(--s-bg);padding:10px 12px;display:flex;flex-direction:column;gap:6px;min-width:0;position:relative}
+.xp-card canvas{display:block;width:100%;aspect-ratio:2/1.15;background:var(--s-bg)}
 .xp-card .xp-tag{position:absolute;right:12px;top:10px;font:11px 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;color:#000;background:var(--mark);border:1px solid #000;border-radius:2px;padding:1px 6px}
-.xp-card .xp-n{font:700 12px var(--head);color:#000}
-.xp-chart div{display:flex;gap:14px;font:11px 'Fira Code',monospace;color:var(--muted)}
-.xp-chart div span::before{content:"";display:inline-block;width:14px;height:0;border-top:1.5px solid #000;vertical-align:middle;margin-right:5px}
-.xp-chart div span:first-child::before{border-color:rgba(0,0,0,.35)}
-.xp-chart div span:last-child::before{border-top-style:dashed}
-
-/* Fig. 8: the change request, and Fig. 9: the merge into the catalog */
-.cr-body{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,1fr)}
-.cr-left{min-width:0;border-right:1px solid rgba(0,0,0,.12)}
-.cr-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;padding:12px 16px 4px}
-.cr-h b{font:700 15px var(--head);color:#000}
-.cr-h span{font:11px 'Fira Code',monospace;color:var(--muted)}
-.cr-left canvas{display:block;width:100%;aspect-ratio:2/1;background:#fff}
-.cr-bom td,.cr-bom th{white-space:normal}
-.cr-bom td:first-child{width:auto}
-.cr-bom tr.x td{color:var(--muted);text-decoration:line-through;text-decoration-color:rgba(0,0,0,.45)}
-.cr-bom tr.y td{background:var(--mark);color:#000}
-.cr-bom tr.y td u{text-decoration:none;border-bottom:1px solid #000}
-.cr-right{padding:12px 16px 16px;display:flex;flex-direction:column;gap:6px;min-width:0}
-.cr-k{font:11px 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:6px 0 2px}
-.cr-k:first-child{margin-top:0}
-.cr-list,.cr-appr{margin:0;padding:0;list-style:none}
-.cr-list li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 10px;padding:6px 0;border-top:1px solid rgba(0,0,0,.1);align-items:center}
-.cr-list li span{font:700 12px var(--head);color:#000}
-.cr-list li i{grid-column:1;font:11px 'Fira Code',monospace;color:var(--muted);font-style:normal}
-.cr-list li em,.cr-appr li em{grid-column:2;grid-row:1/3;font:11px 'Fira Code',monospace;font-style:normal;border:1px solid #000;border-radius:10px;padding:1px 8px;color:#000;white-space:nowrap}
-em.ok{background:#fff}em.warn{background:var(--mark)}em.pend{border-style:dashed;color:var(--muted)}
-.cr-appr li{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:5px 0;border-top:1px solid rgba(0,0,0,.1);font:12px var(--head);color:#000}
-.cr-appr li em{grid-row:auto}
-.btn{display:inline-flex;align-items:center;align-self:flex-start;min-height:38px;padding:6px 12px;border-radius:4px;border:1px solid #000;background:var(--mark);font:700 12px var(--head);color:#000;margin-top:6px}
-.btn.q{background:#fff}
-@media(max-width:760px){.btn{min-height:58px}}
-.mg-body{display:grid;grid-template-columns:200px minmax(0,1fr) 190px}
-.mg-rail,.mg-side{padding:12px 14px;font:11px/1.4 var(--head);color:var(--text);min-width:0;display:flex;flex-direction:column;gap:3px}
-.mg-rail{border-right:1px solid rgba(0,0,0,.12)}
-.mg-side{border-left:1px solid rgba(0,0,0,.12)}
-.mg-rail b,.mg-side b{font:11px 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:400;margin:6px 0 3px}
-.mg-rail b:first-child,.mg-side b:first-child{margin-top:0}
-.mg-comp{padding:5px 0;border-top:1px solid rgba(0,0,0,.1)}
-.mg-comp span{display:block;font-weight:700;color:#000}
-.mg-comp i{display:block;font:11px 'Fira Code',monospace;color:var(--muted);font-style:normal}
-.mg-comp.on{background:var(--mark);margin:0 -8px;padding:5px 8px;border-radius:2px}
-.mg-fam{color:var(--text);padding:1px 0}
-.mg-fam::before{content:"+";display:inline-block;width:11px;height:11px;border:1px solid #000;font:9px/11px var(--head);text-align:center;color:#000;margin-right:6px;vertical-align:1px}
-.mg-pr{padding:12px 18px 16px;min-width:0;display:flex;flex-direction:column;gap:8px;font:12px/1.45 var(--head);color:var(--text)}
-.mg-h{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 16px;padding-bottom:8px;border-bottom:1px solid rgba(0,0,0,.15)}
-.mg-h b{font:700 15px var(--head);color:#000}
-.mg-h .btn{margin:0}
-.mg-tabs{display:flex;gap:16px;font:11px 'Fira Code',monospace;color:var(--muted);border-bottom:1px solid rgba(0,0,0,.12);padding-bottom:6px}
-.mg-tabs .on{color:#000;border-bottom:2px solid #000;padding-bottom:5px;margin-bottom:-7px}
-.mg-item{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;padding:8px 0;border-top:1px solid rgba(0,0,0,.08)}
-.mg-item b{font:700 12px var(--head);color:#000}
-.mg-item i{font:11px 'Fira Code',monospace;color:var(--muted);font-style:normal;align-self:baseline}
-.mg-item p{grid-column:1/-1;margin:0;font:12px/1.45 var(--head);color:var(--text)}
-.mg-item p u{text-decoration:none;color:#000;border-bottom:1px solid rgba(0,0,0,.4);margin-left:8px;font:11px 'Fira Code',monospace}
-.mg-ok{display:flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid #000;border-radius:4px;font:700 12px var(--head);color:#000}
-.mg-ok::before{content:"✓";display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:#000;color:#fff;font-size:11px}
-.mg-write{border:1px solid rgba(0,0,0,.25);border-radius:4px;padding:8px 10px;display:flex;flex-wrap:wrap;gap:6px 14px;font:11px 'Fira Code',monospace;color:var(--muted)}
-.mg-write .on{color:#000;border-bottom:2px solid #000}
-.mg-write div{flex-basis:100%;height:34px;border:1px solid rgba(0,0,0,.2);border-radius:3px}
-.mg-write .btn{min-height:30px;margin:0;padding:4px 10px}
-.mg-side div{display:flex;justify-content:space-between;gap:8px;padding:4px 0;border-top:1px solid rgba(0,0,0,.1);color:#000}
-.mg-side div i{font-style:normal;color:var(--muted);text-align:right}
-.mg-side div.y{background:var(--mark);margin:0 -6px;padding:4px 6px;border-radius:2px}
-@media(max-width:860px){.cr-body{grid-template-columns:1fr}.cr-left{border-right:0;border-bottom:1px solid rgba(0,0,0,.12)}.mg-body{grid-template-columns:1fr}.mg-rail,.mg-side{border:0;border-top:1px solid rgba(0,0,0,.12)}.mg-rail{order:2}.mg-side{order:3}.mg-pr{order:1}}
+.xp-card .xp-n{font:700 12px var(--head);color:var(--s-ink)}
 .xp-chart{display:flex;flex-direction:column;gap:4px;margin:6px 0 10px}
 .xp-chart svg{width:100%;height:auto;display:block}
-.xp-d{display:flex;flex-wrap:wrap;gap:2px 10px;font:11px 'Fira Code',monospace;color:var(--muted)}
-.xp-d u{text-decoration:none;color:#000}
+.xp-chart div{display:flex;gap:14px;font:11px 'Fira Code',monospace;color:var(--s-muted)}
+.xp-chart div span::before{content:"";display:inline-block;width:14px;height:0;border-top:1.5px solid #fff;vertical-align:middle;margin-right:5px}
+.xp-chart div span:first-child::before{border-color:rgba(255,255,255,.4)}
+.xp-chart div span:last-child::before{border-top-style:dashed}
+.xp-d{display:flex;flex-wrap:wrap;gap:2px 10px;font:11px 'Fira Code',monospace;color:var(--s-muted)}
+.xp-d u{text-decoration:none;color:var(--s-ink)}
 .xp-v{display:flex;gap:6px;align-items:center;margin-top:auto}
-.xp-v span{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border:1px solid #000;border-radius:50%;font:11px 'Fira Code',monospace;color:#000}
-.xp-v span.on{background:var(--mark)}
-.xp-v i{font-style:normal;font:11px 'Fira Code',monospace;color:var(--muted);margin-left:6px}
-.xp-side{border-left:1px solid rgba(0,0,0,.12);padding:10px 12px;font:11px/1.6 'Fira Code',monospace;color:var(--muted);min-width:0}
-.sl{position:relative;height:2px;background:#000;margin:9px 2px 14px}
-.sl i{position:absolute;top:-5px;width:12px;height:12px;border-radius:50%;background:#fff;border:1.5px solid #000;transform:translateX(-50%)}
-.sl i.m{background:var(--mark)}
-.xp-side div{display:flex;justify-content:space-between;padding:3px 0;color:var(--text)}
-@media(max-width:760px){.xp-body{grid-template-columns:1fr}.xp-rail,.xp-side{border:0;border-top:1px solid rgba(0,0,0,.12)}.xp-top .proj{margin-left:0}}
+.xp-v span{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border:1px solid #fff;border-radius:50%;font:11px 'Fira Code',monospace;color:#fff}
+.xp-v span.on{background:var(--mark);color:#000;border-color:#000}
+.xp-v i{font-style:normal;font:11px 'Fira Code',monospace;color:var(--s-muted);margin-left:6px}
+.xp-side{border-left:1px solid var(--s-rule);background:var(--s-panel);padding:10px 12px;font:11px/1.6 'Fira Code',monospace;color:var(--s-muted);min-width:0}
+.sl{position:relative;height:2px;background:var(--s-rule2);margin:9px 2px 14px}
+.sl i{position:absolute;top:-5px;width:12px;height:12px;border-radius:50%;background:var(--s-bg);border:1.5px solid #fff;transform:translateX(-50%)}
+.sl i.m{background:var(--mark);border-color:#000}
+.xp-side div{display:flex;justify-content:space-between;padding:3px 0;color:var(--s-text)}
+@media(max-width:760px){.xp-body{grid-template-columns:1fr}.xp-rail,.xp-side{border:0;border-top:1px solid var(--s-rule)}.xp-top .proj{margin-left:0}}
 
+/* Fig. 8: the change request, and Fig. 9: the merge into the catalog */
+.ui.dk{background:var(--s-bg);border-color:var(--s-rule2);color:var(--s-text)}
+.dk .tbl th{color:var(--s-muted);border-bottom-color:var(--s-rule)}
+.dk .tbl td{border-bottom-color:var(--s-rule)}
+.cr-body{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(280px,1fr)}
+.cr-left{min-width:0;border-right:1px solid var(--s-rule)}
+.cr-h{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;padding:12px 16px 4px}
+.cr-h b{font:700 15px var(--head);color:var(--s-ink)}
+.cr-h span{font:11px 'Fira Code',monospace;color:var(--s-muted)}
+.cr-left canvas{display:block;width:100%;aspect-ratio:2/1;background:var(--s-bg)}
+.cr-bom td,.cr-bom th{white-space:normal}
+.cr-bom td:first-child{width:auto}
+.cr-bom tr.x td{color:var(--s-muted);text-decoration:line-through;text-decoration-color:rgba(255,255,255,.5)}
+.cr-bom tr.y td{background:var(--mark);color:#000}
+.cr-bom tr.y td u{text-decoration:none;border-bottom:1px solid #000}
+.cr-right{padding:12px 16px 16px;display:flex;flex-direction:column;gap:6px;min-width:0;background:var(--s-panel)}
+.cr-k{font:11px 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--s-muted);margin:6px 0 2px}
+.cr-k:first-child{margin-top:0}
+.cr-list,.cr-appr{margin:0;padding:0;list-style:none}
+.cr-list li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 10px;padding:6px 0;border-top:1px solid var(--s-rule);align-items:center}
+.cr-list li span{font:700 12px var(--head);color:var(--s-ink)}
+.cr-list li i{grid-column:1;font:11px 'Fira Code',monospace;color:var(--s-muted);font-style:normal}
+.cr-list li em,.cr-appr li em{grid-column:2;grid-row:1/3;font:11px 'Fira Code',monospace;font-style:normal;border:1px solid #fff;border-radius:10px;padding:1px 8px;color:#fff;white-space:nowrap}
+em.ok{background:transparent}.cr-list li em.warn,.cr-appr li em.warn{background:var(--mark);color:#000;border-color:#000}.cr-list li em.pend,.cr-appr li em.pend{border-style:dashed;color:var(--s-muted);border-color:var(--s-muted)}
+.cr-appr li{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:5px 0;border-top:1px solid var(--s-rule);font:12px var(--head);color:var(--s-ink)}
+.cr-appr li em{grid-row:auto}
+.btn{display:inline-flex;align-items:center;align-self:flex-start;min-height:38px;padding:6px 12px;border-radius:4px;border:1px solid #000;background:var(--mark);font:700 12px var(--head);color:#000;margin-top:6px}
+.btn.q{background:transparent;color:#fff;border-color:#fff}
+@media(max-width:760px){.btn{min-height:58px}}
+.mg-body{display:grid;grid-template-columns:200px minmax(0,1fr) 190px}
+.mg-rail,.mg-side{padding:12px 14px;font:11px/1.4 var(--head);color:var(--s-text);min-width:0;display:flex;flex-direction:column;gap:3px;background:var(--s-panel)}
+.mg-rail{border-right:1px solid var(--s-rule)}
+.mg-side{border-left:1px solid var(--s-rule)}
+.mg-rail b,.mg-side b{font:11px 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--s-muted);font-weight:400;margin:6px 0 3px}
+.mg-rail b:first-child,.mg-side b:first-child{margin-top:0}
+.mg-comp{padding:5px 0;border-top:1px solid var(--s-rule)}
+.mg-comp span{display:block;font-weight:700;color:var(--s-ink)}
+.mg-comp i{display:block;font:11px 'Fira Code',monospace;color:var(--s-muted);font-style:normal}
+.mg-comp.on{background:var(--mark);margin:0 -8px;padding:5px 8px;border-radius:2px;border-top:0}
+.mg-comp.on span,.mg-comp.on i{color:#000}
+.mg-fam{color:var(--s-text);padding:1px 0}
+.mg-fam::before{content:"+";display:inline-block;width:11px;height:11px;border:1px solid #fff;font:9px/11px var(--head);text-align:center;color:#fff;margin-right:6px;vertical-align:1px}
+.mg-pr{padding:12px 18px 16px;min-width:0;display:flex;flex-direction:column;gap:8px;font:12px/1.45 var(--head);color:var(--s-text)}
+.mg-h{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 16px;padding-bottom:8px;border-bottom:1px solid var(--s-rule)}
+.mg-h b{font:700 15px var(--head);color:var(--s-ink)}
+.mg-h .btn{margin:0}
+.mg-tabs{display:flex;gap:16px;font:11px 'Fira Code',monospace;color:var(--s-muted);border-bottom:1px solid var(--s-rule);padding-bottom:6px}
+.mg-tabs .on{color:var(--s-ink);border-bottom:2px solid var(--mark);padding-bottom:5px;margin-bottom:-7px}
+.mg-item{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;padding:8px 0;border-top:1px solid var(--s-rule)}
+.mg-item b{font:700 12px var(--head);color:var(--s-ink)}
+.mg-item i{font:11px 'Fira Code',monospace;color:var(--s-muted);font-style:normal;align-self:baseline}
+.mg-item p{grid-column:1/-1;margin:0;font:12px/1.45 var(--head);color:var(--s-text)}
+.mg-item p u{text-decoration:none;color:var(--s-ink);border-bottom:1px solid rgba(255,255,255,.4);margin-left:8px;font:11px 'Fira Code',monospace}
+.mg-ok{display:flex;align-items:center;gap:8px;padding:8px 10px;border:1px solid #fff;border-radius:4px;font:700 12px var(--head);color:var(--s-ink)}
+.mg-ok::before{content:"✓";display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:50%;background:var(--mark);color:#000;font-size:11px}
+.mg-write{border:1px solid var(--s-rule2);border-radius:4px;padding:8px 10px;display:flex;flex-wrap:wrap;gap:6px 14px;font:11px 'Fira Code',monospace;color:var(--s-muted)}
+.mg-write .on{color:var(--s-ink);border-bottom:2px solid var(--mark)}
+.mg-write div{flex-basis:100%;height:34px;border:1px solid var(--s-rule);border-radius:3px;background:rgba(0,0,0,.3)}
+.mg-write .btn{min-height:30px;margin:0;padding:4px 10px}
+.mg-side div{display:flex;justify-content:space-between;gap:8px;padding:4px 0;border-top:1px solid var(--s-rule);color:var(--s-ink)}
+.mg-side div i{font-style:normal;color:var(--s-muted);text-align:right}
+.mg-side div.y{background:var(--mark);color:#000;margin:0 -6px;padding:4px 6px;border-radius:2px;border-top:0}
+.mg-side div.y i{color:#000}
+@media(max-width:860px){.cr-body{grid-template-columns:1fr}.cr-left{border-right:0;border-bottom:1px solid var(--s-rule)}.mg-body{grid-template-columns:1fr}.mg-rail,.mg-side{border:0;border-top:1px solid var(--s-rule)}.mg-rail{order:2}.mg-side{order:3}.mg-pr{order:1}}
 @media (max-width:900px){.fig-scroll .bp{min-width:920px}}
 @media (max-width:760px){.flow{grid-template-columns:repeat(2,minmax(0,1fr))}.themes{grid-template-columns:1fr}}
 @media (max-width:720px){
@@ -405,7 +459,7 @@ em.ok{background:#fff}em.warn{background:var(--mark)}em.pend{border-style:dashed
       </div>
       <div class="xp-side">
        <b>Samples vs goals</b>
-       <div class="xp-chart"><svg viewBox="0 0 150 64" aria-hidden="true"><g stroke="#000" stroke-opacity=".18"><line x1="10" y1="8" x2="10" y2="52"/><line x1="30" y1="8" x2="30" y2="52"/><line x1="50" y1="8" x2="50" y2="52"/><line x1="70" y1="8" x2="70" y2="52"/><line x1="90" y1="8" x2="90" y2="52"/><line x1="110" y1="8" x2="110" y2="52"/><line x1="130" y1="8" x2="130" y2="52"/></g><g font-family="Fira Code,monospace" font-size="7" fill="#666" text-anchor="middle"><text x="10" y="62">G1</text><text x="30" y="62">G2</text><text x="50" y="62">G3</text><text x="70" y="62">G4</text><text x="90" y="62">G5</text><text x="110" y="62">G6</text><text x="130" y="62">G7</text></g><polyline fill="none" stroke="#000" stroke-opacity=".35" stroke-width="1" points="10,30 30,22 50,40 70,18 90,34 110,26 130,38"/><polyline fill="none" stroke="#000" stroke-width="1.5" points="10,20 30,28 50,16 70,30 90,14 110,22 130,12"/><polyline fill="none" stroke="#000" stroke-width="1.5" stroke-dasharray="3 2" points="10,44 30,40 50,46 70,42 90,48 110,44 130,46"/><g fill="#FFFF00" stroke="#000" stroke-width="1"><circle cx="50" cy="16" r="2.5"/><circle cx="90" cy="14" r="2.5"/><circle cx="130" cy="12" r="2.5"/></g></svg><div><span>SA</span><span>SB</span><span>O1</span></div></div>
+       <div class="xp-chart"><svg viewBox="0 0 150 64" aria-hidden="true"><g stroke="#fff" stroke-opacity=".22"><line x1="10" y1="8" x2="10" y2="52"/><line x1="30" y1="8" x2="30" y2="52"/><line x1="50" y1="8" x2="50" y2="52"/><line x1="70" y1="8" x2="70" y2="52"/><line x1="90" y1="8" x2="90" y2="52"/><line x1="110" y1="8" x2="110" y2="52"/><line x1="130" y1="8" x2="130" y2="52"/></g><g font-family="Fira Code,monospace" font-size="7" fill="#a3a3a3" text-anchor="middle"><text x="10" y="62">G1</text><text x="30" y="62">G2</text><text x="50" y="62">G3</text><text x="70" y="62">G4</text><text x="90" y="62">G5</text><text x="110" y="62">G6</text><text x="130" y="62">G7</text></g><polyline fill="none" stroke="#fff" stroke-opacity=".4" stroke-width="1" points="10,30 30,22 50,40 70,18 90,34 110,26 130,38"/><polyline fill="none" stroke="#fff" stroke-width="1.5" points="10,20 30,28 50,16 70,30 90,14 110,22 130,12"/><polyline fill="none" stroke="#fff" stroke-width="1.5" stroke-dasharray="3 2" points="10,44 30,40 50,46 70,42 90,48 110,44 130,46"/><g fill="#FFFF00" stroke="#000" stroke-width="1"><circle cx="50" cy="16" r="2.5"/><circle cx="90" cy="14" r="2.5"/><circle cx="130" cy="12" r="2.5"/></g></svg><div><span>SA</span><span>SB</span><span>O1</span></div></div>
        <b>Goal weights</b>
        <div><span>Sustainability › Daylight</span></div><div class="sl"><i class="m" style="left:72%"></i></div>
        <div><span>Sustainability › Views</span></div><div class="sl"><i style="left:50%"></i></div>
@@ -444,7 +498,7 @@ em.ok{background:#fff}em.warn{background:var(--mark)}em.pend{border-style:dashed
    <p>When a change came from the factory side, the screens showed the cascade instead of hiding it. A substituted window walks through the framing layout, the bill of materials, the robotic simulation, and the structural simulation. Then it walks back up to the cost and sustainability predictions the architect and the developer had agreed on. Everyone affected is notified, and the approvals move on.</p>
 
    <figure>
-    <div class="ui" role="img" aria-label="Stage 3b, the change request for window_frame_619, redrawn with placeholder data. Left: the framed wall panel with its two windows rendered in three dimensions, and the bill of materials with the back-ordered 5000 Series row struck through and the substitute 5200 Series row in yellow, 30 by 72 rough opening in place of 30 by 71. Right: the cascade of seven dependencies with their status, framing layout regenerated, bill of materials two lines changed, robotic simulation re-run, structural simulation passed, cost prediction up 1,240 dollars and flagged for review, sustainability within target, constructability unchanged; the approvals, structural engineer and production manager approved, procurement manager proposed, design team pending; and a button to approve and notify six stakeholders.">
+    <div class="ui dk" role="img" aria-label="Stage 3b, the change request for window_frame_619, redrawn with placeholder data. Left: the framed wall panel with its two windows rendered in three dimensions, and the bill of materials with the back-ordered 5000 Series row struck through and the substitute 5200 Series row in yellow, 30 by 72 rough opening in place of 30 by 71. Right: the cascade of seven dependencies with their status, framing layout regenerated, bill of materials two lines changed, robotic simulation re-run, structural simulation passed, cost prediction up 1,240 dollars and flagged for review, sustainability within target, constructability unchanged; the approvals, structural engineer and production manager approved, procurement manager proposed, design team pending; and a button to approve and notify six stakeholders.">
      <div class="xp-top"><i></i><span class="on">Analyze</span><span>Design</span><span>Explore</span><span>Library</span><span class="proj">Oakland multifamily · design 1 · change request</span></div>
      <div class="cr-body">
       <div class="cr-left">
@@ -491,7 +545,7 @@ em.ok{background:#fff}em.warn{background:var(--mark)}em.pend{border-style:dashed
    <p>The concept had walked the generator from the factory floor into the architect's day, and that day already happened inside the platform.</p>
 
    <figure>
-    <div class="ui" role="img" aria-label="Stage 4, the library, redrawn with placeholder data. Left: the components in use, stepped double-loaded and double medium windows, and the families list. Middle: a merge panel titled F_OS engineering team with a merge pull request button; tabs for conversation, two commits and three files changed; the process engineer's comment approving the merge with the measured cost, install time and framing change; the digital fabrication specialist's two commits changing the bill of materials and adding a product id; a check that window_frame_619 has no conflicts with the base branch framing; and the merge message. Right: the part's details, family, rules, cost, install, framing, and searchable in generation set to yes.">
+    <div class="ui dk" role="img" aria-label="Stage 4, the library, redrawn with placeholder data. Left: the components in use, stepped double-loaded and double medium windows, and the families list. Middle: a merge panel titled F_OS engineering team with a merge pull request button; tabs for conversation, two commits and three files changed; the process engineer's comment approving the merge with the measured cost, install time and framing change; the digital fabrication specialist's two commits changing the bill of materials and adding a product id; a check that window_frame_619 has no conflicts with the base branch framing; and the merge message. Right: the part's details, family, rules, cost, install, framing, and searchable in generation set to yes.">
      <div class="xp-top"><i></i><span>Analyze</span><span>Design</span><span>Explore</span><span class="on">Library</span><span class="proj">Multifamily component library</span></div>
      <div class="mg-body">
       <div class="mg-rail">
@@ -557,13 +611,13 @@ em.ok{background:#fff}em.warn{background:var(--mark)}em.pend{border-style:dashed
  function ts(x,y,z,w,h,d){ var o=new Float32Array(16); o[0]=w;o[5]=h;o[10]=d;o[12]=x;o[13]=y;o[14]=z;o[15]=1; return o; }
  function eye(cam){ return [cam.t[0]+cam.dist*Math.cos(cam.el)*Math.sin(cam.az), cam.t[1]+cam.dist*Math.sin(cam.el), cam.t[2]+cam.dist*Math.cos(cam.el)*Math.cos(cam.az)]; }
  var VS='attribute vec3 p;attribute vec3 n;uniform mat4 mvp;uniform mat4 mm;varying vec3 vn;void main(){vn=mat3(mm)*n;gl_Position=mvp*vec4(p,1.0);}';
- var FS='precision mediump float;uniform vec4 c;uniform vec3 l;varying vec3 vn;void main(){float d=max(dot(normalize(vn),normalize(l)),0.0);float k=0.68+0.32*d;gl_FragColor=vec4(c.rgb*k*c.a,c.a);}';
+ var FS='precision mediump float;uniform vec4 c;uniform vec3 l;uniform float fl;varying vec3 vn;void main(){float d=max(dot(normalize(vn),normalize(l)),0.0);float k=mix(0.68+0.32*d,1.0,fl);gl_FragColor=vec4(c.rgb*k*c.a,c.a);}';
  function GL(cv){
   var gl=cv.getContext('webgl',{antialias:true,alpha:true,premultipliedAlpha:true,preserveDrawingBuffer:true}); if(!gl) return null;
   function sh(t,src){ var o=gl.createShader(t); gl.shaderSource(o,src); gl.compileShader(o); return gl.getShaderParameter(o,gl.COMPILE_STATUS)?o:null; }
   var v=sh(gl.VERTEX_SHADER,VS), f=sh(gl.FRAGMENT_SHADER,FS); if(!v||!f) return null;
   var pr=gl.createProgram(); gl.attachShader(pr,v); gl.attachShader(pr,f); gl.linkProgram(pr); if(!gl.getProgramParameter(pr,gl.LINK_STATUS)) return null; gl.useProgram(pr);
-  var aP=gl.getAttribLocation(pr,'p'), aN=gl.getAttribLocation(pr,'n'), uMVP=gl.getUniformLocation(pr,'mvp'), uMM=gl.getUniformLocation(pr,'mm'), uC=gl.getUniformLocation(pr,'c'), uL=gl.getUniformLocation(pr,'l');
+  var aP=gl.getAttribLocation(pr,'p'), aN=gl.getAttribLocation(pr,'n'), uMVP=gl.getUniformLocation(pr,'mvp'), uMM=gl.getUniformLocation(pr,'mm'), uC=gl.getUniformLocation(pr,'c'), uL=gl.getUniformLocation(pr,'l'), uF=gl.getUniformLocation(pr,'fl');
   var P=[],N=[],V=[[0,0,0],[1,0,0],[1,1,0],[0,1,0],[0,0,1],[1,0,1],[1,1,1],[0,1,1]];
   function face(nx,ny,nz,a,b,c,d){ [a,b,c,a,c,d].forEach(function(i){ P.push(V[i][0],V[i][1],V[i][2]); N.push(nx,ny,nz); }); }
   face(0,0,1,4,5,6,7); face(0,0,-1,1,0,3,2); face(1,0,0,5,1,2,6); face(-1,0,0,0,4,7,3); face(0,1,0,7,6,2,3); face(0,-1,0,0,1,5,4);
@@ -577,7 +631,7 @@ em.ok{background:#fff}em.warn{background:var(--mark)}em.pend{border-style:dashed
    for(var i=0;i<boxes.length;i++){ var b=boxes[i], m=ts(b.x,b.y,b.z,b.w,b.h,b.d); gl.uniformMatrix4fv(uMM,false,m); gl.uniformMatrix4fv(uMVP,false,mul(vp,m));
     gl.bindBuffer(gl.ARRAY_BUFFER,bP); gl.enableVertexAttribArray(aP); gl.vertexAttribPointer(aP,3,gl.FLOAT,false,0,0);
     gl.bindBuffer(gl.ARRAY_BUFFER,bN); gl.enableVertexAttribArray(aN); gl.vertexAttribPointer(aN,3,gl.FLOAT,false,0,0);
-    gl.uniform4fv(uC,b.c); gl.drawArrays(gl.TRIANGLES,0,36);
+    gl.uniform4fv(uC,b.c); gl.uniform1f(uF,b.flat?1:0); gl.drawArrays(gl.TRIANGLES,0,36);
     if(b.e){ gl.bindBuffer(gl.ARRAY_BUFFER,bE); gl.vertexAttribPointer(aP,3,gl.FLOAT,false,0,0); gl.disableVertexAttribArray(aN); gl.vertexAttrib3f(aN,0,1,0); gl.uniform4fv(uC,b.e); gl.drawArrays(gl.LINES,0,24); } }
   } };
  }
@@ -599,13 +653,15 @@ em.ok{background:#fff}em.warn{background:var(--mark)}em.pend{border-style:dashed
  /* ---- The site: a parcel, its two streets and the neighbouring blocks, and a massing of stacked modules on a four-by-three grid. ---- */
  var GX=4, GY=3, HMAX=5, FH=0.62;
  var CTX=[[-4.8,-1.2,2.6,1.5,3.6],[-4.8,3.0,2.6,0.9,2.0],[-4.6,5.9,2.6,2.0,2.2],[0.1,5.9,2.8,1.2,2.6],[3.6,5.9,2.8,1.7,2.2],[5.7,-0.8,2.6,2.2,3.2],[5.7,3.0,2.6,1.3,2.4],[-0.8,-4.2,2.8,1.6,2.4],[2.8,-4.2,3.0,0.9,2.4]];
- function scene(g,o){ o=o||{}; var B=[], a=o.alpha==null?1:o.alpha, i,j,f;
-  B.push({x:-9,y:-0.1,z:-9,w:18,h:0.1,d:18,c:GROUND});
-  B.push({x:-1.8,y:-0.09,z:-9,w:1.2,h:0.1,d:18,c:STREET}); B.push({x:-9,y:-0.09,z:GY+0.5,w:18,h:0.1,d:1.2,c:STREET});
-  B.push({x:-0.2,y:-0.02,z:-0.2,w:GX+0.4,h:0.03,d:GY+0.4,c:o.parcel||SLATE,e:[0,0,0,.55]});
-  if(o.ctx!==false) for(i=0;i<CTX.length;i++){ var k=CTX[i]; B.push({x:k[0],y:0,z:k[1],w:k[2],h:k[3],d:k[4],c:CTXC}); }
-  if(o.grid){ for(i=1;i<GX;i++) B.push({x:i-0.02,y:0.015,z:-0.2,w:0.04,h:0.012,d:GY+0.4,c:INK}); for(j=1;j<GY;j++) B.push({x:-0.2,y:0.015,z:j-0.02,w:GX+0.4,h:0.012,d:0.04,c:INK}); }
-  if(o.handles){ [[-0.28,-0.28],[GX+0.12,-0.28],[-0.28,GY+0.12],[GX+0.12,GY+0.12]].forEach(function(c){ B.push({x:c[0],y:0,z:c[1],w:0.16,h:0.16,d:0.16,c:INK}); }); }
+ /* The page's hero sits on white; the screens' scenes are dark, so the ground, streets, neighbours and parcel take a second palette. */
+ var DK={g:[.10,.10,.10,1],s:[.15,.15,.15,1],c:[.27,.27,.26,1],p:[.38,.38,.35,1],pe:[1,1,1,.45],l:[.92,.92,.92,1]}, LT={g:GROUND,s:STREET,c:CTXC,p:SLATE,pe:[0,0,0,.55],l:INK};
+ function scene(g,o){ o=o||{}; var B=[], a=o.alpha==null?1:o.alpha, P=o.dark?DK:LT, i,j,f;
+  B.push({x:-9,y:-0.1,z:-9,w:18,h:0.1,d:18,c:P.g});
+  B.push({x:-1.8,y:-0.09,z:-9,w:1.2,h:0.1,d:18,c:P.s}); B.push({x:-9,y:-0.09,z:GY+0.5,w:18,h:0.1,d:1.2,c:P.s});
+  B.push({x:-0.2,y:-0.02,z:-0.2,w:GX+0.4,h:0.03,d:GY+0.4,c:o.parcel||P.p,e:P.pe});
+  if(o.ctx!==false) for(i=0;i<CTX.length;i++){ var k=CTX[i]; B.push({x:k[0],y:0,z:k[1],w:k[2],h:k[3],d:k[4],c:P.c}); }
+  if(o.grid){ for(i=1;i<GX;i++) B.push({x:i-0.02,y:0.015,z:-0.2,w:0.04,h:0.012,d:GY+0.4,c:P.l}); for(j=1;j<GY;j++) B.push({x:-0.2,y:0.015,z:j-0.02,w:GX+0.4,h:0.012,d:0.04,c:P.l}); }
+  if(o.handles){ [[-0.28,-0.28],[GX+0.12,-0.28],[-0.28,GY+0.12],[GX+0.12,GY+0.12]].forEach(function(c){ B.push({x:c[0],y:0,z:c[1],w:0.16,h:0.16,d:0.16,c:P.l}); }); }
   if(g) for(i=0;i<GX;i++)for(j=0;j<GY;j++){ var h=g[i*GY+j], full=Math.floor(h+1e-6), frac=h-full;
    for(f=0;f<full;f++) B.push(mod(i,j,f,1,o,a));
    if(frac>0.06) B.push(mod(i,j,full,frac,o,a)); }
@@ -617,7 +673,7 @@ em.ok{background:#fff}em.warn{background:var(--mark)}em.pend{border-style:dashed
   for(x=0;x<=W-0.12;x+=0.4){ var inOp=op.some(function(o){ return x>o[0]-0.05&&x<o[1]-0.07; }); if(inOp) continue; B.push({x:x,y:0.12,z:0.03,w:0.12,h:H-0.24,d:0.16,c:WHITE,e:INK}); }
   op.forEach(function(o){ B.push({x:o[0],y:0.12,z:0.03,w:0.12,h:H-0.24,d:0.16,c:WHITE,e:INK}); B.push({x:o[1]-0.12,y:0.12,z:0.03,w:0.12,h:H-0.24,d:0.16,c:WHITE,e:INK});
    B.push({x:o[0],y:0.78,z:0.03,w:o[1]-o[0],h:0.12,d:0.16,c:WHITE,e:INK}); B.push({x:o[0],y:2.08,z:0.03,w:o[1]-o[0],h:0.14,d:0.16,c:WHITE,e:INK});
-   B.push({x:o[0]+0.12,y:0.9,z:0.07,w:o[1]-o[0]-0.24,h:1.18,d:0.06,c:YEL,e:INK}); });
+   B.push({x:o[0]+0.12,y:0.9,z:0.07,w:o[1]-o[0]-0.24,h:1.18,d:0.06,c:YEL,e:INK,flat:true}); });
   return B; }
 
  /* Static renders share one offscreen WebGL context and are copied into their canvases; without WebGL each canvas draws itself in isometric. */
@@ -633,11 +689,11 @@ em.ok{background:#fff}em.warn{background:var(--mark)}em.pend{border-style:dashed
   floors:{g:[3,0,0,3,0,0,0,0,0,0,0,0],o:{hl:function(i,j,f){ return f===2; }},cam:{t:[1.2,0.9,0.6],az:-0.62,el:0.42,dist:8.5,fov:0.46,span:9}}, repeat:{g:A,o:{},cam:camNear},
   apply:{g:A,o:{},cam:camNear}, customize:{g:A,o:{hl:function(i,j,f){ return i===1&&j===1&&f===1; }},cam:camNear},
   sample:{g:A,o:{},cam:camNear}, optimized:{g:[4,4,3,4,4,3,4,4,3,2,2,0],o:{hl:function(i,j,f){ return f===3||(i===3&&f<2); }},cam:camNear},
-  share:{g:A,o:{alpha:.3},cam:camNear},
+  share:{g:A,o:{alpha:.45},cam:camNear},
   o1:{g:[1,2,3,1,2,3,1,2,3,0,0,0],o:{ctx:false},cam:camCard}, o2:{g:[4,0,4,4,0,4,4,0,4,0,0,0],o:{ctx:false},cam:camCard}, o3:{g:[5,5,5,5,5,5,5,5,0,0,0,0],o:{ctx:false},cam:camCard},
   o4:{g:[3,4,3,0,0,3,0,0,3,3,4,3],o:{ctx:false},cam:camCard}, o5:{g:[2,0,2,4,0,4,4,0,4,2,0,2],o:{ctx:false},cam:camCard}, o6:{g:[4,3,2,4,3,2,0,0,0,3,2,1],o:{ctx:false},cam:camCard},
   wall:{boxes:wall(),cam:{t:[3.2,1.3,0.1],az:-0.5,el:0.24,dist:7.6,fov:0.5,span:8}} };
- function renderStatics(){ var cs=document.querySelectorAll('canvas[data-scene]'); for(var i=0;i<cs.length;i++){ var k=cs[i].getAttribute('data-scene'), sc=SC[k]; if(!sc) continue; renderInto(cs[i], sc.boxes||scene(sc.g,sc.o), sc.cam); } }
+ function renderStatics(){ var cs=document.querySelectorAll('canvas[data-scene]'); for(var i=0;i<cs.length;i++){ var k=cs[i].getAttribute('data-scene'), sc=SC[k]; if(!sc) continue; if(sc.o) sc.o.dark=true; renderInto(cs[i], sc.boxes||scene(sc.g,sc.o), sc.cam); } }
  renderStatics();
 
  /* ---- Hero: a real genetic algorithm. Thirty candidate massings a generation, each cell a stack of zero to five modules, scored half on density and half on daylight (the share of modules with open faces), with a penalty for covering more than ten of the twelve cells. Tournament selection, uniform crossover, a little mutation, two elites kept in place, seeded so every run is the same. The fittest of each generation is drawn on the site. ---- */
