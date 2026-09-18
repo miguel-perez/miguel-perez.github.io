@@ -1,0 +1,769 @@
+---
+title: "A hotel-booking startup learns what festival fans actually needed"
+client: "CID Entertainment"
+description: "CID Entertainment sold VIP festival packages and had built Curadora, a hotel-booking site for festival fans. In four months we put a metric on the roadmap, tested its first assumption with ten customers, found the hotel was not the pain, and re-pointed the product at how fans travel: in groups, around a planner, splitting costs. The interview practice was in the team's hands when I left."
+draft: true
+fonts: [work-sans]
+engagement: "CID Entertainment, Philadelphia"
+period: "July to November 2016"
+read: 10
+facts:
+  - k: "Team"
+    v: "Eight people at CID Entertainment: the CEO, a product lead, product and project managers, and guest-services and ticketing staff who took interview notes. An outside development team maintained the booking site. Trello, Google Docs, R for the clustering."
+  - k: "Role"
+    v: "Product designer, employee. Shipped the August event header, wrote the scripts and guides, ran the first interview round, built the recruiting funnel and the customer theory board, planned and facilitated the workshops."
+  - k: "Timeline"
+    v: "July to November 2016, Philadelphia. Kickoff 7 July; the acquisition announced 13 September; first interviews early October; solution day 8 November."
+numbers:
+  - n: "3"
+    s: "rounds of interviews across the team: 10, 13, then 36 calls"
+  - n: "127"
+    s: "cards on the recruiting board in twelve days of October"
+  - n: "0 → 4"
+    s: "referrals, first round to second"
+  - n: "18"
+    s: "feature themes scored; four tied at the top for upside"
+acts:
+  - where: "CID Entertainment, Philadelphia"
+    when: "July to August 2016"
+    title: "We filled the journey map ourselves."
+    methods: ["kickoff workshop", "journey mapping", "front-end"]
+  - where: "CID Entertainment"
+    when: "September 2016"
+    title: "Where is the bus going, exactly?"
+    methods: ["innovation accounting", "business model canvas", "experiment design"]
+  - where: "CID Entertainment"
+    when: "October 2016"
+    title: "Ten calls, six follow-ups, zero referrals."
+    methods: ["problem interviews", "hypothesis testing", "referral metrics"]
+  - where: "CID Entertainment"
+    when: "October to November 2016"
+    title: "Thirty-six more, two kinds of fan."
+    methods: ["recruiting funnel", "note-taking templates", "hierarchical clustering", "personas", "interactive journey map"]
+  - where: "CID Entertainment"
+    when: "November 2016"
+    title: "Eighteen themes scored, no hotel feature."
+    methods: ["how-might-we", "design sprint", "silent critique", "planning poker"]
+after: "What four months left behind."
+colophon: "The CEO, the product lead and the colleagues are described by role, and nobody interviewed is named. Every screen is redrawn with a fictional festival and placeholder hotels; the sketches are redrawn from the paper originals. The interview counts, the board counts and the scores are the team's own experiment reports and boards. The header runs the recruiting board's real counts through a simulated flow. Curadora's life after 2016 is not part of this account."
+---
+<style>
+/* Street: Curadora, CID Entertainment's product. Its own Sass constants: ink #2E2F32, the filter-bar purple #8540C1 as the one accent (6.0:1 on white), pink #CC3399 as a marker inside figures only (4.7:1), blue #28A3CE for display-size fills only (2.9:1). Work Sans 700 for headlines, the face Curadora's own marketing pages used; the product's Bernina Sans was licensed through Typekit and does not ship. The store (Fira Code labels, Instrument Serif body, the rails and figures) is assets/css/study.css; the tokens below are the street. */
+body{--ink:#2E2F32;--ink-rgb:46,47,50;--text:#333;--muted:#666;--accent:#8540C1;--accent-rgb:133,64,193;--head:'Work Sans',Helvetica,Arial,sans-serif;--head-weight:700;--mark:#CC3399;--blue:#28A3CE;
+ --footer-ink:#2E2F32;--footer-text:#333;--footer-rule:rgba(46,47,50,.18);--footer-accent:#8540C1}
+.hero-art canvas{display:block;width:min(100%,440px);aspect-ratio:1}
+.hero-art .cap{width:min(100%,440px)}
+.hero-art .cap i.p{background:var(--accent)}
+.hero-art .cap i.k{background:var(--mark);margin-left:14px}
+.pill.h{background:var(--accent);color:#fff}
+.pill.m{background:rgba(204,51,153,.12);color:#8c1c62;border:1px solid rgba(204,51,153,.35)}
+.pill.c{background:rgba(133,64,193,.1);color:#5c2b8a;border:1px solid rgba(133,64,193,.3)}
+.key{gap:6px 14px}
+.key i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.key i.p{background:var(--accent)}
+.key i.k{background:var(--mark)}
+.key i.o{background:#fff;border:1px solid rgba(var(--ink-rgb),.5)}
+
+/* Fig. 2 and Fig. 8: the journey map by assumption and the workshop plan, on the store's blueprint grid. */
+.bp-cell.x b{color:var(--muted);text-decoration:line-through;text-decoration-color:var(--mark);text-decoration-thickness:1.5px}
+.bp-cell.y b{color:var(--ink);background:rgba(133,64,193,.12);padding:0 3px;margin:0 -3px;border-radius:2px}
+@media (max-width:900px){.fig-scroll .bp{min-width:980px}}
+
+/* Fig. 3 and Fig. 9: phone-width replicas of the booking site and the sketches. */
+.pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 22px}
+.sb4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px 18px}
+.pair > div,.sb4 > div{display:flex;flex-direction:column;gap:9px;min-width:0}
+.story .pair p,.story .sb4 p{margin:0;font:12px/1.6 'Fira Code',monospace;color:var(--text)}
+.story .pair p b,.story .sb4 p b{font-weight:400;color:var(--muted);margin-right:7px}
+.ph{width:100%;max-width:300px;margin:0 auto;border:1px solid rgba(var(--ink-rgb),.3);border-radius:10px;background:#fff;overflow:hidden;font:11px/1.35 var(--head);color:var(--text);box-shadow:0 1px 2px rgba(0,0,0,.05),0 10px 28px rgba(0,0,0,.08)}
+.ph-top{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 12px;border-bottom:1px solid rgba(var(--ink-rgb),.12)}
+.ph-top b{font:700 12px var(--head);color:var(--ink);letter-spacing:.04em}
+.ph-top span{font:11px 'Fira Code',monospace;color:var(--accent)}
+.ph-hero{position:relative;height:118px;background:linear-gradient(160deg,#3d1a5c,#7a3ab3 58%,#b02a85);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-align:center;padding:10px}
+.ph-hero small{font:11px 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;opacity:.9}
+.ph-hero b{font:700 20px/1 var(--head);letter-spacing:-.01em}
+.ph-hero i{font:11px 'Fira Code',monospace;font-style:normal;opacity:.9}
+.ph-bar{display:grid;grid-template-columns:1fr 1fr;gap:8px 12px;padding:10px 12px;background:var(--accent);color:#fff;font:11px 'Fira Code',monospace}
+.ph-bar span{border-bottom:1px solid rgba(255,255,255,.6);padding-bottom:3px}
+.ph-bar span i{display:block;font-style:normal;opacity:.8}
+.ph-bar.lt{background:#fff;color:var(--text);border-bottom:1px solid rgba(var(--ink-rgb),.12)}
+.ph-bar.lt span{border-bottom-color:rgba(var(--ink-rgb),.3)}
+.ph-bar.lt span i{opacity:1;color:var(--muted)}
+.ph-links{display:flex;gap:14px;padding:8px 12px;font:11px 'Fira Code',monospace;color:var(--accent);border-bottom:1px solid rgba(var(--ink-rgb),.08)}
+.ph-meta{padding:8px 12px 2px;display:flex;justify-content:space-between;gap:8px;font:11px 'Fira Code',monospace;color:var(--muted)}
+.ph-meta u{text-decoration:none;color:var(--ink)}
+.ph-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:8px 12px 12px}
+.ph-h{border:1px solid rgba(var(--ink-rgb),.12);border-radius:4px;overflow:hidden}
+.ph-img{position:relative;height:54px;background:linear-gradient(135deg,#ded7ea,#b9aacf)}
+.ph-img::after{content:"";position:absolute;left:10px;right:34px;bottom:0;height:26px;background:linear-gradient(90deg,#6f5a92 0 22%,transparent 22% 30%,#6f5a92 30% 60%,transparent 60% 68%,#6f5a92 68%);opacity:.55}
+.ph-img i{position:absolute;right:0;top:0;background:var(--accent);color:#fff;font:700 11px/1.2 var(--head);padding:3px 5px;text-align:right;font-style:normal}
+.ph-img i small{display:block;font:11px 'Fira Code',monospace;font-weight:400;letter-spacing:.04em}
+.ph-img u{position:absolute;left:5px;top:4px;color:#f1aa46;text-decoration:none;letter-spacing:1px;font-size:11px}
+.ph-h b{display:block;padding:5px 6px 0;font:700 11px var(--head);color:var(--ink)}
+.ph-h span{display:block;padding:0 6px 6px;font:11px 'Fira Code',monospace;color:var(--muted)}
+.mv{outline:2px solid var(--accent);outline-offset:-2px}
+.ad{outline:2px solid var(--mark);outline-offset:-2px;border-radius:3px}
+.ph.sm{max-width:260px}
+.ph-body{padding:10px 12px;display:flex;flex-direction:column;gap:8px;font:11px/1.4 var(--head);color:var(--text)}
+.ph-k{font:11px 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.ph-bub{border:1px solid rgba(var(--ink-rgb),.25);border-radius:8px 8px 8px 2px;padding:8px 10px;font:12px/1.4 var(--head);color:var(--ink);background:rgba(133,64,193,.06)}
+.ph-btns{display:flex;gap:8px}
+.ph-btn{display:inline-flex;align-items:center;justify-content:center;flex:1;padding:6px 8px;border:1px solid var(--accent);border-radius:4px;background:var(--accent);color:#fff;font:700 11px var(--head)}
+.ph-btn.q{background:#fff;color:var(--accent)}
+.ph-in{border:1px solid rgba(var(--ink-rgb),.25);border-radius:4px;padding:6px 8px;color:var(--muted);font:11px 'Fira Code',monospace}
+.ph-map{height:56px;border-radius:4px;background:linear-gradient(135deg,#e9e4f2,#d6cbe6);position:relative;overflow:hidden}
+.ph-map svg{position:absolute;inset:0;width:100%;height:100%}
+.ph-av{display:flex;gap:5px}
+.ph-av i{display:block;width:18px;height:18px;border-radius:50%;background:rgba(133,64,193,.18);border:1px solid rgba(133,64,193,.5)}
+.ph-chips{display:flex;flex-wrap:wrap;gap:5px}
+.ph-chips span{padding:3px 8px;border:1px solid rgba(var(--ink-rgb),.3);border-radius:10px;font:11px 'Fira Code',monospace;color:var(--text)}
+.ph-chips span.on{background:var(--accent);border-color:var(--accent);color:#fff}
+.ph-chips span.add{border-style:dashed;color:var(--accent)}
+.ph-row{display:flex;justify-content:space-between;gap:8px;padding:4px 0;border-top:1px solid rgba(var(--ink-rgb),.1)}
+.ph-row b{font:700 12px var(--head);color:var(--ink)}
+.ph-big{font:700 18px/1 var(--head);color:var(--ink)}
+
+/* Fig. 4: the customer factory */
+.fac text{font-family:'Fira Code',monospace;font-size:12px;letter-spacing:.06em;text-transform:uppercase;fill:#666}
+.fac .n{fill:#333;font-family:'Instrument Serif',serif;font-size:14px;letter-spacing:0;text-transform:none}
+
+/* Fig. 5: the three experiment cards as the team wrote them */
+.exp{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.exp .ui{display:flex;flex-direction:column}
+.exp-r{padding:9px 14px;border-top:1px solid rgba(var(--ink-rgb),.1);font:12px/1.5 var(--head);color:var(--text)}
+.exp-r:first-of-type{border-top:0}
+.exp-r b{display:block;font:12px 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-bottom:3px}
+.exp-r s{text-decoration:line-through;text-decoration-color:var(--mark);text-decoration-thickness:1.5px;color:var(--muted)}
+.exp-r u{text-decoration:none;color:var(--ink);border-bottom:1px solid var(--accent)}
+.exp-n{display:flex;gap:6px 16px;flex-wrap:wrap;font:12px 'Fira Code',monospace;color:var(--muted);margin-top:4px}
+.exp-n span b{display:inline;font:700 22px/1 var(--head);color:var(--ink);margin:0 4px 0 0;letter-spacing:0;text-transform:none}
+.exp-n span b.k{color:var(--mark)}
+.exp-v{margin-top:auto;padding:10px 14px;border-top:1px solid rgba(var(--ink-rgb),.1);display:flex;justify-content:space-between;align-items:center;gap:8px;font:12px 'Fira Code',monospace;color:var(--muted)}
+
+/* Fig. 6: the customer theory board */
+.board{display:grid;grid-template-columns:repeat(8,minmax(148px,1fr));gap:10px;min-width:1260px;padding:12px;background:rgba(var(--ink-rgb),.035);border:1px solid rgba(var(--ink-rgb),.2);border-radius:6px}
+.col{display:flex;flex-direction:column;gap:8px;min-width:0}
+.col > b{font:12px 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);font-weight:400;padding:0 2px 2px}
+.col > b i{font-style:normal;color:var(--muted);margin-left:6px}
+.ic{background:#fff;border:1px solid rgba(var(--ink-rgb),.15);border-radius:4px;padding:8px 9px;display:flex;flex-direction:column;gap:6px;font:12px/1.4 var(--head);color:var(--text)}
+.ic .tg{display:flex;flex-wrap:wrap;gap:3px}
+.ic q{font:14px/1.3 'Instrument Serif',serif;color:#333;quotes:"\201C" "\201D"}
+.ic .src{font:12px 'Fira Code',monospace;color:var(--muted)}
+.ic.p{border-left:3px solid var(--accent)}
+.ic.p b{display:block;font:700 13px var(--head);color:var(--ink)}
+.ic.p span{font:12px/1.4 var(--head);color:var(--text)}
+
+/* Fig. 7: the dendrogram; Fig. 10: the scatter */
+.den text{font-family:'Fira Code',monospace}
+.sc text{font-family:'Instrument Serif',serif;font-size:14px;fill:#333}
+.sc .d{font-family:'Fira Code',monospace;font-size:12px;fill:#666}
+
+@media (max-width:860px){.exp{grid-template-columns:1fr}.sb4{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.pair,.sb4{grid-template-columns:1fr}}
+@media (max-width:720px){
+ .hero-art canvas,.hero-art .cap{width:min(100%,320px)}
+}
+</style>
+
+<section class="case-header wrap">
+ {% include study-meta.html %}
+ <div class="hero">
+  <div class="hero-text">
+   <h1>A hotel-booking startup learns what festival fans <em>actually needed</em>.</h1>
+   <p class="lede">CID Entertainment sold VIP packages for music festivals and had built Curadora, a site that found fans a hotel near the event. I joined in July 2016 to define how it would enter the festival-fan market. We put a metric on the roadmap, tested its first assumption with ten customers, and found the hotel was not the pain. Two more rounds asked fans what was: going alone, and planning a trip for a group. The roadmap turned toward the group.</p>
+   {% include study-facts.html %}
+  </div>
+  <div class="hero-art" id="hero-art" role="img" aria-label="The October 2016 recruiting board drawn as a customer factory. 127 cards flow from outreach through lead, scheduled and interview into no-show, lost, follow-up and retained bins, and twelve referrals loop back to the inlet. The counts are real; the motion is simulated." title="Replay">
+   <canvas id="factory" aria-hidden="true"></canvas>
+   <span class="cap"><b class="sum">the recruiting board · October 2016</b><b id="factory-cap" class="now">127 cards on the recruiting board</b><i class="p"></i>outreach<i class="k"></i>referral</span>
+  </div>
+ </div>
+ {% include study-numbers.html %}
+</section>
+
+<section class="body wrap">
+
+ <article class="story">
+
+  <section class="act" id="outline">
+   <span class="label">Outline</span>
+   <p>Four months to find out what festival fans needed from a hotel-booking startup, and to leave the team a way to keep asking.</p>
+
+   <figure class="dia">
+<div tabindex="0" role="region" aria-label="Figure, scrolls sideways" class="fig-scroll"><svg viewBox="0 0 760 256" aria-label="Timeline from 7 July to mid-November 2016. The kickoff workshop on 7 July, the event header shipped from 10 to 26 August, the acquisition reported 13 September, the metric and the factory on 15 and 20 September, three interview rounds from 3 to 25 October, the second and third from 17 October, the theory board and the clusters on 2 November, three workshop days around 8 November, and handoff in mid-November.">
+     <rect x="203" y="108" width="86" height="24" fill="#8540C1" fill-opacity=".12"/>
+     <rect x="494" y="108" width="118" height="24" fill="#000" fill-opacity=".06"/>
+     <rect x="682" y="108" width="12" height="24" fill="#CC3399" fill-opacity=".35"/>
+     <line x1="20" y1="120" x2="720" y2="120" stroke="#000" stroke-opacity=".5" stroke-width="1.5" stroke-dasharray="700" stroke-dashoffset="700" class="a" style="animation:dash 1.8s ease-out .2s forwards"/>
+     <g fill="#2E2F32"><circle cx="20" cy="120" r="5"/><circle cx="203" cy="120" r="5"/><circle cx="397" cy="120" r="5"/><circle cx="424" cy="120" r="5"/><circle cx="494" cy="120" r="5"/><circle cx="569" cy="120" r="5"/><circle cx="612" cy="120" r="5"/><circle cx="655" cy="120" r="5"/><circle cx="720" cy="120" r="5"/></g>
+     <circle cx="386" cy="120" r="7" fill="#fff" stroke="#2E2F32" stroke-width="1.5"/>
+     <circle cx="688" cy="120" r="7" fill="#CC3399" stroke="#2E2F32" stroke-width="1.5"/>
+     <g font-family="Fira Code,monospace" font-size="11" fill="#666">
+      <text x="207" y="102">AUGUST</text><text x="498" y="102">THREE ROUNDS</text><text x="640" y="102">WORKSHOP</text>
+      <text x="20" y="40">7 Jul 2016</text><text x="386" y="40">13 Sep</text><text x="494" y="40">3 Oct</text><text x="612" y="40">25 Oct</text><text x="688" y="40">8 Nov</text>
+      <text x="203" y="66">10 to 26 Aug</text><text x="424" y="66">20 Sep</text><text x="569" y="66">17 Oct</text><text x="655" y="66">2 Nov</text>
+     </g>
+     <g font-family="Instrument Serif,serif" font-size="15" fill="#333">
+      <text x="20" y="160">kickoff workshop</text><text x="386" y="160">acquired, seven weeks in</text><text x="720" y="160" text-anchor="end">three workshop days</text>
+      <text x="203" y="186">event header shipped</text><text x="494" y="186">round one: ten calls</text><text x="720" y="186" text-anchor="end">handoff</text>
+      <text x="397" y="212">one metric, a factory, a board</text><text x="676" y="238" text-anchor="end">the theory board and its clusters</text>
+     </g>
+    </svg></div>
+    <figcaption>Fig. 1 · Four months on one line. The purple band is the front-end work shipped in August, the tinted band is the three interview rounds, and the pink mark is the three days of workshops that turned the research into sketches.</figcaption>
+   </figure>
+
+   {% include study-outline.html %}
+  </section>
+
+  <section class="act" id="act-1">
+   {% include study-act.html n=1 %}
+   <p>CID Entertainment sells VIP packages and travel for music festivals. In 2016 it had a second product, Curadora, a booking site that found fans a hotel near the event. A festival would make Curadora its official hotel partner. The site listed hundreds of hotels by distance from the venue, with shuttle routes and a link to tickets. An outside team had built it over the previous year. I joined in July as its product designer, with a brief to define how it would enter the festival-fan market.</p>
+   <p>The first evening was a workshop with the whole team. We wrote the pitch as a fill-in-the-blanks sentence: for whom, with what need, unlike whom. We demoed competitors over dinner. Then we mapped a fan's journey in five columns, from hearing about an event to the week after it. In each column we wrote what the fan sees, asks, enjoys, and hates, and where Curadora could help. Every note came from us. Nobody in the room had asked a fan yet. The open questions on the map showed it: why not just use a big travel site? Are my friends going?</p>
+
+   <figure class="dia">
+<div tabindex="0" role="region" aria-label="Figure, scrolls sideways" class="fig-scroll"><div class="bp" style="--bp-n:5;--bp-lane:112px" role="img" aria-label="The July journey map by assumption: five stages, discovery to after the event, by five rows of the team's own notes on what a fan sees and hears, asks, enjoys, is frustrated by, and where Curadora could help. Three hotel-centered opportunities are struck through, invalidated by the October interviews; three group questions are highlighted, confirmed by them.">
+      <div class="bp-corner"></div><div class="bp-phase">Discovery</div><div class="bp-phase">Evaluation</div><div class="bp-phase">Purchase</div><div class="bp-phase">The event</div><div class="bp-phase">After the event</div>
+      <div class="bp-lane">Sees, hears</div><div class="bp-cell"><b>Friends talking about the event</b><i>the radio, an influencer's post</i></div><div class="bp-cell"><b>Distance from the hotel to the event</b><i>a date picker, package options</i></div><div class="bp-cell"><b>The cost</b><i>fields to fill out</i></div><div class="bp-cell"><b>The people, the music</b><i>the front desk, signage</i></div><div class="bp-cell"><b>Photos, favorite sets</b><i>a survey, merch</i></div>
+      <div class="bp-lane">Asks</div><div class="bp-cell y"><b>Are my friends going?</b><i>how much will I spend?</i></div><div class="bp-cell y"><b>Who am I going with?</b><i>payment plans? split payments?</i></div><div class="bp-cell"><b>Can I cancel?</b><i>is this secure? is this the best deal?</i></div><div class="bp-cell"><b>Where is my room?</b><i>where are my friends?</i></div><div class="bp-cell"><b>When is the next one?</b><i>what should I do differently?</i></div>
+      <div class="bp-lane">Enjoys</div><div class="bp-cell"><b>My friend is going</b><i>being first to know</i></div><div class="bp-cell"><b>All my friends are going</b><i>one-step booking</i></div><div class="bp-cell"><b>I'm going!</b><i>making the final decision</i></div><div class="bp-cell"><b>Getting the room key</b><i>meeting people</i></div><div class="bp-cell"><b>I made new friends</b><i>I had a great stay</i></div>
+      <div class="bp-lane">Frustrated by</div><div class="bp-cell"><b>Sold out</b><i>ugh, how far is this from me?</i></div><div class="bp-cell"><b>I can't afford it</b><i>booking failures</i></div><div class="bp-cell y"><b>Friends back out</b><i>now I'm the one paying for this</i></div><div class="bp-cell"><b>You do not have my reservation</b><i>distance to the venue, the weather</i></div><div class="bp-cell"><b>Sunburn</b><i>lost items, refund requests</i></div>
+      <div class="bp-lane">Curadora could</div><div class="bp-cell x"><b>Sort out your travel with us first</b><i>show which of my friends are going</i></div><div class="bp-cell x"><b>Detailed hotel information</b><i>transportation options</i></div><div class="bp-cell"><b>Split payments</b><i>let a guest share the purchase with friends</i></div><div class="bp-cell x"><b>A Curadora-only check-in line</b><i>event swag for staff and guests</i></div><div class="bp-cell"><b>A loyalty program</b><i>let people post pictures and reviews</i></div>
+     </div></div>
+    <p class="key"><span><i class="k"></i>struck: the hotel-centered ideas the October interviews invalidated</span><span><i class="p"></i>highlighted: the group notes the interviews confirmed</span></p>
+    <figcaption>Fig. 2 · The journey map from the kickoff on 7 July, redrawn from the team's spreadsheet in its own words. The struck notes are the hotel ideas the interviews took off the table; the highlighted ones are the notes that turned out to be the product.</figcaption>
+   </figure>
+
+   <p>August went to the product as it stood. The event page put the hotel search above the festival's own banner, so a fan landed on a form before seeing where they were going. I moved the search bar under the festival banner and made the event header a piece the outside team could reuse. I added a link to manage a booking, in the header and on the error pages. They were small changes, shipped through the outside team's codebase and tests. After them, the first thing a fan saw was the festival.</p>
+
+   <figure class="dia">
+    <div class="pair" role="img" aria-label="Two phone-width views of the event page for a fictional festival, Riverbend Open Air. Before: a white search bar with dates, price, rooms and filters sits above the festival banner. After: the banner comes first, the search bar sits below it in purple, and a manage-booking link has been added to the header. Placeholder hotels and prices.">
+     <div>
+      <p><b>Before</b>July 2016</p>
+      <div class="ph">
+       <div class="ph-top"><b>CURADORA</b><span></span></div>
+       <div class="ph-bar lt mv"><span><i>Check in and out</i>Aug 24 to 27</span><span><i>Price</i>$0 to any</span><span><i>Rooms</i>1 room</span><span><i>Filters</i>More</span></div>
+       <div class="ph-hero"><small>official hotel partner for</small><b>RIVERBEND OPEN AIR</b><i>AUG 24 to 27 · RIVERBEND PARK</i></div>
+       <div class="ph-meta"><span><u>1 to 24</u> of 312 hotels</span><span>closest first</span></div>
+       <div class="ph-grid">
+        <div class="ph-h"><div class="ph-img"><u>★★★☆☆</u><i><small>from</small>$135</i></div><b>Parkside Inn and Suites</b><span>7.6 guest rating</span></div>
+        <div class="ph-h"><div class="ph-img"><u>★★☆☆☆</u><i><small>from</small>$80</i></div><b>Riverbend Lodge</b><span>8.0 guest rating</span></div>
+       </div>
+      </div>
+     </div>
+     <div>
+      <p><b>After</b>26 August 2016</p>
+      <div class="ph">
+       <div class="ph-top"><b>CURADORA</b><span class="ad">My reservations</span></div>
+       <div class="ph-hero"><small>official hotel partner for</small><b>RIVERBEND OPEN AIR</b><i>AUG 24 to 27 · RIVERBEND PARK</i></div>
+       <div class="ph-links"><span>View shuttle routes</span><span>Buy tickets</span></div>
+       <div class="ph-bar"><span><i>Check in and out</i>Aug 24 to 27</span><span><i>Price</i>$0 to any</span><span><i>Rooms</i>1 room</span><span><i>Filters</i>More</span></div>
+       <div class="ph-meta"><span><u>1 to 24</u> of 312 hotels</span><span>closest first</span></div>
+       <div class="ph-grid">
+        <div class="ph-h"><div class="ph-img"><u>★★★☆☆</u><i><small>from</small>$135</i></div><b>Parkside Inn and Suites</b><span>7.6 guest rating</span></div>
+        <div class="ph-h"><div class="ph-img"><u>★★☆☆☆</u><i><small>from</small>$80</i></div><b>Riverbend Lodge</b><span>8.0 guest rating</span></div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <p class="key"><span><i class="p"></i>moved</span><span><i class="k"></i>added</span></p>
+    <figcaption>Fig. 3 · The event page before and after the August changes, redrawn at phone width with a fictional festival and placeholder hotels. The search moved under the banner, and the header gained a way back to a booking.</figcaption>
+   </figure>
+   {% include study-methods.html n=1 %}
+  </section>
+
+  <section class="act" id="act-2">
+   {% include study-act.html n=2 %}
+   <p>Seven weeks in, on 13 September, a larger company in the same business bought CID. The work carried on with a new owner to explain it to. Two days later the CEO put a question to the team that I wrote down: how would we know we were growing, where was the bus going, and when would we celebrate? Revenue was the obvious answer, and for a product this early it read as a flat line. A roadmap was the other answer, and celebrating each feature we shipped would tell us nothing about whether anyone wanted it.</p>
+   <p>I proposed one metric instead: <strong>traction</strong>, the rate at which we turned people who had never heard of us into happy customers. I drew it as a customer factory. People are acquired, activated, and pay. Some come back, and some refer a friend, who enters at the top. The number to watch was throughput, new customers a day. For 2016 the goal was market entry, which meant finding a problem fans had that we could solve. Growth and scale could wait until we had.</p>
+
+   <figure class="txt">
+<div tabindex="0" role="region" aria-label="Figure, scrolls sideways" class="fig-scroll"><svg class="fac" viewBox="0 0 760 330" role="img" aria-label="The customer factory, redrawn: acquisition flows into activation, the product, then into revenue; retention loops from revenue back into the product, and referral loops from revenue back to acquisition. Under it, an arrow labeled throughput, new customers a day.">
+     <defs><marker id="fah" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0l8 4-8 4z" fill="#8540C1"/></marker><marker id="fak" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0l8 4-8 4z" fill="#CC3399"/></marker></defs>
+     <g fill="none" stroke="#2E2F32" stroke-width="1.4">
+      <circle cx="96" cy="86" r="9"/><circle cx="122" cy="72" r="9"/><circle cx="122" cy="102" r="9"/><circle cx="148" cy="86" r="9"/><circle cx="110" cy="122" r="9"/>
+      <rect x="290" y="56" width="150" height="74" rx="4"/>
+      <circle cx="586" cy="86" r="10"/><circle cx="614" cy="86" r="10"/><circle cx="642" cy="86" r="10"/>
+      <path d="M580 92q6 6 12 0M608 92q6 6 12 0M636 92q6 6 12 0" stroke-linecap="round"/>
+      <rect x="478" y="170" width="34" height="24" rx="2"/><path d="M478 170l17 13 17-13"/>
+      <circle cx="336" cy="238" r="10"/><circle cx="360" cy="238" r="10"/><path d="M330 244q6 6 12 0M354 244q6 6 12 0" stroke-linecap="round"/>
+     </g>
+     <text x="365" y="98" text-anchor="middle" style="fill:#2E2F32;font-family:'Work Sans',Helvetica,Arial,sans-serif;font-weight:700;font-size:15px;letter-spacing:.04em;text-transform:none">CURADORA</text>
+     <g fill="none" stroke="#8540C1" stroke-width="1.6" marker-end="url(#fah)">
+      <path d="M176 86H280" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out .1s forwards"/>
+      <path d="M450 86H564" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out .5s forwards"/>
+      <path d="M614 104q0 78-92 78" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .7s ease-out .9s forwards"/>
+      <path d="M468 182q-80 0-92-40" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .7s ease-out 1.3s forwards"/>
+     </g>
+     <g fill="none" stroke="#CC3399" stroke-width="1.6" marker-end="url(#fak)">
+      <path d="M642 104q0 134-262 134" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .8s ease-out 1.6s forwards"/>
+      <path d="M318 238q-208 0-208-104" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .8s ease-out 2.2s forwards"/>
+     </g>
+     <text x="122" y="48" text-anchor="middle">Acquisition</text>
+     <text x="365" y="46" text-anchor="middle">Activation</text>
+     <text x="614" y="64" text-anchor="middle">Revenue</text>
+     <text x="495" y="214" text-anchor="middle">Retention</text>
+     <text x="348" y="270" text-anchor="middle">Referral</text>
+     <line x1="60" y1="318" x2="690" y2="318" stroke="#2E2F32" stroke-width="1.6"/><path d="M684 314l8 4-8 4z" fill="#2E2F32"/>
+     <text x="375" y="310" text-anchor="middle" class="n">throughput · new customers a day</text>
+    </svg></div>
+    <figcaption>Fig. 4 · The customer factory of 20 September, redrawn. Acquired people activate in the product and pay; retention and referral are the loops that make the factory cheaper to run. The one number on the sheet was throughput.</figcaption>
+   </figure>
+
+   <p>To run it, we set up an experiment board that treated the business model like software. Each strategy had a version number. Each experiment under it was a card with a hypothesis that could fail, a way to run it, and space for the result and what we learned next. The first strategy, version 1.0, was to sell hotels for events we did not partner with. Its first experiment was ten interviews.</p>
+   {% include study-methods.html n=2 %}
+  </section>
+
+  <section class="act" id="act-3">
+   {% include study-act.html n=3 %}
+   <p>The hypothesis was specific. Curadora solved two problems: finding a place to stay near the event, and getting around once there. If we interviewed ten recent customers about them, eight would agree to a follow-up and two would refer a friend. I wrote the script and the note-taking guide, emailed customers who had booked in the last month, and ran the ten calls myself. Six agreed to keep talking. Nobody referred anyone. Fans told us they found hotels with a map app or a big travel site in minutes and got around by rideshare, shuttle, or their own car. The one person who struggled to place a hotel ran an operations crew that worked events rather than attending them. The product fit that one person, and that person was not a fan.</p>
+   <p>That left two moves: keep the product and change the customer, or keep the customer and change the product. The company's vision was fans, and the CEO chose them. So the second round tested two different problems, which the ten had raised between our questions. Going to a festival alone is no fun. Planning a trip for a group takes work. Thirteen fans, recruited through friends and past customers, took the same twenty-minute call with the new script. Twelve agreed to keep talking and four referred someone. The pains that came up most were finding friends to go with, sorting out the logistics before the trip, and keeping everyone coordinated during it.</p>
+
+   <figure class="dia">
+    <div class="exp" role="img" aria-label="Three experiment cards as the team wrote them. Round 1.0.0, early October: ten recent customers asked about finding a hotel and getting around; hypothesis eight follow-ups and two referrals; result six and zero; both problems struck through, invalidated. Round 2.0.0, mid October: thirteen fans asked about going alone and planning for a group; result twelve retained and four referred; the problems held. Round 2.0.1, late October: planned for ten, ran to thirty-six; the pains ranked; a customer theory board and a design workshop followed.">
+     <div class="ui">
+      <div class="ui-bar"><b>1.0.0 · Problem research interviews</b><span class="label">early October</span></div>
+      <div class="exp-r"><b>Customers</b>Ten people who had booked in the last month, their trip still ahead</div>
+      <div class="exp-r"><b>Problems tested</b><s>Finding a good place to stay near the event is time-consuming</s><br><s>Figuring out how to get around once there is confusing</s></div>
+      <div class="exp-r"><b>Hypothesis</b>Ten interviews will bring 8 follow-ups and 2 referrals in a week</div>
+      <div class="exp-r"><b>Result</b><div class="exp-n"><span><b>10</b>interviews</span><span><b>6</b>follow-ups</span><span><b class="k">0</b>referrals</span></div></div>
+      <div class="exp-r"><b>Learning</b>Fans book with a map app or a travel site and get around fine. The one person in pain runs an operations crew.</div>
+      <div class="exp-v"><span>Next: keep the segment, change the solution</span><span class="pill m">invalidated</span></div>
+     </div>
+     <div class="ui">
+      <div class="ui-bar"><b>2.0.0 · Fan problem interviews</b><span class="label">mid October</span></div>
+      <div class="exp-r"><b>Customers</b>Thirteen festival fans, reached through friends and past customers</div>
+      <div class="exp-r"><b>Problems tested</b><u>Going to a festival by yourself is not fun</u><br><u>Planning a trip for a group of friends is time-consuming</u></div>
+      <div class="exp-r"><b>Hypothesis</b>Ten interviews will bring 8 follow-ups and 2 referrals in a week</div>
+      <div class="exp-r"><b>Result</b><div class="exp-n"><span><b>13</b>interviews</span><span><b>12</b>retained</span><span><b>4</b>referred</span></div></div>
+      <div class="exp-r"><b>Learning</b>The pains: finding friends to go with, the logistics before the trip, coordinating everyone during it.</div>
+      <div class="exp-v"><span>Next: dig into the three pains</span><span class="pill h">held</span></div>
+     </div>
+     <div class="ui">
+      <div class="ui-bar"><b>2.0.1 · Deeper dive</b><span class="label">late October</span></div>
+      <div class="exp-r"><b>Customers</b>Fans by referral, ranking the three pains in a shuffled order</div>
+      <div class="exp-r"><b>Pains ranked</b><u>Finding friends to go with</u><br><u>Transportation, lodging, and splitting the cost</u><br><u>Tickets, and splitting those too</u></div>
+      <div class="exp-r"><b>Hypothesis</b>Ten interviews will bring 10 follow-ups and 5 referrals in a week</div>
+      <div class="exp-r"><b>Result</b><div class="exp-n"><span><b>36</b>interviews, of 10 planned</span><span><b>127</b>cards on the board</span></div></div>
+      <div class="exp-r"><b>Learning</b>A customer theory board with 20 insights, then a design workshop with everyone who interviewed.</div>
+      <div class="exp-v"><span>Next: solutions, then experiments</span><span class="pill h">36 of 10 planned</span></div>
+     </div>
+    </div>
+    <figcaption>Fig. 5 · The three experiment cards, redrawn from the board with the team's own wording and counts. The first hypothesis failed on referrals. The team kept the fan and changed the question. In the second round four of thirteen referred a friend; in the first, none of ten had.</figcaption>
+   </figure>
+   {% include study-methods.html n=3 %}
+  </section>
+
+  <section class="act" id="act-4">
+   {% include study-act.html n=4 %}
+   <p>The third round was planned as ten more interviews, with each fan ranking the three pains. Referrals and outreach together filled the board faster than we could schedule: every call ended with a request for an introduction and a paragraph the fan could paste to a friend. It ran as a funnel in Trello; the animation at the top of this page is that recruiting board. Each person was a card, moved from lead to scheduled to interviewed, with a lane for no-shows. Two more lanes held the people to follow up with and the people retained, the report's word for a fan who agreed to keep talking. Each card carried a label for everything the person told us, from age band and budget to whether they camp. In twelve days it held 127 cards, twelve of them by referral, and we interviewed 36 people instead of 10.</p>
+   <p>Thirty-six calls were more than one person could run in the time. Three teammates from guest services, ticketing, and project management took interviews on my script. They typed their notes into a shared form with the same five columns for everyone: who the person is, how they discover events, how they decide, how they plan, and what happens on the day. We had set it up so it could run without me in the room.</p>
+   <p>The notes became a <strong>customer theory</strong>. In Trello I built the journey map as a theory board the team could add to. Three personas sat at the left. Then came seven stages, from discovery to long after the event, each holding insight cards written in the first person. Every card listed what the fan was trying to do, what they hoped for, and what got in the way. It gave how many of the 56 people on the board had said it and how confident we were. Where one existed, it linked a published paper that said the same thing. Anyone could open a stage, read the evidence, and add to it.</p>
+
+   <figure class="dia">
+<div tabindex="0" role="region" aria-label="Figure, scrolls sideways" class="fig-scroll"><div class="board" role="img" aria-label="The customer theory board, redrawn: a personas column with the festie, the non-camper and the planner, then seven journey stages, discovery, evaluation, planning, right before, during the event, right after, and long after, each holding first-person insight cards with a confidence pill, persona tags and the count of interviewees behind it. Twenty cards in all.">
+      <div class="col"><b>Personas</b>
+       <div class="ic p"><b>Festie</b><span>Goes for the community as much as the music. Plans in a group, often camps, splits every cost.</span></div>
+       <div class="ic p"><b>Non-camper</b><span>Wants a clean bed and an easy morning. Books a hotel, values convenience, spends for it.</span></div>
+       <div class="ic p"><b>Planner</b><span>The friend who runs the trip. Fronts the money, chases the group, carries the risk.</span></div>
+      </div>
+      <div class="col"><b>Discovery<i>1</i></b>
+       <div class="ic"><div class="tg"><span class="pill c">high</span><span class="pill l">festie</span><span class="pill l">non-camper</span></div><q>I hear about an event through an official channel, or a friend who saw it first tells me.</q><span class="src">39 of 56 · one paper</span></div>
+      </div>
+      <div class="col"><b>Evaluation<i>5</i></b>
+       <div class="ic"><div class="tg"><span class="pill c">high</span><span class="pill l">festie</span></div><q>I evaluate the festival's vibe before I put my time and energy into it.</q><span class="src">29 of 56 · one paper</span></div>
+       <div class="ic"><div class="tg"><span class="pill c">high</span><span class="pill l">festie</span><span class="pill l">non-camper</span></div><q>I have to check who else can go. I would not go alone.</q><span class="src">33 of 56</span></div>
+       <div class="ic"><div class="tg"><span class="pill c">high</span><span class="pill l">festie</span></div><q>Going as a group is more fun and cheaper, and finding the right friends is stressful.</q><span class="src">40 of 56 · one paper</span></div>
+       <div class="ic"><div class="tg"><span class="pill c">high</span><span class="pill l">festie</span><span class="pill l">non-camper</span></div><q>I feel uneasy when I cannot see all the costs up front.</q><span class="src">48 of 56</span></div>
+       <div class="ic"><div class="tg"><span class="pill c">medium</span><span class="pill l">non-camper</span></div><q>If I can drive there, I can bring more people and make a road trip of it.</q><span class="src">23 of 56</span></div>
+      </div>
+      <div class="col"><b>Planning<i>8</i></b>
+       <div class="ic"><div class="tg"><span class="pill c">high</span><span class="pill l">festie</span><span class="pill l">non-camper</span></div><q>The first thing I do is buy the ticket. Then the planning starts.</q><span class="src">39 of 56</span></div>
+       <div class="ic"><div class="tg"><span class="pill c">high</span><span class="pill l">planner</span></div><q>I plan because if I do not, nobody will. I get to shape the trip, and I carry the risk.</q><span class="src">40 of 56 · one paper</span></div>
+       <div class="ic"><div class="tg"><span class="pill c">high</span><span class="pill l">non-camper</span></div><q>I will not camp. I would rather stay clean and sleep.</q><span class="src">35 of 56 · one paper</span></div>
+       <div class="ic"><div class="tg"><span class="pill c">high</span><span class="pill l">non-camper</span></div><q>I use several sites to find the closest place and the best deal.</q><span class="src">32 of 56</span></div>
+       <div class="ic"><div class="tg"><span class="pill c">high</span><span class="pill l">festie</span></div><q>I keep the core group in a chat and we coordinate everything there.</q><span class="src">39 of 56</span></div>
+       <div class="ic"><div class="tg"><span class="pill c">medium</span><span class="pill l">festie</span></div><q>I keep a running packing list so I am not caught out.</q><span class="src">19 of 56 · one paper</span></div>
+       <div class="ic"><div class="tg"><span class="pill c">medium</span></div><q>I camp to be close to the action and the community.</q><span class="src">15 of 56 · one paper</span></div>
+       <div class="ic"><div class="tg"><span class="pill c">medium</span></div><q>I look at what is around the event so I know the area.</q><span class="src">19 of 56</span></div>
+      </div>
+      <div class="col"><b>Right before<i>2</i></b>
+       <div class="ic"><div class="tg"><span class="pill c">high</span><span class="pill l">festie</span><span class="pill l">non-camper</span></div><q>We work out how everyone gets there so we arrive together.</q><span class="src">36 of 56</span></div>
+       <div class="ic"><div class="tg"><span class="pill c">medium</span><span class="pill l">festie</span><span class="pill l">non-camper</span></div><q>Buying as a group is cheaper, and a friend's payment is their commitment.</q><span class="src">20 of 56</span></div>
+      </div>
+      <div class="col"><b>During<i>1</i></b>
+       <div class="ic"><div class="tg"><span class="pill c">medium</span><span class="pill l">festie</span></div><q>We set a meetup spot so we can find each other when phones die.</q><span class="src">19 of 56</span></div>
+      </div>
+      <div class="col"><b>Right after<i>2</i></b>
+       <div class="ic"><div class="tg"><span class="pill l">festie</span></div><q>I make lasting connections at festivals and we love retelling the stories.</q><span class="src">26 of 56 · one paper</span></div>
+       <div class="ic"><div class="tg"><span class="pill c">medium</span><span class="pill l">festie</span><span class="pill l">non-camper</span></div><q>Packing up, getting out, and the drive home are the worst part.</q><span class="src">14 of 56</span></div>
+      </div>
+      <div class="col"><b>Long after<i>1</i></b>
+       <div class="ic"><div class="tg"><span class="pill c">medium</span><span class="pill l">festie</span></div><q>A festival is an escape into a community I love, and I want it again.</q><span class="src">11 of 56 · one paper</span></div>
+      </div>
+     </div></div>
+    <figcaption>Fig. 6 · The customer theory board of 2 November, redrawn without its tool's chrome and with the cards' first lines shortened. Each card carried its jobs, gains and pains, how many of the 56 people on the board it came from, a confidence level, and where one existed, a published paper. This was the interactive journey map: a stage could be opened and added to.</figcaption>
+   </figure>
+
+   <p>To find the personas, I clustered the labels. I ran 48 tags, from age bands to habits, through a clustering routine in R that groups tags that travel together. The tree split cleanly in two. One side was fans who value convenience: older, in small groups, first-timers or occasional, hotel over tent, willing to spend. The other was the planners: younger, in groups of three or more, camping, budget-conscious, splitting every cost with a core group of friends. Those two sides became the board's festie and non-camper. The planner, the friend who runs the trip, was the third persona, and its tag sat on the festie side. The tag for Curadora's own customers sat on the convenience side. Curadora had never talked to a planner.</p>
+
+   <figure class="dia">
+<div tabindex="0" role="region" aria-label="Figure, scrolls sideways" class="fig-scroll"><svg class="den" viewBox="0 0 760 590" aria-label="Two dendrograms redrawn from the clustering of 48 interviewee tags. Left, sixteen tags in the convenience cluster: first-time and novice festies, ages 35 and over, small groups, non-campers, planning tools, VIP spenders. Right, thirty-two tags in the planner cluster: planners, core groups, split cost, budget bands, ages 18 to 34, groups of three or more, camping, packing lists, hardcore festies. A bracket at the top joins the two.">
+     <g font-family="Fira Code,monospace" font-size="11" fill="#666"><text x="10" y="150">A · CONVENIENCE FIRST · 16 TAGS</text><text x="386" y="34">B · PLANNERS WITH A CORE GROUP · 32 TAGS</text></g>
+     <path d="M296 282V20H692V259" fill="none" stroke="#2E2F32" stroke-opacity=".6" stroke-width="1.3" stroke-dasharray="4 4"/>
+     <text x="494" y="16" text-anchor="middle" font-family="Fira Code,monospace" font-size="11" fill="#666">THE TOP SPLIT</text>
+<g font-family="Fira Code,monospace" font-size="11" fill="#333" text-anchor="end">
+<text x="178" y="182">first-time festie</text>
+<text x="178" y="198">35 to 44 years old</text>
+<text x="178" y="214">Curadora user</text>
+<text x="178" y="230">non-campers</text>
+<text x="178" y="246">planning tools</text>
+<text x="178" y="262">convenience-focused</text>
+<text x="178" y="278">explore nearby</text>
+<text x="178" y="294">VIP spender</text>
+<text x="178" y="310">novice festie</text>
+<text x="178" y="326">group of 1 to 2</text>
+<text x="178" y="342">group of 6 to 9</text>
+<text x="178" y="358">45 or older</text>
+<text x="178" y="374">evaluate distance</text>
+<text x="178" y="390">intermediate festie</text>
+<text x="178" y="406">$500 to 700 budget</text>
+<text x="178" y="422">1 to 3 events traveled</text>
+</g>
+<g fill="none" stroke="#8540C1" stroke-width="1.3">
+<path d="M186 178H208V194H186" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.21s forwards"/>
+<path d="M186 226H208V242H186" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.21s forwards"/>
+<path d="M186 258H208V274H186" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.21s forwards"/>
+<path d="M186 306H208V322H186" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.21s forwards"/>
+<path d="M186 338H208V354H186" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.21s forwards"/>
+<path d="M186 402H208V418H186" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.21s forwards"/>
+<path d="M208 186H230V210H186" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.32s forwards"/>
+<path d="M208 234H230V266H208" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.32s forwards"/>
+<path d="M186 290H230V314H208" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.32s forwards"/>
+<path d="M208 346H230V370H186" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.32s forwards"/>
+<path d="M186 386H230V410H208" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.32s forwards"/>
+<path d="M230 198H252V250H230" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.43s forwards"/>
+<path d="M230 358H252V398H230" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.43s forwards"/>
+<path d="M230 302H274V378H252" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.54s forwards"/>
+<path d="M252 224H296V340H274" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.65s forwards"/>
+</g>
+<g font-family="Fira Code,monospace" font-size="11" fill="#333" text-anchor="end">
+<text x="558" y="62">last minute</text>
+<text x="558" y="78">18 to 24 years old</text>
+<text x="558" y="94">$100 to 400 budget</text>
+<text x="558" y="110">budget prohibitive</text>
+<text x="558" y="126">planner</text>
+<text x="558" y="142">event egress</text>
+<text x="558" y="158">group of 3 to 5</text>
+<text x="558" y="174">scheduling</text>
+<text x="558" y="190">establish meetups</text>
+<text x="558" y="206">budget-conscious</text>
+<text x="558" y="222">evaluate costs</text>
+<text x="558" y="238">$800 to 1,000 budget</text>
+<text x="558" y="254">buy tickets</text>
+<text x="558" y="270">official announcements</text>
+<text x="558" y="286">group of 10 or more</text>
+<text x="558" y="302">industry insider</text>
+<text x="558" y="318">25 to 34 years old</text>
+<text x="558" y="334">travel itinerary</text>
+<text x="558" y="350">$500 max budget</text>
+<text x="558" y="366">10 or more events traveled</text>
+<text x="558" y="382">camping plan</text>
+<text x="558" y="398">friend interest</text>
+<text x="558" y="414">core group</text>
+<text x="558" y="430">$1,000 max budget</text>
+<text x="558" y="446">budget-savvy</text>
+<text x="558" y="462">split cost</text>
+<text x="558" y="478">hardcore festie</text>
+<text x="558" y="494">creating memories</text>
+<text x="558" y="510">packing list</text>
+<text x="558" y="526">evaluating festival</text>
+<text x="558" y="542">4 to 9 events traveled</text>
+<text x="558" y="558">next event</text>
+</g>
+<g fill="none" stroke="#8540C1" stroke-width="1.3">
+<path d="M566 90H587V106H566" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.21s forwards"/>
+<path d="M566 122H587V138H566" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.21s forwards"/>
+<path d="M566 154H587V170H566" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.21s forwards"/>
+<path d="M566 202H587V218H566" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.21s forwards"/>
+<path d="M566 250H587V266H566" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.21s forwards"/>
+<path d="M566 282H587V298H566" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.21s forwards"/>
+<path d="M566 314H587V330H566" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.21s forwards"/>
+<path d="M566 362H587V378H566" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.21s forwards"/>
+<path d="M566 394H587V410H566" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.21s forwards"/>
+<path d="M566 442H587V458H566" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.21s forwards"/>
+<path d="M566 490H587V506H566" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.21s forwards"/>
+<path d="M566 538H587V554H566" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.21s forwards"/>
+<path d="M566 74H608V98H587" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.32s forwards"/>
+<path d="M587 130H608V162H587" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.32s forwards"/>
+<path d="M566 186H608V210H587" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.32s forwards"/>
+<path d="M566 234H608V258H587" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.32s forwards"/>
+<path d="M566 346H608V370H587" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.32s forwards"/>
+<path d="M566 426H608V450H587" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.32s forwards"/>
+<path d="M566 474H608V498H587" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.32s forwards"/>
+<path d="M566 522H608V546H587" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.32s forwards"/>
+<path d="M566 58H629V86H608" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.43s forwards"/>
+<path d="M608 198H629V246H608" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.43s forwards"/>
+<path d="M587 322H629V358H608" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.43s forwards"/>
+<path d="M587 402H629V438H608" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.43s forwards"/>
+<path d="M608 486H629V534H608" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.43s forwards"/>
+<path d="M608 146H650V222H629" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.54s forwards"/>
+<path d="M587 290H650V340H629" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.54s forwards"/>
+<path d="M629 420H650V510H629" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.54s forwards"/>
+<path d="M629 72H671V184H650" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.65s forwards"/>
+<path d="M650 315H671V465H650" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.65s forwards"/>
+<path d="M671 128H692V390H671" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" class="a" style="animation:dash .6s ease-out 0.76s forwards"/>
+</g>
+    </svg></div>
+    <figcaption>Fig. 7 · The tag clusters of 2 November, redrawn as two trees from the clustering's output. Tags that traveled together across the interviews sit on the same branch; the first split separated the fans who buy convenience from the ones who plan for a group.</figcaption>
+   </figure>
+   {% include study-methods.html n=4 %}
+  </section>
+
+  <section class="act" id="act-5">
+   {% include study-act.html n=5 %}
+   <p>By November the research said that buying a hotel was a small part of a fan's trip. The roadmap we had inherited had been written without asking one. I proposed three days to act on it, and wrote up why: building from what fans told us was less risky than building what we had guessed. The product lead agreed, and I facilitated it with the team that had run the interviews.</p>
+   <p>Day one turned the insights into opportunities. We told the fans' stories back to the room, wrote questions that start with <strong>how might we</strong>, under eight headings from forming groups to splitting payments, and dot-voted. The business side then picked a direction with rough estimates of upside and effort. Day two was solutions. Teammates demoed eighteen sites that each solved part of the problem. Then everyone sketched alone: eight ideas in eight minutes, and one finished sketch with real words on it and no placeholder text. Day three was critique: sketches on a wall, silent votes, three minutes of discussion each, then a straw poll and the product lead's decision.</p>
+
+   <figure class="dia">
+<div tabindex="0" role="region" aria-label="Figure, scrolls sideways" class="fig-scroll"><div class="bp" style="--bp-n:3;--bp-lane:104px" role="img" aria-label="The three workshop days as a blueprint: workshops, the task between them, who attends, and the output. Day one, opportunities: insights told back to the room and dot-voted, then the business side decides a direction. Day two, solutions: the opportunity declared, lightning demos of eighteen sites, then solo ideation, Crazy 8s and a solution sketch. Day three, decision: art museum, heat map, speed critique, straw poll and the product lead's vote, then assumptions mapped into experiment cards.">
+      <div class="bp-corner"></div><div class="bp-phase">Day one<small>opportunities</small></div><div class="bp-phase">Day two<small>solutions</small></div><div class="bp-phase">Day three<small>decision</small></div>
+      <div class="bp-lane">Workshop</div><div class="bp-cell"><b>Insights to opportunities, two hours</b><i>the fans' stories told back, questions, how-might-we in eight themes, dot voting</i></div><div class="bp-cell"><b>Declare the opportunity, one hour</b><i>then lightning demos: eighteen competitor sites, three minutes each, notes after every one</i></div><div class="bp-cell"><b>Review, two hours</b><i>art museum, heat map, speed critique, straw poll, supervote</i></div>
+      <div class="bp-lane">Task</div><div class="bp-cell"><b>Decide a direction, half a day</b><i>simple business modeling and rough estimates on the top three</i></div><div class="bp-cell"><b>Generate solutions, two hours</b><i>twenty minutes of notes, a mind map, Crazy 8s, one solution sketch with real words</i></div><div class="bp-cell"><b>Map the assumptions</b><i>experiment cards for the winning themes, split across the team</i></div>
+      <div class="bp-lane">Who</div><div class="bp-cell">Everyone who ran an interview; then the business side alone</div><div class="bp-cell">All available, with sketches anonymous and titled</div><div class="bp-cell">All available; the product lead decides</div>
+      <div class="bp-lane">Output</div><div class="bp-cell"><b>Three directions, one chosen</b></div><div class="bp-cell"><b>A sketch per person, two critique rounds</b></div><div class="bp-cell"><b>One or more solutions to test</b></div>
+     </div></div>
+    <figcaption>Fig. 8 · The three days as proposed to the product lead, redrawn from the plan. The rule that mattered most was on day two: every sketch had to explain itself, with real words and no placeholder text, so that on day three the room judged the idea and not the presenter.</figcaption>
+   </figure>
+
+   <p>The sketches were not hotel features. One had a bot ping a fan that friends nearby were planning a road trip, then let them join or start a car pool with a set contribution. Another was a planning assistant. Others were group savings, split payments, and a shared packing list. We merged the ideas into eighteen feature themes, and four of us scored each for upside, downside, urgency, and risk by planning poker, scoring in private and then comparing. Payment plans, group collaboration tools, group savings, and a planning wizard tied at the top for upside. The bot and the crowdfunding idea scored highest for risk.</p>
+
+   <figure class="dia">
+    <div class="sb4" role="img" aria-label="One solution sketch from 8 November, titled Roadtrip Swarms, redrawn as four phone screens with placeholder content. One: a bot message that 26 fans nearby are planning road trips to the festival, with more-info and no buttons. Two: the trip page with dates, a lineup of seven, and car pools to join or create. Three: join a pool, with the route, the leader, a five-hundred-dollar average contribution and three spots left. Four: create a pool, choosing car, van or RV, house, camp or hotel, and ranking who to invite first.">
+     <div>
+      <div class="ph sm">
+       <div class="ph-top"><b>CURADORA</b><span>chat</span></div>
+       <div class="ph-body">
+        <div class="ph-bub">26 fans nearby are planning road trips to Riverbend Open Air. Interested?</div>
+        <div class="ph-btns"><span class="ph-btn">More info</span><span class="ph-btn q">No</span></div>
+        <div class="ph-in">Write a message…</div>
+       </div>
+      </div>
+      <p><b>1</b>Discover trips through your tribes; the bot probes your interest.</p>
+     </div>
+     <div>
+      <div class="ph sm">
+       <div class="ph-top"><b>Riverbend Open Air</b><span>Aug 24 to 27</span></div>
+       <div class="ph-body">
+        <div class="ph-map"><svg viewBox="0 0 200 56" aria-hidden="true"><path d="M8 44C40 10 80 50 120 20S180 40 194 12" fill="none" stroke="#8540C1" stroke-width="2" stroke-dasharray="4 3"/><circle cx="8" cy="44" r="4" fill="#8540C1"/><circle cx="194" cy="12" r="4" fill="#CC3399"/></svg></div>
+        <div class="ph-k">Lineup</div>
+        <div class="ph-av"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <div class="ph-k">Car pools</div>
+        <div class="ph-chips"><span class="add">+ create</span><span>3 of 5</span><span>2 of 4</span><span>4 of 4</span></div>
+       </div>
+      </div>
+      <p><b>2</b>Evaluate the vibe of a trip; join a car pool or make your own.</p>
+     </div>
+     <div>
+      <div class="ph sm">
+       <div class="ph-top"><b>Join pool</b><span>3 of 5</span></div>
+       <div class="ph-body">
+        <div class="ph-map"><svg viewBox="0 0 200 56" aria-hidden="true"><path d="M20 48C30 20 60 30 90 14S150 34 184 8" fill="none" stroke="#8540C1" stroke-width="2"/><circle cx="20" cy="48" r="4" fill="#8540C1"/><circle cx="184" cy="8" r="4" fill="#CC3399"/></svg></div>
+        <div class="ph-row"><span>Leader</span><b>the planner</b></div>
+        <div class="ph-row"><span>Average contribution</span><b>$500</b></div>
+        <div class="ph-row"><span>Spots left</span><b>3</b></div>
+        <div class="ph-btns"><span class="ph-btn">Join</span><span class="ph-btn q">Message</span></div>
+       </div>
+      </div>
+      <p><b>3</b>Plans are vague, contributions are estimated, a budget is made.</p>
+     </div>
+     <div>
+      <div class="ph sm">
+       <div class="ph-top"><b>Create pool</b><span>step 1 of 3</span></div>
+       <div class="ph-body">
+        <div class="ph-k">Getting there</div>
+        <div class="ph-chips"><span>Car</span><span class="on">Van</span><span>RV</span></div>
+        <div class="ph-k">Staying</div>
+        <div class="ph-chips"><span>House</span><span class="on">Camp</span><span>Hotel</span></div>
+        <div class="ph-k">Invite in order</div>
+        <div class="ph-row"><span>#1</span><b>your best friend</b></div>
+        <div class="ph-row"><span>#2</span><b>your second best friend</b></div>
+        <div class="ph-row"><span>Contributions so far</span><b class="ph-big">$4,000</b></div>
+       </div>
+      </div>
+      <p><b>4</b>Rank invites, set contribution levels, get paid before booking anything.</p>
+     </div>
+    </div>
+    <div class="loop">&#8617; the itinerary: suggest items as a group, vote as a group, the leader decides, and the app handles the stops, tolls, gas and traffic</div>
+    <figcaption>Fig. 9 · One of the solution sketches from 8 November, redrawn as screens with placeholder content. It is the customer theory turned into a product: the planner leads, the group commits with money, and friends bring the trip to you.</figcaption>
+   </figure>
+
+   <figure class="txt">
+<div tabindex="0" role="region" aria-label="Figure, scrolls sideways" class="fig-scroll"><svg class="sc" viewBox="0 0 760 500" role="img" aria-label="Eighteen feature themes plotted by upside against risk, from the evaluation sheet. Four sit at the top upside score: payment plans at the lowest risk, group collaboration tools and group savings at low risk, and a planning wizard at higher risk. The bot and a crowdfunding idea carry the most risk for their upside. Bespoke invites, offline capability and a meetup tracker sit at the bottom.">
+     <g stroke="#000" stroke-opacity=".3" stroke-dasharray="4 4"><line x1="218" y1="40" x2="218" y2="440"/><line x1="346" y1="40" x2="346" y2="440"/><line x1="474" y1="40" x2="474" y2="440"/><line x1="602" y1="40" x2="602" y2="440"/><line x1="90" y1="120" x2="730" y2="120"/><line x1="90" y1="200" x2="730" y2="200"/><line x1="90" y1="280" x2="730" y2="280"/><line x1="90" y1="360" x2="730" y2="360"/></g>
+     <g fill="none" stroke="#8540C1" stroke-width="1.5"><path d="M90 440H726"/><path d="M726 436l6 4-6 4"/><path d="M90 440V44"/><path d="M86 50l4-6 4 6"/></g>
+     <g class="d"><text x="90" y="462">LOW RISK</text><text x="730" y="462" text-anchor="end">HIGH RISK</text><text x="410" y="484" text-anchor="middle">risk, as four of us scored it</text><text x="34" y="240" text-anchor="middle" transform="rotate(-90 34 240)">UPSIDE · POTENTIAL FOR THE GOALS</text></g>
+     <g class="a" style="transform-box:fill-box;transform-origin:center;animation:pop .5s ease-out .1s both">
+      <g fill="#8540C1"><circle cx="104" cy="62" r="8"/><circle cx="246" cy="62" r="8"/><circle cx="261" cy="62" r="8"/><circle cx="588" cy="62" r="8"/></g>
+      <g fill="#2E2F32" fill-opacity=".65"><circle cx="161" cy="196" r="7"/><circle cx="446" cy="196" r="7"/><circle cx="389" cy="262" r="7"/><circle cx="147" cy="284" r="7"/><circle cx="161" cy="307" r="7"/><circle cx="303" cy="329" r="7"/><circle cx="161" cy="338" r="7"/><circle cx="446" cy="338" r="7"/><circle cx="218" cy="351" r="7"/><circle cx="104" cy="378" r="7"/><circle cx="133" cy="391" r="7"/><circle cx="161" cy="404" r="7"/></g>
+      <g fill="none" stroke="#CC3399" stroke-width="2.5"><circle cx="659" cy="218" r="8"/><circle cx="517" cy="338" r="8"/></g>
+     </g>
+     <g stroke="#fff" stroke-width="4" stroke-linejoin="round" paint-order="stroke">
+      <text x="104" y="86" text-anchor="start" fill="#5c2b8a">payment plans</text>
+      <text x="246" y="46" text-anchor="middle" fill="#5c2b8a">group collaboration tools</text>
+      <text x="270" y="86" text-anchor="start" fill="#5c2b8a">group savings</text>
+      <text x="588" y="86" text-anchor="middle" fill="#5c2b8a">a planning wizard</text>
+      <text x="174" y="200">special content</text>
+      <text x="459" y="200">user-generated content</text>
+      <text x="659" y="242" text-anchor="middle">a bot</text>
+      <text x="402" y="266">recommendations</text>
+      <text x="134" y="288" text-anchor="end">packing list</text>
+      <text x="174" y="311">alerts</text>
+      <text x="316" y="333">social match-up</text>
+      <text x="174" y="342">split payments</text>
+      <text x="446" y="322" text-anchor="middle">travel with semi-strangers</text>
+      <text x="517" y="362" text-anchor="middle">crowdfunding</text>
+      <text x="231" y="355">points of interest</text>
+      <text x="117" y="382">bespoke invite</text>
+      <text x="146" y="395">offline capability</text>
+      <text x="174" y="408">meetup tracker</text>
+     </g>
+    </svg></div>
+    <p class="key"><span><i class="p"></i>the four at the top upside score</span><span><i style="border:2px solid #CC3399;width:8px;height:8px;border-radius:50%"></i>highest risk for its upside</span></p>
+    <figcaption>Fig. 10 · Eighteen themes from the evaluation sheet, upside against risk, as four of us scored them by planning poker. The four at the top were all about the group's money and coordination.</figcaption>
+   </figure>
+
+   <p>The next step was to map the assumptions under the four winning themes and test them after Thanksgiving. My role ended in November, in the transition after the acquisition, with the theory, the funnel, and the scripts in the team's hands.</p>
+   {% include study-methods.html n=5 %}
+  </section>
+
+  <section class="act" id="afterwards">
+   <span class="label">Afterwards</span>
+   <h2>{{ page.after }}</h2>
+   <ul class="after">
+    <li><b>The interview practice.</b> Scripts, note-taking guides, the outreach and referral emails, and a recruiting board the team ran in the third round. Three teammates took the third round's notes on the same template, and the theory board was built to be added to.</li>
+    <li><b>A roadmap pointed at fans.</b> The feature list moved from booking a hotel toward how fans travel: in groups, around a planner, splitting costs. The four themes at the top of the sheet were group collaboration tools, payment plans, group savings, and a planning wizard.</li>
+    <li><b>Experiment cards.</b> Every idea after September had to be written as a card with a hypothesis that could fail, and the first one did.</li>
+   </ul>
+
+   <div class="quotes">
+    <blockquote><p>“Easily one of the most brilliant product designers I've worked with… from user experience through to development. Our Swiss Army Knife.”</p><footer>Director of Product Management · CID Entertainment · 2016</footer></blockquote>
+    <blockquote><p>“He's a true problem-solver… and really showed the versatility of his skills when he helped the team to re-evaluate all goals.”</p><footer>A teammate who ran interviews · CID Entertainment · 2016</footer></blockquote>
+   </div>
+
+   {% include study-colophon.html %}
+  </section>
+ </article>
+</section>
+
+<script>
+(function(){
+ /* The hero counts as on screen when the given share of it shows, or a third of the viewport's height of it does. Figures are gated by assets/js/study.js. */
+ var TH=[0,.05,.1,.15,.2,.25,.3,.35];
+ function seen(e,r){ var rh=(e.rootBounds&&e.rootBounds.height)||window.innerHeight; return e.isIntersecting&&(e.intersectionRatio>=r||e.intersectionRect.height>=0.3*rh); }
+
+ /* Hero: the recruiting board as a customer factory. 127 cards, the board's real counts per bin, twelve of them entering through the referral loop; the paths and the timing are simulated, seeded so every run is the same. */
+ var cv=document.getElementById('factory');
+ if(cv && cv.getContext){
+  var ctx=cv.getContext('2d'), capEl=document.getElementById('factory-cap'), artEl=document.getElementById('hero-art');
+  var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var side=0, dpr=1, G=null, arc=[], cards=[], timers=[], raf=0, running=false, onScreen=false, played=false, t0=0;
+  var PURPLE='#8540C1', PINK='#CC3399', INK='#2E2F32', MUTED='#666';
+  var BINS=['lead','sched','noshow','follow','retained','lost'];
+  var N={lead:49,sched:5,noshow:15,follow:18,retained:32,lost:8};
+  var REF={lead:2,sched:0,noshow:1,follow:3,retained:5,lost:1};
+  var LABEL={lead:'LEAD',sched:'SCHEDULED',noshow:'NO-SHOW',follow:'FOLLOW UP',retained:'RETAINED',lost:'LOST'};
+  var CAP=['127 cards on the recruiting board','outreach, then calls, then the bins','32 retained · 18 follow-ups · 12 referred'];
+  var END=3700;
+  function rng(seed){ var a=seed>>>0; return function(){ a=(a+0x6D2B79F5)>>>0; var t=a; t=Math.imul(t^(t>>>15),t|1); t^=t+Math.imul(t^(t>>>7),t|61); return ((t^(t>>>14))>>>0)/4294967296; }; }
+  function resize(){ var rect=cv.getBoundingClientRect(); dpr=Math.min(window.devicePixelRatio||1,2); side=rect.width; cv.width=Math.round(side*dpr); cv.height=Math.round(side*dpr); ctx.setTransform(dpr,0,0,dpr,0,0); geo(); }
+  function bez(p0,p1,p2,p3,n){ var out=[],i,t,mt; for(i=0;i<=n;i++){ t=i/n; mt=1-t; out.push({x:mt*mt*mt*p0.x+3*mt*mt*t*p1.x+3*mt*t*t*p2.x+t*t*t*p3.x, y:mt*mt*mt*p0.y+3*mt*mt*t*p1.y+3*mt*t*t*p2.y+t*t*t*p3.y}); } return out; }
+  function geo(){ var s=side; G={
+    inlet:{x:.06*s,y:.22*s},
+    lead:{x:.12*s,y:.35*s,w:.22*s,h:.26*s,cols:7},
+    sched:{x:.42*s,y:.43*s,w:.15*s,h:.10*s,cols:5},
+    iv:{x:.67*s,y:.48*s,r:.028*s},
+    noshow:{x:.40*s,y:.66*s,w:.18*s,h:.13*s,cols:5},
+    lost:{x:.12*s,y:.73*s,w:.16*s,h:.10*s,cols:4},
+    follow:{x:.76*s,y:.22*s,w:.22*s,h:.13*s,cols:6},
+    retained:{x:.76*s,y:.50*s,w:.22*s,h:.17*s,cols:8},
+    pitch:.021*s, cw:.015*s, ch:.011*s };
+   var R=G.retained;
+   arc=bez({x:R.x+R.w,y:R.y+R.h*.6},{x:1.08*s,y:1.02*s},{x:-.06*s,y:1.0*s},{x:G.inlet.x,y:G.inlet.y},16);
+  }
+  function mid(b){ return {x:b.x+b.w/2,y:b.y+b.h/2}; }
+  function slot(b,i){ return {x:b.x+.02*side+(i%b.cols)*G.pitch+G.cw/2, y:b.y+.02*side+Math.floor(i/b.cols)*G.pitch+G.ch/2}; }
+  function route(dest,i){ var L=G.lead,S=G.sched,V=G.iv,p=[G.inlet,{x:L.x,y:L.y+L.h/2}];
+   if(dest==='lead') p.push(slot(L,i));
+   else if(dest==='lost'){ p.push(mid(L),{x:L.x+L.w/2,y:G.lost.y},slot(G.lost,i)); }
+   else { p.push(mid(L),{x:S.x,y:S.y+S.h/2});
+    if(dest==='sched') p.push(slot(S,i));
+    else if(dest==='noshow') p.push(mid(S),{x:S.x+S.w/2,y:G.noshow.y},slot(G.noshow,i));
+    else { var B=G[dest]; p.push(mid(S),{x:V.x,y:V.y},{x:B.x,y:B.y+B.h/2},slot(B,i)); } }
+   return p; }
+  function build(){ var r=rng(20161013), k, i, b, list=[], refs=[], slots={};
+   cards=[]; for(k=0;k<BINS.length;k++){ b=BINS[k]; slots[b]=[]; for(i=0;i<N[b];i++) slots[b].push(i); }
+   for(k=0;k<BINS.length;k++){ b=BINS[k]; for(i=0;i<N[b];i++){ var c={dest:b,ref:i<REF[b],slot:0,pts:null,cum:null,len:0,start:0,dur:0,done:false,x:0,y:0}; (c.ref?refs:list).push(c); } }
+   shuffle(list,r); shuffle(refs,r);
+   var used={}; for(k=0;k<BINS.length;k++) used[BINS[k]]=0;
+   var all=list.concat(refs), j; cards=all;
+   for(j=0;j<all.length;j++){ var c=all[j]; c.slot=used[c.dest]++; var p=route(c.dest,c.slot); if(c.ref) p=arc.concat(p.slice(1)); c.pts=p; c.cum=[0]; for(i=1;i<p.length;i++){ var dx=p[i].x-p[i-1].x, dy=p[i].y-p[i-1].y; c.cum.push(c.cum[i-1]+Math.sqrt(dx*dx+dy*dy)); } c.len=c.cum[c.cum.length-1]; c.x=p[0].x; c.y=p[0].y; }
+   for(j=0;j<list.length;j++){ list[j].start=250+j*(1500/list.length)+r()*40; list[j].dur=450+list[j].len/side*650; }
+   for(j=0;j<refs.length;j++){ refs[j].start=1250+j*(650/refs.length)+r()*40; refs[j].dur=400+refs[j].len/side*430; }
+  }
+  function shuffle(a,r){ for(var i=a.length-1;i>0;i--){ var j=Math.floor(r()*(i+1)), t=a[i]; a[i]=a[j]; a[j]=t; } }
+  function ease(u){ return u<.5?2*u*u:1-Math.pow(-2*u+2,2)/2; }
+  function place(c,f){ var d=f*c.len, i=1; while(i<c.cum.length-1&&c.cum[i]<d)i++; var a=c.pts[i-1], b=c.pts[i], seg=c.cum[i]-c.cum[i-1], t=seg>0?(d-c.cum[i-1])/seg:1; c.x=a.x+(b.x-a.x)*t; c.y=a.y+(b.y-a.y)*t; }
+  function label(b,cnt){ var s=side, x=b.x, y=b.y-.014*s; ctx.font="11px 'Fira Code',monospace"; ctx.textBaseline='alphabetic'; ctx.fillStyle=MUTED; var t=LABEL[b.k]+' '; ctx.fillText(t,x,y); var w=ctx.measureText(t).width; ctx.fillStyle=INK; ctx.fillText(String(cnt),x+w,y); }
+  function box(b){ ctx.beginPath(); rr(b.x,b.y,b.w,b.h,3); ctx.fillStyle='rgba(133,64,193,.05)'; ctx.fill(); ctx.strokeStyle='rgba(133,64,193,.45)'; ctx.lineWidth=1; ctx.stroke(); }
+  function rr(x,y,w,h,r){ ctx.moveTo(x+r,y); ctx.arcTo(x+w,y,x+w,y+h,r); ctx.arcTo(x+w,y+h,x,y+h,r); ctx.arcTo(x,y+h,x,y,r); ctx.arcTo(x,y,x+w,y,r); ctx.closePath(); }
+  function backdrop(cnt){ var s=side, L=G.lead,S=G.sched,V=G.iv,k,b,i;
+   ctx.clearRect(0,0,s,s);
+   ctx.strokeStyle='rgba(46,47,50,.28)'; ctx.lineWidth=1.2; ctx.setLineDash([]);
+   ctx.beginPath();
+   ctx.moveTo(G.inlet.x,G.inlet.y); ctx.lineTo(L.x,L.y+L.h/2);
+   ctx.moveTo(L.x+L.w,L.y+L.h/2); ctx.lineTo(S.x,S.y+S.h/2);
+   ctx.moveTo(S.x+S.w,S.y+S.h/2); ctx.lineTo(V.x-V.r,V.y);
+   ctx.moveTo(V.x+V.r*.7,V.y-V.r*.7); ctx.lineTo(G.follow.x,G.follow.y+G.follow.h/2);
+   ctx.moveTo(V.x+V.r*.7,V.y+V.r*.7); ctx.lineTo(G.retained.x,G.retained.y+G.retained.h/2);
+   ctx.moveTo(S.x+S.w/2,S.y+S.h); ctx.lineTo(S.x+S.w/2,G.noshow.y);
+   ctx.moveTo(L.x+L.w/2,L.y+L.h); ctx.lineTo(L.x+L.w/2,G.lost.y);
+   ctx.stroke();
+   ctx.beginPath(); ctx.strokeStyle='rgba(204,51,153,.7)'; ctx.setLineDash([4,4]); for(i=0;i<arc.length;i++){ if(i)ctx.lineTo(arc[i].x,arc[i].y); else ctx.moveTo(arc[i].x,arc[i].y); } ctx.stroke(); ctx.setLineDash([]);
+   ctx.beginPath(); ctx.arc(G.inlet.x,G.inlet.y,.012*s,0,6.2832); ctx.fillStyle=PURPLE; ctx.fill();
+   ctx.beginPath(); ctx.arc(V.x,V.y,V.r,0,6.2832); ctx.fillStyle='rgba(133,64,193,.08)'; ctx.fill(); ctx.strokeStyle=PURPLE; ctx.lineWidth=1.3; ctx.stroke();
+   for(k=0;k<BINS.length;k++){ b=G[BINS[k]]; b.k=BINS[k]; box(b); label(b,cnt[BINS[k]]); }
+   ctx.font="11px 'Fira Code',monospace"; ctx.fillStyle=MUTED; ctx.textBaseline='alphabetic';
+   ctx.fillText('OUTREACH',.02*s,.17*s); ctx.fillText('INTERVIEW',V.x-V.r,V.y-V.r-.014*s);
+   ctx.fillStyle=PINK; ctx.fillText('REFERRALS',.40*s,.97*s);
+  }
+  function draw(){ var cnt={},k,i,c; for(k=0;k<BINS.length;k++)cnt[BINS[k]]=0;
+   for(i=0;i<cards.length;i++) if(cards[i].done) cnt[cards[i].dest]++;
+   backdrop(cnt);
+   var w=G.cw,h=G.ch;
+   ctx.fillStyle=PURPLE; ctx.beginPath(); for(i=0;i<cards.length;i++){ c=cards[i]; if(c.ref||!c.on)continue; rr(c.x-w/2,c.y-h/2,w,h,1.2); } ctx.fill();
+   ctx.fillStyle=PINK; ctx.beginPath(); for(i=0;i<cards.length;i++){ c=cards[i]; if(!c.ref||!c.on)continue; rr(c.x-w/2,c.y-h/2,w,h,1.2); } ctx.fill();
+  }
+  function frame(){ if(!running)return; var now=performance.now()-t0, i, c;
+   for(i=0;i<cards.length;i++){ c=cards[i]; if(now<c.start){ c.on=false; continue; } c.on=true; var u=Math.min(1,(now-c.start)/c.dur); place(c,ease(u)); if(u>=1) c.done=true; }
+   draw(); if(now>=END){ finish(); return; } raf=requestAnimationFrame(frame); }
+  /* The end is pinned by a timer as well as by the frame clock, so a throttled frame loop still lands on the settled board. */
+  function finish(){ for(var i=0;i<cards.length;i++){ var c=cards[i]; c.on=true; c.done=true; place(c,1); } running=false; if(raf)cancelAnimationFrame(raf); raf=0; cap(CAP[2]); draw(); }
+  function at(ms,fn){ timers.push(setTimeout(fn,ms)); }
+  function cap(t){ capEl.textContent=t; }
+  function stop(){ for(var k=0;k<timers.length;k++)clearTimeout(timers[k]); timers=[]; running=false; if(raf)cancelAnimationFrame(raf); raf=0; }
+  /* One pass the first time it comes on screen, then it rests on the last frame. Hovering or tapping plays it again.
+     Scrolling away mid-pass settles the end state, so a reader who comes back sees the finished frame; coming back does not replay. */
+  function play(){ stop(); build(); t0=performance.now(); running=true; cap(CAP[0]); raf=requestAnimationFrame(frame);
+   at(1300,function(){ cap(CAP[1]); }); at(3300,function(){ cap(CAP[2]); }); at(END,function(){ if(running) finish(); }); }
+  function still(){ stop(); build(); for(var i=0;i<cards.length;i++){ var c=cards[i]; c.on=true; c.done=true; place(c,1); } cap(CAP[2]); draw(); }
+  resize();
+  if(reduced||!('IntersectionObserver' in window)){ onScreen=true; played=true; if(reduced) still(); else play(); }
+  else new IntersectionObserver(function(es){ es.forEach(function(e){ if(seen(e,0.3)){ onScreen=true; if(!played){ played=true; play(); } } else if(!e.isIntersecting){ onScreen=false; if(running) still(); } }); },{threshold:TH}).observe(artEl);
+  document.addEventListener('visibilitychange',function(){ if(document.hidden&&running) still(); });
+  artEl.addEventListener('click',function(){ if(reduced) still(); else play(); });
+  artEl.addEventListener('pointerenter',function(e){ if(e.pointerType!=='touch'&&onScreen&&!running&&!reduced) play(); });
+  /* A resize redraws the settled frame; it does not start another pass, since nobody asked for one. */
+  var to; window.addEventListener('resize',function(){ clearTimeout(to); to=setTimeout(function(){ var w=cv.getBoundingClientRect().width; if(Math.abs(w-side)<1)return; resize(); if(running) draw(); else still(); },150); });
+ }
+})();
+</script>
