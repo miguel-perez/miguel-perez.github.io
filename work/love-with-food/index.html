@@ -1,0 +1,693 @@
+---
+title: "A snack-box homepage, redesigned across three time zones and measured"
+client: "Love With Food"
+description: "Love With Food sold monthly boxes of snacks and donated a meal for every box. Its site was built for desktops while its traffic moved to phones, and its team was spread from Philadelphia to Manila with a few shared hours a day. In a year we interviewed nine members, ran a design sprint by video, redrew the homepage six times, built it as components, and measured it: sign-ups rose 60% by A/B test, and on the account pages that followed, eight of eight testers completed the top tasks that fewer than a third had before."
+draft: true
+fonts: [open-sans, bree-serif]
+engagement: "Love With Food, remote from Philadelphia"
+period: "November 2014 to spring 2016"
+read: 10
+facts:
+  - k: "Team"
+    v: "A Bay Area company with people in California, the rest of the US, and Asia: the CEO, a graphic designer, a marketing director, and a remote engineering team. Sketch, InVision, Google Hangouts, YouTube playlists, a digital whiteboard, Mechanical Turk, UserTesting."
+  - k: "Role"
+    v: "UX designer and front-end developer on staff, then a contractor for the account work. Ran the research, led the remote design sprint and the critiques, drew the homepage and the account pages, built the component library and the front-end, and set up the A/B tests."
+  - k: "Timeline"
+    v: "November 2014 to spring 2016. Research in the spring of 2015, the redesigned homepage live in June 2015, the account pages tested and redesigned in early 2016."
+numbers:
+  - n: "9"
+    s: "member interviews over video, coded by four of us"
+  - n: "5"
+    s: "breakpoints, built as one component library in Handlebars"
+  - n: "60%"
+    s: "lift in sign-up conversion, by A/B test"
+  - n: "8 of 8"
+    s: "testers completed the account top tasks, up from fewer than one in three"
+acts:
+  - where: "Love With Food"
+    when: "November 2014 to February 2015"
+    title: "Six pm here, six am there."
+    methods: ["stakeholder interviews", "highlight reels", "playlist briefs", "distributed scrum"]
+  - where: "Love With Food"
+    when: "February to April 2015"
+    title: "Two personas found, marketing wanted three."
+    methods: ["member questionnaire", "correlation and factor analysis", "remote interviews", "team coding", "persona critique"]
+  - where: "Love With Food"
+    when: "May to June 2015"
+    title: "Five seconds: nobody named the mission."
+    methods: ["remote design sprint", "silent critique", "click-through prototype", "unmoderated testing", "five-second tests"]
+  - where: "Love With Food"
+    when: "June to autumn 2015"
+    title: "Components first, then a 60% lift."
+    methods: ["component library", "JavaScript templating", "responsive build", "A/B testing"]
+  - where: "Love With Food, then as a contract"
+    when: "November 2015 to spring 2016"
+    title: "Eight of eight on account tasks."
+    methods: ["top-task analysis", "unmoderated testing", "SUPR-Q", "task success", "account design"]
+after: "What stayed after the company closed."
+colophon: "The CEO, the graphic designer, the marketing director, the engineers and the teammates are described by role, and no member or tester is named. Every screen is redrawn with placeholder people, addresses and products, and no logo appears; the sketches are redrawn from the paper originals. The counts are the team's own sheets and the published article. The header runs the June 2015 homepage's layout through its five breakpoints; the reflow is drawn on the page, not recorded. The company closed after this work, and the site is quoted from the Internet Archive."
+---
+<style>
+/* Street: Love With Food's 2015 product tokens. Red #c32e28 is the ink and the one accent (5.6:1 on white, so it may be text at any size); hover red #ae2924; teal #60aca0 is 2.7:1 and fills display-size bands inside figures only (the site's donation band); green #5da423 fills buttons inside replicas only; muted #747474 (4.6:1); rules #e8e8e8; body text #272727. White header and nav, no inversion; the red lives in the h1 em, the accent, and the figures. Bree Serif is the headline face; Open Sans runs inside interface replicas. The store (Fira Code labels, Instrument Serif body, the rails and figures) is assets/css/study.css; the tokens below are the street. */
+body{--ink:#c32e28;--ink-rgb:195,46,40;--text:#272727;--muted:#747474;--accent:#c32e28;--accent-rgb:195,46,40;--head:'Bree Serif',Georgia,serif;--head-weight:400;
+ --teal:#60aca0;--green:#5da423;--green-text:#3f7f12;--hover:#ae2924;--rule:#e8e8e8;--page:#f3f3f1}
+.hero-art canvas{display:block;width:min(100%,440px);aspect-ratio:1}
+.hero-art .cap{width:min(100%,440px)}
+.hero-art .cap i.r{background:var(--ink)}
+.hero-art .cap i.t{background:var(--teal);margin-left:14px}
+@media (max-width:720px){
+ .hero-art canvas,.hero-art .cap{width:min(100%,320px)}
+}
+
+
+/* Fig. 3: the two personas as a redrawn spreadsheet ladder, attribute per row with a strength bar. */
+.lad{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 36px;border:1px solid rgba(var(--ink-rgb),.3);border-radius:6px;background:#fff;overflow:hidden}
+.pc{padding:16px 18px;min-width:0}
+.pc + .pc{border-left:1px solid rgba(var(--ink-rgb),.12)}
+.pc > b{display:block;font:400 16px/1.2 var(--head);color:var(--ink);margin-bottom:2px}
+.pc > i{display:block;font-style:normal;font:11px 'Fira Code',monospace;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.pc ol{margin:0;padding:0;list-style:none}
+.pc li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:7px 0;border-top:1px solid rgba(var(--ink-rgb),.1)}
+.pc li:first-child{border-top:0}
+.pc li span{font:12px/1.4 'Open Sans',Helvetica,Arial,sans-serif;color:var(--text);flex:0 0 auto}
+.pc li i.bar{display:block;width:10px;height:10px;background:var(--ink);border-radius:2px;flex:0 0 auto}
+@media (max-width:720px){.lad{grid-template-columns:1fr}.pc + .pc{border-left:0;border-top:1px solid rgba(var(--ink-rgb),.12)}}
+
+/* Fig. 4: the coding grid beside the report. */
+.fig4{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(260px,1fr);gap:26px;align-items:start}
+.gridc{border:1px solid rgba(var(--ink-rgb),.3);border-radius:6px;overflow:hidden;background:#fff}
+.gridc .ghead{display:grid;grid-template-columns:96px repeat(9,minmax(18px,1fr));border-bottom:1px solid rgba(var(--ink-rgb),.18);font:11px 'Fira Code',monospace;color:#666;text-align:center}
+.gridc .ghead span{padding:6px 2px;letter-spacing:.04em;text-transform:uppercase}
+.gridc .ghead span:first-child{text-align:left;padding-left:12px;background:rgba(var(--ink-rgb),.035)}
+.gridc .grow{display:grid;grid-template-columns:96px repeat(9,minmax(18px,1fr));border-top:1px solid rgba(var(--ink-rgb),.1)}
+.gridc .grow:first-of-type{border-top:0}
+.gridc .grow b{font:12px 'Fira Code',monospace;font-weight:400;color:var(--ink);padding:8px 0 8px 12px;background:rgba(var(--ink-rgb),.035);display:flex;align-items:center}
+.gridc .grow b i{font-style:normal;color:#666;margin-left:6px;font-size:11px}
+.gridc .cell{display:flex;align-items:center;justify-content:center;border-left:1px solid rgba(var(--ink-rgb),.08)}
+.gridc .cell::after{content:"";display:block;width:10px;height:10px;border-radius:2px}
+.gridc .cell.on::after{background:var(--ink)}
+.gridc .cell.un::after{background:#fff;border:1px solid rgba(var(--ink-rgb),.18)}
+.repo{display:flex;flex-direction:column;gap:12px}
+.repo .card{border:1px solid rgba(var(--ink-rgb),.3);border-radius:6px;background:#fff;padding:12px 14px;font:12px/1.45 'Open Sans',Helvetica,Arial,sans-serif;color:var(--text)}
+.repo .card b{display:block;font:400 15px/1.2 var(--head);color:var(--ink);margin-bottom:6px}
+.repo .card.add{outline:2px solid var(--ink);outline-offset:-1px;border-color:var(--ink)}
+.repo .card .tag{display:inline-block;margin-top:8px;padding:2px 8px;border-radius:10px;font:11px 'Fira Code',monospace;color:#fff;background:var(--ink)}
+.repo .card.add .tag{background:var(--ink)}
+@media (max-width:760px){.fig4{grid-template-columns:1fr}}
+
+/* Fig. 5 and Fig. 8 are inline SVG; Fig. 6 and Fig. 10 use the strips below. */
+
+/* Fig. 6: the wireframe and six generations as seven block compositions. */
+.gens{display:grid;grid-template-columns:repeat(7,156px);gap:12px;min-width:1164px;align-items:start}
+.gen{display:flex;flex-direction:column;gap:5px}
+.gen .frame{display:flex;flex-direction:column;gap:3px;padding:8px;border:1px solid rgba(var(--ink-rgb),.25);border-radius:6px;background:#fff;min-height:0}
+.gen .b{border-radius:2px;display:flex;align-items:center;justify-content:center;font:11px/1.2 'Fira Code',monospace;letter-spacing:.02em;color:#272727;text-transform:none;text-align:center;padding:0 4px}
+.gen .b.h{background:var(--ink);height:14px;color:#fff}
+.gen .b.hero{background:#e8e7e3;min-height:34px}
+.gen .b.ben{background:#fff;border:1px solid rgba(var(--ink-rgb),.25);min-height:24px}
+.gen .b.plan{background:#fff;border:1px solid rgba(var(--ink-rgb),.25);height:24px}
+.gen .b.promise{background:#fff;border:1px solid rgba(var(--ink-rgb),.25);min-height:24px}
+.gen .b.off{background:#fff;border:1px dashed rgba(var(--ink-rgb),.18);height:20px;color:transparent}
+.gen .b.box{background:var(--teal);min-height:18px;color:#272727}
+.gen .b.prod{background:#fff;border:1px solid rgba(var(--ink-rgb),.25);min-height:24px}
+.gen .b.com{background:#d3d2ce;height:18px}
+.gen .b.ft{background:#e9e9e6;height:12px}
+.gen .b.hi{outline:2px solid var(--ink);outline-offset:1px}
+.gen .cap{font:11px 'Fira Code',monospace;color:var(--muted);text-align:center}
+
+/* Fig. 9: the A/B card beside the phone before and after. */
+.abwrap{display:grid;grid-template-columns:minmax(260px,.9fr) minmax(0,1.1fr);gap:24px;align-items:start}
+.abcard{border:1px solid rgba(var(--ink-rgb),.3);border-radius:6px;overflow:hidden;background:#fff}
+.abcard .bd{padding:12px 16px}
+.abcard .r{padding:10px 16px;border-top:1px solid rgba(var(--ink-rgb),.1);font:12px/1.5 'Open Sans',Helvetica,Arial,sans-serif;color:var(--text)}
+.abcard .r:first-child{border-top:0}
+.abcard .r b{display:block;font:11px 'Fira Code',monospace;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:400;margin-bottom:3px}
+.abcard .r s{text-decoration:line-through;text-decoration-color:var(--ink);text-decoration-thickness:1.5px}
+.abphone{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
+.phn{width:100%;max-width:230px;margin:0 auto;border:1px solid rgba(var(--ink-rgb),.3);border-radius:12px;background:#fff;overflow:hidden;box-shadow:0 8px 24px rgba(0,0,0,.08);font:11px/1.4 'Open Sans',Helvetica,Arial,sans-serif;color:var(--text)}
+.phn .hdr{background:var(--ink);color:#fff;padding:9px 12px;font:400 14px var(--head);display:flex;justify-content:space-between;align-items:center}
+.phn .hdr i{font-style:normal;font:11px 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase}
+.phn .ph-hero{padding:18px 14px 20px}
+.phn .ph-hero b{display:block;font:400 18px/1.15 var(--head);color:var(--ink);margin-bottom:10px}
+.phn .ph-hero p{margin:0;font:12px/1.5 'Open Sans',Helvetica,Arial,sans-serif;color:var(--text)}
+.phn .btn{display:block;text-align:center;margin:10px 0 0;padding:8px 10px;border-radius:4px;background:var(--green-text);color:#fff;font:700 12px 'Open Sans',Helvetica,Arial,sans-serif}
+.phn .btn.ghost{background:#fff;color:var(--ink);border:1px solid var(--ink)}
+.phn .btn.old{background:#fff;color:var(--muted);border:1px solid var(--rule);text-decoration:line-through;text-decoration-color:var(--ink);text-decoration-thickness:1.5px}
+@media (max-width:820px){.abwrap{grid-template-columns:1fr}}
+
+/* Fig. 10: account pages, before (task grid + SUPR-Q) and after (desktop and phone). */
+.acct{display:grid;grid-template-columns:minmax(300px,1.05fr) minmax(0,1.2fr);gap:28px;min-width:920px;align-items:start}
+.acct .panel{min-width:0;display:flex;flex-direction:column;gap:12px}
+.acct .card{border:1px solid rgba(var(--ink-rgb),.3);border-radius:6px;background:#fff;overflow:hidden}
+.acct .cbar{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 14px;border-bottom:1px solid rgba(var(--ink-rgb),.18);background:rgba(var(--ink-rgb),.04)}
+.acct .cbar b{font:400 13px var(--head);color:var(--ink)}
+.acct .cbar .label{font-size:11px;color:#666}
+.taskgrid{display:grid;grid-template-columns:120px repeat(5,minmax(24px,1fr));padding:6px 12px 12px}
+.taskgrid .th{padding:7px 4px;font:11px 'Fira Code',monospace;color:var(--muted);text-align:center;align-self:end}
+.taskgrid .th:first-child{text-align:left;color:var(--ink)}
+.taskgrid .tk{padding:9px 4px 9px 0;font:11px/1.35 'Open Sans',Helvetica,Arial,sans-serif;color:var(--text);border-top:1px solid rgba(var(--ink-rgb),.1)}
+.taskgrid .dot{display:flex;align-items:center;justify-content:center;border-top:1px solid rgba(var(--ink-rgb),.1);padding:7px 0}
+.taskgrid .dot i{display:block;width:11px;height:11px;border-radius:50%}
+.taskgrid .dot.hit i{background:var(--ink)}
+.taskgrid .dot.miss i{background:#fff;border:1px solid rgba(var(--ink-rgb),.25)}
+.suprq{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;padding:12px 16px}
+.suprq .sq{border-top:2px solid var(--ink);padding-top:7px}
+.suprq .sq b{display:block;font:400 20px/1 var(--head);color:var(--ink)}
+.suprq .sq span{font:11px 'Fira Code',monospace;color:var(--muted)}
+.acct .note{margin:0;font:12px/1.6 'Fira Code',monospace;color:var(--muted)}
+.acct .note b{color:var(--ink);font-weight:400}
+.rail{display:grid;grid-template-columns:170px minmax(0,1fr);border:1px solid rgba(var(--ink-rgb),.3);border-radius:6px;overflow:hidden;background:#fff;font:11px/1.4 'Open Sans',Helvetica,Arial,sans-serif;color:var(--text)}
+.rail .side{border-right:1px solid rgba(var(--ink-rgb),.1);background:rgba(var(--ink-rgb),.03);padding:10px 12px}
+.rail .side b{display:block;font:400 13px var(--head);color:var(--ink);margin-bottom:8px}
+.rail .side div{padding:4px 0;color:var(--text);border-top:1px solid rgba(var(--ink-rgb),.08)}
+.rail .side div:first-of-type{border-top:0}
+.rail .side div.on{color:var(--ink);font-weight:700}
+.rail .main{padding:14px 16px;min-width:0}
+.rail .main .k{font:11px 'Fira Code',monospace;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin:10px 0 4px}
+.rail .main .k:first-child{margin-top:0}
+.rail .main .row{display:flex;justify-content:space-between;gap:8px;padding:4px 0;border-top:1px solid rgba(var(--ink-rgb),.08)}
+.rail .main .row span{color:var(--muted)}
+.rail .main .row b{color:var(--text);font-weight:600}
+.phone-acct{width:100%;max-width:220px;margin:0 auto;border:1px solid rgba(var(--ink-rgb),.3);border-radius:12px;background:#fff;overflow:hidden;font:11px/1.4 'Open Sans',Helvetica,Arial,sans-serif;color:var(--text)}
+.phone-acct .top{background:var(--ink);color:#fff;padding:12px 14px;font:400 14px var(--head)}
+.phone-acct .top small{display:block;font:11px 'Fira Code',monospace;letter-spacing:.06em;text-transform:uppercase}
+.phone-acct .body{padding:12px 14px}
+.phone-acct .body b{display:block;font:400 14px var(--head);color:var(--ink);margin-bottom:6px}
+.phone-acct .step{display:flex;gap:8px;padding:7px 0;border-top:1px solid rgba(var(--ink-rgb),.08)}
+.phone-acct .step i{flex:0 0 16px;width:16px;height:16px;border-radius:50%;background:var(--ink);color:#fff;font:11px 'Fira Code',monospace;text-align:center;line-height:16px;font-style:normal}
+.phone-acct .share{display:flex;gap:6px;margin-top:8px}
+.phone-acct .share span{flex:1;text-align:center;padding:6px 4px;border-radius:3px;background:var(--green-text);color:#fff;font:700 11px 'Open Sans',Helvetica,Arial,sans-serif}
+@media (max-width:760px){.fig4{grid-template-columns:1fr}.fig4 .ghead,.fig4 .grow{grid-template-columns:84px repeat(9,minmax(12px,1fr))}.abphone{grid-template-columns:1fr}}
+</style>
+
+<section class="case-header wrap">
+ {% include study-meta.html %}
+ <div class="hero">
+  <div class="hero-text">
+   <h1>A snack-box homepage, redesigned across three time zones and <em>measured</em>.</h1>
+   <p class="lede">Love With Food sold monthly boxes of snacks and donated a meal for every box. Its site was built for desktops while its traffic moved to phones, and its team was spread from Philadelphia to Manila with a few shared hours a day.</p>
+   <p class="lede" style="margin-top:18px">In a year we interviewed nine members, ran a design sprint by video, redrew the homepage six times, built it as components, and measured it. Sign-ups rose 60% by A/B test. On the account pages that followed, eight of eight testers completed the top tasks that fewer than a third had before.</p>
+   {% include study-facts.html %}
+  </div>
+  <div class="hero-art" id="hero-art" role="img" aria-label="The June 2015 homepage's layout reflowing from desktop to phone." title="Replay">
+   <canvas id="lwf" aria-hidden="true"></canvas>
+   <span class="cap"><b class="sum">the June 2015 homepage · reflow</b><b id="lwf-cap" class="now">one homepage, five breakpoints</b><i class="r"></i>red · header and band<i class="t"></i>teal · the meals band</span>
+  </div>
+ </div>
+ {% include study-numbers.html %}
+</section>
+
+<section class="body wrap">
+
+ <article class="story">
+
+  <section class="act" id="outline">
+   <span class="label">Outline</span>
+   <p>A year to move a snack-box homepage from desktops to phones, and to leave the team a measured component library.</p>
+
+   <figure class="dia">
+<div tabindex="0" role="region" aria-label="Figure, scrolls sideways" class="fig-scroll"><svg viewBox="0 0 760 236" role="img" aria-label="Timeline from November 2014 to June 2016. The team in three time zones from November 2014; research from February to April 2015; the sprint and six generations in May and June; the homepage live on 5 June 2015; components and A/B tests through the autumn; employment ends in November 2015 and a contract begins; the account pages from January to spring 2016.">
+     <rect x="151" y="108" width="107" height="24" fill="#c32e28" fill-opacity=".10"/>
+     <rect x="258" y="108" width="71" height="24" fill="#c32e28" fill-opacity=".20"/>
+     <rect x="329" y="108" width="131" height="24" fill="#000" fill-opacity=".06"/>
+     <rect x="542" y="108" width="118" height="24" fill="#c32e28" fill-opacity=".10"/>
+     <line x1="44" y1="120" x2="720" y2="120" stroke="#272727" stroke-opacity=".5" stroke-width="1.5" stroke-dasharray="700" stroke-dashoffset="700" class="a" style="animation:dash 1.8s ease-out .2s forwards"/>
+     <g fill="#272727"><circle cx="44" cy="120" r="5"/><circle cx="151" cy="120" r="5"/><circle cx="542" cy="120" r="5"/><circle cx="660" cy="120" r="5"/><circle cx="720" cy="120" r="5"/></g>
+     <circle cx="298" cy="120" r="7" fill="#c32e28" stroke="#272727" stroke-width="1.5"/>
+     <line x1="471" y1="104" x2="471" y2="136" stroke="#c32e28" stroke-width="2.5"/>
+     <g font-family="Fira Code,monospace" font-size="11" fill="#747474">
+      <text x="151" y="102">RESEARCH</text><text x="258" y="102">SPRINT</text><text x="333" y="102">FRONT-END + A/B</text><text x="546" y="102">ACCOUNT</text>
+      <text x="44" y="40">Nov 2014</text><text x="151" y="40">Feb 2015</text><text x="298" y="40" text-anchor="middle">5 Jun 2015</text><text x="471" y="40" text-anchor="middle">Nov 2015</text><text x="542" y="66">Jan 2016</text><text x="720" y="40" text-anchor="end">spring 2016</text>
+     </g>
+     <g font-family="Instrument Serif,serif" font-size="15" fill="#272727">
+      <text x="44" y="160">team in three time zones</text><text x="298" y="160">homepage live</text><text x="720" y="160" text-anchor="end">the account pages</text>
+      <text x="151" y="186">questionnaire, interviews, personas</text><text x="420" y="186">components, then A/B</text>
+      <text x="471" y="212" text-anchor="middle">employment ends, contract begins</text>
+     </g>
+    </svg></div>
+    <figcaption>Fig. 1 · Nineteen months on one line. The tinted bands are the research, the sprint with its six generations, the front-end and A/B work, and the account work that continued as a contract. The red dot is the day the homepage went live, and the red tick is the day employment ended.</figcaption>
+   </figure>
+
+   {% include study-outline.html %}
+  </section>
+
+  <section class="act" id="act-1">
+   {% include study-act.html n=1 %}
+   <p>Love With Food sold a monthly box of snacks and donated a meal to a food bank for each box. Its site had been built for desktops while its traffic was moving to phones. The CEO asked for a responsive redesign, and we agreed on one goal: a better experience on phones, and a homepage that told new visitors what membership gave them.</p>
+   <p>The team was in California, the rest of the United States, and Asia, and we shared only a few hours a day. Our daily stand-up ran at 22:00 GMT on the timetable: 6:00 pm in Philadelphia, 3:00 pm in San Francisco, and 6:00 am in Manila and Nanjing. It took fifteen minutes, every day but Friday. Sprint planning, review, and retrospective sat at 22:15 GMT on a two-week cycle.</p>
+   <p>Instead of an in-person kickoff, I recorded interviews with our subject-matter experts, cut the highlights, and put them in a private YouTube playlist. That playlist was the brief before ideation.</p>
+
+   <figure class="dia">
+<div tabindex="0" role="region" aria-label="Figure, scrolls sideways" class="fig-scroll"><svg viewBox="0 0 760 300" role="img" aria-label="One working day for the three places on one GMT clock. Grey blocks are 9 am to 6 pm local: Philadelphia from 13:00 to 22:00 GMT, San Francisco from 16:00 to 01:00 GMT, Manila and Nanjing from 01:00 to 10:00 GMT. A red line at 22:00 GMT is the stand-up, which is 6:00 pm in Philadelphia, 3:00 pm in San Francisco, and 6:00 am in Manila and Nanjing.">
+     <text x="682.8" y="22" font-family="Fira Code,monospace" font-size="12" fill="#c32e28" text-anchor="end">22:00 GMT · THE STAND-UP</text>
+     <g font-family="Fira Code,monospace" font-size="11" fill="#747474"><text x="150.0" y="46" text-anchor="middle">00</text><text x="297.5" y="46" text-anchor="middle">06</text><text x="445.0" y="46" text-anchor="middle">12</text><text x="592.5" y="46" text-anchor="middle">18</text><text x="740.0" y="46" text-anchor="middle">24</text><text x="138.0" y="46" text-anchor="end" fill="#a8a8a8">GMT</text></g>
+     <g stroke="#000" stroke-opacity=".12"><line x1="150.0" y1="52" x2="150.0" y2="252"/><line x1="297.5" y1="52" x2="297.5" y2="252"/><line x1="445.0" y1="52" x2="445.0" y2="252"/><line x1="592.5" y1="52" x2="592.5" y2="252"/><line x1="740.0" y1="52" x2="740.0" y2="252"/></g>
+     <text x="20" y="82" font-family="Instrument Serif,serif" font-size="16" fill="#272727">Philadelphia</text>
+     <rect x="150" y="62" width="590" height="30" fill="#000" fill-opacity=".045"/>
+     <rect x="469.6" y="62" width="221.2" height="30" fill="#000" fill-opacity=".18"/>
+     <text x="475.6" y="82" font-family="Fira Code,monospace" font-size="11" fill="#747474">9 am</text>
+     <text x="684.8" y="82" font-family="Fira Code,monospace" font-size="11" fill="#747474" text-anchor="end">6 pm</text>
+     <rect x="689.3" y="56" width="3" height="42" fill="#c32e28"/>
+     <text x="698.8" y="82" font-family="Fira Code,monospace" font-size="11" fill="#c32e28">6:00 pm</text>
+     <text x="20" y="160" font-family="Instrument Serif,serif" font-size="16" fill="#272727">San Francisco</text>
+     <rect x="150" y="140" width="590" height="30" fill="#000" fill-opacity=".045"/>
+     <rect x="543.3" y="140" width="196.7" height="30" fill="#000" fill-opacity=".18"/>
+     <rect x="150.0" y="140" width="24.6" height="30" fill="#000" fill-opacity=".18"/>
+     <text x="549.3" y="160" font-family="Fira Code,monospace" font-size="11" fill="#747474">9 am</text>
+     <text x="168.6" y="160" font-family="Fira Code,monospace" font-size="11" fill="#747474" text-anchor="end">6 pm</text>
+     <rect x="689.3" y="134" width="3" height="42" fill="#c32e28"/>
+     <text x="698.8" y="160" font-family="Fira Code,monospace" font-size="11" fill="#c32e28">3:00 pm</text>
+     <text x="20" y="238" font-family="Instrument Serif,serif" font-size="16" fill="#272727">Manila and Nanjing</text>
+     <rect x="150" y="218" width="590" height="30" fill="#000" fill-opacity=".045"/>
+     <rect x="174.6" y="218" width="221.2" height="30" fill="#000" fill-opacity=".18"/>
+     <text x="180.6" y="238" font-family="Fira Code,monospace" font-size="11" fill="#747474">9 am</text>
+     <text x="389.8" y="238" font-family="Fira Code,monospace" font-size="11" fill="#747474" text-anchor="end">6 pm</text>
+     <rect x="689.3" y="212" width="3" height="42" fill="#c32e28"/>
+     <text x="698.8" y="238" font-family="Fira Code,monospace" font-size="11" fill="#c32e28">6:00 am</text>
+     <g font-family="Fira Code,monospace" font-size="11" fill="#747474"><rect x="20" y="276" width="14" height="10" fill="#000" fill-opacity=".18"/><text x="42" y="285">working hours · 9 am to 6 pm local</text><rect x="300" y="272" width="3" height="18" fill="#c32e28"/><text x="312" y="285">the fifteen-minute stand-up</text></g>
+     </svg></div>
+    <figcaption>Fig. 2 · One working day across three time zones, drawn on one GMT clock. The grey blocks are 9 am to 6 pm local. The red line is the 22:00 GMT stand-up, which fell at the end of the day in Philadelphia, mid-afternoon in San Francisco, and before the day began in Manila and Nanjing.</figcaption>
+   </figure>
+   {% include study-methods.html n=1 %}
+  </section>
+
+  <section class="act" id="act-2">
+   {% include study-act.html n=2 %}
+   <p>The CEO wanted personas. I wanted them built on evidence, and I wanted to do it remotely. So we took two steps: a questionnaire, then interviews. The questionnaire went to existing and new members and asked what had motivated them to sign up. The interviews were recruited from its answers.</p>
+   <p>We coded the responses into more than a hundred attributes per person: age band, household, income band, habits, media, shopping, food, and attitudes to the service. Then we correlated and factored the attributes, and two segments came out.</p>
+   <p>One segment was younger, urban, employed, with no children, price-aware, snacking more than three times a day, buying snacks online, and hearing about the service from a friend. The other was 30 to 45, suburban, a stay-at-home parent with children, cooking at home, reading labels, using the box to discover food, treating opening it as a ritual, and buying it as a gift.</p>
+
+   <figure class="dia">
+    <div class="lad" role="img" aria-label="Two personas as a redrawn spreadsheet, one column each. The younger urban member: urban, employed, no children, price-aware, snacks more than three times a day, buys online, heard about it from a friend, younger. The suburban parent: 30 to 45, stay-at-home parent with children, cooks at home, reads labels, discovers food through the box, opening the box is a ritual, buys as a gift.">
+     <div class="pc">
+      <b>The younger urban member</b><i>segment one</i>
+      <ol>
+       <li><span>urban</span><i class="bar"></i></li>
+       <li><span>employed</span><i class="bar"></i></li>
+       <li><span>no children</span><i class="bar"></i></li>
+       <li><span>price-aware</span><i class="bar"></i></li>
+       <li><span>snacks three or more times a day</span><i class="bar"></i></li>
+       <li><span>buys snacks online</span><i class="bar"></i></li>
+       <li><span>heard about it from a friend</span><i class="bar"></i></li>
+       <li><span>younger</span><i class="bar"></i></li>
+      </ol>
+     </div>
+     <div class="pc">
+      <b>The suburban parent</b><i>segment two</i>
+      <ol>
+       <li><span>30 to 45</span><i class="bar"></i></li>
+       <li><span>suburban</span><i class="bar"></i></li>
+       <li><span>stay-at-home parent with children</span><i class="bar"></i></li>
+       <li><span>cooks at home</span><i class="bar"></i></li>
+       <li><span>reads labels</span><i class="bar"></i></li>
+       <li><span>uses the box to discover food</span><i class="bar"></i></li>
+       <li><span>treats opening it as a ritual</span><i class="bar"></i></li>
+       <li><span>buys it as a gift</span><i class="bar"></i></li>
+      </ol>
+     </div>
+    </div>
+    <figcaption>Fig. 3 · The two segments from the questionnaire, redrawn as spreadsheet rows. Each row is an attribute that loaded on the segment, and the marks carry no number.</figcaption>
+   </figure>
+
+   <p>I interviewed nine members over Google Hangouts, one 30-minute video each. Three teammates and I coded the videos through a shared form. They coded seven, seven, and five videos and I coded two, so most videos were coded by two or three people. Then I compared the interviews with one another.</p>
+   <p>The interviews added what the survey could not. People who signed up for a steady flow of snacks also liked introducing coworkers to new ones. Parents who used the box to discover snacks bought the ones they liked locally when they saw them. Not knowing what was in the box worried some people at first. Later it was the part they looked forward to.</p>
+   <p>We wrote persona candidates and reviewed them in a silent critique: ten minutes of silent reading, comments only on what worked, two red votes each, with the CEO holding four. Then marketing read the report. Their social media work targeted a segment that sat in neither persona. I helped them define a third, proto-persona and added it rather than pushing back. Looking back on it in print, I put the miss on myself:</p>
+   <blockquote><p>If I had spent more time up-front capturing existing assumptions, perhaps by starting with proto-personas, I could have avoided having to supplement the report later.</p></blockquote>
+
+   <figure class="dia">
+    <div class="fig4" role="img" aria-label="The coding grid and the report. Nine interview columns by five rows: three teammates coding seven, seven and five videos, me coding two, and eleven unsigned entries covering the other two videos, filled cells in red. Beside it, the report: two persona cards from the data, and a third card outlined in red labeled added for marketing's segment.">
+     <div class="gridc">
+      <div class="ghead"><span>who</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span></div>
+      <div class="grow"><b>teammate<i>7</i></b><span class="cell on"></span><span class="cell un"></span><span class="cell on"></span><span class="cell on"></span><span class="cell on"></span><span class="cell un"></span><span class="cell on"></span><span class="cell on"></span><span class="cell on"></span></div>
+      <div class="grow"><b>teammate<i>7</i></b><span class="cell on"></span><span class="cell un"></span><span class="cell on"></span><span class="cell on"></span><span class="cell on"></span><span class="cell un"></span><span class="cell on"></span><span class="cell on"></span><span class="cell on"></span></div>
+      <div class="grow"><b>teammate<i>5</i></b><span class="cell on"></span><span class="cell un"></span><span class="cell un"></span><span class="cell un"></span><span class="cell on"></span><span class="cell un"></span><span class="cell on"></span><span class="cell on"></span><span class="cell on"></span></div>
+      <div class="grow"><b>me<i>2</i></b><span class="cell on"></span><span class="cell un"></span><span class="cell un"></span><span class="cell un"></span><span class="cell un"></span><span class="cell un"></span><span class="cell on"></span><span class="cell un"></span><span class="cell un"></span></div>
+      <div class="grow"><b>unsigned<i>11</i></b><span class="cell un"></span><span class="cell on"></span><span class="cell un"></span><span class="cell un"></span><span class="cell un"></span><span class="cell on"></span><span class="cell un"></span><span class="cell un"></span><span class="cell un"></span></div>
+     </div>
+     <div class="repo">
+      <div class="card"><b>The younger urban member</b>Urban, employed, no children, price-aware, snacks more than three times a day, hears about the service from a friend.</div>
+      <div class="card"><b>The suburban parent</b>30 to 45, cooks at home, reads labels, discovers food with the box, opening it is a ritual, buys as a gift.</div>
+      <div class="card add"><b>Marketing's segment</b>The group on social media did not sit in either persona.<span class="tag">added for marketing's segment</span></div>
+     </div>
+    </div>
+    <figcaption>Fig. 4 · The coding grid beside the report it produced. The filled cells show who coded which of the nine videos: the three teammates took seven, seven, and five, and I took two, so seven videos were coded by two or more of them. The form also holds eleven unsigned entries, the only coding of videos two and six. The third card is the one added rather than pushed back on.</figcaption>
+   </figure>
+   {% include study-methods.html n=2 %}
+  </section>
+
+  <section class="act" id="act-3">
+   {% include study-act.html n=3 %}
+   <p>The homepage ran as a remote design sprint. It opened with an overview by video, thirty-five minutes a person: a short meeting, then the highlight videos, with each person noting what jumped out. Then each of us diverged alone for fifty minutes: a mind map, a crazy-eights warm-up of eight quick sketches, and a storyboard of a user flow. Videos I recorded of myself walking through the exercises guided each step. Everyone scanned their sketches and sent them to me, and I put them on the whiteboard without names.</p>
+   <p>Review took forty minutes. First a silent critique: blue soft votes on any design or part of one, as many as each person wanted, two or three on a favorite. Then three minutes of group comments per design, with the author adding notes last. Then super-voting: one red vote each on the strongest design, with the CEO holding three and me holding two.</p>
+
+   <figure class="dia">
+<div tabindex="0" role="region" aria-label="Figure, scrolls sideways" class="fig-scroll"><svg viewBox="0 0 760 300" role="img" aria-label="The critique board as a row of five anonymized sketches, each a small composed block. Blue dots are scattered across them as soft votes, and two red dots carry the weighted super-votes, the CEO's three and my two.">
+     <g stroke="#272727" stroke-opacity=".5">
+      <rect x="40" y="70" width="120" height="150" fill="#fff"/>
+      <rect x="190" y="70" width="120" height="150" fill="#fff"/>
+      <rect x="340" y="70" width="120" height="150" fill="#fff"/>
+      <rect x="490" y="70" width="120" height="150" fill="#fff"/>
+      <rect x="640" y="70" width="120" height="150" fill="#fff"/>
+     </g>
+     <!-- each sketch: header + hero + two rows -->
+     <g fill="#d8d7d3">
+      <rect x="48" y="80" width="104" height="14"/><rect x="48" y="98" width="104" height="30"/><rect x="48" y="132" width="48" height="34"/><rect x="102" y="132" width="50" height="34"/><rect x="48" y="170" width="104" height="20"/>
+      <rect x="198" y="80" width="104" height="14"/><rect x="198" y="98" width="104" height="30"/><rect x="198" y="132" width="104" height="34"/><rect x="198" y="170" width="48" height="20"/><rect x="252" y="170" width="50" height="20"/>
+      <rect x="348" y="80" width="104" height="14"/><rect x="348" y="98" width="104" height="30"/><rect x="348" y="132" width="48" height="34"/><rect x="402" y="132" width="50" height="34"/><rect x="348" y="170" width="104" height="20"/>
+      <rect x="498" y="80" width="104" height="14"/><rect x="498" y="98" width="104" height="30"/><rect x="498" y="132" width="104" height="14"/><rect x="498" y="150" width="104" height="16"/><rect x="498" y="170" width="104" height="20"/>
+      <rect x="648" y="80" width="104" height="14"/><rect x="648" y="98" width="104" height="30"/><rect x="648" y="132" width="48" height="34"/><rect x="702" y="132" width="50" height="34"/><rect x="648" y="170" width="104" height="20"/>
+     </g>
+     <!-- blue soft votes -->
+     <g fill="#3d7ed6"><circle cx="84" cy="112" r="4"/><circle cx="150" cy="150" r="4"/><circle cx="238" cy="120" r="4"/><circle cx="430" cy="140" r="4"/><circle cx="520" cy="110" r="4"/><circle cx="700" cy="176" r="4"/><circle cx="290" cy="90" r="4"/><circle cx="60" cy="188" r="4"/><circle cx="380" cy="196" r="4"/><circle cx="560" cy="180" r="4"/><circle cx="730" cy="128" r="4"/><circle cx="130" cy="108" r="4"/><circle cx="210" cy="180" r="4"/><circle cx="460" cy="180" r="4"/></g>
+     <!-- red super-votes, weighted -->
+     <g font-family="Fira Code,monospace" font-size="12" fill="#fff" text-anchor="middle">
+      <circle cx="120" cy="132" r="11" fill="#c32e28"/><text x="120" y="136">3</text>
+      <circle cx="270" cy="150" r="11" fill="#c32e28"/><text x="270" y="154">2</text>
+      
+      
+      
+     </g>
+     <text x="40" y="250" font-family="Fira Code,monospace" font-size="11" fill="#747474">10 min silent · 3 min per design · 5 min super-vote</text>
+     <g font-family="Fira Code,monospace" font-size="11" fill="#747474">
+      <circle cx="56" cy="272" r="4" fill="#3d7ed6"/><text x="68" y="276">blue · soft vote</text>
+      <circle cx="216" cy="272" r="9" fill="#c32e28"/><text x="232" y="276">red · super-vote: the CEO 3, me 2, everyone else 1</text>
+     </g>
+    </svg></div>
+    <figcaption>Fig. 5 · The critique board, redrawn. The blue dots are the unlimited soft votes. The red dots are super-votes, drawn with their weight: the CEO's three and my two, on the two designs the room rated strongest.</figcaption>
+   </figure>
+
+   <p>Then the decide step, a private meeting where I listed the conflicts and assumptions so the CEO could choose one direction or more than one. Then the user story: one day for me to draw a detailed sketch stringing the flow together. Then the prototype: one day for the graphic designer and me to build a click-through in InVision. Then validation: five unmoderated sessions of the mobile prototype, everyone watching and noting the good, the bad, and the interesting. One note mattered most. The page said our mission, but it never said, in one sentence, that this was a subscription that sends you snacks.</p>
+   <p>The homepage moved from a hand-drawn wireframe through six drawn generations. The hero went from a photo of the box on a table, to a grid of snacks, to text alone, to a photo of a member with the box. The benefits went from a row of three icons to four dark tiles to photo tiles. Last month's box gave way to a band counting the meals donated, and the shop's products gained tabs and a member price.</p>
+
+   <figure class="dia">
+<div tabindex="0" role="region" aria-label="Figure, scrolls sideways" class="fig-scroll"><div class="gens" role="img" aria-label="The wireframe and six generations as seven block compositions. The hero goes from a photo of the box, to a snack grid, to text alone, to a member photo. The benefits go from an icon row to four dark tiles to photo tiles. Last month's box band gives way to a meals-donated band, and the products gain shop tabs and a member price. Red keylines mark what changed from the one before.">
+     <div class="gen"><div class="frame"><span class="b h">header</span><span class="b hero">hero · snacks photo, three points</span><span class="b ben off"></span><span class="b plan">plan cards</span><span class="b promise">curation · meals map</span><span class="b box">last month’s box</span><span class="b prod">products</span><span class="b com">community · press</span><span class="b ft">footer</span></div><span class="cap">wireframe</span></div>
+     <div class="gen"><div class="frame"><span class="b h">header</span><span class="b hero hi">hero · box on a table</span><span class="b ben hi">benefits · icon row</span><span class="b plan">plan cards</span><span class="b promise">promise · snack grid</span><span class="b box">last month’s box</span><span class="b prod">products</span><span class="b com">community · press</span><span class="b ft">footer</span></div><span class="cap">gen 1</span></div>
+     <div class="gen"><div class="frame"><span class="b h">header</span><span class="b hero">hero · box on a table</span><span class="b ben">benefits · icon row</span><span class="b plan hi">plan cards · gift buttons</span><span class="b promise">promise · snack grid</span><span class="b box">last month’s box</span><span class="b prod">products</span><span class="b com">community · press</span><span class="b ft">footer</span></div><span class="cap">gen 2</span></div>
+     <div class="gen"><div class="frame"><span class="b h">header</span><span class="b hero hi">hero · snack grid</span><span class="b ben">benefits · icon row</span><span class="b plan">plan cards</span><span class="b promise hi">promise · member photo</span><span class="b box">last month’s box</span><span class="b prod hi">products · member price</span><span class="b com">community · press</span><span class="b ft">footer</span></div><span class="cap">gen 3</span></div>
+     <div class="gen"><div class="frame"><span class="b h">header</span><span class="b hero hi">hero · text alone</span><span class="b ben hi">benefits · four dark tiles</span><span class="b plan">plan cards</span><span class="b promise hi">junk-free list · snack grid</span><span class="b box off"></span><span class="b prod hi">shop · tabs, member price</span><span class="b com">press · community</span><span class="b ft">footer</span></div><span class="cap">gen 4</span></div>
+     <div class="gen"><div class="frame"><span class="b h">header</span><span class="b hero hi">hero · member photo</span><span class="b ben hi">benefits · photo tiles</span><span class="b plan">plan cards</span><span class="b promise">junk-free list · snack grid</span><span class="b box off"></span><span class="b prod">shop · tabs, member price</span><span class="b com">press · community</span><span class="b ft">footer</span></div><span class="cap">gen 5</span></div>
+     <div class="gen"><div class="frame"><span class="b h">header</span><span class="b hero">hero · member photo</span><span class="b ben">benefits · photo tiles</span><span class="b box hi">meals donated band</span><span class="b plan">plan cards</span><span class="b promise">junk-free list · snack grid</span><span class="b prod">shop · tabs, member price</span><span class="b com">community · press</span><span class="b ft">footer</span></div><span class="cap">gen 6 · live</span></div>
+    </div></div>
+    <figcaption>Fig. 6 · The wireframe and the six generations, side by side, each the same pieces in a different arrangement. The red keyline marks what changed from the one before. The hero went from the box to the snack grid to text alone to a member's photo, the benefits from icons to dark tiles to photo tiles, and last month's box gave way to the meals-donated band.</figcaption>
+   </figure>
+
+   <p>Two five-second tests on Mechanical Turk measured whether the page said what it was. The same three questions ran each time: what product or service is provided, who is the company, and what is the benefit to you. Generation 1 ran 1 to 5 June with 17 responses: 13 named the company, 11 of them exactly, and 14 described a snack box or a delivery. None said junk-free, and none mentioned the mission. Generation 2 ran 12 June with 58 responses: 31 named the company, 19 of them exactly, and 32 described a snack box or a delivery. Eleven said junk-free, 4 mentioned feeding the hungry, and 14 left the benefit blank or unsure. After the second round we settled on one direction. In print, I put the delay on myself:</p>
+   <blockquote><p>We could have moved faster had I been more attuned to the internal politics that ultimately decided the outcome of the solution.</p></blockquote>
+
+      <figure class="dia">
+<div tabindex="0" role="region" aria-label="Figure, scrolls sideways" class="fig-scroll"><svg viewBox="0 0 760 236" role="img" aria-label="The five-second test, two panels. Generation 1, 17 responses: 13 named the company, 14 described a snack box or a delivery, none said junk-free, none mentioned the mission. Generation 2, 58 responses: 31 named the company, 32 described a snack box or a delivery, 11 said junk-free and 4 mentioned the mission. Bars show raw counts only, no percentages.">
+     <g font-family="Fira Code,monospace" font-size="12" fill="#c32e28"><text x="20" y="30">GENERATION 1 · n = 17</text></g>
+     <text x="20" y="62" font-family="Fira Code,monospace" font-size="11" fill="#747474">named the company</text>
+     <rect x="185" y="52" width="65" height="14" fill="#c32e28"/>
+     <text x="258" y="62" font-family="Fira Code,monospace" font-size="12" fill="#272727">13</text>
+     <text x="20" y="102" font-family="Fira Code,monospace" font-size="11" fill="#747474">described a snack box</text>
+     <rect x="185" y="92" width="70" height="14" fill="#c32e28"/>
+     <text x="263" y="102" font-family="Fira Code,monospace" font-size="12" fill="#272727">14</text>
+     <text x="20" y="142" font-family="Fira Code,monospace" font-size="11" fill="#747474">said junk-free</text>
+     <text x="193" y="142" font-family="Fira Code,monospace" font-size="12" fill="#272727">0</text>
+     <text x="20" y="182" font-family="Fira Code,monospace" font-size="11" fill="#747474">mentioned the mission</text>
+     <text x="193" y="182" font-family="Fira Code,monospace" font-size="12" fill="#272727">0</text>
+     <g font-family="Fira Code,monospace" font-size="12" fill="#c32e28"><text x="400" y="30">GENERATION 2 · n = 58</text></g>
+     <text x="400" y="62" font-family="Fira Code,monospace" font-size="11" fill="#747474">named the company</text>
+     <rect x="565" y="52" width="155" height="14" fill="#c32e28"/>
+     <text x="728" y="62" font-family="Fira Code,monospace" font-size="12" fill="#272727">31</text>
+     <text x="400" y="102" font-family="Fira Code,monospace" font-size="11" fill="#747474">described a snack box</text>
+     <rect x="565" y="92" width="160" height="14" fill="#c32e28"/>
+     <text x="733" y="102" font-family="Fira Code,monospace" font-size="12" fill="#272727">32</text>
+     <text x="400" y="142" font-family="Fira Code,monospace" font-size="11" fill="#747474">said junk-free</text>
+     <rect x="565" y="132" width="55" height="14" fill="#c32e28"/>
+     <text x="628" y="142" font-family="Fira Code,monospace" font-size="12" fill="#272727">11</text>
+     <text x="400" y="182" font-family="Fira Code,monospace" font-size="11" fill="#747474">mentioned the mission</text>
+     <rect x="565" y="172" width="20" height="14" fill="#c32e28"/>
+     <text x="593" y="182" font-family="Fira Code,monospace" font-size="12" fill="#272727">4</text>
+     <text x="20" y="222" font-family="Fira Code,monospace" font-size="11" fill="#747474">each bar is a raw count · generation 1 on 1 to 5 June, generation 2 on 12 June</text>
+    </svg></div>
+    <figcaption>Fig. 7 · The five-second test, in raw counts. Generation 1: 13 named the company, 14 described a snack box, none said junk-free or mentioned the mission. Generation 2: 31 named the company, 32 described a snack box, 11 said junk-free, and 4 mentioned the mission.</figcaption>
+   </figure>
+   {% include study-methods.html n=3 %}
+  </section>
+
+  <section class="act" id="act-4">
+   {% include study-act.html n=4 %}
+   <p>I broke the new designs into reusable components and built them in Handlebars as a living style guide. Each component carried its alternative options and named the pieces it depended on. The build ran at five breakpoints: desktop, iPad, iPad mini, iPhone 6 Plus, and iPhone 5. A responsive build pipeline and a versioned image and font pipeline synced to S3 carried it.</p>
+   <p>Then we measured. Without metrics it is hard to know when a design is good enough, so each major change ran as an A/B test with a hypothesis card. One card is redrawn below: remove the Learn more button, and look for a significant rise in sign-ups.</p>
+   <p>Together, the first few major changes led to a 60% lift in sign-up conversions, measured by A/B test. The style guide let the engineers redesign other parts of the site quickly, and the blog, on a different back end, consumed the same components.</p>
+
+   <figure class="dia">
+<div tabindex="0" role="region" aria-label="Figure, scrolls sideways" class="fig-scroll"><svg viewBox="0 0 760 330" role="img" aria-label="The component library. Five components across the top, a header, a benefit tile, a plan card, a product card, and a footer, each with its variant chips beneath, and red lines down to the three shared pieces they depend on: the button, the price, and the star rating.">
+     <g stroke="#272727" stroke-opacity=".5" fill="#fff">
+      <rect x="30" y="30" width="120" height="44" fill="#c32e28"/>
+      <rect x="180" y="30" width="120" height="64"/>
+      <rect x="330" y="30" width="120" height="84"/>
+      <rect x="480" y="30" width="120" height="84"/>
+      <rect x="630" y="30" width="110" height="44" fill="#e9e9e6"/>
+     </g>
+     <g fill="#e8e7e3"><circle cx="205" cy="55" r="12"/><rect x="342" y="66" width="60" height="6"/><rect x="490" y="38" width="100" height="34"/></g>
+     <g fill="#5da423"><rect x="342" y="90" width="52" height="16" rx="2"/><rect x="492" y="96" width="44" height="12" rx="2"/></g>
+     <g fill="#c32e28"><rect x="400" y="90" width="42" height="16" rx="2" fill-opacity=".15"/><rect x="544" y="98" width="30" height="8" rx="1"/></g>
+     <g font-family="Fira Code,monospace" font-size="11" fill="#fff"><text x="40" y="56">header</text></g>
+     <g font-family="Fira Code,monospace" font-size="11" fill="#747474">
+      <text x="224" y="52">benefit</text><text x="224" y="66">two lines</text>
+      <text x="342" y="52">plan card</text><text x="342" y="82">price</text>
+      <text x="490" y="86">product · stars</text>
+      <text x="642" y="56">footer</text>
+     </g>
+     <g font-family="Fira Code,monospace" font-size="11" fill="#747474">
+      <text x="30" y="134">◆ signed in</text><text x="30" y="150">◆ signed out</text>
+      <text x="180" y="134">◆ icon</text><text x="180" y="150">◆ photo tile</text>
+      <text x="330" y="134">◆ for myself</text><text x="330" y="150">◆ as a gift</text><text x="330" y="166">◆ office plan</text>
+      <text x="480" y="134">◆ online price</text><text x="480" y="150">◆ member price</text>
+      <text x="630" y="134">◆ with sign-up form</text>
+     </g>
+     <g stroke="#c32e28" stroke-width="1.4" fill="none">
+      <path d="M390 172 L390 200 L160 200 L160 262"/>
+      <path d="M390 172 L390 262"/>
+      <path d="M540 172 L540 200 L160 200"/>
+      <path d="M540 172 L540 210 L390 210 L390 262"/>
+      <path d="M540 172 L540 200 L600 200 L600 262"/>
+      <path d="M685 158 L685 220 L160 220 L160 262"/>
+     </g>
+     <g stroke="#272727" stroke-opacity=".5">
+      <rect x="100" y="264" width="120" height="36" fill="#3f7f12"/>
+      <rect x="330" y="264" width="120" height="36" fill="#fff"/>
+      <rect x="540" y="264" width="120" height="36" fill="#fff"/>
+     </g>
+     <g font-family="Fira Code,monospace" font-size="11" text-anchor="middle"><text x="160" y="286" fill="#fff">button</text><text x="390" y="286" fill="#747474">price</text><text x="600" y="286" fill="#747474">star rating</text></g>
+     <text x="380" y="322" font-family="Fira Code,monospace" font-size="11" fill="#747474" text-anchor="middle">each component is a partial with its options · the lines are its dependencies</text>
+    </svg></div>
+    <figcaption>Fig. 8 · The component library, redrawn. Five components sit across the top with their option chips, and the red lines run down to the shared pieces they depend on. Each component is a partial, and the button, the price, and the star rating are the shared ones.</figcaption>
+   </figure>
+
+      <figure class="dia">
+    <div class="abwrap" role="img" aria-label="The A/B card beside the phone hero before and after. The card reads hypothesis, removing the Learn more button will improve conversion, control, current functionality, variant, remove the Learn more button on the home page, and success measure, a statistically significant increase in conversion. The before phone carries a Learn more button struck through in red. The after phone drops it and keeps the two plan buttons.">
+     <div class="abcard">
+      <div class="r"><b>Hypothesis</b>Removing the "Learn more" button will improve conversion</div>
+      <div class="r"><b>Control</b>Current functionality</div>
+      <div class="r"><b>Variant</b>Remove "Learn more" button on the home page</div>
+      <div class="r"><b>Success measure</b>Statistically significant increase in conversion</div>
+     </div>
+     <div class="abphone">
+      <div>
+       <p style="margin:0 0 8px;font:12px 'Fira Code',monospace;color:var(--muted)"><b>Before</b> · current functionality</p>
+       <div class="phn"><div class="hdr">Love With Food<i>menu</i></div><div class="ph-hero"><b>Join the club.</b><p>Discover junk-free snacks and help fight hunger in the US.</p><span class="btn">See personal plans</span><span class="btn ghost">See office plans</span><span class="btn old">Learn more</span></div></div>
+      </div>
+      <div>
+       <p style="margin:0 0 8px;font:12px 'Fira Code',monospace;color:var(--muted)"><b>After</b> · removed "Learn more"</p>
+       <div class="phn"><div class="hdr">Love With Food<i>menu</i></div><div class="ph-hero"><b>Join the club.</b><p>Discover junk-free snacks and help fight hunger in the US.</p><span class="btn">See personal plans</span><span class="btn ghost">See office plans</span></div></div>
+      </div>
+     </div>
+    </div>
+    <figcaption>Fig. 9 · One of the A/B cards, with the hero redrawn at phone width. Before carries the Learn more button struck through, and after drops it. The 60% is the first few major changes together, not this one card.</figcaption>
+   </figure>
+   {% include study-methods.html n=4 %}
+  </section>
+
+  <section class="act" id="act-5">
+   {% include study-act.html n=5 %}
+   <p>Customer service was fielding a large share of its calls about account details, so the account pages went to the top of the roadmap. We voted on what members came to do. Subscribe and shop led with 10 votes each. Change plan and update addresses had 6 each. Understand the service and write reviews had 5 each, and cancel, refer a friend, and past orders had 3 each.</p>
+   <p>My employment ended in November 2015, and the account work continued as a contract into 2016. In January I ran three one-person pilot studies on UserTesting to shake out the protocol, covering account services, subscription, and the snack shop. In February we ran two five-person rounds on the existing account pages. Finding when and where the next box arrives hit a problem for 3 of 5, and so did changing the shipping address. Changing the billing card tripped 2 of 5, finding the membership settings 2 of 5, and signing in none.</p>
+   <p>On the SUPR-Q, a standard questionnaire scored against other sites, the existing pages sat at the 18th percentile for usability, 24th for trust, 45th for loyalty, and 29th for appearance. Unmoderated studies had already shown top tasks like updating a shipping address completing below 30%.</p>
+   <p>The redesign was one account area. On desktop a rail listed profile and billing, reviews, referrals, points, subscription plans, order history, and loved items. On the phone the same pages sat under a Your account bar with a menu: seven desktop screens and nine phone screens. When we tested the redesigned pages, 8 of 8 participants completed the top tasks.</p>
+
+      <figure class="dia">
+<div tabindex="0" role="region" aria-label="Figure, scrolls sideways" class="fig-scroll"><div class="acct" role="img" aria-label="Account pages before and after. Left, the February 2016 problem grid, four tasks by five participants, and the SUPR-Q percentiles 18 usability, 24 trust, 45 loyalty and 29 appearance. Right, the redesigned profile and billing page at desktop with a left rail, and the refer a friend page at phone width. A line beneath reads 8 of 8 completed the top tasks.">
+    <div class="panel">
+     <div class="card"><div class="cbar"><b>February 2016 · existing pages</b><span class="label">5 participants</span></div>
+      <div class="taskgrid">
+       <div class="th"></div><div class="th">1</div><div class="th">2</div><div class="th">3</div><div class="th">4</div><div class="th">5</div>
+       <div class="tk">find when the box arrives</div><div class="dot hit"><i></i></div><div class="dot hit"><i></i></div><div class="dot hit"><i></i></div><div class="dot miss"><i></i></div><div class="dot miss"><i></i></div>
+       <div class="tk">change the shipping address</div><div class="dot hit"><i></i></div><div class="dot hit"><i></i></div><div class="dot hit"><i></i></div><div class="dot miss"><i></i></div><div class="dot miss"><i></i></div>
+       <div class="tk">change the billing card</div><div class="dot hit"><i></i></div><div class="dot hit"><i></i></div><div class="dot miss"><i></i></div><div class="dot miss"><i></i></div><div class="dot miss"><i></i></div>
+       <div class="tk">find the membership settings</div><div class="dot hit"><i></i></div><div class="dot hit"><i></i></div><div class="dot miss"><i></i></div><div class="dot miss"><i></i></div><div class="dot miss"><i></i></div>
+      </div>
+      <div class="suprq">
+       <div class="sq"><b>18</b><span>usability</span></div>
+       <div class="sq"><b>24</b><span>trust</span></div>
+       <div class="sq"><b>45</b><span>loyalty</span></div>
+       <div class="sq"><b>29</b><span>appearance</span></div>
+      </div>
+      <p class="note">filled dot · hit a problem &middot; numbers · SUPR-Q percentiles</p>
+     </div>
+    </div>
+    <div class="panel">
+     <div class="card"><div class="cbar"><b>After · profile and billing</b><span class="label">desktop</span></div>
+      <div class="rail">
+       <div class="side"><b>Love With Food</b><div class="on">Profile and billing</div><div>Write a review</div><div>Refer a friend</div><div>Redeem points</div><div>Subscription plans</div><div>Order history</div><div>Loved items</div></div>
+       <div class="main">
+        <span class="k">Member</span><div class="row"><span>Name</span><b>A. Member</b></div><div class="row"><span>Email</span><b>member@example.com</b></div>
+        <span class="k">Billing</span><div class="row"><span>Card</span><b>&bull;&bull;&bull;&bull; 1234</b></div><div class="row"><span>Address</span><b>100 Example Street</b></div>
+       </div>
+      </div>
+     </div>
+     <div class="card"><div class="cbar"><b>After · refer a friend</b><span class="label">phone</span></div>
+      <div class="phone-acct">
+       <div class="top">Your account<small>refer a friend</small></div>
+       <div class="body">
+        <b>Refer a friend</b>
+        <div class="step"><i>1</i><span>Share your link.</span></div>
+        <div class="step"><i>2</i><span>A friend’s first box is 40% off.</span></div>
+        <div class="step"><i>3</i><span>You earn 500 points.</span></div>
+        <div class="share"><span>Email</span><span>Copy link</span></div>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div style="grid-column:1/-1;text-align:right;font:12px 'Fira Code',monospace;color:var(--ink);border-top:1px solid rgba(var(--ink-rgb),.18);padding-top:10px">8 of 8 completed the top tasks</div>
+</div></div>
+    <figcaption>Fig. 10 · The account pages before and after. Left, the problem grid from one of the two February 2016 rounds, a filled dot where a participant hit a problem, and the SUPR-Q percentiles. Right, the redesigned profile and billing page at desktop and the refer a friend page at phone width. All eight testers of the redesign completed the top tasks.</figcaption>
+   </figure>
+   {% include study-methods.html n=5 %}
+  </section>
+
+  <section class="act" id="afterwards">
+   <span class="label">Afterwards</span>
+   <h2>{{ page.after }}</h2>
+   <p>Love With Food later closed. Its site survives in the Internet Archive: the homepage before the redesign, captured 2 March 2015, the homepage after, captured 5 June 2015, and captures through November 2016.</p>
+   <p>Read <a href="https://web.archive.org/web/20150302091128/http://lovewithfood.com/">the homepage before, Internet Archive, 2 March 2015</a> and <a href="https://web.archive.org/web/20150605181740/http://lovewithfood.com/">the homepage after, 5 June 2015</a>.</p>
+   <p>In 2026 I went back to the archived pages to re-score the 2015 tasks with a newer instrument, and I could not. The account tasks sat behind a sign-in the archive never captured. The archive shows the pages, and the numbers stand as they were published.</p>
+   <p>What stayed was the component library and the style guide the engineers kept building on, and the method, which I wrote up in 2019.</p>
+   {% include study-colophon.html %}
+  </section>
+ </article>
+</section>
+
+<script>
+(function(){
+ /* The hero counts as on screen when the given share of it shows, or a third of the viewport's height of it does. */
+ var TH=[0,.05,.1,.15,.2,.25,.3,.35];
+ function seen(e,r){ var rh=(e.rootBounds&&e.rootBounds.height)||window.innerHeight; return e.isIntersecting&&(e.intersectionRatio>=r||e.intersectionRect.height>=0.3*rh); }
+
+ /* Hero: the June 2015 homepage's block composition, redrawn as flat rectangles and reflowed through five
+    breakpoints (1440, 1024, 768, 414, 320). Nothing in it is a photo, a logo, or real copy. The pass is seeded
+    and ends resting at 320 pixels. */
+ var cv=document.getElementById('lwf');
+ if(cv && cv.getContext){
+  var ctx=cv.getContext('2d'), capEl=document.getElementById('lwf-cap'), artEl=document.getElementById('hero-art');
+  var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var side=0, dpr=1, S=[], timers=[], raf=0, running=false, onScreen=false, played=false, t0=0;
+  var RED='#c32e28', TEAL='#60aca0', GREEN='#5da423', CARD='#ffffff', LINE='#d8d7d3', FOOT='#e9e9e6', PAGE='#f3f3f1', INK='#272727';
+  var CAP=['one homepage, five breakpoints','the June 2015 layout, block by block','resting at 320 pixels'];
+  var HOLD=600, EASE=200, END=4*(HOLD+EASE)+HOLD;
+  var BAND={header:.048,hero:.165,promise:.110,teal:.060,red:.075,ft:.035};
+  var GRID={ben:[3,3,2,1,1],plan:[4,4,2,1,1],prod:[4,4,2,1,1],comm:[6,6,4,3,3]};
+  var CH={ben:.050,plan:.050,prod:.050,comm:.045};
+
+  function resize(){ var r=cv.getBoundingClientRect(); dpr=Math.min(window.devicePixelRatio||1,2); side=r.width; cv.width=Math.round(side*dpr); cv.height=Math.round(side*dpr); ctx.setTransform(dpr,0,0,dpr,0,0); rebuild(); }
+  function rr(x,y,w,h,rad){ ctx.beginPath(); ctx.moveTo(x+rad,y); ctx.arcTo(x+w,y,x+w,y+h,rad); ctx.arcTo(x+w,y+h,x,y+h,rad); ctx.arcTo(x,y+h,x,y,rad); ctx.arcTo(x,y,x+w,y,rad); ctx.closePath(); }
+
+  function boxes(k){
+   var W=[.88,.84,.76,.50,.36][k]*side, x0=(side-W)/2, gap=.014*side, pad=.012*side, out=[], i, r, h;
+   function P(x,y,w,h,c,t){ out.push({x:x,y:y,w:w,h:h,c:c,t:t||''}); }
+   var rows=[{k:'header'},{k:'hero'},{k:'g',id:'ben',n:3},{k:'g',id:'plan',n:4},{k:'band',id:'promise'},{k:'band',id:'teal'},{k:'g',id:'prod',n:4},{k:'g',id:'comm',n:6},{k:'band',id:'red'},{k:'band',id:'ft'}];
+   var hs=[], total=0;
+   for(i=0;i<rows.length;i++){
+    r=rows[i];
+    if(r.k==='header') h=BAND.header*side;
+    else if(r.k==='hero') h=BAND.hero*side;
+    else if(r.k==='band') h=BAND[r.id]*side;
+    else { var cc=GRID[r.id][k], rowsNeeded=Math.ceil(r.n/cc); h=2*pad+rowsNeeded*CH[r.id]*side+(rowsNeeded-1)*gap; }
+    hs.push(h); total+=h+gap;
+   }
+   total-=gap;
+   var sc=Math.min(1,.94*side/total), cx=side/2, cy=side/2, y=(side-total)/2;
+   for(i=0;i<rows.length;i++){
+    r=rows[i]; var rh=hs[i], rx=x0, rw=W;
+    if(r.k==='header'){
+     P(rx,y,rw,rh,RED,'Love With Food');
+     P(rx+rw-pad-rw*.22,y+rh*.26,rw*.22,rh*.48,'rgba(255,255,255,.9)','');
+    }
+    else if(r.k==='hero'){
+     P(rx,y,rw,rh*.52,LINE,'');
+     var lh=Math.max(3,.015*side);
+     P(rx+pad,y+rh*.62,rw*.6,lh,INK,'');
+     var bh=Math.max(9,.042*side), bw=rw*.30;
+     P(rx+pad,y+rh*.62+lh,bw,bh,GREEN,'');
+     P(rx+pad+bw+gap*.5,y+rh*.62+lh,bw,bh,'rgba(0,0,0,.13)','');
+    }
+    else if(r.k==='g'){
+     var cc=GRID[r.id][k], rowsNeeded=Math.ceil(r.n/cc), cgap=gap*.8, cellW=(rw-2*pad-(cc-1)*cgap)/cc, cellH=CH[r.id]*side, ry=y+pad;
+     for(var cI=0;cI<r.n;cI++){ var col=cI%cc, row=Math.floor(cI/cc); P(rx+pad+col*(cellW+cgap), ry+row*(cellH+cgap), cellW, cellH, r.id==='comm'?LINE:CARD, ''); }
+    }
+    else if(r.id==='promise'){
+     P(rx,y,rw,rh,CARD,'');
+     P(rx+rw*.5,y+pad,Math.max(1,.007*side),rh-2*pad,'rgba(0,0,0,.08)','');
+     P(rx+pad,y+rh*.42,rw*.40,Math.max(3,.015*side),LINE,'');
+    }
+    else if(r.id==='teal'){ P(rx,y,rw,rh,TEAL,'meals donated'); }
+    else if(r.id==='red'){
+     P(rx,y,rw,rh,RED,'');
+     var bb=Math.max(9,.048*side), bw2=rw*.26;
+     P(rx+rw-pad-bw2-(bw2+gap),y+(rh-bb)/2,bw2,bb,GREEN,'');
+     P(rx+rw-pad-bw2,y+(rh-bb)/2,bw2,bb,'rgba(255,255,255,.9)','');
+    }
+    else if(r.id==='ft'){ P(rx,y,rw,rh,FOOT,''); }
+    y+=rh+gap;
+   }
+   if(sc<1){ for(i=0;i<out.length;i++){ out[i].x=cx+(out[i].x-cx)*sc; out[i].y=cy+(out[i].y-cy)*sc; out[i].w*=sc; out[i].h*=sc; } }
+   return out;
+  }
+  function rebuild(){ for(var k=0;k<5;k++) S[k]=boxes(k); }
+  function ease(u){ return u<.5?2*u*u:1-Math.pow(-2*u+2,2)/2; }
+  function drawState(B){
+   ctx.fillStyle=PAGE; ctx.fillRect(0,0,side,side);
+   var i,b;
+   for(i=0;i<B.length;i++){ b=B[i]; ctx.fillStyle=b.c; rr(b.x,b.y,b.w,b.h,3); ctx.fill(); }
+   for(i=0;i<B.length;i++){
+    b=B[i];
+    if(!b.t||b.w<.30*side) continue;
+    var fs=(b.t==='Love With Food')?Math.max(11,.052*b.w):Math.max(10,.05*b.w);
+    ctx.font="400 "+fs+"px 'Bree Serif',Georgia,serif";
+    ctx.textBaseline='middle'; ctx.fillStyle=(b.c===TEAL)?INK:'#fff';
+    if(b.t==='Love With Food'){ ctx.textAlign='left'; ctx.fillText(b.t,b.x+b.h*.9,b.y+b.h/2); }
+    else { ctx.textAlign='center'; ctx.fillText(b.t,b.x+b.w/2,b.y+b.h/2); }
+    ctx.textAlign='left';
+   }
+  }
+  function current(now){
+   var per=HOLD+EASE, step=Math.floor(now/per), k=Math.min(step,4), ku=Math.min(k+1,4);
+   var u=(now%per-HOLD)/EASE; if(u<0)u=0; if(u>1)u=1; u=ease(u);
+   var A=S[k], B=S[ku], out=[], i;
+   for(i=0;i<A.length;i++){ out.push({x:A[i].x+(B[i].x-A[i].x)*u,y:A[i].y+(B[i].y-A[i].y)*u,w:A[i].w+(B[i].w-A[i].w)*u,h:A[i].h+(B[i].h-A[i].h)*u,c:A[i].c,t:A[i].t}); }
+   return out;
+  }
+  function frame(){ if(!running)return; drawState(current(Math.min(performance.now()-t0,END))); if(performance.now()-t0>=END){ finish(); return; } raf=requestAnimationFrame(frame); }
+  function finish(){ running=false; if(raf)cancelAnimationFrame(raf); raf=0; cap(CAP[2]); drawState(S[4]); }
+  function at(ms,fn){ timers.push(setTimeout(fn,ms)); }
+  function cap(t){ capEl.textContent=t; }
+  function stop(){ for(var k=0;k<timers.length;k++)clearTimeout(timers[k]); timers=[]; running=false; if(raf)cancelAnimationFrame(raf); raf=0; }
+  /* One pass the first time it comes on screen, then it rests on the last frame. Hovering or tapping plays it again.
+     Scrolling away mid-pass settles the end state, so a reader who comes back sees the finished frame. */
+  function play(){ stop(); t0=performance.now(); running=true; cap(CAP[0]); raf=requestAnimationFrame(frame);
+   at(1400,function(){ cap(CAP[1]); }); at(3200,function(){ cap(CAP[2]); }); at(END,function(){ if(running) finish(); }); }
+  function still(){ stop(); cap(CAP[2]); drawState(S[4]); }
+  resize();
+  if(reduced||!('IntersectionObserver' in window)){ onScreen=true; played=true; if(reduced) still(); else play(); }
+  else new IntersectionObserver(function(es){ es.forEach(function(e){ if(seen(e,0.3)){ onScreen=true; if(!played){ played=true; play(); } } else if(!e.isIntersecting){ onScreen=false; if(running) still(); } }); },{threshold:TH}).observe(artEl);
+  document.addEventListener('visibilitychange',function(){ if(document.hidden&&running) still(); });
+  artEl.addEventListener('click',function(){ if(reduced) still(); else play(); });
+  artEl.addEventListener('pointerenter',function(e){ if(e.pointerType!=='touch'&&onScreen&&!running&&!reduced) play(); });
+  var to; window.addEventListener('resize',function(){ clearTimeout(to); to=setTimeout(function(){ var w2=cv.getBoundingClientRect().width; if(Math.abs(w2-side)<1)return; resize(); if(running) drawState(current(performance.now()-t0)); else still(); },150); });
+ }
+})();
+</script>
