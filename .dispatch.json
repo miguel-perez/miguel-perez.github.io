@@ -2,8 +2,8 @@
   "deny": [
     { "pattern": "\\bgit\\s+(commit|push|add|checkout|reset|stash|rebase|merge|rm|mv|clean)\\b", "why": "delegates draft; the orchestrator reviews and commits" },
     { "pattern": "\\brm\\s+-r", "why": "nothing here is disposable" },
-    { "pattern": "(Dropbox|LWFCustomers|Participants\\.xlsx|career-register|\\/Users\\/miguel\\/Git\\/(captain|designgenome))", "why": "source material with personal data stays out of delegate runs; every fact a draft needs is in the brief" },
-    { "pattern": "(>|>>|\\btee\\b|\\bsed\\s+-i|\\bcp\\b|\\bmv\\b)[^\\n;&|]*(index\\.html(?![^\\n;&|]*work/love-with-food)|_includes|_layouts|_config|assets/(css|js|fonts)|work/(arrow|autodesk|cid|inovalon)|resume/|sitemap|robots|README|Gemfile)", "why": "a study draft may create or change only its own page under work/<slug>/; the shared store, layouts, includes, assets and other studies are the orchestrator's" },
+    { "pattern": "(Dropbox|LWFCustomers|Participants\\.xlsx|career-register|ODDT|\\/Users\\/miguel\\/Git\\/(captain|designgenome))", "why": "source material with personal data stays out of delegate runs; every fact a draft needs is in the brief" },
+    { "pattern": "(>|>>|\\btee\\b|\\bsed\\s+-i|\\bcp\\b|\\bmv\\b)[^\\n;&|]*(index\\.html(?![^\\n;&|]*work/city-of-philadelphia)|_includes|_layouts|_config|assets/(css|js|fonts)|work/(arrow|autodesk|cid|inovalon|love)|resume/|sitemap|robots|README|Gemfile)", "why": "a study draft may create or change only its own page under work/<slug>/; the shared store, layouts, includes, assets and other studies are the orchestrator's" },
     { "pattern": "\\b(curl|wget|npm|pnpm|gem|brew|pip3?)\\s+(install|i)\\b|\\bcurl\\b[^\\n;&|]*https?://(?!localhost)", "why": "no installs and no network beyond the local preview server" }
   ],
   "noUpload": [".dispatch/", "vendor/", "assets/fonts/"],
